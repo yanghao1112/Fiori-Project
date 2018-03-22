@@ -1,0 +1,142 @@
+<mvc:View controllerName="sap.ui.demo.wt.controller.ZZmain"
+	xmlns="sap.m" xmlns:layout="sap.ui.layout" xmlns:core="sap.ui.core"
+	xmlns:mvc="sap.ui.core.mvc" xmlns:g="sap.ab.graph" xmlns:t="sap.ab.projectCard">
+	<Page showHeader="false" showFooter="false" class="">
+		<content>
+			<layout:Grid defaultSpan="L6 M12 S12" defaultIndent="L0 M0 S0"
+				hSpacing="0" vSpacing="0" class="sapUiLargeMargin">
+				<VBox>
+					<VBox>
+						<layout:Grid defaultSpan="L6 M6 S6" defaultIndent="L0 M0 S0"
+							hSpacing="0" vSpacing="0" class="">
+							<Title text="{/CompanyName}" titleStyle="H1" class="ZProjectInfoTitle">
+							</Title>
+							<Image src="{/LCPImage}" densityAware="false" height="100px">
+							</Image>
+						</layout:Grid>
+					</VBox>
+					<VBox>
+						<layout:Grid defaultSpan="L6 M12 S12" defaultIndent="L0 M0 S0"
+							hSpacing="0" vSpacing="0" class="" content="{path:'/Project'}">
+							<t:ProjectCard>
+								<t:content>
+									<layout:Grid defaultSpan="L12 M12 S12"
+										defaultIndent="L0 M0 S0" hSpacing="0" vSpacing="0"
+										class="sapUiSmallMargin ZProjectBorder">
+										<Title text="{ProjectName}" titleStyle="H4" width="100%"
+											class="sapUiTinyMarginTop ZProjectTitle ZNoSelect ZPointer"
+											textAlign="Center" templateShareable="true">
+										</Title>
+										<!-- <Link width="100%" textAlign="Center" text="{ProjectName}" -->
+										<!-- class="sapUiTinyMarginTop ZProjectTitle" press="handleClick" 
+											/> -->
+										<layout:Grid defaultSpan="L4 M4 S6" defaultIndent="L0 M0 S0"
+											hSpacing="0.5" vSpacing="0"
+											class="sapUiSmallMargin ZMemberImageContainer" content="{path:'Members',  templateShareable:false}">
+											<VBox>
+												<t:MemberImage typeWidth="40px" typeHeight="40px"
+													type="{Type}" src="{Image}" densityAware="false" height="90px"
+													templateShareable="false">
+												</t:MemberImage>
+											</VBox>
+
+										</layout:Grid>
+
+									</layout:Grid>
+								</t:content>
+							</t:ProjectCard>
+						</layout:Grid>
+					</VBox>
+				</VBox>
+				<VBox class="ZInfoBorder sapUiSmallMarginBegin">
+					<layout:Grid defaultSpan="L5 M12 S12" defaultIndent="L0 M0 S0"
+						hSpacing="0" vSpacing="0" class="sapUiSmallMargin ZInfoBorderBottom">
+						<Title text="{/CompanyName}" class="ZProjectInfo">
+						</Title>
+						<Title text="{i18n>LCPTitle}{/LCPName}" class="ZProjectInfo">
+							<layoutData>
+								<layout:GridData span="L7 M7 S12" />
+							</layoutData>
+						</Title>
+						<Title text="{i18n>TotalRevenue}" class="ZProjectInfo">
+						</Title>
+						<Title
+							text="{path: '/TotalRevenue',
+										formatter: '.formatter.numberText'}"
+							class="ZProjectInfo">
+							<layoutData>
+								<layout:GridData span="L7 M7 S12" />
+							</layoutData>
+						</Title>
+
+
+						<Title text="{i18n>AvgRR}" class="ZProjectInfo">
+						</Title>
+						<Title
+							text="{path: '/AveRR',
+										formatter: '.formatter.percentText'}"
+							class="ZProjectInfo">
+							<layoutData>
+								<layout:GridData span="L7 M7 S12" />
+							</layoutData>
+						</Title>
+
+						<!-- <Title text="{i18n>AvgRR}" class="ZProjectInfo"> -->
+						<!-- </Title> -->
+						<!-- <Title text="{/AveRR}" class="ZProjectInfo"> -->
+						<!-- <layoutData> -->
+						<!-- <layout:GridData span="L7 M7 S12" /> -->
+						<!-- </layoutData> -->
+						<!-- </Title> -->
+						<Title text="{i18n>OperationTitle}" class="ZOperaInfo">
+						</Title>
+						<Title
+							text="{i18n>CS} {path: '/Operation_CS',
+										formatter: '.formatter.numberText'}
+										{i18n>PeopleMonth}"
+							class="ZOperaInfo">
+							<layoutData>
+								<layout:GridData span="L7 M7 S12" />
+							</layoutData>
+						</Title>
+						<Title text="" class="ZOperaInfo">
+						</Title>
+						<Title
+							text="{i18n>OJT} {path: '/Operation_OJT',
+										formatter: '.formatter.numberText'}{i18n>PeopleMonth}"
+							class="ZOperaInfo">
+							<layoutData>
+								<layout:GridData span="L7 M7 S12" />
+							</layoutData>
+						</Title>
+						<Title text="" class="ZOperaInfo">
+						</Title>
+						<Title
+							text="{i18n>Pursuit} {path: '/Operation_PUR',
+										formatter: '.formatter.numberText'}{i18n>PeopleMonth}"
+							class="ZOperaInfo">
+							<layoutData>
+								<layout:GridData span="L7 M7 S12" />
+							</layoutData>
+						</Title>
+					</layout:Grid>
+
+
+					<layout:BlockLayout id="BlockLayout">
+						<layout:BlockLayoutRow>
+							<layout:BlockLayoutCell title="{i18n>ChartTitle}"
+								class="sapUiSmallMarginBegin">
+								<layout:Grid defaultSpan="L12 M12 S12"
+									defaultIndent="L0 M0 S0" hSpacing="0" vSpacing="0" class="ZCenter">
+
+									<g:RadarChart data='{radarData>/}' option='{radarOption>/}' />
+								</layout:Grid>
+							</layout:BlockLayoutCell>
+						</layout:BlockLayoutRow>
+					</layout:BlockLayout>
+				</VBox>
+			</layout:Grid>
+		</content>
+	</Page>
+</mvc:View>							
+							

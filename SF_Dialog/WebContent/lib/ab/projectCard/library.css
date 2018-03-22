@@ -1,0 +1,51 @@
+.ZBorder {
+    border: 1px solid #e8e8e8;
+}
+.ZLeftTransition {
+    transition: left 0.5s;
+}
+.ZProjectInfoTitle {
+	font-weight:800 !important;
+	line-height: 60px;
+}
+.ZProjectInfo {
+	font-weight:600 !important;
+	line-height: 35px;
+}
+.ZOperaInfo {
+	font-weight:600 !important;
+	line-height: 25px;
+}
+.ZInfoBorder {
+	
+    border: 2px #CCCCFF double;
+}
+.ZInfoBorderBottom {
+	    border-bottom: 2px #CCCCFF double;
+}
+.ZProjectBorder {
+	border-radius: 30px 30px 30px 30px;
+    border: 4px #CCCCFF solid;
+    box-shadow: 5px 5px 5px #888888;
+}
+
+.ZProjectTitle {
+	font-weight:600 !important;
+	text-decoration: underline ;
+}
+
+.ZProjectTitle > span{
+    white-space: normal;
+	word-break: break-all;
+}
+
+.ZMemberImageTypeFirst {
+	position: absolute;
+    left: -14px;
+    top: 72px;
+}
+.ZMemberImageTypeSecond {
+	position: absolute;
+    left: 8px;
+    top: 72px;
+}

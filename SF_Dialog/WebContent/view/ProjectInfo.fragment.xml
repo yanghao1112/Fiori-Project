@@ -1,0 +1,124 @@
+<core:FragmentDefinition xmlns="sap.m"
+	xmlns:layout="sap.ui.layout" xmlns:core="sap.ui.core" xmlns:uxap="sap.uxap"
+	xmlns:viz="sap.viz.ui5.controls" xmlns:viz.data="sap.viz.ui5.data"
+	xmlns:viz.feeds="sap.viz.ui5.controls.common.feeds" xmlns:g="sap.ab.graph">
+	<layout:Grid defaultSpan="L12 M12 S12" defaultIndent="L0 M0 S0"
+		width="1000px" height="800px" hSpacing="0" vSpacing="0"
+		class="sapUiSmallMargin ZProjectBorder ZPointer ZBackground">
+
+		<layout:Grid defaultSpan="L6 M6 S6" defaultIndent="L0 M0 S0"
+			width="auto" vSpacing="0" hSpacing="0">
+			<layout:content>
+				<layout:Grid defaultSpan="L12 M12 S12" defaultIndent="L0 M0 S0"
+					width="auto" vSpacing="0" hSpacing="0"
+					class="sapUiTinyMargin ZBorderBottomLine ">
+					<layout:content>
+						<VBox height="auto">
+							<layout:Grid defaultSpan="L12 M12 S12" defaultIndent="L0 M0 S0"
+								width="auto" hSpacing="0" vSpacing="0">
+								<VBox class="ZDrag ZTextCenter">
+									<Title text="{/cell1/title}" titleStyle="H2" width="100%"
+										class="sapUiTinyMarginTop ZProjectTitle ZNoSelect ZPointer"
+										textAlign="Center" templateShareable="true">
+									</Title>
+								</VBox>
+							</layout:Grid>
+						</VBox>
+						<VBox>
+							<layout:Grid defaultSpan="L12 M12 S12" defaultIndent="L0 M0 S0"
+								hSpacing="0" vSpacing="0" class="ZRadarChart1">
+								<g:RadarChart data='{radarData2>/}' option='{radarOption2>/}' />
+							</layout:Grid>
+						</VBox>
+					</layout:content>
+				</layout:Grid>
+
+				<layout:Grid defaultSpan="L12 M12 S12" defaultIndent="L0 M0 S0"
+					width="auto" vSpacing="0" hSpacing="0">
+					<layout:content>
+						<VBox>
+							<layout:Grid defaultSpan="L12 M12 S12" defaultIndent="L0 M0 S0"
+								width="auto" vSpacing="0" hSpacing="0">
+								<core:Icon src="sap-icon://decline" width="20px"
+									height="20px" class="sapUiTinyMarginBegin" size="20px" press="onDecline"
+									hoverBackgroundColor="#F5F5F4" decorative="false">
+									<core:layoutData>
+										<layout:GridData span="L1 M1 S1" indent="L11 M11 S11" />
+									</core:layoutData>
+								</core:Icon>
+							</layout:Grid>
+						</VBox>
+
+						<VBox class="ZInfoBorder sapUiTinyMargin">
+							<VBox class="sapUiSmallMargin ZInfoBorderBottom">
+								<Title text="{/cell1/title}" titleStyle="H4" class="ZTitle" />
+								<Title text="{/cell1/subTitle}" titleStyle="H5" class="ZTitle" />
+								<layout:Grid defaultSpan="L12 M12 S12"
+									defaultIndent="L0 M0 S0" hSpacing="0" vSpacing="0" class=""
+									content="{/cell1/content}">
+
+									<layout:Grid defaultSpan="L6 M6 S6" defaultIndent="L0 M0 S0"
+										hSpacing="0" vSpacing="0" class="">
+										<VBox class="sapUiSmallMarginBegin">
+											<Title text="{title}" titleStyle="H6" class="ZTitle">
+											</Title>
+										</VBox>
+										<VBox>
+											<Title text="{text}" titleStyle="H6" class="ZTitle"></Title>
+										</VBox>
+									</layout:Grid>
+								</layout:Grid>
+							</VBox>
+							<VBox class="sapUiSmallMargin ZInfoBorderBottom">
+								<Title text="{/cell2/title}" titleStyle="H4" class="ZTitle" />
+								<HBox>
+									<layout:Grid defaultSpan="L2 M2 S2" defaultIndent="L0 M0 S0"
+										hSpacing="0" vSpacing="1" content="{/personInfo/info}">
+										<Image src="{image}" densityAware="false" height="100px"
+											width="70px" press="onPopup">
+											<customData>
+												<core:CustomData key="data" value="data1.json"></core:CustomData>
+												<core:CustomData key="data" value="{image}"></core:CustomData>
+											</customData>
+										</Image>
+									</layout:Grid>
+								</HBox>
+							</VBox>
+							<layout:Grid defaultSpan="L6 M6 S6" defaultIndent="L0 M0 S0"
+								hSpacing="0" vSpacing="0" class="">
+								<!-- <layout:FixFlex> -->
+								<!-- <layout:flexContent> -->
+								<viz:VizFrame uiConfig="{applicationSet:'fiori'}"
+									width="300px" height="300px" vizType='pie'>
+									<viz:dataset>
+										<viz.data:FlattenedDataset data="{/milk}">
+											<viz.data:dimensions>
+												<viz.data:DimensionDefinition
+													name="Store Name" value="{Store Name}" />
+											</viz.data:dimensions>
+											<viz.data:measures>
+												<viz.data:MeasureDefinition name="Revenue"
+													value="{Revenue}" />
+											</viz.data:measures>
+										</viz.data:FlattenedDataset>
+									</viz:dataset>
+
+									<viz:feeds>
+										<viz.feeds:FeedItem uid="size" type="Measure"
+											values="Revenue" />
+										<viz.feeds:FeedItem uid="color" type="Dimension"
+											values="Store Name" />
+									</viz:feeds>
+								</viz:VizFrame>
+
+								<!-- </layout:flexContent> -->
+								<!-- </layout:FixFlex> -->
+								<g:RadarChart data='{radarData3>/}' option='{radarOption3>/}' />
+							</layout:Grid>
+						</VBox>
+					</layout:content>
+				</layout:Grid>
+			</layout:content>
+		</layout:Grid>
+	</layout:Grid>
+</core:FragmentDefinition>

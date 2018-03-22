@@ -1,0 +1,203 @@
+<core:FragmentDefinition xmlns="sap.m"
+	xmlns:layout="sap.ui.layout" xmlns:core="sap.ui.core" xmlns:uxap="sap.uxap"
+	xmlns:viz="sap.viz.ui5.controls" xmlns:viz.data="sap.viz.ui5.data"
+	xmlns:viz.feeds="sap.viz.ui5.controls.common.feeds" xmlns:g="sap.ab.graph">
+	<VBox height="100%" renderType="Bare" backgroundDesign="Solid"
+		width="400px" class="ZBorder">
+		<layout:FixFlex>
+			<layout:fixContent>
+				<layout:Grid defaultSpan="L7 M7 S7" defaultIndent="L0 M0 S0"
+					width="auto" vSpacing="0" hSpacing="0" height="100px"
+					class="sapUiTinyMargin ZBorderBottomLine ZOverflowHidden">
+					<layout:content>
+						<Image src="{/personInfo/image}" densityAware="false" height="150px">
+							<layoutData>
+								<layout:GridData span="L4 M4 S4" />
+							</layoutData>
+						</Image>
+						<layout:Grid defaultSpan="L12 M12 S12" defaultIndent="L0 M0 S0"
+							width="auto" hSpacing="0" vSpacing="0">
+							<VBox class="ZDrag">
+								<Title text="{/personInfo/name}" titleStyle="H2" class="ZNoSelect ZDrag">
+								</Title>
+								<Title text="{/personInfo/level}" titleStyle="H5" class="ZNoSelect ZDrag">
+								</Title>
+							</VBox>
+							<layout:Grid defaultSpan="L12 M12 S12" defaultIndent="L0 M0 S0"
+								width="auto" hSpacing="0" vSpacing="0" class="" content="{/title}">
+								<HBox class="sapUiTinyMarginTop ZPointer" >
+									<core:Icon src="{icon}" class="ZPointer">
+									</core:Icon>
+									<Title text="{bu} （ {pernr} ）" titleStyle="H6"
+										class="sapUiTinyMarginBegin ZNoSelect ZPointer">
+									</Title>
+								</HBox>
+							</layout:Grid>
+						</layout:Grid>
+
+						<core:Icon src="sap-icon://decline" width="20px" height="20px"
+							class="sapUiTinyMarginBegin" size="20px" press="onDecline"
+							hoverBackgroundColor="#F5F5F4" decorative="false">
+							<core:layoutData>
+								<layout:GridData span="L1 M1 S1" />
+							</core:layoutData>
+						</core:Icon>
+						<Panel expandable="true" expanded="false" class="ZSummaryPanel">
+							<layout:Grid defaultSpan="L6 M6 S6" defaultIndent="L0 M0 S0"
+								hSpacing="0" vSpacing="0" class="" content="{/summary}">
+								<HBox class="sapUiTinyMarginTop">
+									<VBox class="ZLineHeight">
+										<core:Icon src="{icon}" width="30px" height="30px"
+											size="30px">
+										</core:Icon>
+									</VBox>
+									<VBox class="sapUiSmallMarginBegin">
+										<Title text="{title}" titleStyle="H6">
+										</Title>
+										<Title text="{value}" titleStyle="H2" class="sapUiTinyMarginTop">
+										</Title>
+									</VBox>
+								</HBox>
+							</layout:Grid>
+							<layoutData>
+								<layout:GridData span="L12 M12 S12" />
+							</layoutData>
+						</Panel>
+					</layout:content>
+				</layout:Grid>
+			</layout:fixContent>
+			<layout:flexContent>
+				<ScrollContainer vertical="true"
+					height="100%">
+					<content>
+						<layout:BlockLayout>
+							<layout:BlockLayoutRow>
+								<layout:BlockLayoutCell title="{/cell1/title}"
+									class="ZBlockLayoutCell">
+
+									<layout:Grid defaultSpan="L12 M12 S12"
+										defaultIndent="L0 M0 S0" hSpacing="0" vSpacing="0" class=""
+										content="{/cell1/content}">
+
+
+										<layout:Grid defaultSpan="L6 M6 S6" defaultIndent="L0 M0 S0"
+											hSpacing="0" vSpacing="0" class="">
+											<VBox class="sapUiSmallMarginBegin">
+												<Title text="{title}" titleStyle="H6">
+												</Title>
+											</VBox>
+											<VBox>
+												<core:Icon src="{icon}" color="{iconColor}">
+												</core:Icon>
+											</VBox>
+										</layout:Grid>
+									</layout:Grid>
+								</layout:BlockLayoutCell>
+
+								<layout:BlockLayoutCell title="{/cell2/title}"
+									class="ZBlockLayoutCell">
+
+									<layout:Grid defaultSpan="L12 M12 S12"
+										defaultIndent="L0 M0 S0" hSpacing="0" vSpacing="0" class="">
+										<viz:VizFrame uiConfig="{applicationSet:'fiori'}"
+											height="250px" width="100%" vizScales="{list>/Scales}"
+											vizProperties="{list>/vizProperties}" vizType='dual_line'
+											class="ZLabel">
+											<viz:dataset>
+												<viz.data:FlattenedDataset data="{list>/Data}">
+													<viz.data:dimensions>
+														<viz.data:DimensionDefinition
+															name="Period" value="{list>Period}" />
+														<!-- <viz.data:DimensionDefinition name="Shop" -->
+														<!-- value="{list>Shop}" /> -->
+													</viz.data:dimensions>
+													<viz.data:measures>
+														<viz.data:MeasureDefinition
+															name="contribution" value="{list>contribution}" />
+														<viz.data:MeasureDefinition
+															name="development" value="{list>development}" />
+													</viz.data:measures>
+												</viz.data:FlattenedDataset>
+											</viz:dataset>
+											<viz:feeds>
+												<viz.feeds:FeedItem uid="valueAxis" type="Measure"
+													values="contribution" />
+												<viz.feeds:FeedItem uid="valueAxis2"
+													type="Measure" values="development" />
+												<viz.feeds:FeedItem uid="categoryAxis"
+													type="Dimension" values="Period" />
+											</viz:feeds>
+										</viz:VizFrame>
+									</layout:Grid>
+								</layout:BlockLayoutCell>
+
+								<layout:BlockLayoutCell title="{/cell3/title}"
+									class="ZBlockLayoutCell">
+
+									<layout:Grid defaultSpan="L12 M12 S12"
+										defaultIndent="L0 M0 S0" hSpacing="0" vSpacing="0" class=""
+										content="{/cell3/content}">
+										<HBox class="sapUiTinyMarginTop">
+											<VBox class="ZLineHeightB">
+												<core:Icon src="{icon}" width="20px" height="20px"
+													size="20px">
+												</core:Icon>
+											</VBox>
+											<VBox class="sapUiSmallMarginBegin">
+												<Title text="{qualifications},{subject},{period}"
+													titleStyle="H6">
+												</Title>
+												<Title text="{college}" titleStyle="H6">
+												</Title>
+											</VBox>
+										</HBox>
+									</layout:Grid>
+								</layout:BlockLayoutCell>
+
+								<layout:BlockLayoutCell title="{/cell4/title}"
+									class="ZBlockLayoutCell">
+									<layout:Grid defaultSpan="L12 M12 S12"
+										defaultIndent="L0 M0 S0" hSpacing="0" vSpacing="0" class=""
+										content="{/cell4/content}">
+										<layout:Grid defaultSpan="L6 M6 S6" defaultIndent="L0 M0 S0"
+											hSpacing="0" vSpacing="0" class="">
+											<HBox class="sapUiTinyMarginTop">
+												<VBox>
+													<core:Icon src="{icon}" width="20px" height="20px"
+														size="20px">
+													</core:Icon>
+												</VBox>
+												<VBox class="sapUiSmallMarginBegin">
+													<Title text="{level}" titleStyle="H6">
+													</Title>
+												</VBox>
+											</HBox>
+											<HBox class="sapUiTinyMarginTop sapUiTinyMarginEnd"
+												justifyContent="End">
+												<VBox class="sapUiSmallMarginBegin">
+													<Title text="{period}" titleStyle="H6" textAlign="End">
+													</Title>
+												</VBox>
+											</HBox>
+										</layout:Grid>
+									</layout:Grid>
+								</layout:BlockLayoutCell>
+
+
+								<layout:BlockLayoutCell title="{/cell5/title}"
+									class="ZBlockLayoutCell">
+									<layout:Grid defaultSpan="L12 M12 S12"
+										defaultIndent="L0 M0 S0" hSpacing="0" vSpacing="0" class="">
+
+
+										<g:RadarChart data='{radarData>/}' option='{radarOption>/}' />
+									</layout:Grid>
+								</layout:BlockLayoutCell>
+							</layout:BlockLayoutRow>
+						</layout:BlockLayout>
+					</content>
+				</ScrollContainer>
+			</layout:flexContent>
+		</layout:FixFlex>
+	</VBox>
+</core:FragmentDefinition>

@@ -1,0 +1,130 @@
+{
+	"CompanyName": "株式会社○○",
+	"LCPName": "アビーム太郎",
+	"LCPImage": "image/LCP.png",
+	"TotalRevenue": 99999999,
+	"AveRR": 0.4567,
+	"Operation_CS": 40.67,
+	"Operation_OJT": 20.45,
+	"Operation_PUR": 18.57,
+	"ProjectOption": [
+		{
+			"axes": [
+				{"axis": "L統合的スギル", "value": 4},
+				{"axis": "L基本的な能力", "value": 3},
+				{"axis": "L行動特性", "value": 2},
+				{"axis": "L対クライアント能力", "value": 1},
+				{"axis": "QRMリスク評価", "value": 2},
+				{"axis": "アサインバランス", "value": 1}
+			],
+			"classText": "XXXXX1　プロジェクト",
+			"classColor": "rgb(100, 60, 160)"
+		},
+		{
+			"axes": [
+				{"axis": "L統合的スギル", "value": 2},
+				{"axis": "L基本的な能力", "value": 4},
+				{"axis": "L行動特性", "value": 2},
+				{"axis": "L対クライアント能力", "value": 3},
+				{"axis": "QRMリスク評価", "value": 3},
+				{"axis": "アサインバランス", "value": 2}
+			],
+			"classText": "XXXXX2　プロジェクト",
+			"classColor": "rgb(50, 120, 60)"
+		},
+		{
+			"axes": [
+				{"axis": "L統合的スギル", "value": 1},
+				{"axis": "L基本的な能力", "value": 2},
+				{"axis": "L行動特性", "value": 3},
+				{"axis": "L対クライアント能力", "value": 4},
+				{"axis": "QRMリスク評価", "value": 5},
+				{"axis": "アサインバランス", "value": 2}
+			],
+			"classText": "XXXXX3　プロジェクト",
+			"classColor": "rgb(150, 120, 160)"
+		},
+		{
+			"axes": [
+				{"axis": "L統合的スギル", "value": 3},
+				{"axis": "L基本的な能力", "value": 3},
+				{"axis": "L行動特性", "value": 2},
+				{"axis": "L対クライアント能力", "value": 3},
+				{"axis": "QRMリスク評価", "value": 5},
+				{"axis": "アサインバランス", "value": 5}
+			],
+			"classText": "XXXXX4　プロジェクト",
+			"classColor": "rgb(40, 80, 120)"
+		}
+	],
+	"Project": [
+		{
+			"ProjectName": "XXXXX1　プロジェクト",
+			"Members": [
+				{
+					"Image": "image/M1.jpg",
+					"Type":"P"
+				},
+				{
+					"Image": "image/M2.jpg",
+					"Type":"M"
+				},
+				{
+					"Image": "image/M2.jpg",
+					"Type":"M"
+				},
+				{
+					"Image": "image/M2.jpg",
+					"Type":"M"
+				},
+				{
+					"Image": "image/M2.jpg",
+					"Type":"M"
+				}
+			]
+		},
+		{
+			"ProjectName": "XXXXX2　プロジェクト",
+			"Members": [
+				{
+					"Image": "image/M3.jpg",
+					"Type":"All"
+				},
+				{
+					"Image": "image/M2.jpg",
+					"Type":null
+				}
+			]
+		},
+		{
+			"ProjectName": "XXXXX3　プロジェクト",
+			"Members": [
+				{
+					"Image": "image/M4.jpg",
+					"Type":"P"
+				},
+				{
+					"Image": "image/M5.jpg",
+					"Type":"M"
+				},
+				{
+					"Image": "image/M6.jpg",
+					"Type":null
+				}
+			]
+		},
+		{
+			"ProjectName": "XXXXX4　プロジェクト",
+			"Members": [
+				{
+					"Image": "image/M6.jpg",
+					"Type":"P"
+				},
+				{
+					"Image": "image/M7.jpg",
+					"Type":"M"
+				}
+			]
+		}
+	]
+}
