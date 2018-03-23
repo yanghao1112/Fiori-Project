@@ -1,0 +1,95 @@
+{
+	"cacheControl": 
+	[
+		{
+			"maxAge": 86400
+		}
+	],
+
+	"routes": 
+	[
+		{
+			"path": "/sap/opu/odata",
+			"target": 
+			{
+				"type": "destination",
+				"name": "SAP_Gateway",
+				"entryPath": "/sap/opu/odata/"
+			},
+
+			"description": "OData server"
+		},
+
+		{
+			"path": "/sap/ui5/1/resources/sap/cus/crm/lib/reuse",
+			"target": 
+			{
+				"type": "application",
+				"name": "cuscrmlibreuse",
+				"entryPath": "/sap/cus/crm/lib/reuse"
+			},
+
+			"description": "CRM library (legacy path)"
+		},
+		
+		{
+			"path": "/resources/sap/cus/crm/lib/reuse",
+			"target": 
+			{
+				"type": "application",
+				"name": "cuscrmlibreuse",
+				"entryPath": "/sap/cus/crm/lib/reuse"
+			},
+
+			"description": "CRM library"
+		},
+
+		{
+			"path": "/sap/ui5/1/resources/sap/retail/store/lib/reuse",
+			"target": 
+			{
+				"type": "application",
+				"name": "retailstorelibreuse",
+				"entryPath": "/sap/retail/store/lib/reuse"
+			},
+
+			"description": "Retail library (legacy path)"
+		},
+		
+		{
+			"path": "/resources/sap/retail/store/lib/reuse",
+			"target": 
+			{
+				"type": "application",
+				"name": "retailstorelibreuse",
+				"entryPath": "/sap/retail/store/lib/reuse"
+			},
+
+			"description": "Retail library"
+		},
+
+		{
+			"path": "/sap/ui5/1/resources/sap/hcm/lib/common",
+			"target": 
+			{
+				"type": "application",
+				"name": "hcmlibcommon",
+				"entryPath": "/sap/hcm/lib/common"
+			},
+
+			"description": "HCM library (legacy path)"
+		},
+
+		{
+			"path": "/resources/sap/hcm/lib/common",
+			"target": 
+			{
+				"type": "application",
+				"name": "hcmlibcommon",
+				"entryPath": "/sap/hcm/lib/common"
+			},
+
+			"description": "HCM library"
+		}
+	]
+}

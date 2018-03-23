@@ -1,0 +1,62 @@
+<core:FragmentDefinition xmlns="sap.m"
+	xmlns:core="sap.ui.core"
+ 	xmlns:vh="sap.ui.comp.valuehelpdialog"
+	xmlns:fb="sap.ui.comp.filterbar"
+	>
+	<vh:ValueHelpDialog title="Search Help" supportMultiselect="false" supportRanges="false" supportRangesOnly="false"
+		stretch="{device>isPhone}" contentHeight="70%">
+		<vh:filterBar>
+			<fb:FilterBar id="ZHE_APPROVER_FB" advancedMode="true" filterBarExpanded="true" showClearOnFB="true" showGoButton="true" showGoOnFB="true" >
+				<fb:filterGroupItems>
+					<fb:FilterGroupItem groupTitle="" groupName="gn1" name="n1" label="{i18n>ZF_LABEL_EMPLOYEECD}">
+						<fb:control>
+							<Input value="{search>/Pernr}"></Input>
+						</fb:control>
+					</fb:FilterGroupItem>
+					<fb:FilterGroupItem groupTitle="" groupName="gn1" name="n2" label="{i18n>ZF_LABEL_LASTNAME}" visible="{device>/isNoPhone}">
+						<fb:control>
+							<Input value="{search>/Zlname}"></Input>
+						</fb:control>
+					</fb:FilterGroupItem>
+					<fb:FilterGroupItem groupTitle="" groupName="gn1" name="n3" label="{i18n>ZF_LABEL_BUNAME}" visible="{device>/isNoPhone}">
+						<fb:control>
+							<Input value="{search>/Orgtx}"></Input>
+						</fb:control>
+					</fb:FilterGroupItem>
+					<fb:FilterGroupItem groupTitle="" groupName="gn1" name="n4" label="{i18n>ZF_LABEL_EMPLOYEENM}" visible="{device>/isNoPhone}">
+						<fb:control>
+							<Input value="{search>/Ename}"></Input>
+						</fb:control>
+					</fb:FilterGroupItem>
+					<fb:FilterGroupItem groupTitle="" groupName="gn1" name="n5" label="{i18n>ZF_LABEL_FIRSTNAME}"  visible="{device>/isNoPhone}">
+						<fb:control>
+							<Input value="{search>/Zfname}"></Input>
+						</fb:control>
+					</fb:FilterGroupItem>
+					<fb:FilterGroupItem groupTitle="" groupName="gn1" name="n6" label="{i18n>ZF_LABEL_EMPLOYEENM}" visible="{device>/isPhone}">
+						<fb:control>
+							<Input value="{search>/Ename}"></Input>
+						</fb:control>
+					</fb:FilterGroupItem>
+					<fb:FilterGroupItem groupTitle="" groupName="gn1" name="n7" label="{i18n>ZF_LABEL_LASTNAME}" visible="{device>/isPhone}">
+						<fb:control>
+							<Input value="{search>/Zlname}"></Input>
+						</fb:control>
+					</fb:FilterGroupItem>
+					<fb:FilterGroupItem groupTitle="" groupName="gn1" name="n8" label="{i18n>ZF_LABEL_FIRSTNAME}"  visible="{device>/isPhone}">
+						<fb:control>
+							<Input value="{search>/Zfname}"></Input>
+						</fb:control>
+					</fb:FilterGroupItem>
+					<fb:FilterGroupItem groupTitle="" groupName="gn1" name="n9" label="{i18n>ZF_LABEL_BUNAME}" visible="{device>/isPhone}">
+						<fb:control>
+							<Input value="{search>/Orgtx}"></Input>
+						</fb:control>
+					</fb:FilterGroupItem>
+				</fb:filterGroupItems>
+
+			</fb:FilterBar>
+		</vh:filterBar>
+	</vh:ValueHelpDialog>
+
+</core:FragmentDefinition>

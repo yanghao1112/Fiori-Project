@@ -1,0 +1,76 @@
+<core:FragmentDefinition
+		xmlns="sap.m"
+		xmlns:core="sap.ui.core"
+		xmlns:l="sap.ui.layout"
+		xmlns:sap.ui.core="sap.ui.core"
+		xmlns:f="sap.ui.layout.form">
+
+	<Dialog
+		title="Mass Change">	
+		<buttons>
+			<Button	text="Apply"/>
+			<Button	text="Cancel" press="onPressCancel"/>
+		</buttons>
+
+	    <content>
+	    	<VBox>
+	    		<f:Form>
+		    		<f:layout>
+						<f:ResponsiveGridLayout
+							labelSpanXL="3"
+							labelSpanL="3"
+							labelSpanM="3"
+							labelSpanS="5" />
+					</f:layout>
+					<f:formContainers>
+						<f:FormContainer>
+							<f:formElements>
+								<f:FormElement label="Finalized Release Date">
+									<f:fields>
+										<DatePicker id="DATE1" valueFormat="yyyy-MM-dd" displayFormat="yyyy/MM/dd">
+											<layoutData>
+												<l:GridData span="XL2 L3 M4 S5" />
+											</layoutData>
+										</DatePicker>
+										<CheckBox id="Check1"/>
+									</f:fields>
+								</f:FormElement>
+								<f:FormElement label="Available Date">
+									<f:fields>
+										<DatePicker id="DATE2" valueFormat="yyyy-MM-dd" displayFormat="yyyy/MM/dd">
+											<layoutData>
+												<l:GridData span="XL2 L3 M4 S5" />
+											</layoutData>
+										</DatePicker>
+										<CheckBox id="Check2"/>
+									</f:fields>
+								</f:FormElement>
+								<f:FormElement label="LEM Comment">
+									<f:fields>
+										<Input id="INPUT1" editable="true">
+											<layoutData>
+												<l:GridData span="XL2 L3 M4 S5" />
+											</layoutData>
+										</Input>
+										<CheckBox id="Check3"/>
+									</f:fields>
+								</f:FormElement>
+								<f:FormElement label="Assigner Comment">
+									<f:fields>
+										<Input id="INPUT2" editable="true">
+											<layoutData>
+												<l:GridData span="XL2 L3 M4 S5" />
+											</layoutData>
+										</Input>
+										<CheckBox id="Check4"/>
+									</f:fields>
+								</f:FormElement>
+							</f:formElements>
+						</f:FormContainer>
+					</f:formContainers>
+	    		</f:Form>
+	    	</VBox>
+	    </content>
+	</Dialog>    
+
+</core:FragmentDefinition>

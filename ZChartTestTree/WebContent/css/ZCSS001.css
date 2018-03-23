@@ -1,0 +1,14 @@
+.sapUiTable>.sapUiTableTbr.sapUiTableMTbr {
+    height: 3rem
+}
+.ZTextRight {
+	text-algin: right  !important;
+}
+
+.Hide {
+	visible: false
+}
+
+.ZLabel .v-m-categoryAxis .v-label-group g:nth-child(5)>rect{
+/* 	    fill: red; */
+}

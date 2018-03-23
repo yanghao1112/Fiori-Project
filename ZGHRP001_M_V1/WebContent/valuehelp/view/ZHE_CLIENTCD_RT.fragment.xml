@@ -1,0 +1,31 @@
+<core:FragmentDefinition xmlns="sap.m"
+	xmlns:core="sap.ui.core" xmlns:sap.ui.layout.form="sap.ui.layout.form"
+	xmlns:sap.ui.layout="sap.ui.layout">
+	<Table id="ZHE_CLIENTCD_TBL" items="{null>/}">
+		<columns>
+			<Column>
+				<VBox>
+					<Text text="{i18n>ZF_LABEL_CLIENTCD}"/>
+				</VBox>
+			</Column>
+			<Column>
+				<VBox>
+					<Text text="{i18n>ZF_LABEL_CLIENTENM}"/>
+					<Text text="{i18n>ZF_LABEL_CLIENTJNM}" visible="{device>/isPhone}" />
+				</VBox>
+			</Column>
+			<Column visible="{device>/isNoPhone}">
+				<Text text="{i18n>ZF_LABEL_CLIENTJNM}"/>
+			</Column>
+		</columns>
+		<items>
+			<ColumnListItem>
+				<cells>
+					<ObjectIdentifier title="{result>ZclntCd}"/>
+					<ObjectIdentifier title="{result>ZclnteNm}"/>
+					<ObjectIdentifier title="{result>ZclntoNm}" />
+				</cells>
+			</ColumnListItem>
+		</items>
+	</Table>
+</core:FragmentDefinition>

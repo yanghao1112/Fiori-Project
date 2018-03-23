@@ -1,0 +1,90 @@
+{
+	"_version": "1.1.0",
+	"sap.app": {
+		"id": "sap.ZG001.simpleReport2",
+		"type": "application",
+		"i18n": "i18n/i18n.properties",
+		"title": "{{appTitle}}",
+		"description": "{{appDescription}}",
+		"applicationVersion": {
+			"version": "1.0.0"
+		},
+		"dataSources": {
+			"mainService": {
+				"uri": "proxy/sap/opu/odata/sap/ZDELIVERY_SRV/?sap-client=100",
+				"type": "OData",
+				"settings": {
+					"odataVersion": "2.0",
+					"localUri": "model/$metadata.xml"
+				}
+			}
+		}
+	},
+	"sap.ui": {
+		"technology": "UI5",
+		"icons": {
+			"icon": "sap-icon://detail-view",
+			"favIcon": "",
+			"phone": "",
+			"phone@2": "",
+			"tablet": "",
+			"tablet@2": ""
+		},
+		"deviceTypes": {
+			"desktop": true,
+			"tablet": true,
+			"phone": true
+		},
+		"supportedThemes": [
+			"sap_hcb",
+			"sap_bluecrystal"
+		]
+	},
+	"sap.ui5": {
+		"dependencies": {
+			"minUI5Version": "1.40.13",
+			"libs": {
+				"sap.ui.core": {
+					"minVersion": "1.40.13"
+				},
+				"sap.m": {
+					"minVersion": "1.40.13"
+				},
+				"sap.ui.comp":{}
+			}
+		},
+		"models": {
+			"i18n": {
+				"type": "sap.ui.model.resource.ResourceModel",
+				"settings": {
+					"bundleName": "sap.ZG001.simpleReport2.i18n.i18n"
+				}
+			},
+			"": {
+				"dataSource": "mainService",
+				"preload": true
+			}
+		},
+		"rootView": {
+			"viewName": "sap.ZG001.simpleReport2.view.App",
+			"type": "XML"
+		},
+		"routing": {
+			"config": {
+				"viewType" : "XML",
+				"viewPath" : "sap.ZG001.simpleReport2.view",
+				"targetAggregation" : "pages",
+				"clearTarget" : true
+			},			
+			"routes": [
+				{
+					"pattern" : "",
+					"name" : "ZZmain",
+					"view" : "ZZmain",
+					"targetAggregation" : "pages",
+					"targetControl" : "fioriContent"
+				}
+			]
+		}
+	}
+}

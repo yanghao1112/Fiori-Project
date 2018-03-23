@@ -1,0 +1,82 @@
+{
+  "Collection": [
+    {
+      "Type":"36協定 時間外(①)",
+      "HoursM4": "9.5",
+      "HoursM5": "44.5",
+      "HoursM6": "44",
+      "HoursM7": "27",
+      "HoursM8": "0",
+      "HoursM9": "0",
+      "HoursM10": "0",
+      "HoursM11": "1.5",
+      "HoursM12": "1.5",
+      "HoursM1": "0",
+      "HoursM2": "2.5",
+      "HoursM3": "8.5"
+    },
+    {
+      "Type":"日曜 時間外(②)",
+      "HoursM4": "0",
+      "HoursM5": "0",
+      "HoursM6": "4",
+      "HoursM7": "0",
+      "HoursM8": "0",
+      "HoursM9": "0",
+      "HoursM10": "0",
+      "HoursM11": "0",
+      "HoursM12": "6.5",
+      "HoursM1": "0",
+      "HoursM2": "3",
+      "HoursM3": "12.5"
+    },
+    {
+      "Type":"健康管理時間(①+②)",
+      "HoursM4": "9.5",
+      "HoursM5": "44.5",
+      "HoursM6": "48",
+      "HoursM7": "27",
+      "HoursM8": "0",
+      "HoursM9": "0",
+      "HoursM10": "0",
+      "HoursM11": "1.5",
+      "HoursM12": "8",
+      "HoursM1": "0",
+      "HoursM2": "5.5",
+      "HoursM3": "21"
+    }
+  ],
+  
+  "CollectionPhone": [
+    {
+      "Type": "36協定 時間外(①)",
+      "Hour": "2.5"
+    },
+    {
+      "Type": "日曜 時間外(②)",
+      "Hour": "3"
+    },
+    {
+      "Type": "健康管理時間(①+②)",
+      "Hour": "5.5"
+    }
+  ],
+  
+  "CurrentMonth": "11月",
+  
+  "OVER": [
+    {
+      "Line2_1":"現在",
+      "Line2_2":"8.50",
+      "Line2_3": "8.50",
+      "Line2_4": "139.50",
+      "Line2_5": "0",
+      "Line3_1":"勤務可能時間-回数",
+      "Line3_2":"36.50",
+      "Line3_3": "91.50",
+      "Line3_4": "670.50",
+      "Line3_5": "6"
+    }
+
+  ]
+}

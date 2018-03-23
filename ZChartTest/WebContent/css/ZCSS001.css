@@ -1,0 +1,12 @@
+.sapTntNavLIItemSelected .sapTntNavLIItem:hover, .sapTntNavLIItemSelected.sapTntNavLIGroupItem.sapTntNavLIGroupItem:hover {
+	background-color: green;
+	
+}
+.sapTntNavLIItemSelected .sapTntNavLIItem, .sapTntNavLIItemSelected.sapTntNavLIGroupItem.sapTntNavLIGroupItem{
+	background-color: green;
+	
+}
+
+.Filter>div{
+	width: 1px !important;
+}

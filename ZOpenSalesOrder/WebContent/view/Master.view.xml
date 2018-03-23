@@ -1,0 +1,135 @@
+<mvc:View controllerName="SalesOrderList.controller.Master"
+	xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core" xmlns="sap.m"
+	xmlns:l="sap.ui.layout" xmlns:u="sap.ui.unified" xmlns:semantic="sap.m.semantic">
+
+	<semantic:MasterPage id="page" title="Sales Orders"
+		navButtonPress="onNavBack" showNavButton="true">
+		<semantic:subHeader>
+			<Bar id="headerBar">
+				<contentMiddle>
+					<SearchField id="searchField" showRefreshButton="{= !${device>/support/touch} }"
+						tooltip="{i18n>masterSearchTooltip}" width="100%" search="onSearch">
+					</SearchField>
+				</contentMiddle>
+			</Bar>
+		</semantic:subHeader>
+
+		<semantic:content>
+			<VBox id="idTitle" class="ZTEXT" visible="false" >
+				<Title text="test" level="H5" id="ZSalesOffice" class="ZTitle">
+				</Title>
+				<Title text="test" level="H5" id="ZWeek" class="ZTitle">
+				</Title>
+			</VBox>
+			<PullToRefresh id="pullToRefresh" visible="{device>/support/touch}"
+				refresh="onRefresh" />
+			<!-- For client side filtering add this to the items attribute: parameters: 
+				{operationMode: 'Client'}}" -->
+			<List id="list"
+				items="{
+					path: '/OrdersSet',
+					sorter: {
+						path: 'OrderNo',
+						descending: false
+						},
+					groupHeaderFactory: '.createGroupHeader'
+				}"
+				busyIndicatorDelay="{Orders>/delay}" noDataText="{Orders>/noDataText}"
+				mode="{= ${device>/system/phone} ? 'None' : 'SingleSelectMaster'}"
+				growing="true" growingScrollToLoad="true" updateFinished="onUpdateFinished"
+				selectionChange="onSelectionChange">
+				<infoToolbar>
+					<Toolbar active="true" id="filterBar" visible="{Orders>/isFilterBarVisible}"
+						press="onOpenViewSettings">
+						<Title id="filterBarLabel" text="{Orders>/filterBarLabel}" />
+					</Toolbar>
+				</infoToolbar>
+				<items>
+					<CustomListItem press="onSelectionChange" title="{OrderNo}">
+						<VBox class="sapUiSmallMargin">
+							<l:Grid defaultSpan="L8 M8 S8" vSpacing="0" hSpacing="0">
+								<Title text="{OrderNo}" level="H4" titleStyle="H4">
+									<layoutData>
+										<l:GridData span="L4 M4 S4" />
+									</layoutData>
+								</Title>
+
+								<VBox class="ZTextRight ZTextLarge" width="100%">
+									<u:Currency
+										value="{
+													path: 'NetValue',
+													formatter: '.formatter.fmtValue'
+												}"
+										currency="{Currency}" useSymbol="false">
+									</u:Currency>
+								</VBox>
+							</l:Grid>
+							<l:Grid defaultSpan="L8 M8 S8" vSpacing="0" hSpacing="0"
+								class="sapUiTinyMarginTop">
+
+								<Text
+									text="{		path: 'ItemCount',
+													formatter: '.formatter.fmtItemCount'
+												}">
+									<layoutData>
+										<l:GridData span="L4 M4 S4" />
+									</layoutData>
+								</Text>
+								<VBox class="ZTextRight" width="100%">
+									<u:Currency
+										value="{
+													path: 'NetwrOpen',
+													formatter: '.formatter.fmtValue'
+												}"
+										currency="{Currency}" useSymbol="false">
+									</u:Currency>
+								</VBox>
+							</l:Grid>
+							<l:Grid defaultSpan="L8 M8 S8" vSpacing="0" hSpacing="0"
+								class="sapUiTinyMarginTop">
+								<Text text="{CustomerRef}">
+									<layoutData>
+										<l:GridData span="L4 M4 S4" />
+									</layoutData>
+								</Text>
+								<VBox class="ZTextRight" width="100%">
+									<ObjectStatus
+										text="{
+												path: 'Createon',
+												formatter: '.formatter.fmtDate' 
+												}"
+										state="None">
+									</ObjectStatus>
+								</VBox>
+							</l:Grid>
+							<l:Grid defaultSpan="L12 M12 S12" vSpacing="0" hSpacing="0"
+								class="sapUiTinyMarginTop">
+								<VBox class="ZTextRight" width="100%">
+									<ObjectStatus text="{Createby}" state="None">
+									</ObjectStatus>
+								</VBox>
+							</l:Grid>
+						</VBox>
+					</CustomListItem>
+				</items>
+			</List>
+		</semantic:content>
+
+		<semantic:sort>
+			<semantic:SortSelect id="sort" selectedKey="{OrdersSet>/sortBy}"
+				change="onSort">
+				<core:Item id="masterSort1" key="OrderNo" text="{i18n>masterSort1}" />
+				<core:Item id="masterSort2" key="NetValue" text="{i18n>masterSort2}" />
+			</semantic:SortSelect>
+		</semantic:sort>
+
+		<semantic:filter>
+			<semantic:FilterAction id="filter" press="onOpenViewSettings" />
+		</semantic:filter>
+		<!-- <semantic:group> <semantic:GroupSelect id="group" selectedKey="{OrdersSet>/groupBy}" 
+			change="onGroup"> <core:Item id="masterGroupNone" key="None" text="{i18n>masterGroupNone}"/> 
+			<core:Item id="masterGroup1" key="OrderNo" text="{i18n>masterGroup1}"/> </semantic:GroupSelect> 
+			</semantic:group> -->
+	</semantic:MasterPage>
+
+</mvc:View>

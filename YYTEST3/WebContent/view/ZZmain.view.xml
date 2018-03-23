@@ -1,0 +1,108 @@
+<mvc:View controllerName="sap.ZG001.simpleReport3.controller.ZZmain"
+	xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:fb="sap.ui.comp.smartfilterbar"
+	xmlns:f="sap.ui.layout.form" xmlns:t="sap.ui.comp.smarttable" xmlns:vm="sap.ui.comp.smartvariants"
+	xmlns:customData="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1"
+	xmlns:layout="sap.ui.layout" xmlns:form="sap.ui.layout.form"
+	xmlns:core="sap.ui.core">
+	<ScrollContainer vertical="true" height="100%">
+		<HBox class="exPageVariantPadding">
+			<vm:SmartVariantManagement id="pageVariantId"
+				persistencyKey="PageVariantPKey3" showShare="true" />
+		</HBox>
+		<fb:SmartFilterBar id="smartFilterBar" useToolbar="true"
+			smartVariant="pageVariantId" persistencyKey="SmartFilterPKey"
+			entitySet="ET3Set" customData:dateFormatSettings='\{"UTC":true\}'>
+			<fb:controlConfiguration>
+				<fb:ControlConfiguration key="SBukrs"
+					visibleInAdvancedArea="true" mandatory="mandatory"
+					preventInitialDataFetchInValueHelpDialog="false" index="0">
+				</fb:ControlConfiguration>
+				<fb:ControlConfiguration key="SBu"
+					visibleInAdvancedArea="true"
+					preventInitialDataFetchInValueHelpDialog="false" index="1">
+				</fb:ControlConfiguration>
+				<fb:ControlConfiguration key="SAsnrbu"
+					visibleInAdvancedArea="true" mandatory="mandatory"
+					preventInitialDataFetchInValueHelpDialog="false" index="2">
+				</fb:ControlConfiguration>
+			</fb:controlConfiguration>
+		</fb:SmartFilterBar>
+		<Panel headerText="Request status" expandable="true">
+			<content>
+				<CheckBox text="Submitted" selected="true" />
+				<CheckBox text="In Process" selected="true" />
+				<CheckBox text="In Reprocess" selected="true" />
+				<CheckBox text="Assigned" />
+				<CheckBox text="Deleted" />
+			</content>
+		</Panel>
+		<Panel headerText="WBS Category" expandable="true">
+			<content>
+				<CheckBox text="P code" selected="true" />
+				<CheckBox text="E code" selected="true" />
+				<CheckBox text="N code" />
+				<CheckBox text="D code" />
+				<CheckBox text="Other" />
+			</content>
+		</Panel>
+		<Panel headerText="Extension Flag" expandable="true">
+			<content>
+				<CheckBox text="yes" selected="true" />
+				<CheckBox text="no" selected="true" />
+			</content>
+		</Panel>
+		<Panel headerText="Financial Plan Display" expandable="true">
+			<content>
+				<RadioButtonGroup columns="2">
+					<buttons>
+						<RadioButton id="RB2-1" text="yes" />
+						<RadioButton id="RB2-2" text="no" />
+					</buttons>
+				</RadioButtonGroup>
+			</content>
+		</Panel>
+		<Panel headerText="Order By" expandable="true">
+			<content>
+				<RadioButtonGroup columns="2">
+					<buttons>
+						<RadioButton id="RB3-1" text="Last Updated Date" />
+						<RadioButton id="RB3-2" text="Client Code" />
+					</buttons>
+				</RadioButtonGroup>
+			</content>
+		</Panel>
+
+		<!-- <t:SmartTable tableType="AnalyticalTable" editable="false" -->
+		<t:SmartTable visible="true" id="smarttable" tableType="Table"
+			editable="false" editTogglable="true" showFullScreenButton="true"
+			smartFilterId="smartFilterBar" smartVariant="pageVariantId"
+			beforeRebindTable="onBeforeRebindTable" enableAutoBinding="false"
+			entitySet="ET3Set" useVariantManagement="true" persistencyKey="SmartTablePKey"
+			useTablePersonalisation="true" header="Result" showRowCount="false"
+			useExportToExcel="true"
+			initiallyVisibleFields="Div,Reqsty,Reqsno,Rol,Custm,Mstpr,Pspid,Post1,Bu,Prsta,Prbeg,Prend,Wbs,Line,Descr,Wkpl,Role,Rolemn,Pernr,Ename,Embu,Acty,Acty2,Upsta,Msg"
+			customData:useSmartField="true" customData:p13nDialogSettings='\{"filter": \{"visible" : false\}\}'>
+			<t:customToolbar>
+				<OverflowToolbar design="Transparent">
+					<content>
+						<ToolbarSpacer />
+						<OverflowToolbarButton icon="sap-icon://add"
+							tooltip="Append" press="onAdd"></OverflowToolbarButton>
+						<OverflowToolbarButton icon="sap-icon://less"
+							tooltip="Delete"></OverflowToolbarButton>
+						<OverflowToolbarButton icon="sap-icon://copy"
+							tooltip="Copy"></OverflowToolbarButton>
+						<OverflowToolbarButton icon="sap-icon://activate"
+							tooltip="Mass Change"></OverflowToolbarButton>
+						<OverflowToolbarButton icon="sap-icon://refresh"
+							tooltip="Refresh"></OverflowToolbarButton>
+						<OverflowToolbarButton icon="sap-icon://accept"
+							tooltip="Check" press="oncheck2"></OverflowToolbarButton>
+						<OverflowToolbarButton icon="sap-icon://save"
+							tooltip="Save" press="onSave"></OverflowToolbarButton>
+					</content>
+				</OverflowToolbar>
+			</t:customToolbar>
+		</t:SmartTable>
+	</ScrollContainer>
+</mvc:View>

@@ -1,0 +1,44 @@
+<core:FragmentDefinition xmlns="sap.m"
+	xmlns:core="sap.ui.core"
+ 	xmlns:vh="sap.ui.comp.valuehelpdialog"
+	xmlns:fb="sap.ui.comp.filterbar"
+	>
+	<vh:ValueHelpDialog title="Search Help" supportMultiselect="false" supportRanges="false" supportRangesOnly="false"
+		stretch="{device>isPhone}" contentHeight="70%">
+		<vh:filterBar>
+			<fb:FilterBar id="ZHE_TSCD_FB" advancedMode="true" filterBarExpanded="true" showClearOnFB="true" showGoOnFB="true" >
+				<fb:filterGroupItems>
+					<fb:FilterGroupItem groupTitle="" groupName="gn1" name="n1" label="{i18n>ZF_LABEL_CLIENTCD}">
+						<fb:control>
+							<Input value="{search>/ZclntCd}"></Input>
+						</fb:control>
+					</fb:FilterGroupItem>
+
+					<fb:FilterGroupItem groupTitle="" groupName="gn1" name="n2" label="{i18n>ZF_LABEL_CLIENTENM}">
+						<fb:control>
+							<Input value="{search>/ZclnteNm}"></Input>
+						</fb:control>
+					</fb:FilterGroupItem>
+
+					<fb:FilterGroupItem groupTitle="" groupName="gn1" name="n3" label="{i18n>ZF_LABEL_CLIENTJNM}">
+						<fb:control>
+							<Input value="{search>/ZclntoNm}"></Input>
+						</fb:control>
+					</fb:FilterGroupItem>
+					<fb:FilterGroupItem groupTitle="" groupName="gn1" name="n4" label="{i18n>ZF_LABEL_TSCODE}">
+						<fb:control>
+							<Input value="{search>/ZtsMaCd}"></Input>
+						</fb:control>
+					</fb:FilterGroupItem>
+					<fb:FilterGroupItem groupTitle="" groupName="gn1" name="n5" label="{i18n>ZF_LABEL_TSNAME}">
+						<fb:control>
+							<Input value="{search>/ZtsTx}"></Input>
+						</fb:control>
+					</fb:FilterGroupItem>
+				</fb:filterGroupItems>
+
+			</fb:FilterBar>
+		</vh:filterBar>
+	</vh:ValueHelpDialog>
+
+</core:FragmentDefinition>

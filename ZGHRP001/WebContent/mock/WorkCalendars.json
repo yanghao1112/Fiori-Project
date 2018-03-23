@@ -1,0 +1,456 @@
+{
+    "d": {
+        "results": [
+            {
+                "__metadata": {
+                    "id": "http://erptestap03.braxtonj.com:8000/sap/opu/odata/sap/HCM_TIMESHEET_MAN_SRV/WorkCalendars(Pernr='00005002',Date='20161016')",
+                    "uri": "http://erptestap03.braxtonj.com:8000/sap/opu/odata/sap/HCM_TIMESHEET_MAN_SRV/WorkCalendars(Pernr='00005002',Date='20161016')",
+                    "type": "HCM_TIMESHEET_MAN_SRV.WorkCalendar"
+                },
+                "Pernr": "00005002",
+                "Date": "20161016",
+                "Status": "YACTION",
+                "TargetHours": "0.00",
+                "WorkingDay": "FALSE",
+                "EndDate": "20161103",
+                "StartDate": "20161021",
+                "FirstDayOfWeek": "MONDAY"
+            },
+            {
+                "__metadata": {
+                    "id": "http://erptestap03.braxtonj.com:8000/sap/opu/odata/sap/HCM_TIMESHEET_MAN_SRV/WorkCalendars(Pernr='00005002',Date='20161017')",
+                    "uri": "http://erptestap03.braxtonj.com:8000/sap/opu/odata/sap/HCM_TIMESHEET_MAN_SRV/WorkCalendars(Pernr='00005002',Date='20161017')",
+                    "type": "HCM_TIMESHEET_MAN_SRV.WorkCalendar"
+                },
+                "Pernr": "00005002",
+                "Date": "20161017",
+                "Status": "DONE",
+                "TargetHours": "6.00",
+                "WorkingDay": "TRUE",
+                "EndDate": "20161103",
+                "StartDate": "20161021",
+                "FirstDayOfWeek": "MONDAY"
+            },
+            {
+                "__metadata": {
+                    "id": "http://erptestap03.braxtonj.com:8000/sap/opu/odata/sap/HCM_TIMESHEET_MAN_SRV/WorkCalendars(Pernr='00005002',Date='20161018')",
+                    "uri": "http://erptestap03.braxtonj.com:8000/sap/opu/odata/sap/HCM_TIMESHEET_MAN_SRV/WorkCalendars(Pernr='00005002',Date='20161018')",
+                    "type": "HCM_TIMESHEET_MAN_SRV.WorkCalendar"
+                },
+                "Pernr": "00005002",
+                "Date": "20161018",
+                "Status": "MACTION",
+                "TargetHours": "6.00",
+                "WorkingDay": "TRUE",
+                "EndDate": "20161103",
+                "StartDate": "20161021",
+                "FirstDayOfWeek": "MONDAY"
+            },
+            {
+                "__metadata": {
+                    "id": "http://erptestap03.braxtonj.com:8000/sap/opu/odata/sap/HCM_TIMESHEET_MAN_SRV/WorkCalendars(Pernr='00005002',Date='20161020')",
+                    "uri": "http://erptestap03.braxtonj.com:8000/sap/opu/odata/sap/HCM_TIMESHEET_MAN_SRV/WorkCalendars(Pernr='00005002',Date='20161020')",
+                    "type": "HCM_TIMESHEET_MAN_SRV.WorkCalendar"
+                },
+                "Pernr": "00005002",
+                "Date": "20161019",
+                "Status": "YACTION",
+                "TargetHours": "6.00",
+                "WorkingDay": "TRUE",
+                "EndDate": "20161103",
+                "StartDate": "20161021",
+                "FirstDayOfWeek": "MONDAY"
+            },
+            {
+                "__metadata": {
+                    "id": "http://erptestap03.braxtonj.com:8000/sap/opu/odata/sap/HCM_TIMESHEET_MAN_SRV/WorkCalendars(Pernr='00005002',Date='20161020')",
+                    "uri": "http://erptestap03.braxtonj.com:8000/sap/opu/odata/sap/HCM_TIMESHEET_MAN_SRV/WorkCalendars(Pernr='00005002',Date='20161020')",
+                    "type": "HCM_TIMESHEET_MAN_SRV.WorkCalendar"
+                },
+                "Pernr": "00005002",
+                "Date": "20161020",
+                "Status": "YACTION",
+                "TargetHours": "6.00",
+                "WorkingDay": "TRUE",
+                "EndDate": "20161103",
+                "StartDate": "20161021",
+                "FirstDayOfWeek": "MONDAY"
+            },
+            {
+                "__metadata": {
+                    "id": "http://erptestap03.braxtonj.com:8000/sap/opu/odata/sap/HCM_TIMESHEET_MAN_SRV/WorkCalendars(Pernr='00005002',Date='20161021')",
+                    "uri": "http://erptestap03.braxtonj.com:8000/sap/opu/odata/sap/HCM_TIMESHEET_MAN_SRV/WorkCalendars(Pernr='00005002',Date='20161021')",
+                    "type": "HCM_TIMESHEET_MAN_SRV.WorkCalendar"
+                },
+                "Pernr": "00005002",
+                "Date": "20161021",
+                "Status": "YACTION",
+                "TargetHours": "6.00",
+                "WorkingDay": "TRUE",
+                "EndDate": "20161103",
+                "StartDate": "20161021",
+                "FirstDayOfWeek": "MONDAY"
+            },
+            {
+                "__metadata": {
+                    "id": "http://erptestap03.braxtonj.com:8000/sap/opu/odata/sap/HCM_TIMESHEET_MAN_SRV/WorkCalendars(Pernr='00005002',Date='20161022')",
+                    "uri": "http://erptestap03.braxtonj.com:8000/sap/opu/odata/sap/HCM_TIMESHEET_MAN_SRV/WorkCalendars(Pernr='00005002',Date='20161022')",
+                    "type": "HCM_TIMESHEET_MAN_SRV.WorkCalendar"
+                },
+                "Pernr": "00005002",
+                "Date": "20161022",
+                "Status": "YACTION",
+                "TargetHours": "0.00",
+                "WorkingDay": "FALSE",
+                "EndDate": "20161103",
+                "StartDate": "20161021",
+                "FirstDayOfWeek": "MONDAY"
+            },
+            {
+                "__metadata": {
+                    "id": "http://erptestap03.braxtonj.com:8000/sap/opu/odata/sap/HCM_TIMESHEET_MAN_SRV/WorkCalendars(Pernr='00005002',Date='20161023')",
+                    "uri": "http://erptestap03.braxtonj.com:8000/sap/opu/odata/sap/HCM_TIMESHEET_MAN_SRV/WorkCalendars(Pernr='00005002',Date='20161023')",
+                    "type": "HCM_TIMESHEET_MAN_SRV.WorkCalendar"
+                },
+                "Pernr": "00005002",
+                "Date": "20161023",
+                "Status": "YACTION",
+                "TargetHours": "0.00",
+                "WorkingDay": "FALSE",
+                "EndDate": "20161103",
+                "StartDate": "20161021",
+                "FirstDayOfWeek": "MONDAY"
+            },
+            {
+                "__metadata": {
+                    "id": "http://erptestap03.braxtonj.com:8000/sap/opu/odata/sap/HCM_TIMESHEET_MAN_SRV/WorkCalendars(Pernr='00005002',Date='20161024')",
+                    "uri": "http://erptestap03.braxtonj.com:8000/sap/opu/odata/sap/HCM_TIMESHEET_MAN_SRV/WorkCalendars(Pernr='00005002',Date='20161024')",
+                    "type": "HCM_TIMESHEET_MAN_SRV.WorkCalendar"
+                },
+                "Pernr": "00005002",
+                "Date": "20161024",
+                "Status": "YACTION",
+                "TargetHours": "6.00",
+                "WorkingDay": "TRUE",
+                "EndDate": "20161103",
+                "StartDate": "20161021",
+                "FirstDayOfWeek": "MONDAY"
+            },
+            {
+                "__metadata": {
+                    "id": "http://erptestap03.braxtonj.com:8000/sap/opu/odata/sap/HCM_TIMESHEET_MAN_SRV/WorkCalendars(Pernr='00005002',Date='20161025')",
+                    "uri": "http://erptestap03.braxtonj.com:8000/sap/opu/odata/sap/HCM_TIMESHEET_MAN_SRV/WorkCalendars(Pernr='00005002',Date='20161025')",
+                    "type": "HCM_TIMESHEET_MAN_SRV.WorkCalendar"
+                },
+                "Pernr": "00005002",
+                "Date": "20161025",
+                "Status": "YACTION",
+                "TargetHours": "6.00",
+                "WorkingDay": "TRUE",
+                "EndDate": "20161103",
+                "StartDate": "20161021",
+                "FirstDayOfWeek": "MONDAY"
+            },
+            {
+                "__metadata": {
+                    "id": "http://erptestap03.braxtonj.com:8000/sap/opu/odata/sap/HCM_TIMESHEET_MAN_SRV/WorkCalendars(Pernr='00005002',Date='20161026')",
+                    "uri": "http://erptestap03.braxtonj.com:8000/sap/opu/odata/sap/HCM_TIMESHEET_MAN_SRV/WorkCalendars(Pernr='00005002',Date='20161026')",
+                    "type": "HCM_TIMESHEET_MAN_SRV.WorkCalendar"
+                },
+                "Pernr": "00005002",
+                "Date": "20161026",
+                "Status": "YACTION",
+                "TargetHours": "6.00",
+                "WorkingDay": "TRUE",
+                "EndDate": "20161103",
+                "StartDate": "20161021",
+                "FirstDayOfWeek": "MONDAY"
+            },
+            {
+                "__metadata": {
+                    "id": "http://erptestap03.braxtonj.com:8000/sap/opu/odata/sap/HCM_TIMESHEET_MAN_SRV/WorkCalendars(Pernr='00005002',Date='20161027')",
+                    "uri": "http://erptestap03.braxtonj.com:8000/sap/opu/odata/sap/HCM_TIMESHEET_MAN_SRV/WorkCalendars(Pernr='00005002',Date='20161027')",
+                    "type": "HCM_TIMESHEET_MAN_SRV.WorkCalendar"
+                },
+                "Pernr": "00005002",
+                "Date": "20161027",
+                "Status": "YACTION",
+                "TargetHours": "6.00",
+                "WorkingDay": "TRUE",
+                "EndDate": "20161103",
+                "StartDate": "20161021",
+                "FirstDayOfWeek": "MONDAY"
+            },
+            {
+                "__metadata": {
+                    "id": "http://erptestap03.braxtonj.com:8000/sap/opu/odata/sap/HCM_TIMESHEET_MAN_SRV/WorkCalendars(Pernr='00005002',Date='20161028')",
+                    "uri": "http://erptestap03.braxtonj.com:8000/sap/opu/odata/sap/HCM_TIMESHEET_MAN_SRV/WorkCalendars(Pernr='00005002',Date='20161028')",
+                    "type": "HCM_TIMESHEET_MAN_SRV.WorkCalendar"
+                },
+                "Pernr": "00005002",
+                "Date": "20161028",
+                "Status": "YACTION",
+                "TargetHours": "6.00",
+                "WorkingDay": "TRUE",
+                "EndDate": "20161103",
+                "StartDate": "20161021",
+                "FirstDayOfWeek": "MONDAY"
+            },
+            {
+                "__metadata": {
+                    "id": "http://erptestap03.braxtonj.com:8000/sap/opu/odata/sap/HCM_TIMESHEET_MAN_SRV/WorkCalendars(Pernr='00005002',Date='20161029')",
+                    "uri": "http://erptestap03.braxtonj.com:8000/sap/opu/odata/sap/HCM_TIMESHEET_MAN_SRV/WorkCalendars(Pernr='00005002',Date='20161029')",
+                    "type": "HCM_TIMESHEET_MAN_SRV.WorkCalendar"
+                },
+                "Pernr": "00005002",
+                "Date": "20161029",
+                "Status": "YACTION",
+                "TargetHours": "0.00",
+                "WorkingDay": "FALSE",
+                "EndDate": "20161103",
+                "StartDate": "20161021",
+                "FirstDayOfWeek": "MONDAY"
+            },
+            {
+                "__metadata": {
+                    "id": "http://erptestap03.braxtonj.com:8000/sap/opu/odata/sap/HCM_TIMESHEET_MAN_SRV/WorkCalendars(Pernr='00005002',Date='20161030')",
+                    "uri": "http://erptestap03.braxtonj.com:8000/sap/opu/odata/sap/HCM_TIMESHEET_MAN_SRV/WorkCalendars(Pernr='00005002',Date='20161030')",
+                    "type": "HCM_TIMESHEET_MAN_SRV.WorkCalendar"
+                },
+                "Pernr": "00005002",
+                "Date": "20161030",
+                "Status": "YACTION",
+                "TargetHours": "0.00",
+                "WorkingDay": "FALSE",
+                "EndDate": "20161103",
+                "StartDate": "20161021",
+                "FirstDayOfWeek": "MONDAY"
+            },
+            {
+                "__metadata": {
+                    "id": "http://erptestap03.braxtonj.com:8000/sap/opu/odata/sap/HCM_TIMESHEET_MAN_SRV/WorkCalendars(Pernr='00005002',Date='20161016')",
+                    "uri": "http://erptestap03.braxtonj.com:8000/sap/opu/odata/sap/HCM_TIMESHEET_MAN_SRV/WorkCalendars(Pernr='00005002',Date='20161016')",
+                    "type": "HCM_TIMESHEET_MAN_SRV.WorkCalendar"
+                },
+                "Pernr": "00005002",
+                "Date": "20161016",
+                "Status": "YACTION",
+                "TargetHours": "0.00",
+                "WorkingDay": "FALSE",
+                "EndDate": "20161030",
+                "StartDate": "20161017",
+                "FirstDayOfWeek": "MONDAY"
+            },
+            {
+                "__metadata": {
+                    "id": "http://erptestap03.braxtonj.com:8000/sap/opu/odata/sap/HCM_TIMESHEET_MAN_SRV/WorkCalendars(Pernr='00005002',Date='20161017')",
+                    "uri": "http://erptestap03.braxtonj.com:8000/sap/opu/odata/sap/HCM_TIMESHEET_MAN_SRV/WorkCalendars(Pernr='00005002',Date='20161017')",
+                    "type": "HCM_TIMESHEET_MAN_SRV.WorkCalendar"
+                },
+                "Pernr": "00005002",
+                "Date": "20161017",
+                "Status": "DONE",
+                "TargetHours": "6.00",
+                "WorkingDay": "TRUE",
+                "EndDate": "20161030",
+                "StartDate": "20161017",
+                "FirstDayOfWeek": "MONDAY"
+            },
+            {
+                "__metadata": {
+                    "id": "http://erptestap03.braxtonj.com:8000/sap/opu/odata/sap/HCM_TIMESHEET_MAN_SRV/WorkCalendars(Pernr='00005002',Date='20161018')",
+                    "uri": "http://erptestap03.braxtonj.com:8000/sap/opu/odata/sap/HCM_TIMESHEET_MAN_SRV/WorkCalendars(Pernr='00005002',Date='20161018')",
+                    "type": "HCM_TIMESHEET_MAN_SRV.WorkCalendar"
+                },
+                "Pernr": "00005002",
+                "Date": "20161018",
+                "Status": "MACTION",
+                "TargetHours": "6.00",
+                "WorkingDay": "TRUE",
+                "EndDate": "20161030",
+                "StartDate": "20161017",
+                "FirstDayOfWeek": "MONDAY"
+            },
+            {
+                "__metadata": {
+                    "id": "http://erptestap03.braxtonj.com:8000/sap/opu/odata/sap/HCM_TIMESHEET_MAN_SRV/WorkCalendars(Pernr='00005002',Date='20161020')",
+                    "uri": "http://erptestap03.braxtonj.com:8000/sap/opu/odata/sap/HCM_TIMESHEET_MAN_SRV/WorkCalendars(Pernr='00005002',Date='20161020')",
+                    "type": "HCM_TIMESHEET_MAN_SRV.WorkCalendar"
+                },
+                "Pernr": "00005002",
+                "Date": "20161019",
+                "Status": "YACTION",
+                "TargetHours": "6.00",
+                "WorkingDay": "TRUE",
+                "EndDate": "20161030",
+                "StartDate": "20161017",
+                "FirstDayOfWeek": "MONDAY"
+            },
+            {
+                "__metadata": {
+                    "id": "http://erptestap03.braxtonj.com:8000/sap/opu/odata/sap/HCM_TIMESHEET_MAN_SRV/WorkCalendars(Pernr='00005002',Date='20161020')",
+                    "uri": "http://erptestap03.braxtonj.com:8000/sap/opu/odata/sap/HCM_TIMESHEET_MAN_SRV/WorkCalendars(Pernr='00005002',Date='20161020')",
+                    "type": "HCM_TIMESHEET_MAN_SRV.WorkCalendar"
+                },
+                "Pernr": "00005002",
+                "Date": "20161020",
+                "Status": "YACTION",
+                "TargetHours": "6.00",
+                "WorkingDay": "TRUE",
+                "EndDate": "20161030",
+                "StartDate": "20161017",
+                "FirstDayOfWeek": "MONDAY"
+            },
+            {
+                "__metadata": {
+                    "id": "http://erptestap03.braxtonj.com:8000/sap/opu/odata/sap/HCM_TIMESHEET_MAN_SRV/WorkCalendars(Pernr='00005002',Date='20161021')",
+                    "uri": "http://erptestap03.braxtonj.com:8000/sap/opu/odata/sap/HCM_TIMESHEET_MAN_SRV/WorkCalendars(Pernr='00005002',Date='20161021')",
+                    "type": "HCM_TIMESHEET_MAN_SRV.WorkCalendar"
+                },
+                "Pernr": "00005002",
+                "Date": "20161021",
+                "Status": "YACTION",
+                "TargetHours": "6.00",
+                "WorkingDay": "TRUE",
+                "EndDate": "20161030",
+                "StartDate": "20161017",
+                "FirstDayOfWeek": "MONDAY"
+            },
+            {
+                "__metadata": {
+                    "id": "http://erptestap03.braxtonj.com:8000/sap/opu/odata/sap/HCM_TIMESHEET_MAN_SRV/WorkCalendars(Pernr='00005002',Date='20161022')",
+                    "uri": "http://erptestap03.braxtonj.com:8000/sap/opu/odata/sap/HCM_TIMESHEET_MAN_SRV/WorkCalendars(Pernr='00005002',Date='20161022')",
+                    "type": "HCM_TIMESHEET_MAN_SRV.WorkCalendar"
+                },
+                "Pernr": "00005002",
+                "Date": "20161022",
+                "Status": "YACTION",
+                "TargetHours": "0.00",
+                "WorkingDay": "FALSE",
+                "EndDate": "20161030",
+                "StartDate": "20161017",
+                "FirstDayOfWeek": "MONDAY"
+            },
+            {
+                "__metadata": {
+                    "id": "http://erptestap03.braxtonj.com:8000/sap/opu/odata/sap/HCM_TIMESHEET_MAN_SRV/WorkCalendars(Pernr='00005002',Date='20161023')",
+                    "uri": "http://erptestap03.braxtonj.com:8000/sap/opu/odata/sap/HCM_TIMESHEET_MAN_SRV/WorkCalendars(Pernr='00005002',Date='20161023')",
+                    "type": "HCM_TIMESHEET_MAN_SRV.WorkCalendar"
+                },
+                "Pernr": "00005002",
+                "Date": "20161023",
+                "Status": "YACTION",
+                "TargetHours": "0.00",
+                "WorkingDay": "FALSE",
+                "EndDate": "20161030",
+                "StartDate": "20161017",
+                "FirstDayOfWeek": "MONDAY"
+            },
+            {
+                "__metadata": {
+                    "id": "http://erptestap03.braxtonj.com:8000/sap/opu/odata/sap/HCM_TIMESHEET_MAN_SRV/WorkCalendars(Pernr='00005002',Date='20161024')",
+                    "uri": "http://erptestap03.braxtonj.com:8000/sap/opu/odata/sap/HCM_TIMESHEET_MAN_SRV/WorkCalendars(Pernr='00005002',Date='20161024')",
+                    "type": "HCM_TIMESHEET_MAN_SRV.WorkCalendar"
+                },
+                "Pernr": "00005002",
+                "Date": "20161024",
+                "Status": "YACTION",
+                "TargetHours": "6.00",
+                "WorkingDay": "TRUE",
+                "EndDate": "20161030",
+                "StartDate": "20161017",
+                "FirstDayOfWeek": "MONDAY"
+            },
+            {
+                "__metadata": {
+                    "id": "http://erptestap03.braxtonj.com:8000/sap/opu/odata/sap/HCM_TIMESHEET_MAN_SRV/WorkCalendars(Pernr='00005002',Date='20161025')",
+                    "uri": "http://erptestap03.braxtonj.com:8000/sap/opu/odata/sap/HCM_TIMESHEET_MAN_SRV/WorkCalendars(Pernr='00005002',Date='20161025')",
+                    "type": "HCM_TIMESHEET_MAN_SRV.WorkCalendar"
+                },
+                "Pernr": "00005002",
+                "Date": "20161025",
+                "Status": "YACTION",
+                "TargetHours": "6.00",
+                "WorkingDay": "TRUE",
+                "EndDate": "20161030",
+                "StartDate": "20161017",
+                "FirstDayOfWeek": "MONDAY"
+            },
+            {
+                "__metadata": {
+                    "id": "http://erptestap03.braxtonj.com:8000/sap/opu/odata/sap/HCM_TIMESHEET_MAN_SRV/WorkCalendars(Pernr='00005002',Date='20161026')",
+                    "uri": "http://erptestap03.braxtonj.com:8000/sap/opu/odata/sap/HCM_TIMESHEET_MAN_SRV/WorkCalendars(Pernr='00005002',Date='20161026')",
+                    "type": "HCM_TIMESHEET_MAN_SRV.WorkCalendar"
+                },
+                "Pernr": "00005002",
+                "Date": "20161026",
+                "Status": "YACTION",
+                "TargetHours": "6.00",
+                "WorkingDay": "TRUE",
+                "EndDate": "20161030",
+                "StartDate": "20161017",
+                "FirstDayOfWeek": "MONDAY"
+            },
+            {
+                "__metadata": {
+                    "id": "http://erptestap03.braxtonj.com:8000/sap/opu/odata/sap/HCM_TIMESHEET_MAN_SRV/WorkCalendars(Pernr='00005002',Date='20161027')",
+                    "uri": "http://erptestap03.braxtonj.com:8000/sap/opu/odata/sap/HCM_TIMESHEET_MAN_SRV/WorkCalendars(Pernr='00005002',Date='20161027')",
+                    "type": "HCM_TIMESHEET_MAN_SRV.WorkCalendar"
+                },
+                "Pernr": "00005002",
+                "Date": "20161027",
+                "Status": "YACTION",
+                "TargetHours": "6.00",
+                "WorkingDay": "TRUE",
+                "EndDate": "20161030",
+                "StartDate": "20161017",
+                "FirstDayOfWeek": "MONDAY"
+            },
+            {
+                "__metadata": {
+                    "id": "http://erptestap03.braxtonj.com:8000/sap/opu/odata/sap/HCM_TIMESHEET_MAN_SRV/WorkCalendars(Pernr='00005002',Date='20161028')",
+                    "uri": "http://erptestap03.braxtonj.com:8000/sap/opu/odata/sap/HCM_TIMESHEET_MAN_SRV/WorkCalendars(Pernr='00005002',Date='20161028')",
+                    "type": "HCM_TIMESHEET_MAN_SRV.WorkCalendar"
+                },
+                "Pernr": "00005002",
+                "Date": "20161028",
+                "Status": "YACTION",
+                "TargetHours": "6.00",
+                "WorkingDay": "TRUE",
+                "EndDate": "20161030",
+                "StartDate": "20161017",
+                "FirstDayOfWeek": "MONDAY"
+            },
+            {
+                "__metadata": {
+                    "id": "http://erptestap03.braxtonj.com:8000/sap/opu/odata/sap/HCM_TIMESHEET_MAN_SRV/WorkCalendars(Pernr='00005002',Date='20161029')",
+                    "uri": "http://erptestap03.braxtonj.com:8000/sap/opu/odata/sap/HCM_TIMESHEET_MAN_SRV/WorkCalendars(Pernr='00005002',Date='20161029')",
+                    "type": "HCM_TIMESHEET_MAN_SRV.WorkCalendar"
+                },
+                "Pernr": "00005002",
+                "Date": "20161029",
+                "Status": "YACTION",
+                "TargetHours": "0.00",
+                "WorkingDay": "FALSE",
+                "EndDate": "20161030",
+                "StartDate": "20161017",
+                "FirstDayOfWeek": "MONDAY"
+            },
+            {
+                "__metadata": {
+                    "id": "http://erptestap03.braxtonj.com:8000/sap/opu/odata/sap/HCM_TIMESHEET_MAN_SRV/WorkCalendars(Pernr='00005002',Date='20161030')",
+                    "uri": "http://erptestap03.braxtonj.com:8000/sap/opu/odata/sap/HCM_TIMESHEET_MAN_SRV/WorkCalendars(Pernr='00005002',Date='20161030')",
+                    "type": "HCM_TIMESHEET_MAN_SRV.WorkCalendar"
+                },
+                "Pernr": "00005002",
+                "Date": "20161030",
+                "Status": "YACTION",
+                "TargetHours": "0.00",
+                "WorkingDay": "FALSE",
+                "EndDate": "20161030",
+                "StartDate": "20161017",
+                "FirstDayOfWeek": "MONDAY"
+            }
+        ]
+    }
+}

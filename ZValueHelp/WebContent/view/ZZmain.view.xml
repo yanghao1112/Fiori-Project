@@ -1,0 +1,212 @@
+
+<mvc:View controllerName="sap.ui.demo.wt22.controller.ZZmain"
+	xmlns:core="sap.ui.core" xmlns:layout="sap.ui.layout" xmlns="sap.m"
+	xmlns:mvc="sap.ui.core.mvc" xmlns:f="sap.ui.layout.form" height="100%">
+	<Page title="{i18n>appTitle}">
+		<ObjectHeader title="iPhone X" icon="image/Picture.PNG"
+			number="9,688" numberUnit="RMB">
+			<statuses>
+				<ObjectStatus text="High Price" state="Error" />
+				<ObjectStatus text="High Quality" state="Success" />
+			</statuses>
+			<attributes>
+				<ObjectAttribute text="256 GB" />
+				<ObjectAttribute text="174 g" />
+				<ObjectAttribute text="70.9 x 7.7 x 143.6 mm" />
+				<ObjectAttribute text="{Description}" />
+				<ObjectAttribute text="www.apple.com/cn/iphone-x" />
+			</attributes>
+		</ObjectHeader>
+		<IconTabBar id="idIconTabBar">
+			<items>
+				<IconTabFilter icon="sap-icon://action-settings"
+					iconColor="Positive" text="Tech Specs">
+					<VBox>
+						<layout:Grid defaultSpan="L6 M6 S12" vSpacing="0"
+							hSpacing="2">
+							<f:Form maxContainerCols="2" editable="false" class="isReadonly">
+								<f:title>
+									<core:Title text="Hardware" />
+								</f:title>
+								<f:layout>
+									<f:ResponsiveGridLayout labelSpanL="1"
+										labelSpanM="1" labelSpanS="3" emptySpanL="0" emptySpanM="0"
+										emptySpanS="0" columnsL="1" columnsM="1" columnsS="1" />
+								</f:layout>
+								<f:formContainers>
+									<f:FormContainer>
+										<f:formElements>
+											<f:FormElement label="Chip">
+												<f:fields>
+													<Text text="A11 Bionic chip with 64-bit architecture" />
+												</f:fields>
+											</f:FormElement>
+											<f:FormElement label="Camera">
+												<f:fields>
+													<Text text="12MP wide-angle and telephoto cameras" />
+												</f:fields>
+											</f:FormElement>
+											<f:FormElement label="Display">
+												<f:fields>
+													<Text
+														text="5.8-inch (diagonal) all-screen OLED Multi-Touch display" />
+												</f:fields>
+											</f:FormElement>
+										</f:formElements>
+									</f:FormContainer>
+								</f:formContainers>
+							</f:Form>
+							<f:Form maxContainerCols="2" editable="false" class="isReadonly">
+								<f:title>
+									<core:Title text="Software" />
+								</f:title>
+								<f:layout>
+									<f:ResponsiveGridLayout labelSpanL="1"
+										labelSpanM="1" labelSpanS="3" emptySpanL="0" emptySpanM="0"
+										emptySpanS="0" columnsL="1" columnsM="1" columnsS="1" />
+								</f:layout>
+								<f:formContainers>
+									<f:FormContainer>
+										<f:formElements>
+											<f:FormElement label="Operating System">
+												<f:fields>
+													<Text text="iOS 11" />
+												</f:fields>
+											</f:FormElement>
+											<f:FormElement label="Face ID">
+												<f:fields>
+													<Text text="Enabled by TrueDepth camera for facial recognition" />
+												</f:fields>
+											</f:FormElement>
+											<f:FormElement label="Siri">
+												<f:fields>
+													<Text
+														text="Use your voice to send messages, set reminders, and more" />
+												</f:fields>
+											</f:FormElement>
+										</f:formElements>
+									</f:FormContainer>
+								</f:formContainers>
+							</f:Form>
+						</layout:Grid>
+					</VBox>
+				</IconTabFilter>
+
+				<IconTabFilter icon="sap-icon://collections-insight"
+					iconColor="Critical" text="Sales Info">
+
+					<Table items="{/SalesInfo}">
+						<columns>
+							<Column width="12em">
+								<Text text="Province" />
+							</Column>
+							<Column width="12em" minScreenWidth="Tablet" demandPopin="true">
+								<Text text="City" />
+							</Column>
+							<Column minScreenWidth="Tablet" demandPopin="true" hAlign="Center">
+								<Text text="Sales volume" />
+							</Column>
+							<Column minScreenWidth="Tablet" demandPopin="true">
+								<Text text="Sales Progress" />
+							</Column>
+							<Column hAlign="Right">
+								<Text text="Sales Amount" />
+							</Column>
+						</columns>
+						<items>
+							<ColumnListItem>
+								<cells>
+									<ObjectIdentifier title="{Province}" />
+									<Text text="{City}" />
+
+									<ObjectNumber number="{Volume}" unit="PC" />
+									<ProgressIndicator class="sapUiSmallMarginBottom"
+										percentValue="{PorgressPercentValue}" showValue="true"
+										displayValue="{PorgressDisplayValue}" state="{PorgressState}"
+										width="80%" />
+									<ObjectNumber number="{Price}" unit="RMB" />
+								</cells>
+							</ColumnListItem>
+						</items>
+					</Table>
+				</IconTabFilter>
+
+
+				<IconTabFilter icon="sap-icon://wrench" iconColor="Negative"
+					text="Modify">
+					<f:Form editable="true">
+						<f:layout>
+							<f:ResponsiveGridLayout />
+						</f:layout>
+						<f:formContainers>
+							<f:FormContainer>
+								<f:formElements>
+									<f:FormElement label="Select">
+										<f:fields>
+											<Select>
+												<layoutData>
+													<layout:GridData span="L2 M2 S4" />
+												</layoutData>
+												<core:Item key="1" text="Shanghai" />
+												<core:Item key="2" text="Dalian" />
+												<core:Item key="3" text="Xi'an" />
+											</Select>
+										</f:fields>
+									</f:FormElement>
+									<f:FormElement label="Switch">
+										<f:fields>
+											<Switch state="true" type="AcceptReject">
+											</Switch>
+										</f:fields>
+									</f:FormElement>
+									<f:FormElement label="Decimal Input (10,3)">
+										<f:fields>
+											<Input id="name" change="onDecimalCheck">
+												<layoutData>
+													<layout:GridData span="XL1 L3 M3 S4" />
+												</layoutData>
+											</Input>
+										</f:fields>
+									</f:FormElement>
+									<f:FormElement label="Int16">
+										<f:fields>
+											<Input change="onIntCheck">
+												<layoutData>
+													<layout:GridData span="XL1 L3 M3 S4" />
+												</layoutData>
+											</Input>
+										</f:fields>
+									</f:FormElement>
+									<f:FormElement label="String(Length 30)">
+										<f:fields>
+											<Input id="string" change="onStringCheck">
+												<layoutData>
+													<layout:GridData span="XL1 L3 M3 S4" />
+												</layoutData>
+											</Input>
+										</f:fields>
+									</f:FormElement>
+								</f:formElements>
+							</f:FormContainer>
+						</f:formContainers>
+					</f:Form>
+				</IconTabFilter>
+
+				<IconTabFilter icon="sap-icon://connected" text="OData">
+					<List id="aaa" headerText="OData Result" items="{undefined>/list}">
+						<StandardListItem title="{Ybutxt}" info="{Ybukrs}" />
+					</List>
+
+				</IconTabFilter>
+
+
+				<IconTabFilter icon="sap-icon://connected" text="OData">
+					<List headerText="OData Result" items="{undefined>/list}">
+						<StandardListItem title="{Ybutxt}" info="{Ybukrs}" />
+					</List>
+
+				</IconTabFilter>
+			</items>
+		</IconTabBar>
+	</Page>
+</mvc:View>

@@ -1,0 +1,114 @@
+{
+	"_version": "1.1.0",
+	"sap.app": {
+		"_version": "1.1.0",
+		"id": "sap.ZZZ01.ZCHARTTEST",
+		"type": "application",
+		"i18n": "i18n/i18n.properties",
+		"applicationVersion": {
+			"version": "1.0.0"
+		},
+		"title": "{{appTitle}}",
+		"description": "{{appDescription}}",
+		"dataSources": {
+			"mainService": {
+				"uri": "proxy/sap/opu/odata/sap/ZDELIVERY_FORCAST_SRV",
+				"type": "OData",
+				"settings": {
+					"odataVersion": "2.0"
+				}
+			}
+		}
+	},
+	"sap.ui": {
+		"_version": "1.1.0",
+		"technology": "UI5",
+		"icons": {
+			"icon": "",
+			"favIcon": "",
+			"phone": "",
+			"phone@2": "",
+			"tablet": "",
+			"tablet@2": ""
+		},
+		"deviceTypes": {
+			"desktop": true,
+			"tablet": true,
+			"phone": true
+		},
+		"supportedThemes": [
+			"sap_hcb",
+			"sap_bluecrystal"
+		],
+        "fullWidth": true
+	},
+	"sap.ui5": {
+		"_version": "1.1.0",
+		"rootView": {
+			"viewName": "sap.ZZZ01.ZCHARTTEST.view.App",
+			"type": "XML"
+		},
+		"routing": {
+			"config": {
+				"viewType": "XML",
+				"viewPath": "sap.ZZZ01.ZCHARTTEST.view",
+				"targetAggregation": "pages",
+				"clearTarget": true
+			},
+			"routes": [
+				{
+					"pattern": "",
+					"name": "ZZmain",
+					"view": "ZZmain",
+					"targetAggregation": "pages",
+					"targetControl": "fioriContent"
+				}
+			]
+		},
+		"dependencies": {
+			"minUI5Version": "1.30.0",
+			"libs": {
+				"sap.ui.core": {
+					"minVersion": "1.42.0"
+				},
+				"sap.m": {
+					"minVersion": "1.42.0"
+				},
+				"sap.suite.ui.commons": {
+					"minVersion": "1.42.0"
+				},
+				"sap.ushell": {
+					"minVersion": "1.42.0"
+				},
+				"sap.collaboration": {
+					"minVersion": "1.42",
+					"lazy": true
+				},
+				"sap.ui.comp": {
+					"minVersion": "1.42",
+					"lazy": true
+				}
+			}
+		},
+		"models": {
+			"i18n": {
+				"type": "sap.ui.model.resource.ResourceModel",
+				"settings": {
+					"bundleName": "sap.ZZZ01.ZCHARTTEST.i18n.i18n"
+				}
+			},
+			"list": {
+				"type": "sap.ui.model.json.JSONModel",
+				"uri": "data/data.json"
+			},
+			"": {
+				"type": "sap.ui.model.json.JSONModel",
+				"uri": "data/abc.json"
+			},
+			"oDataModel": {
+				"dataSource": "mainService",
+				"preload": true
+			}
+		}
+	}
+}

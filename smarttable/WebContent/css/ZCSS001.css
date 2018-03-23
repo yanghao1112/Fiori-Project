@@ -1,0 +1,35 @@
+/* Adjust position of filter text bar */
+.ZZText{
+	white-space: normal !important;	
+}
+/* Adjust position of filter bar above list */  
+.ZZToolbar{
+	padding-left: 0px !important;
+	background-color: white !important;
+}
+/* Adjust select-all checkbox width */
+.ZZSELECTALL {
+	width: 50%;
+}
+/* Adjust position of subentry button on detail part */
+.ZZDetailSubEntery {
+	margin-top: 30px;
+    margin-left: 30px;
+}
+/* Hide unused part in ZHE_APPLICANT */
+.compVHTokensPanel {
+	display: none;
+}
+.ZZNoIME > input{
+       ime-mode: disabled !important;
+}
+/* Text Right Align */
+.ZZTestRight {
+	text-align: right;
+}
+.sapMITBHorizontal.sapMITBFilter>.sapMITBHorizontalWrapper>.sapMITBText {
+	text-overflow: clip !important;
+}
+.sapMITBFilter .sapMITBText {
+	padding-left: 0.15rem !important;
+}

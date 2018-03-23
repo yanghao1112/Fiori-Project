@@ -1,0 +1,50 @@
+<!DOCTYPE HTML>
+<html>
+
+	<head>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta charset="UTF-8">
+
+		<title>TEST</title>
+
+		<script id="sap-ui-bootstrap"
+			src="resources/sap-ui-core.js"
+			data-sap-ui-libs="sap.m"
+			data-sap-ui-theme="sap_bluecrystal"
+			data-sap-ui-compatVersion="edge"
+			data-sap-ui-resourceroots='{"sap.ZZZ01.YY_TS_SETTING": "./"}'>
+		</script>
+		
+		<script src='js/plotly.min.js'></script>
+		<script src='js/Chart.min.js'></script>
+		<script src='js/jszip.js'></script>
+		<script src='js/FileSaver.js'></script>
+		<script src='js/sheet.js'></script>
+    
+  
+    
+  
+    
+<!--        <script type="text/javascript" src="https://rawgit.com/xSirrioNx/js-xlsx/master/xlsx.js"></script> -->
+    
+  
+    
+      
+		<link rel="stylesheet" type="text/css" href="css/style.css">
+
+		<script>
+			sap.ui.getCore().attachInit(function() {
+				new sap.m.Shell({
+					app: new sap.ui.core.ComponentContainer({
+						height : "100%",
+						name : "sap.ZZZ01.YY_TS_SETTING"
+					})
+				}).placeAt("content");
+			});
+		</script>
+	</head>
+
+	<body class="sapUiBody" id="content">
+	</body>
+
+</html>

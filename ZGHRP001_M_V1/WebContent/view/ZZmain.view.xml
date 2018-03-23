@@ -1,0 +1,2193 @@
+<mvc:View controllerName="sap.ZG001.timesheet.input.dailyDemo.controller.ZZmain"
+	xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:unified="sap.ui.unified"
+	xmlns:sap.me="sap.me" xmlns:sap.ui.layout="sap.ui.layout"
+	xmlns:sap.ui.layout.form="sap.ui.layout.form" xmlns:sap.ui.core="sap.ui.core"
+	xmlns:addon="sap.ZG001.timesheet.input.dailyDemo.control">
+	<Page title="{i18n>ZF_WRKHOURENT}" showNavButton="true"
+		navButtonPress="onCancel" id="Page">
+		<headerContent>
+			<Button icon="sap-icon://citizen-connect" visible="{screenModel>/ProxyVisible}"
+				press="onProxyPress" />
+		</headerContent>
+		<content>
+			<sap.ui.layout:FixFlex id="FixFlex">
+				<!-- <sap.ui.layout:fixContent> <unified:CalendarDateInterval id="CalendarDateInterval" 
+					days="7" width="100%" select="onTapOnDate" startDateChange="onStartDateChanged" 
+					calss="ZZsapUiCal" > </unified:CalendarDateInterval> </sap.ui.layout:fixContent> -->
+
+				<sap.ui.layout:flexContent>
+					<!-- <sap.me:Calendar id="weeklyCalendar" singleRow="true" weeksPerRow="2"> 
+						</sap.me:Calendar> -->
+					<ScrollContainer id="scroller" vertical="true"
+						height="100%" focusable="true">
+						<content>
+
+							<IconTabBar id="iconTab" select="onTabChange"
+								expanded="true" class="sapUiResponsiveContentPadding">
+								<items>
+									<IconTabFilter text="{i18n>ZF_TAB_36AGREE}" key="36Agree" icon="sap-icon://business-by-design">
+										<sap.ui.layout.form:Form
+											maxContainerCols="2" visible="{SettingInfo>ManageVisible}">
+											<sap.ui.layout.form:toolbar>
+												<Toolbar>
+													<Title text="{i18n>ZF_ACTOT}" level="H5" titleStyle="H5" />
+												</Toolbar>
+											</sap.ui.layout.form:toolbar>
+											<sap.ui.layout.form:layout>
+												<sap.ui.layout.form:ResponsiveGridLayout
+													labelSpanL="4" emptySpanL="3" labelSpanM="4" emptySpanM="2"
+													columnsL="2" columnsM="2" />
+											</sap.ui.layout.form:layout>
+											<sap.ui.layout.form:formContainers>
+												<sap.ui.layout.form:FormContainer>
+													<sap.ui.layout.form:FormElement>
+
+													</sap.ui.layout.form:FormElement>
+
+												</sap.ui.layout.form:FormContainer>
+											</sap.ui.layout.form:formContainers>
+										</sap.ui.layout.form:Form>
+										<ScrollContainer horizontal="true" vertical="false"
+											focusable="true"
+											visible="{parts: [{path: 'device>/isPhone'},
+																						{path: 'SettingInfo>ManageVisible'}],
+																				formatter: 'sap.ZG001.timesheet.input.dailyDemo.util.Formatter.fmt36PhoneVisible'}">
+											<Table id="YearInformation3">
+												<headerToolbar>
+													<Toolbar>
+														<Title text="{i18n>ZF_MONDETAL}" level="H2" />
+													</Toolbar>
+												</headerToolbar>
+												<columns>
+													<Column width="120px">
+														<VBox>
+															<Text text="{i18n>ZF_CAP}" />
+														</VBox>
+													</Column>
+													<Column width="100px">
+														<VBox class="ZZTestRight">
+															<Text text="{i18n>ZF_MON}{i18n>ZF_NORMALSEA}" />
+															<Text
+																text="{MonthDetailInfo>/NormalMonthlyLabel}{i18n>ZF_LIMITHOURS}" />
+														</VBox>
+													</Column>
+													<Column width="100px">
+														<VBox class="ZZTestRight">
+															<Text text="{i18n>ZF_MON}{i18n>ZF_BUSYSEA}" />
+															<Text
+																text="{MonthDetailInfo>/BusyMonthlyLabel}{i18n>ZF_LIMITHOURS}" />
+														</VBox>
+													</Column>
+													<Column width="100px">
+														<VBox class="ZZTestRight">
+															<Text text="{i18n>ZF_YEARTOTAL}" />
+															<Text
+																text="{MonthDetailInfo>/AccuYearlyLabel}{i18n>ZF_LIMITHOURS}" />
+														</VBox>
+													</Column>
+													<Column width="180px">
+														<VBox class="ZZTestRight">
+															<Text
+																text="{i18n>ZF_YEAR}{MonthDetailInfo>/NormalMonthlyLabel}{i18n>ZF_OVERTIMESYEAR}" />
+															<Text
+																text="{MonthDetailInfo>/BelowTimesLabel}{i18n>ZF_LIMITTIMES}" />
+														</VBox>
+													</Column>
+												</columns>
+												<items>
+													<ColumnListItem>
+														<cells>
+															<VBox>
+																<Text text="{i18n>ZF_CURRENT}" />
+															</VBox>
+															<VBox class="ZZTestRight">
+																<VBox class="ZZTestRight"
+																	visible="{= (${MonthDetailInfo>/OvertimeNormalColor} === '0')}">
+																	<Text text="{MonthDetailInfo>/OvertimeNormalMonthly}" />
+																</VBox>
+																<VBox class="ZZTestRight ZZYellow"
+																	visible="{= (${MonthDetailInfo>/OvertimeNormalColor} === '1')}">
+																	<Text text="{MonthDetailInfo>/OvertimeNormalMonthly}" />
+																</VBox>
+																<VBox class="ZZTestRight ZZRed"
+																	visible="{= (${MonthDetailInfo>/OvertimeNormalColor} === '2')}">
+																	<Text text="{MonthDetailInfo>/OvertimeNormalMonthly}" />
+																</VBox>
+															</VBox>
+															<VBox class="ZZTestRight">
+																<VBox class="ZZTestRight"
+																	visible="{= (${MonthDetailInfo>/OvertimeBusyColor} === '0')}">
+																	<Text text="{MonthDetailInfo>/OvertimeBusyMonthly}" />
+																</VBox>
+																<VBox class="ZZTestRight ZZYellow"
+																	visible="{= (${MonthDetailInfo>/OvertimeBusyColor} === '1')}">
+																	<Text text="{MonthDetailInfo>/OvertimeBusyMonthly}" />
+																</VBox>
+																<VBox class="ZZTestRight ZZRed"
+																	visible="{= (${MonthDetailInfo>/OvertimeBusyColor} === '2')}">
+																	<Text text="{MonthDetailInfo>/OvertimeBusyMonthly}" />
+																</VBox>
+															</VBox>
+															<VBox class="ZZTestRight">
+																<VBox class="ZZTestRight"
+																	visible="{= (${MonthDetailInfo>/OvertimeYearColor} === '0')}">
+																	<Text text="{MonthDetailInfo>/OvertimeYearly}" />
+																</VBox>
+																<VBox class="ZZTestRight ZZYellow"
+																	visible="{= (${MonthDetailInfo>/OvertimeYearColor} === '1')}">
+																	<Text text="{MonthDetailInfo>/OvertimeYearly}" />
+																</VBox>
+																<VBox class="ZZTestRight ZZRed"
+																	visible="{= (${MonthDetailInfo>/OvertimeYearColor} === '2')}">
+																	<Text text="{MonthDetailInfo>/OvertimeYearly}" />
+																</VBox>
+															</VBox>
+															<VBox class="ZZTestRight">
+																<VBox class="ZZTestRight"
+																	visible="{= (${MonthDetailInfo>/OvertimeTimesColor} === '0')}">
+																	<Text text="{MonthDetailInfo>/OvertimeTimes}" />
+																</VBox>
+																<VBox class="ZZTestRight ZZYellow"
+																	visible="{= (${MonthDetailInfo>/OvertimeTimesColor} === '1')}">
+																	<Text text="{MonthDetailInfo>/OvertimeTimes}" />
+																</VBox>
+																<VBox class="ZZTestRight ZZRed"
+																	visible="{= (${MonthDetailInfo>/OvertimeTimesColor} === '2')}">
+																	<Text text="{MonthDetailInfo>/OvertimeTimes}" />
+																</VBox>
+															</VBox>
+														</cells>
+													</ColumnListItem>
+													<ColumnListItem>
+														<cells>
+															<VBox>
+																<Text text="{i18n>ZF_TIMES}" />
+															</VBox>
+															<VBox class="ZZTestRight">
+																<Text text="{MonthDetailInfo>/NormalMonthlyRemain}" />
+															</VBox>
+															<VBox class="ZZTestRight">
+																<Text text="{MonthDetailInfo>/BusylMonthlyRemain}" />
+															</VBox>
+															<VBox class="ZZTestRight">
+																<Text text="{MonthDetailInfo>/OvertimeYearlyRemain}" />
+															</VBox>
+															<VBox class="ZZTestRight">
+																<Text text="{MonthDetailInfo>/OvertimeTimesRemain}" />
+															</VBox>
+														</cells>
+													</ColumnListItem>
+												</items>
+											</Table>
+										</ScrollContainer>
+
+										<ScrollContainer horizontal="true" vertical="false"
+											focusable="true" visible="{path: 'device>/isPhone'}">
+											<Table items="{MonthlyWorkingTime>/results}">
+												<headerToolbar>
+													<Toolbar>
+														<Title text="{i18n>ZF_OTBYMONTH}" level="H2" />
+													</Toolbar>
+												</headerToolbar>
+												<columns>
+													<Column width="140px">
+														<Text text="{i18n>ZF_MONTH}" />
+													</Column>
+													<Column width="50px">
+														<VBox class="ZZTestRight">
+															<Text text="{i18n>ZF_APR}" />
+														</VBox>
+													</Column>
+													<Column width="50px">
+														<VBox class="ZZTestRight">
+															<Text text="{i18n>ZF_MAY}" />
+														</VBox>
+													</Column>
+													<Column width="50px">
+														<VBox class="ZZTestRight">
+															<Text text="{i18n>ZF_JUN}" />
+														</VBox>
+													</Column>
+													<Column width="50px">
+														<VBox class="ZZTestRight">
+															<Text text="{i18n>ZF_JUL}" />
+														</VBox>
+													</Column>
+													<Column width="50px">
+														<VBox class="ZZTestRight">
+															<Text text="{i18n>ZF_AUG}" />
+														</VBox>
+													</Column>
+													<Column width="50px">
+														<VBox class="ZZTestRight">
+															<Text text="{i18n>ZF_SEP}" />
+														</VBox>
+													</Column>
+													<Column width="50px">
+														<VBox class="ZZTestRight">
+															<Text text="{i18n>ZF_OCT}" />
+														</VBox>
+													</Column>
+													<Column width="50px">
+														<VBox class="ZZTestRight">
+															<Text text="{i18n>ZF_NOV}" />
+														</VBox>
+													</Column>
+													<Column width="50px">
+														<VBox class="ZZTestRight">
+															<Text text="{i18n>ZF_DEC}" />
+														</VBox>
+													</Column>
+													<Column width="50px">
+														<VBox class="ZZTestRight">
+															<Text text="{i18n>ZF_JAN}" />
+														</VBox>
+													</Column>
+													<Column width="50px">
+														<VBox class="ZZTestRight">
+															<Text text="{i18n>ZF_FEB}" />
+														</VBox>
+													</Column>
+													<Column width="50px">
+														<VBox class="ZZTestRight">
+															<Text text="{i18n>ZF_MAR}" />
+														</VBox>
+													</Column>
+												</columns>
+												<items>
+													<ColumnListItem>
+														<cells>
+															<VBox>
+																<Text
+																	text="{path: 'MonthlyWorkingTime>ValueType',
+																												formatter: '.formatValueTypeText'}" />
+															</VBox>
+															<VBox class="ZZTestRight">
+																<VBox class="ZZTestRight"
+																	visible="{= (${MonthlyWorkingTime>HoursM4Color} === '0')}">
+																	<Text text="{MonthlyWorkingTime>HoursM4}" />
+																</VBox>
+																<VBox class="ZZTestRight ZZYellow"
+																	visible="{= (${MonthlyWorkingTime>HoursM4Color} === '1')}">
+																	<Text text="{MonthlyWorkingTime>HoursM4}" />
+																</VBox>
+																<VBox class="ZZTestRight ZZRed"
+																	visible="{= (${MonthlyWorkingTime>HoursM4Color} === '2')}">
+																	<Text text="{MonthlyWorkingTime>HoursM4}" />
+																</VBox>
+															</VBox>
+															<VBox class="ZZTestRight">
+																<VBox class="ZZTestRight"
+																	visible="{= (${MonthlyWorkingTime>HoursM5Color} === '0')}">
+																	<Text text="{MonthlyWorkingTime>HoursM5}" />
+																</VBox>
+																<VBox class="ZZTestRight ZZYellow"
+																	visible="{= (${MonthlyWorkingTime>HoursM5Color} === '1')}">
+																	<Text text="{MonthlyWorkingTime>HoursM5}" />
+																</VBox>
+																<VBox class="ZZTestRight ZZRed"
+																	visible="{= (${MonthlyWorkingTime>HoursM5Color} === '2')}">
+																	<Text text="{MonthlyWorkingTime>HoursM5}" />
+																</VBox>
+															</VBox>
+															<VBox class="ZZTestRight">
+																<VBox class="ZZTestRight"
+																	visible="{= (${MonthlyWorkingTime>HoursM6Color} === '0')}">
+																	<Text text="{MonthlyWorkingTime>HoursM6}" />
+																</VBox>
+																<VBox class="ZZTestRight ZZYellow"
+																	visible="{= (${MonthlyWorkingTime>HoursM6Color} === '1')}">
+																	<Text text="{MonthlyWorkingTime>HoursM6}" />
+																</VBox>
+																<VBox class="ZZTestRight ZZRed"
+																	visible="{= (${MonthlyWorkingTime>HoursM6Color} === '2')}">
+																	<Text text="{MonthlyWorkingTime>HoursM6}" />
+																</VBox>
+															</VBox>
+															<VBox class="ZZTestRight">
+																<VBox class="ZZTestRight"
+																	visible="{= (${MonthlyWorkingTime>HoursM7Color} === '0')}">
+																	<Text text="{MonthlyWorkingTime>HoursM7}" />
+																</VBox>
+																<VBox class="ZZTestRight ZZYellow"
+																	visible="{= (${MonthlyWorkingTime>HoursM7Color} === '1')}">
+																	<Text text="{MonthlyWorkingTime>HoursM7}" />
+																</VBox>
+																<VBox class="ZZTestRight ZZRed"
+																	visible="{= (${MonthlyWorkingTime>HoursM7Color} === '2')}">
+																	<Text text="{MonthlyWorkingTime>HoursM7}" />
+																</VBox>
+															</VBox>
+															<VBox class="ZZTestRight">
+																<VBox class="ZZTestRight"
+																	visible="{= (${MonthlyWorkingTime>HoursM8Color} === '0')}">
+																	<Text text="{MonthlyWorkingTime>HoursM8}" />
+																</VBox>
+																<VBox class="ZZTestRight ZZYellow"
+																	visible="{= (${MonthlyWorkingTime>HoursM8Color} === '1')}">
+																	<Text text="{MonthlyWorkingTime>HoursM8}" />
+																</VBox>
+																<VBox class="ZZTestRight ZZRed"
+																	visible="{= (${MonthlyWorkingTime>HoursM8Color} === '2')}">
+																	<Text text="{MonthlyWorkingTime>HoursM8}" />
+																</VBox>
+															</VBox>
+															<VBox class="ZZTestRight">
+																<VBox class="ZZTestRight"
+																	visible="{= (${MonthlyWorkingTime>HoursM9Color} === '0')}">
+																	<Text text="{MonthlyWorkingTime>HoursM9}" />
+																</VBox>
+																<VBox class="ZZTestRight ZZYellow"
+																	visible="{= (${MonthlyWorkingTime>HoursM9Color} === '1')}">
+																	<Text text="{MonthlyWorkingTime>HoursM9}" />
+																</VBox>
+																<VBox class="ZZTestRight ZZRed"
+																	visible="{= (${MonthlyWorkingTime>HoursM9Color} === '2')}">
+																	<Text text="{MonthlyWorkingTime>HoursM9}" />
+																</VBox>
+															</VBox>
+															<VBox class="ZZTestRight">
+																<VBox class="ZZTestRight"
+																	visible="{= (${MonthlyWorkingTime>HoursM10Color} === '0')}">
+																	<Text text="{MonthlyWorkingTime>HoursM10}" />
+																</VBox>
+																<VBox class="ZZTestRight ZZYellow"
+																	visible="{= (${MonthlyWorkingTime>HoursM10Color} === '1')}">
+																	<Text text="{MonthlyWorkingTime>HoursM10}" />
+																</VBox>
+																<VBox class="ZZTestRight ZZRed"
+																	visible="{= (${MonthlyWorkingTime>HoursM10Color} === '2')}">
+																	<Text text="{MonthlyWorkingTime>HoursM10}" />
+																</VBox>
+															</VBox>
+															<VBox class="ZZTestRight">
+																<VBox class="ZZTestRight"
+																	visible="{= (${MonthlyWorkingTime>HoursM11Color} === '0')}">
+																	<Text text="{MonthlyWorkingTime>HoursM11}" />
+																</VBox>
+																<VBox class="ZZTestRight ZZYellow"
+																	visible="{= (${MonthlyWorkingTime>HoursM11Color} === '1')}">
+																	<Text text="{MonthlyWorkingTime>HoursM11}" />
+																</VBox>
+																<VBox class="ZZTestRight ZZRed"
+																	visible="{= (${MonthlyWorkingTime>HoursM11Color} === '2')}">
+																	<Text text="{MonthlyWorkingTime>HoursM11}" />
+																</VBox>
+															</VBox>
+															<VBox class="ZZTestRight">
+																<VBox class="ZZTestRight"
+																	visible="{= (${MonthlyWorkingTime>HoursM12Color} === '0')}">
+																	<Text text="{MonthlyWorkingTime>HoursM12}" />
+																</VBox>
+																<VBox class="ZZTestRight ZZYellow"
+																	visible="{= (${MonthlyWorkingTime>HoursM12Color} === '1')}">
+																	<Text text="{MonthlyWorkingTime>HoursM12}" />
+																</VBox>
+																<VBox class="ZZTestRight ZZRed"
+																	visible="{= (${MonthlyWorkingTime>HoursM12Color} === '2')}">
+																	<Text text="{MonthlyWorkingTime>HoursM12}" />
+																</VBox>
+															</VBox>
+															<VBox class="ZZTestRight">
+																<VBox class="ZZTestRight"
+																	visible="{= (${MonthlyWorkingTime>HoursM1Color} === '0')}">
+																	<Text text="{MonthlyWorkingTime>HoursM1}" />
+																</VBox>
+																<VBox class="ZZTestRight ZZYellow"
+																	visible="{= (${MonthlyWorkingTime>HoursM1Color} === '1')}">
+																	<Text text="{MonthlyWorkingTime>HoursM1}" />
+																</VBox>
+																<VBox class="ZZTestRight ZZRed"
+																	visible="{= (${MonthlyWorkingTime>HoursM1Color} === '2')}">
+																	<Text text="{MonthlyWorkingTime>HoursM1}" />
+																</VBox>
+															</VBox>
+															<VBox class="ZZTestRight">
+																<VBox class="ZZTestRight"
+																	visible="{= (${MonthlyWorkingTime>HoursM2Color} === '0')}">
+																	<Text text="{MonthlyWorkingTime>HoursM2}" />
+																</VBox>
+																<VBox class="ZZTestRight ZZYellow"
+																	visible="{= (${MonthlyWorkingTime>HoursM2Color} === '1')}">
+																	<Text text="{MonthlyWorkingTime>HoursM2}" />
+																</VBox>
+																<VBox class="ZZTestRight ZZRed"
+																	visible="{= (${MonthlyWorkingTime>HoursM2Color} === '2')}">
+																	<Text text="{MonthlyWorkingTime>HoursM2}" />
+																</VBox>
+															</VBox>
+															<VBox class="ZZTestRight">
+																<VBox class="ZZTestRight"
+																	visible="{= (${MonthlyWorkingTime>HoursM3Color} === '0')}">
+																	<Text text="{MonthlyWorkingTime>HoursM3}" />
+																</VBox>
+																<VBox class="ZZTestRight ZZYellow"
+																	visible="{= (${MonthlyWorkingTime>HoursM3Color} === '1')}">
+																	<Text text="{MonthlyWorkingTime>HoursM3}" />
+																</VBox>
+																<VBox class="ZZTestRight ZZRed"
+																	visible="{= (${MonthlyWorkingTime>HoursM3Color} === '2')}">
+																	<Text text="{MonthlyWorkingTime>HoursM3}" />
+																</VBox>
+															</VBox>
+														</cells>
+													</ColumnListItem>
+												</items>
+											</Table>
+										</ScrollContainer>
+										<Table
+											visible="{parts: [{path: 'device>/isNoPhone'},
+																						{path: 'SettingInfo>ManageVisible'}],
+																				formatter: 'sap.ZG001.timesheet.input.dailyDemo.util.Formatter.fmt36NoPhoneVisible'}">
+											<headerToolbar>
+												<Toolbar>
+													<Title text="{i18n>ZF_MONDETAL}" level="H2" />
+												</Toolbar>
+											</headerToolbar>
+											<columns>
+												<Column width="18%">
+													<VBox>
+														<Text text="{i18n>ZF_CAP}" />
+													</VBox>
+												</Column>
+												<Column width="18%" minScreenWidth="Phone"
+													demandPopin="true">
+													<VBox class="ZZTestRight">
+														<Text text="{i18n>ZF_MON}{i18n>ZF_NORMALSEA}" />
+														<Text
+															text="{MonthDetailInfo>/NormalMonthlyLabel}{i18n>ZF_LIMITHOURS}" />
+													</VBox>
+												</Column>
+												<Column width="18%" demandPopin="true">
+													<VBox class="ZZTestRight">
+														<Text text="{i18n>ZF_MON}{i18n>ZF_BUSYSEA}" />
+														<Text
+															text="{MonthDetailInfo>/BusyMonthlyLabel}{i18n>ZF_LIMITHOURS}" />
+													</VBox>
+												</Column>
+												<Column width="18%">
+													<VBox class="ZZTestRight">
+														<Text text="{i18n>ZF_YEARTOTAL}" />
+														<Text
+															text="{MonthDetailInfo>/AccuYearlyLabel}{i18n>ZF_LIMITHOURS}" />
+													</VBox>
+												</Column>
+												<Column>
+													<VBox class="ZZTestRight">
+														<Text
+															text="{i18n>ZF_YEAR}{MonthDetailInfo>/NormalMonthlyLabel}{i18n>ZF_OVERTIMESYEAR}" />
+														<Text
+															text="{MonthDetailInfo>/BelowTimesLabel}{i18n>ZF_LIMITTIMES}" />
+													</VBox>
+												</Column>
+											</columns>
+											<items>
+												<ColumnListItem>
+													<cells>
+														<VBox>
+															<Text text="{i18n>ZF_CURRENT}" />
+														</VBox>
+														<VBox class="ZZTestRight">
+															<VBox class="ZZTestRight"
+																visible="{= (${MonthDetailInfo>/OvertimeNormalColor} === '0')}">
+																<Text text="{MonthDetailInfo>/OvertimeNormalMonthly}" />
+															</VBox>
+															<VBox class="ZZTestRight ZZYellow"
+																visible="{= (${MonthDetailInfo>/OvertimeNormalColor} === '1')}">
+																<Text text="{MonthDetailInfo>/OvertimeNormalMonthly}" />
+															</VBox>
+															<VBox class="ZZTestRight ZZRed"
+																visible="{= (${MonthDetailInfo>/OvertimeNormalColor} === '2')}">
+																<Text text="{MonthDetailInfo>/OvertimeNormalMonthly}" />
+															</VBox>
+
+														</VBox>
+														<VBox class="ZZTestRight">
+															<VBox class="ZZTestRight"
+																visible="{= (${MonthDetailInfo>/OvertimeBusyColor} === '0')}">
+																<Text text="{MonthDetailInfo>/OvertimeBusyMonthly}" />
+															</VBox>
+															<VBox class="ZZTestRight ZZYellow"
+																visible="{= (${MonthDetailInfo>/OvertimeBusyColor} === '1')}">
+																<Text text="{MonthDetailInfo>/OvertimeBusyMonthly}" />
+															</VBox>
+															<VBox class="ZZTestRight ZZRed"
+																visible="{= (${MonthDetailInfo>/OvertimeBusyColor} === '2')}">
+																<Text text="{MonthDetailInfo>/OvertimeBusyMonthly}" />
+															</VBox>
+
+														</VBox>
+														<VBox class="ZZTestRight">
+															<VBox class="ZZTestRight"
+																visible="{= (${MonthDetailInfo>/OvertimeYearColor} === '0')}">
+																<Text text="{MonthDetailInfo>/OvertimeYearly}" />
+															</VBox>
+															<VBox class="ZZTestRight ZZYellow"
+																visible="{= (${MonthDetailInfo>/OvertimeYearColor} === '1')}">
+																<Text text="{MonthDetailInfo>/OvertimeYearly}" />
+															</VBox>
+															<VBox class="ZZTestRight ZZRed"
+																visible="{= (${MonthDetailInfo>/OvertimeYearColor} === '2')}">
+																<Text text="{MonthDetailInfo>/OvertimeYearly}" />
+															</VBox>
+
+														</VBox>
+														<VBox class="ZZTestRight">
+															<VBox class="ZZTestRight"
+																visible="{= (${MonthDetailInfo>/OvertimeTimesColor} === '0')}">
+																<Text text="{MonthDetailInfo>/OvertimeTimes}" />
+															</VBox>
+															<VBox class="ZZTestRight ZZYellow"
+																visible="{= (${MonthDetailInfo>/OvertimeTimesColor} === '1')}">
+																<Text text="{MonthDetailInfo>/OvertimeTimes}" />
+															</VBox>
+															<VBox class="ZZTestRight ZZRed"
+																visible="{= (${MonthDetailInfo>/OvertimeTimesColor} === '2')}">
+																<Text text="{MonthDetailInfo>/OvertimeTimes}" />
+															</VBox>
+
+														</VBox>
+													</cells>
+												</ColumnListItem>
+												<ColumnListItem>
+													<cells>
+														<VBox>
+															<Text text="{i18n>ZF_TIMES}" />
+														</VBox>
+														<VBox class="ZZTestRight">
+															<Text text="{MonthDetailInfo>/NormalMonthlyRemain}" />
+														</VBox>
+														<VBox class="ZZTestRight">
+															<Text text="{MonthDetailInfo>/BusylMonthlyRemain}" />
+														</VBox>
+														<VBox class="ZZTestRight">
+															<Text text="{MonthDetailInfo>/OvertimeYearlyRemain}" />
+														</VBox>
+														<VBox class="ZZTestRight">
+															<Text text="{MonthDetailInfo>/OvertimeTimesRemain}" />
+														</VBox>
+													</cells>
+												</ColumnListItem>
+											</items>
+										</Table>
+
+										<Table items="{MonthlyWorkingTime>/results}" visible="{path: 'device>/isNoPhone'}">
+
+											<headerToolbar>
+												<Toolbar>
+													<Title text="{i18n>ZF_OTBYMONTH}" level="H2" />
+												</Toolbar>
+											</headerToolbar>
+											<columns>
+												<Column width="28%">
+													<Text text="{i18n>ZF_MONTH}" />
+												</Column>
+												<Column width="14%">
+													<VBox class="ZZTestRight">
+														<Text text="{i18n>ZF_APR}" />
+													</VBox>
+												</Column>
+												<Column width="14%">
+													<VBox class="ZZTestRight">
+														<Text text="{i18n>ZF_MAY}" />
+													</VBox>
+												</Column>
+												<Column width="14%">
+													<VBox class="ZZTestRight">
+														<Text text="{i18n>ZF_JUN}" />
+													</VBox>
+												</Column>
+												<Column width="14%">
+													<VBox class="ZZTestRight">
+														<Text text="{i18n>ZF_JUL}" />
+													</VBox>
+												</Column>
+												<Column width="14%">
+													<VBox class="ZZTestRight">
+														<Text text="{i18n>ZF_AUG}" />
+													</VBox>
+												</Column>
+												<Column width="14%">
+													<VBox class="ZZTestRight">
+														<Text text="{i18n>ZF_SEP}" />
+													</VBox>
+												</Column>
+											</columns>
+											<items>
+												<ColumnListItem>
+													<cells>
+														<VBox>
+															<Text
+																text="{path: 'MonthlyWorkingTime>ValueType',
+																												formatter: '.formatValueTypeText'}" />
+														</VBox>
+														<VBox class="ZZTestRight">
+															<VBox class="ZZTestRight"
+																visible="{= (${MonthlyWorkingTime>HoursM4Color} === '0')}">
+																<Text text="{MonthlyWorkingTime>HoursM4}" />
+															</VBox>
+															<VBox class="ZZTestRight ZZYellow"
+																visible="{= (${MonthlyWorkingTime>HoursM4Color} === '1')}">
+																<Text text="{MonthlyWorkingTime>HoursM4}" />
+															</VBox>
+															<VBox class="ZZTestRight ZZRed"
+																visible="{= (${MonthlyWorkingTime>HoursM4Color} === '2')}">
+																<Text text="{MonthlyWorkingTime>HoursM4}" />
+															</VBox>
+														</VBox>
+														<VBox class="ZZTestRight">
+															<VBox class="ZZTestRight"
+																visible="{= (${MonthlyWorkingTime>HoursM5Color} === '0')}">
+																<Text text="{MonthlyWorkingTime>HoursM5}" />
+															</VBox>
+															<VBox class="ZZTestRight ZZYellow"
+																visible="{= (${MonthlyWorkingTime>HoursM5Color} === '1')}">
+																<Text text="{MonthlyWorkingTime>HoursM5}" />
+															</VBox>
+															<VBox class="ZZTestRight ZZRed"
+																visible="{= (${MonthlyWorkingTime>HoursM5Color} === '2')}">
+																<Text text="{MonthlyWorkingTime>HoursM5}" />
+															</VBox>
+														</VBox>
+														<VBox class="ZZTestRight">
+															<VBox class="ZZTestRight"
+																visible="{= (${MonthlyWorkingTime>HoursM6Color} === '0')}">
+																<Text text="{MonthlyWorkingTime>HoursM6}" />
+															</VBox>
+															<VBox class="ZZTestRight ZZYellow"
+																visible="{= (${MonthlyWorkingTime>HoursM6Color} === '1')}">
+																<Text text="{MonthlyWorkingTime>HoursM6}" />
+															</VBox>
+															<VBox class="ZZTestRight ZZRed"
+																visible="{= (${MonthlyWorkingTime>HoursM6Color} === '2')}">
+																<Text text="{MonthlyWorkingTime>HoursM6}" />
+															</VBox>
+														</VBox>
+														<VBox class="ZZTestRight">
+															<VBox class="ZZTestRight"
+																visible="{= (${MonthlyWorkingTime>HoursM7Color} === '0')}">
+																<Text text="{MonthlyWorkingTime>HoursM7}" />
+															</VBox>
+															<VBox class="ZZTestRight ZZYellow"
+																visible="{= (${MonthlyWorkingTime>HoursM7Color} === '1')}">
+																<Text text="{MonthlyWorkingTime>HoursM7}" />
+															</VBox>
+															<VBox class="ZZTestRight ZZRed"
+																visible="{= (${MonthlyWorkingTime>HoursM7Color} === '2')}">
+																<Text text="{MonthlyWorkingTime>HoursM7}" />
+															</VBox>
+														</VBox>
+														<VBox class="ZZTestRight">
+															<VBox class="ZZTestRight"
+																visible="{= (${MonthlyWorkingTime>HoursM8Color} === '0')}">
+																<Text text="{MonthlyWorkingTime>HoursM8}" />
+															</VBox>
+															<VBox class="ZZTestRight ZZYellow"
+																visible="{= (${MonthlyWorkingTime>HoursM8Color} === '1')}">
+																<Text text="{MonthlyWorkingTime>HoursM8}" />
+															</VBox>
+															<VBox class="ZZTestRight ZZRed"
+																visible="{= (${MonthlyWorkingTime>HoursM8Color} === '2')}">
+																<Text text="{MonthlyWorkingTime>HoursM8}" />
+															</VBox>
+														</VBox>
+														<VBox class="ZZTestRight">
+															<VBox class="ZZTestRight"
+																visible="{= (${MonthlyWorkingTime>HoursM9Color} === '0')}">
+																<Text text="{MonthlyWorkingTime>HoursM9}" />
+															</VBox>
+															<VBox class="ZZTestRight ZZYellow"
+																visible="{= (${MonthlyWorkingTime>HoursM9Color} === '1')}">
+																<Text text="{MonthlyWorkingTime>HoursM9}" />
+															</VBox>
+															<VBox class="ZZTestRight ZZRed"
+																visible="{= (${MonthlyWorkingTime>HoursM9Color} === '2')}">
+																<Text text="{MonthlyWorkingTime>HoursM9}" />
+															</VBox>
+														</VBox>
+													</cells>
+												</ColumnListItem>
+											</items>
+										</Table>
+
+										<Table items="{MonthlyWorkingTime>/results}" visible="{path: 'device>/isNoPhone'}">
+											<columns>
+
+												<Column width="28%">
+													<Text text="{i18n>ZF_MONTH}" />
+												</Column>
+												<Column width="14%">
+													<VBox class="ZZTestRight">
+														<Text text="{i18n>ZF_OCT}" />
+													</VBox>
+												</Column>
+												<Column width="14%">
+													<VBox class="ZZTestRight">
+														<Text text="{i18n>ZF_NOV}" />
+													</VBox>
+												</Column>
+												<Column width="14%">
+													<VBox class="ZZTestRight">
+														<Text text="{i18n>ZF_DEC}" />
+													</VBox>
+												</Column>
+												<Column width="14%">
+													<VBox class="ZZTestRight">
+														<Text text="{i18n>ZF_JAN}" />
+													</VBox>
+												</Column>
+												<Column width="14%">
+													<VBox class="ZZTestRight">
+														<Text text="{i18n>ZF_FEB}" />
+													</VBox>
+												</Column>
+												<Column width="14%">
+													<VBox class="ZZTestRight">
+														<Text text="{i18n>ZF_MAR}" />
+													</VBox>
+												</Column>
+											</columns>
+											<items>
+												<ColumnListItem>
+													<cells>
+
+														<VBox>
+															<Text
+																text="{path: 'MonthlyWorkingTime>ValueType',
+																												formatter: '.formatValueTypeText'}" />
+														</VBox>
+														<VBox class="ZZTestRight">
+															<VBox class="ZZTestRight"
+																visible="{= (${MonthlyWorkingTime>HoursM10Color} === '0')}">
+																<Text text="{MonthlyWorkingTime>HoursM10}" />
+															</VBox>
+															<VBox class="ZZTestRight ZZYellow"
+																visible="{= (${MonthlyWorkingTime>HoursM10Color} === '1')}">
+																<Text text="{MonthlyWorkingTime>HoursM10}" />
+															</VBox>
+															<VBox class="ZZTestRight ZZRed"
+																visible="{= (${MonthlyWorkingTime>HoursM10Color} === '2')}">
+																<Text text="{MonthlyWorkingTime>HoursM10}" />
+															</VBox>
+														</VBox>
+														<VBox class="ZZTestRight">
+															<VBox class="ZZTestRight"
+																visible="{= (${MonthlyWorkingTime>HoursM11Color} === '0')}">
+																<Text text="{MonthlyWorkingTime>HoursM11}" />
+															</VBox>
+															<VBox class="ZZTestRight ZZYellow"
+																visible="{= (${MonthlyWorkingTime>HoursM11Color} === '1')}">
+																<Text text="{MonthlyWorkingTime>HoursM11}" />
+															</VBox>
+															<VBox class="ZZTestRight ZZRed"
+																visible="{= (${MonthlyWorkingTime>HoursM11Color} === '2')}">
+																<Text text="{MonthlyWorkingTime>HoursM11}" />
+															</VBox>
+														</VBox>
+														<VBox class="ZZTestRight">
+															<VBox class="ZZTestRight"
+																visible="{= (${MonthlyWorkingTime>HoursM12Color} === '0')}">
+																<Text text="{MonthlyWorkingTime>HoursM12}" />
+															</VBox>
+															<VBox class="ZZTestRight ZZYellow"
+																visible="{= (${MonthlyWorkingTime>HoursM12Color} === '1')}">
+																<Text text="{MonthlyWorkingTime>HoursM12}" />
+															</VBox>
+															<VBox class="ZZTestRight ZZRed"
+																visible="{= (${MonthlyWorkingTime>HoursM12Color} === '2')}">
+																<Text text="{MonthlyWorkingTime>HoursM12}" />
+															</VBox>
+														</VBox>
+														<VBox class="ZZTestRight">
+															<VBox class="ZZTestRight"
+																visible="{= (${MonthlyWorkingTime>HoursM1Color} === '0')}">
+																<Text text="{MonthlyWorkingTime>HoursM1}" />
+															</VBox>
+															<VBox class="ZZTestRight ZZYellow"
+																visible="{= (${MonthlyWorkingTime>HoursM1Color} === '1')}">
+																<Text text="{MonthlyWorkingTime>HoursM1}" />
+															</VBox>
+															<VBox class="ZZTestRight ZZRed"
+																visible="{= (${MonthlyWorkingTime>HoursM1Color} === '2')}">
+																<Text text="{MonthlyWorkingTime>HoursM1}" />
+															</VBox>
+														</VBox>
+														<VBox class="ZZTestRight">
+															<VBox class="ZZTestRight"
+																visible="{= (${MonthlyWorkingTime>HoursM2Color} === '0')}">
+																<Text text="{MonthlyWorkingTime>HoursM2}" />
+															</VBox>
+															<VBox class="ZZTestRight ZZYellow"
+																visible="{= (${MonthlyWorkingTime>HoursM2Color} === '1')}">
+																<Text text="{MonthlyWorkingTime>HoursM2}" />
+															</VBox>
+															<VBox class="ZZTestRight ZZRed"
+																visible="{= (${MonthlyWorkingTime>HoursM2Color} === '2')}">
+																<Text text="{MonthlyWorkingTime>HoursM2}" />
+															</VBox>
+														</VBox>
+														<VBox class="ZZTestRight">
+															<VBox class="ZZTestRight"
+																visible="{= (${MonthlyWorkingTime>HoursM3Color} === '0')}">
+																<Text text="{MonthlyWorkingTime>HoursM3}" />
+															</VBox>
+															<VBox class="ZZTestRight ZZYellow"
+																visible="{= (${MonthlyWorkingTime>HoursM3Color} === '1')}">
+																<Text text="{MonthlyWorkingTime>HoursM3}" />
+															</VBox>
+															<VBox class="ZZTestRight ZZRed"
+																visible="{= (${MonthlyWorkingTime>HoursM3Color} === '2')}">
+																<Text text="{MonthlyWorkingTime>HoursM3}" />
+															</VBox>
+														</VBox>
+													</cells>
+												</ColumnListItem>
+											</items>
+										</Table>
+									</IconTabFilter>
+									<IconTabFilter text="{i18n>ZF_TAB_KIM}" key="WorkingHours" icon="sap-icon://add-activity">
+										<sap.ui.layout:Grid defaultSpan="L5 M12 S12"
+											defaultIndent="L0 M0 S0" width="auto" hSpacing="1">
+											<sap.ui.layout:content>
+												<Panel class="sapUiSmallMarginTop layoutWhite ZZpanel">
+													<layoutData>
+														<sap.ui.layout:GridData span="L7 M12 S12" />
+													</layoutData>
+													<sap.ui.layout:BlockLayout id="BlockLayout11111">
+														<sap.ui.layout:BlockLayoutRow>
+															<sap.ui.layout:BlockLayoutCell
+																class="ZZBlockLayoutCellDaily" id="worktimeAssignments">
+																<sap.ui.layout.form:Form
+																	maxContainerCols="2" editable="true">
+																	<sap.ui.layout.form:toolbar>
+																		<Toolbar id="TB1">
+																			<Title text="{i18n>ZF_KIMHOUR}" level="H5"
+																				titleStyle="H5" />
+																			<Title text="{i18n>ZF_NEXTDAYCHECK}" level="H6"
+																				titleStyle="H6" />
+																		</Toolbar>
+																	</sap.ui.layout.form:toolbar>
+																	<sap.ui.layout.form:layout>
+																		<sap.ui.layout.form:ResponsiveGridLayout
+																			labelSpanL="3" emptySpanL="0" labelSpanM="3"
+																			emptySpanM="0" columnsL="2" columnsM="2" />
+																	</sap.ui.layout.form:layout>
+
+																	<sap.ui.layout.form:formContainers>
+																		<sap.ui.layout.form:FormContainer
+																			id="worktimeAssignmentContainer">
+
+																			<sap.ui.layout.form:FormElement
+																				label=" " visible="{device>/isNoPhone}">
+																				<sap.ui.layout.form:fields>
+																					<Text id="TEXT_START" text="{i18n>ZF_START}"
+																						visible="{device>/isNoPhone}" textAlign="Center" />
+																					<Text id="TEXT_END" text="{i18n>ZF_END}"
+																						visible="{device>/isNoPhone}" textAlign="Center" />
+																					<Text text=" " visible="{device>/isNoPhone}" />
+																				</sap.ui.layout.form:fields>
+																			</sap.ui.layout.form:FormElement>
+																			<sap.ui.layout.form:FormElement
+																				label="{i18n>ZF_KIMHOUR}">
+																				<sap.ui.layout.form:label>
+																					<Label id="WorkingHours"
+																						text="{i18n>ZF_KIMHOUR}{path: 'WorkingHours>WorkingHoursH',
+																													formatter:  '.changeHours'}">
+																					</Label>
+																				</sap.ui.layout.form:label>
+																				<sap.ui.layout.form:fields>
+																					<HBox>
+																						<Text text="{i18n>ZF_START}" visible="{device>/isPhone}"
+																							width="50px" />
+																						<TimePicker id="WorkingHoursS"
+																							value="{path: 'WorkingHours>WorkingHoursS',
+					                              														type: 'WorkingTime'}"
+																							displayFormat="HH:mm" valueFormat="HH:mm"
+																							change="onTimerPickerChange" editable="{SettingInfo>WorkingHoursEditable}"
+																							minutesStep="{screenModel>/step}" class="ZZNoIME">
+																							<customData>
+																								<sap.ui.core:CustomData
+																									key="id" value="WorkingHours" />
+																							</customData>
+																						</TimePicker>
+																						<CheckBox class="sapUiSmallMarginBegin"
+																							selected="{WorkingHours>WorkingHoursSF}" enabled="{SettingInfo>WorkingHoursEditable}"
+																							select="onTimerPickerChange">
+																							<customData>
+																								<sap.ui.core:CustomData
+																									key="id" value="WorkingHours" />
+																							</customData>
+																						</CheckBox>
+																					</HBox>
+																					<HBox>
+																						<Text text="{i18n>ZF_END}" visible="{device>/isPhone}"
+																							width="50px" />
+																						<TimePicker id="WorkingHoursE"
+																							value="{path: 'WorkingHours>WorkingHoursE',
+					                              															type: 'WorkingTime'}"
+																							displayFormat="HH:mm" valueFormat="HH:mm"
+																							change="onTimerPickerChange" editable="{SettingInfo>WorkingHoursEditable}"
+																							minutesStep="{screenModel>/step}" class="ZZNoIME">
+																							<customData>
+																								<sap.ui.core:CustomData
+																									key="id" value="WorkingHours" />
+																							</customData>
+																						</TimePicker>
+																						<CheckBox selected="{WorkingHours>WorkingHoursEF}"
+																							enabled="{SettingInfo>WorkingHoursEditable}"
+																							select="onTimerPickerChange" class="sapUiSmallMarginBegin">
+																							<customData>
+																								<sap.ui.core:CustomData
+																									key="id" value="WorkingHours" />
+																							</customData>
+																						</CheckBox>
+																					</HBox>
+																					<HBox>
+																						<Text visible="{device>/isNoPhone}"
+																							text="{path: 'WorkingHours>WorkingHoursH',
+																													formatter:  '.changePCHours'}">
+																						</Text>
+																						<Button icon="sap-icon://add" visible="{device>/isNoPhone}"
+																							id="BT_WorkingHours" enabled="true"
+																							press="onPressAddWorkingHours" class="sapUiSmallMarginBegin">
+																							<customData>
+																								<sap.ui.core:CustomData
+																									key="id" value="WorkingHours" />
+																							</customData>
+																						</Button>
+																						<Button visible="{device>/isPhone}" icon="sap-icon://add"
+																							id="BT_WorkingHoursPhone" enabled="true" width="20%"
+																							press="onPressAddWorkingHours">
+																							<customData>
+																								<sap.ui.core:CustomData
+																									key="id" value="WorkingHours" />
+																							</customData>
+																						</Button>
+																					</HBox>
+																				</sap.ui.layout.form:fields>
+																			</sap.ui.layout.form:FormElement>
+																			<sap.ui.layout.form:FormElement
+																				id="FM_Break1" visible="{screenModel>/RestTime1Visible}">
+																				<sap.ui.layout.form:label>
+																					<Label id="Break1"
+																						text="{i18n>ZF_REST1}{path: 'WorkingHours>Break1H',
+																												formatter:  '.changeHours'}">
+																					</Label>
+																				</sap.ui.layout.form:label>
+																				<sap.ui.layout.form:fields>
+																					<HBox>
+																						<Text text="{i18n>ZF_START}" visible="{device>/isPhone}"
+																							width="50px" />
+																						<TimePicker id="Break1S"
+																							value="{path: 'WorkingHours>Break1S',
+					                              														type: 'WorkingTime'}"
+																							displayFormat="HH:mm" valueFormat="HH:mm"
+																							editable="{SettingInfo>WorkingHoursEditable}"
+																							minutesStep="{screenModel>/step}" change="onTimerPickerChange"
+																							class="ZZNoIME">
+																							<customData>
+																								<sap.ui.core:CustomData
+																									key="id" value="Break1" />
+																							</customData>
+																						</TimePicker>
+																						<CheckBox class="sapUiSmallMarginBegin"
+																							selected="{WorkingHours>Break1SF}" enabled="{SettingInfo>WorkingHoursEditable}"
+																							select="onTimerPickerChange">
+																							<customData>
+																								<sap.ui.core:CustomData
+																									key="id" value="Break1" />
+																							</customData>
+																						</CheckBox>
+																					</HBox>
+
+																					<HBox>
+																						<Text text="{i18n>ZF_END}" visible="{device>/isPhone}"
+																							width="50px" />
+																						<TimePicker id="Break1E"
+																							value="{path: 'WorkingHours>Break1E',
+					                              															type: 'WorkingTime'}"
+																							displayFormat="HH:mm" valueFormat="HH:mm"
+																							editable="{SettingInfo>WorkingHoursEditable}"
+																							minutesStep="{screenModel>/step}" change="onTimerPickerChange"
+																							class="ZZNoIME">
+																							<customData>
+																								<sap.ui.core:CustomData
+																									key="id" value="Break1" />
+																							</customData>
+																						</TimePicker>
+																						<CheckBox selected="{WorkingHours>Break1EF}"
+																							enabled="{SettingInfo>WorkingHoursEditable}"
+																							select="onTimerPickerChange" class="sapUiSmallMarginBegin">
+																							<customData>
+																								<sap.ui.core:CustomData
+																									key="id" value="Break1" />
+																							</customData>
+																							<!-- <layoutData> <sap.ui.layout:GridData indentS="8" 
+																								/> </layoutData> -->
+																						</CheckBox>
+																					</HBox>
+																					<HBox>
+																						<Text visible="{device>/isNoPhone}"
+																							text="{path: 'WorkingHours>Break1H',
+																													formatter:  '.changePCHours'}">
+																						</Text>
+																						<Button icon="{screenModel>/RestTime2Icon}"
+																							visible="false" id="BT_Break" enabled="true"
+																							press="onPressAdd" class="sapUiSmallMarginBegin">
+																							<customData>
+																								<sap.ui.core:CustomData
+																									key="id" value="RestTime2" />
+																							</customData>
+																						</Button>
+																						<Button visible="{device>/isPhone}"
+																							icon="{screenModel>/RestTime2Icon}" id="BT_BreakPhone"
+																							enabled="true" width="20%" press="onPressAdd">
+																							<customData>
+																								<sap.ui.core:CustomData
+																									key="id" value="RestTime2" />
+																							</customData>
+																						</Button>
+																					</HBox>
+
+																				</sap.ui.layout.form:fields>
+																			</sap.ui.layout.form:FormElement>
+																			<sap.ui.layout.form:FormElement
+																				id="FM_Break" visible="{screenModel>/RestTime2Visible}">
+																				<sap.ui.layout.form:label>
+																					<Label id="Break2"
+																						text="{i18n>ZF_REST2}{path: 'WorkingHours>Break2H',
+																												formatter:  '.changeHours'}">
+																					</Label>
+																				</sap.ui.layout.form:label>
+																				<sap.ui.layout.form:fields>
+																					<HBox>
+																						<Text text="{i18n>ZF_START}" visible="{device>/isPhone}"
+																							width="50px" />
+																						<TimePicker id="Break2S"
+																							value="{path: 'WorkingHours>Break2S',
+					                              														type: 'WorkingTime'}"
+																							displayFormat="HH:mm" valueFormat="HH:mm"
+																							change="onTimerPickerChange" editable="{SettingInfo>WorkingHoursEditable}"
+																							minutesStep="{screenModel>/step}" class="ZZNoIME">
+																							<customData>
+																								<sap.ui.core:CustomData
+																									key="id" value="Break2" />
+																							</customData>
+																						</TimePicker>
+																						<CheckBox class="sapUiSmallMarginBegin"
+																							selected="{WorkingHours>Break2SF}" enabled="{SettingInfo>WorkingHoursEditable}"
+																							select="onTimerPickerChange">
+																							<customData>
+																								<sap.ui.core:CustomData
+																									key="id" value="Break2" />
+																							</customData>
+																						</CheckBox>
+																					</HBox>
+																					<HBox>
+																						<Text text="{i18n>ZF_END}" visible="{device>/isPhone}"
+																							width="50px" />
+																						<TimePicker id="Break2E"
+																							value="{path: 'WorkingHours>Break2E',
+					                              															type: 'WorkingTime'}"
+																							displayFormat="HH:mm" valueFormat="HH:mm"
+																							change="onTimerPickerChange" editable="{SettingInfo>WorkingHoursEditable}"
+																							minutesStep="{screenModel>/step}" class="ZZNoIME">
+																							<customData>
+																								<sap.ui.core:CustomData
+																									key="id" value="Break2" />
+																							</customData>
+																						</TimePicker>
+																						<CheckBox selected="{WorkingHours>Break2EF}"
+																							enabled="{SettingInfo>WorkingHoursEditable}"
+																							select="onTimerPickerChange" class="sapUiSmallMarginBegin">
+																							<customData>
+																								<sap.ui.core:CustomData
+																									key="id" value="Break2" />
+																							</customData>
+																						</CheckBox>
+																					</HBox>
+																					<HBox visible="{device>/isNoPhone}">
+																						<Text
+																							text="{path: 'WorkingHours>Break2H',
+																													formatter:  '.changePCHours'}">
+																						</Text>
+																						<Text text="">
+																						</Text>
+																					</HBox>
+																				</sap.ui.layout.form:fields>
+																			</sap.ui.layout.form:FormElement>
+																			<sap.ui.layout.form:FormElement
+																				id="FM_TimeHoliday1" visible="false">
+																				<sap.ui.layout.form:label>
+																					<Label id="TimeHoliday1"
+																						text="{i18n>ZF_TIMELEV1}{path: 'WorkingHours>TimeHoliday1H',
+																													formatter:  '.changeHours'}">
+																					</Label>
+																				</sap.ui.layout.form:label>
+																				<sap.ui.layout.form:fields>
+																					<HBox>
+																						<Text text="{i18n>ZF_START}" visible="{device>/isPhone}"
+																							width="50px" />
+																						<TimePicker id="TimeHoliday1S"
+																							value="{path: 'WorkingHours>TimeHoliday1S',
+					                              														type: 'WorkingTime'}"
+																							displayFormat="HH:mm" valueFormat="HH:mm"
+																							change="onTimerPickerChange" editable="{SettingInfo>WorkingHoursEditable}"
+																							minutesStep="{screenModel>/step}" class="ZZNoIME">
+																							<customData>
+																								<sap.ui.core:CustomData
+																									key="id" value="TimeHoliday1" />
+																							</customData>
+																						</TimePicker>
+																						<CheckBox class="sapUiSmallMarginBegin"
+																							selected="{WorkingHours>TimeHoliday1SF}" enabled="{SettingInfo>WorkingHoursEditable}"
+																							select="onTimerPickerChange">
+																							<customData>
+																								<sap.ui.core:CustomData
+																									key="id" value="TimeHoliday1" />
+																							</customData>
+																						</CheckBox>
+																					</HBox>
+																					<HBox>
+																						<Text text="{i18n>ZF_END}" visible="{device>/isPhone}"
+																							width="50px" />
+																						<TimePicker id="TimeHoliday1E"
+																							value="{path: 'WorkingHours>TimeHoliday1E',
+					                              															type: 'WorkingTime'}"
+																							displayFormat="HH:mm" valueFormat="HH:mm"
+																							change="onTimerPickerChange" editable="{SettingInfo>WorkingHoursEditable}"
+																							minutesStep="{screenModel>/step}" class="ZZNoIME">
+																							<customData>
+																								<sap.ui.core:CustomData
+																									key="id" value="TimeHoliday1" />
+																							</customData>
+																						</TimePicker>
+																						<CheckBox selected="{WorkingHours>TimeHoliday1EF}"
+																							enabled="{SettingInfo>WorkingHoursEditable}"
+																							select="onTimerPickerChange" class="sapUiSmallMarginBegin">
+																							<customData>
+																								<sap.ui.core:CustomData
+																									key="id" value="TimeHoliday1" />
+																							</customData>
+																						</CheckBox>
+																					</HBox>
+																					<HBox>
+																						<Text visible="{device>/isNoPhone}"
+																							text="{path: 'WorkingHours>TimeHoliday1H',
+																													formatter:  '.changePCHours'}">
+																						</Text>
+																						<Button icon="sap-icon://add" id="BT_TimeHoliday"
+																							width="20%" press="onPressAddTimeHoliday" class="sapUiSmallMarginBegin"
+																							visible="{parts: [{path :'device>/isNoPhone'},
+																									{path :'screenModel>/TimeHoliday1BtnVis'}],
+																									formatter: 'sap.ZG001.timesheet.input.dailyDemo.util.Formatter.fmtVis'}">
+																							<customData>
+																								<sap.ui.core:CustomData
+																									key="id" value="TimeHoliday" />
+																							</customData>
+																						</Button>
+																						<Button icon="sap-icon://add" id="BT_TimeHolidayPhone"
+																							visible="{parts: [{path :'screenModel>/TimeHoliday1BtnVis'},
+																									{path :'device>/isPhone'}],
+																									formatter: 'sap.ZG001.timesheet.input.dailyDemo.util.Formatter.fmtVis'}"
+																							width="20%" press="onPressAddTimeHoliday">
+																							<customData>
+																								<sap.ui.core:CustomData
+																									key="id" value="TimeHoliday" />
+																							</customData>
+																						</Button>
+																					</HBox>
+
+																				</sap.ui.layout.form:fields>
+																			</sap.ui.layout.form:FormElement>
+																			<sap.ui.layout.form:FormElement
+																				id="FM_TimeHoliday" visible="{screenModel>/TimeHoliday2Visible}">
+																				<sap.ui.layout.form:label>
+																					<Label id="TimeHoliday2"
+																						text="{i18n>ZF_TIMELEV2}{path: 'WorkingHours>TimeHoliday2H',
+																													formatter:  '.changeHours'}">
+																					</Label>
+																				</sap.ui.layout.form:label>
+																				<sap.ui.layout.form:fields>
+																					<HBox>
+																						<Text text="{i18n>ZF_START}" visible="{device>/isPhone}"
+																							width="50px" />
+																						<TimePicker id="TimeHoliday2S"
+																							value="{path: 'WorkingHours>TimeHoliday2S',
+					                              														type: 'WorkingTime'}"
+																							displayFormat="HH:mm" valueFormat="HH:mm"
+																							change="onTimerPickerChange" editable="{SettingInfo>WorkingHoursEditable}"
+																							minutesStep="{screenModel>/step}" class="ZZNoIME">
+																							<customData>
+																								<sap.ui.core:CustomData
+																									key="id" value="TimeHoliday2" />
+																							</customData>
+																						</TimePicker>
+																						<CheckBox class="sapUiSmallMarginBegin"
+																							selected="{WorkingHours>TimeHoliday2SF}" enabled="{SettingInfo>WorkingHoursEditable}"
+																							select="onTimerPickerChange">
+																							<customData>
+																								<sap.ui.core:CustomData
+																									key="id" value="TimeHoliday2" />
+																							</customData>
+																						</CheckBox>
+																					</HBox>
+																					<HBox>
+																						<Text text="{i18n>ZF_END}" visible="{device>/isPhone}"
+																							width="50px" />
+																						<TimePicker id="TimeHoliday2E"
+																							value="{path: 'WorkingHours>TimeHoliday2E',
+					                              															type: 'WorkingTime'}"
+																							displayFormat="HH:mm" valueFormat="HH:mm"
+																							change="onTimerPickerChange" editable="{SettingInfo>WorkingHoursEditable}"
+																							minutesStep="{screenModel>/step}" class="ZZNoIME">
+																							<customData>
+																								<sap.ui.core:CustomData
+																									key="id" value="TimeHoliday2" />
+																							</customData>
+																						</TimePicker>
+																						<CheckBox selected="{WorkingHours>TimeHoliday2EF}"
+																							enabled="{SettingInfo>WorkingHoursEditable}"
+																							select="onTimerPickerChange" class="sapUiSmallMarginBegin">
+																							<customData>
+																								<sap.ui.core:CustomData
+																									key="id" value="TimeHoliday2" />
+																							</customData>
+																						</CheckBox>
+																					</HBox>
+																					<HBox visible="{device>/isNoPhone}">
+																						<Text
+																							text="{path: 'WorkingHours>TimeHoliday2H',
+																													formatter:  '.changePCHours'}">
+																						</Text>
+																						<Text text="">
+																						</Text>
+																					</HBox>
+																				</sap.ui.layout.form:fields>
+																			</sap.ui.layout.form:FormElement>
+																			<sap.ui.layout.form:FormElement
+																				id="FM_LateLeaveEarly1" visible="false">
+																				<!-- visible="{SettingInfo>ManageVisible}"> -->
+																				<sap.ui.layout.form:label>
+																					<Label id="LateLeaveEarly1"
+																						text="{i18n>ZF_LATELEAVE1}{path: 'WorkingHours>LateLeaveEarly1H',
+																													formatter:  '.changeHours'}">
+																					</Label>
+																				</sap.ui.layout.form:label>
+																				<sap.ui.layout.form:fields>
+																					<HBox>
+																						<Text text="{i18n>ZF_START}" visible="{device>/isPhone}"
+																							width="50px" />
+																						<TimePicker id="LateLeaveEarly1S"
+																							value="{path: 'WorkingHours>LateLeaveEarly1S',
+					                              														type: 'WorkingTime'}"
+																							displayFormat="HH:mm" valueFormat="HH:mm"
+																							change="onTimerPickerChange" editable="{SettingInfo>WorkingHoursEditable}"
+																							minutesStep="{screenModel>/step}" class="ZZNoIME">
+																							<customData>
+																								<sap.ui.core:CustomData
+																									key="id" value="LateLeaveEarly1" />
+																							</customData>
+																						</TimePicker>
+																						<CheckBox class="sapUiSmallMarginBegin"
+																							selected="{WorkingHours>LateLeaveEarly1SF}"
+																							enabled="{SettingInfo>WorkingHoursEditable}"
+																							select="onTimerPickerChange">
+																							<customData>
+																								<sap.ui.core:CustomData
+																									key="id" value="LateLeaveEarly1" />
+																							</customData>
+																						</CheckBox>
+																					</HBox>
+																					<HBox>
+																						<Text text="{i18n>ZF_END}" visible="{device>/isPhone}"
+																							width="50px" />
+																						<TimePicker id="LateLeaveEarly1E"
+																							value="{path: 'WorkingHours>LateLeaveEarly1E',
+					                              															type: 'WorkingTime'}"
+																							displayFormat="HH:mm" valueFormat="HH:mm"
+																							change="onTimerPickerChange" editable="{SettingInfo>WorkingHoursEditable}"
+																							minutesStep="{screenModel>/step}" class="ZZNoIME">
+																							<customData>
+																								<sap.ui.core:CustomData
+																									key="id" value="LateLeaveEarly1" />
+																							</customData>
+																						</TimePicker>
+																						<CheckBox selected="{WorkingHours>LateLeaveEarly1EF}"
+																							enabled="{SettingInfo>WorkingHoursEditable}"
+																							select="onTimerPickerChange" class="sapUiSmallMarginBegin">
+																							<customData>
+																								<sap.ui.core:CustomData
+																									key="id" value="LateLeaveEarly1" />
+																							</customData>
+																						</CheckBox>
+																					</HBox>
+																					<HBox visible="{device>/isNoPhone}">
+																						<Text
+																							text="{path: 'WorkingHours>LateLeaveEarly1H',
+																													formatter:  '.changePCHours'}">
+																						</Text>
+																						<Button icon="sap-icon://add" id="BT_LateLeaveEarly"
+																							visible="false" width="20%" press="onPressAdd">
+																							<customData>
+																								<sap.ui.core:CustomData
+																									key="id" value="LateLeaveEarly" />
+																							</customData>
+																						</Button>
+																					</HBox>
+																				</sap.ui.layout.form:fields>
+																			</sap.ui.layout.form:FormElement>
+																			<sap.ui.layout.form:FormElement
+																				id="FM_LateLeaveEarly" visible="false">
+																				<sap.ui.layout.form:label>
+																					<Label id="LateLeaveEarly2"
+																						text="{i18n>ZF_LATELEAVE2}{path: 'WorkingHours>LateLeaveEarly2H',
+																													formatter:  '.changeHours'}">
+																					</Label>
+																				</sap.ui.layout.form:label>
+																				<sap.ui.layout.form:fields>
+																					<HBox>
+																						<Text text="{i18n>ZF_START}" visible="{device>/isPhone}"
+																							width="50px" />
+																						<TimePicker id="LateLeaveEarly2S"
+																							value="{path: 'WorkingHours>LateLeaveEarly2S',
+					                              														type: 'WorkingTime'}"
+																							displayFormat="HH:mm" valueFormat="HH:mm"
+																							change="onTimerPickerChange" editable="{SettingInfo>WorkingHoursEditable}"
+																							minutesStep="{screenModel>/step}" class="ZZNoIME">
+																							<customData>
+																								<sap.ui.core:CustomData
+																									key="id" value="LateLeaveEarly2" />
+																							</customData>
+																						</TimePicker>
+																						<CheckBox class="sapUiSmallMarginBegin"
+																							selected="{WorkingHours>LateLeaveEarly2SF}"
+																							enabled="{SettingInfo>WorkingHoursEditable}"
+																							select="onTimerPickerChange">
+																							<customData>
+																								<sap.ui.core:CustomData
+																									key="id" value="LateLeaveEarly2" />
+																							</customData>
+																						</CheckBox>
+																					</HBox>
+
+																					<HBox>
+																						<Text text="{i18n>ZF_END}" visible="{device>/isPhone}"
+																							width="50px" />
+																						<TimePicker id="LateLeaveEarly2E"
+																							value="{path: 'WorkingHours>LateLeaveEarly2E',
+					                              															type: 'WorkingTime'}"
+																							displayFormat="HH:mm" valueFormat="HH:mm"
+																							change="onTimerPickerChange" editable="{SettingInfo>WorkingHoursEditable}"
+																							minutesStep="{screenModel>/step}" class="ZZNoIME">
+																							<customData>
+																								<sap.ui.core:CustomData
+																									key="id" value="LateLeaveEarly2" />
+																							</customData>
+																						</TimePicker>
+																						<CheckBox selected="{WorkingHours>LateLeaveEarly2EF}"
+																							enabled="{SettingInfo>WorkingHoursEditable}"
+																							select="onTimerPickerChange" class="sapUiSmallMarginBegin">
+																							<customData>
+																								<sap.ui.core:CustomData
+																									key="id" value="LateLeaveEarly2" />
+																							</customData>
+																						</CheckBox>
+																					</HBox>
+
+																					<HBox visible="{device>/isNoPhone}">
+																						<Text
+																							text="{path: 'WorkingHours>LateLeaveEarly2H',
+																													formatter:  '.changePCHours'}">
+																						</Text>
+																						<Text text="">
+																						</Text>
+																					</HBox>
+																				</sap.ui.layout.form:fields>
+																			</sap.ui.layout.form:FormElement>
+																			<sap.ui.layout.form:FormElement
+																				id="FM_ChildRearing1" visible="false">
+																				<sap.ui.layout.form:label>
+																					<Label id="ChildRearing1"
+																						text="{i18n>ZF_SUPCHILD1}{path: 'WorkingHours>ChildRearing1H',
+																													formatter:  '.changeHours'}">
+																					</Label>
+																				</sap.ui.layout.form:label>
+																				<sap.ui.layout.form:fields>
+																					<HBox>
+																						<Text text="{i18n>ZF_START}" visible="{device>/isPhone}"
+																							width="50px" />
+																						<TimePicker id="ChildRearing1S"
+																							value="{path: 'WorkingHours>ChildRearing1S',
+					                              														type: 'WorkingTime'}"
+																							displayFormat="HH:mm" valueFormat="HH:mm"
+																							change="onTimerPickerChange" editable="{SettingInfo>WorkingHoursEditable}"
+																							minutesStep="{screenModel>/step}" class="ZZNoIME">
+																							<customData>
+																								<sap.ui.core:CustomData
+																									key="id" value="ChildRearing1" />
+																							</customData>
+																						</TimePicker>
+																						<CheckBox class="sapUiSmallMarginBegin ZZHidden">
+																							<customData>
+																								<sap.ui.core:CustomData
+																									key="id" value="WorkingHours" />
+																							</customData>
+																						</CheckBox>
+																					</HBox>
+																					<HBox>
+																						<Text text="{i18n>ZF_END}" visible="{device>/isPhone}"
+																							width="50px" />
+																						<TimePicker id="ChildRearing1E"
+																							value="{path: 'WorkingHours>ChildRearing1E',
+				                              														type: 'WorkingTime'}"
+																							displayFormat="HH:mm" valueFormat="HH:mm"
+																							change="onTimerPickerChange" editable="{SettingInfo>WorkingHoursEditable}"
+																							minutesStep="{screenModel>/step}" class="ZZNoIME">
+																							<customData>
+																								<sap.ui.core:CustomData
+																									key="id" value="ChildRearing1" />
+																							</customData>
+																						</TimePicker>
+																						<CheckBox class="sapUiSmallMarginBegin ZZHidden">
+																							<customData>
+																								<sap.ui.core:CustomData
+																									key="id" value="WorkingHours" />
+																							</customData>
+																						</CheckBox>
+																					</HBox>
+																					<HBox visible="{device>/isNoPhone}">
+																						<Text
+																							text="{path: 'WorkingHours>ChildRearing1H',
+																													formatter:  '.changePCHours'}">
+																						</Text>
+																						<Button icon="sap-icon://add" id="BT_ChildRearing"
+																							visible="false" width="20%" press="onPressAdd">
+																							<customData>
+																								<sap.ui.core:CustomData
+																									key="id" value="ChildRearing" />
+																							</customData>
+																						</Button>
+																					</HBox>
+																				</sap.ui.layout.form:fields>
+																			</sap.ui.layout.form:FormElement>
+																			<sap.ui.layout.form:FormElement
+																				id="FM_ChildRearing" visible="false">
+																				<sap.ui.layout.form:label>
+																					<Label id="ChildRearing2"
+																						text="{i18n>ZF_SUPCHILD2}{path: 'WorkingHours>ChildRearing2H',
+																													formatter:  '.changeHours'}">
+																					</Label>
+																				</sap.ui.layout.form:label>
+																				<sap.ui.layout.form:fields>
+																					<HBox>
+																						<Text text="{i18n>ZF_START}" visible="{device>/isPhone}"
+																							width="50px" />
+																						<TimePicker id="ChildRearing2S"
+																							value="{path: 'WorkingHours>ChildRearing2S',
+				                              														type: 'WorkingTime'}"
+																							displayFormat="HH:mm" valueFormat="HH:mm"
+																							change="onTimerPickerChange" editable="{SettingInfo>WorkingHoursEditable}"
+																							minutesStep="{screenModel>/step}" class="ZZNoIME">
+																							<customData>
+																								<sap.ui.core:CustomData
+																									key="id" value="ChildRearing2" />
+																							</customData>
+																						</TimePicker>
+																						<CheckBox class="sapUiSmallMarginBegin ZZHidden">
+																							<customData>
+																								<sap.ui.core:CustomData
+																									key="id" value="WorkingHours" />
+																							</customData>
+																						</CheckBox>
+																					</HBox>
+
+																					<HBox>
+																						<Text text="{i18n>ZF_END}" visible="{device>/isPhone}"
+																							width="50px" />
+																						<TimePicker id="ChildRearing2E"
+																							value="{path: 'WorkingHours>ChildRearing2E',
+				                              														type: 'WorkingTime'}"
+																							displayFormat="HH:mm" valueFormat="HH:mm"
+																							change="onTimerPickerChange" editable="{SettingInfo>WorkingHoursEditable}"
+																							minutesStep="{screenModel>/step}" class="ZZNoIME">
+																							<customData>
+																								<sap.ui.core:CustomData
+																									key="id" value="ChildRearing2" />
+																							</customData>
+																						</TimePicker>
+																						<CheckBox class="sapUiSmallMarginBegin ZZHidden">
+																							<customData>
+																								<sap.ui.core:CustomData
+																									key="id" value="WorkingHours" />
+																							</customData>
+																						</CheckBox>
+																					</HBox>
+																					<HBox visible="{device>/isNoPhone}">
+																						<Text
+																							text="{path: 'WorkingHours>ChildRearing2H',
+																													formatter:  '.changePCHours'}">
+																						</Text>
+																						<Text text="">
+																						</Text>
+																					</HBox>
+																				</sap.ui.layout.form:fields>
+																			</sap.ui.layout.form:FormElement>
+																			<sap.ui.layout.form:FormElement
+																				id="FM_ChildNursing1" visible="false">
+																				<sap.ui.layout.form:label>
+																					<Label id="ChildNursing1"
+																						text="{i18n>ZF_CARCHILD1}{path: 'WorkingHours>ChildNursing1H',
+																													formatter:  '.changeHours'}">
+																					</Label>
+																				</sap.ui.layout.form:label>
+																				<sap.ui.layout.form:fields>
+																					<HBox>
+																						<Text text="{i18n>ZF_START}" visible="{device>/isPhone}"
+																							width="50px" />
+																						<TimePicker id="ChildNursing1S"
+																							value="{path: 'WorkingHours>ChildNursing1S',
+				                              														type: 'WorkingTime'}"
+																							displayFormat="HH:mm" valueFormat="HH:mm"
+																							change="onTimerPickerChange" editable="{SettingInfo>WorkingHoursEditable}"
+																							minutesStep="{screenModel>/step}" class="ZZNoIME">
+																							<customData>
+																								<sap.ui.core:CustomData
+																									key="id" value="ChildNursing1" />
+																							</customData>
+																						</TimePicker>
+																						<CheckBox class="sapUiSmallMarginBegin ZZHidden">
+																							<customData>
+																								<sap.ui.core:CustomData
+																									key="id" value="WorkingHours" />
+																							</customData>
+																						</CheckBox>
+																					</HBox>
+																					<HBox>
+																						<Text text="{i18n>ZF_END}" visible="{device>/isPhone}"
+																							width="50px" />
+																						<TimePicker id="ChildNursing1E"
+																							value="{path: 'WorkingHours>ChildNursing1E',
+				                              														type: 'WorkingTime'}"
+																							displayFormat="HH:mm" valueFormat="HH:mm"
+																							change="onTimerPickerChange" editable="{SettingInfo>WorkingHoursEditable}"
+																							minutesStep="{screenModel>/step}" class="ZZNoIME">
+																							<customData>
+																								<sap.ui.core:CustomData
+																									key="id" value="ChildNursing1" />
+																							</customData>
+																						</TimePicker>
+																						<CheckBox class="sapUiSmallMarginBegin ZZHidden">
+																							<customData>
+																								<sap.ui.core:CustomData
+																									key="id" value="WorkingHours" />
+																							</customData>
+																						</CheckBox>
+																					</HBox>
+																					<HBox visible="{device>/isNoPhone}">
+																						<Text
+																							text="{path: 'WorkingHours>ChildNursing1H',
+																													formatter:  '.changePCHours'}">
+																						</Text>
+																						<Button icon="sap-icon://add" id="BT_ChildNursing"
+																							visible="false" width="20%" press="onPressAdd">
+																							<customData>
+																								<sap.ui.core:CustomData
+																									key="id" value="ChildNursing" />
+																							</customData>
+																						</Button>
+																					</HBox>
+																				</sap.ui.layout.form:fields>
+																			</sap.ui.layout.form:FormElement>
+																			<sap.ui.layout.form:FormElement
+																				id="FM_ChildNursing" visible="false">
+																				<sap.ui.layout.form:label>
+																					<Label id="ChildNursing2"
+																						text="{i18n>ZF_CARCHILD2}{path: 'WorkingHours>ChildNursing2H',
+																													formatter:  '.changeHours'}">
+																					</Label>
+																				</sap.ui.layout.form:label>
+																				<sap.ui.layout.form:fields>
+																					<HBox>
+																						<Text text="{i18n>ZF_START}" visible="{device>/isPhone}"
+																							width="50px" />
+																						<TimePicker id="ChildNursing2S"
+																							value="{path: 'WorkingHours>ChildNursing2S',
+				                              														type: 'WorkingTime'}"
+																							displayFormat="HH:mm" valueFormat="HH:mm"
+																							change="onTimerPickerChange" editable="{SettingInfo>WorkingHoursEditable}"
+																							minutesStep="{screenModel>/step}" class="ZZNoIME">
+																							<customData>
+																								<sap.ui.core:CustomData
+																									key="id" value="ChildNursing2" />
+																							</customData>
+																						</TimePicker>
+																						<CheckBox class="sapUiSmallMarginBegin ZZHidden">
+																							<customData>
+																								<sap.ui.core:CustomData
+																									key="id" value="WorkingHours" />
+																							</customData>
+																						</CheckBox>
+																					</HBox>
+
+																					<HBox>
+																						<Text text="{i18n>ZF_END}" visible="{device>/isPhone}"
+																							width="50px" />
+																						<TimePicker id="ChildNursing2E"
+																							value="{path: 'WorkingHours>ChildNursing2E',
+				                              														type: 'WorkingTime'}"
+																							displayFormat="HH:mm" valueFormat="HH:mm"
+																							change="onTimerPickerChange" editable="{SettingInfo>WorkingHoursEditable}"
+																							minutesStep="{screenModel>/step}" class="ZZNoIME">
+																							<customData>
+																								<sap.ui.core:CustomData
+																									key="id" value="ChildNursing2" />
+																							</customData>
+																						</TimePicker>
+																						<CheckBox class="sapUiSmallMarginBegin ZZHidden">
+																							<customData>
+																								<sap.ui.core:CustomData
+																									key="id" value="WorkingHours" />
+																							</customData>
+																						</CheckBox>
+																					</HBox>
+																					<HBox visible="{device>/isNoPhone}">
+																						<Text
+																							text="{path: 'WorkingHours>ChildNursing2H',
+																													formatter:  '.changePCHours'}">
+																						</Text>
+																						<Text text="">
+																						</Text>
+																					</HBox>
+																				</sap.ui.layout.form:fields>
+																			</sap.ui.layout.form:FormElement>
+																			<sap.ui.layout.form:FormElement
+																				id="FM_Care1" visible="false">
+																				<sap.ui.layout.form:label>
+																					<Label id="Care1"
+																						text="{i18n>ZF_NURCARE1}{path: 'WorkingHours>Care1H',
+																													formatter:  '.changeHours'}">
+																					</Label>
+																				</sap.ui.layout.form:label>
+																				<sap.ui.layout.form:fields>
+																					<HBox>
+																						<Text text="{i18n>ZF_START}" visible="{device>/isPhone}"
+																							width="50px" />
+																						<TimePicker id="Care1S"
+																							value="{path: 'WorkingHours>Care1S',
+				                              														type: 'WorkingTime'}"
+																							displayFormat="HH:mm" valueFormat="HH:mm"
+																							change="onTimerPickerChange" editable="{SettingInfo>WorkingHoursEditable}"
+																							minutesStep="{screenModel>/step}" class="ZZNoIME">
+																							<customData>
+																								<sap.ui.core:CustomData
+																									key="id" value="Care1" />
+																							</customData>
+																						</TimePicker>
+																						<CheckBox class="sapUiSmallMarginBegin ZZHidden">
+																							<customData>
+																								<sap.ui.core:CustomData
+																									key="id" value="WorkingHours" />
+																							</customData>
+																						</CheckBox>
+																					</HBox>
+
+																					<HBox>
+																						<Text text="{i18n>ZF_END}" visible="{device>/isPhone}"
+																							width="50px" />
+																						<TimePicker id="Care1E"
+																							value="{path: 'WorkingHours>Care1E',
+				                              														type: 'WorkingTime'}"
+																							displayFormat="HH:mm" valueFormat="HH:mm"
+																							change="onTimerPickerChange" editable="{SettingInfo>WorkingHoursEditable}"
+																							minutesStep="{screenModel>/step}" class="ZZNoIME">
+																							<customData>
+																								<sap.ui.core:CustomData
+																									key="id" value="Care1" />
+																							</customData>
+																						</TimePicker>
+																						<CheckBox class="sapUiSmallMarginBegin ZZHidden">
+																							<customData>
+																								<sap.ui.core:CustomData
+																									key="id" value="WorkingHours" />
+																							</customData>
+																						</CheckBox>
+																					</HBox>
+																					<HBox visible="{device>/isNoPhone}">
+																						<Text
+																							text="{path: 'WorkingHours>Care1H',
+																													formatter:  '.changePCHours'}">
+																						</Text>
+																						<Button icon="sap-icon://add" id="BT_Care"
+																							visible="false" width="20%" press="onPressAdd">
+																							<customData>
+																								<sap.ui.core:CustomData
+																									key="id" value="Care" />
+																							</customData>
+																						</Button>
+																					</HBox>
+																				</sap.ui.layout.form:fields>
+
+																			</sap.ui.layout.form:FormElement>
+																			<sap.ui.layout.form:FormElement
+																				id="FM_Care" visible="false">
+																				<sap.ui.layout.form:label>
+																					<Label id="Care2"
+																						text="{i18n>ZF_NURCARE2}{path: 'WorkingHours>Care2H',
+																													formatter:  '.changeHours'}">
+																					</Label>
+																				</sap.ui.layout.form:label>
+																				<sap.ui.layout.form:fields>
+																					<HBox>
+																						<Text text="{i18n>ZF_START}" visible="{device>/isPhone}"
+																							width="50px" />
+																						<TimePicker id="Care2S"
+																							value="{path: 'WorkingHours>Care2S',
+				                              														type: 'WorkingTime'}"
+																							displayFormat="HH:mm" valueFormat="HH:mm"
+																							change="onTimerPickerChange" editable="{SettingInfo>WorkingHoursEditable}"
+																							minutesStep="{screenModel>/step}" class="ZZNoIME">
+																							<customData>
+																								<sap.ui.core:CustomData
+																									key="id" value="Care2" />
+																							</customData>
+																						</TimePicker>
+																						<CheckBox class="sapUiSmallMarginBegin ZZHidden">
+																							<customData>
+																								<sap.ui.core:CustomData
+																									key="id" value="WorkingHours" />
+																							</customData>
+																						</CheckBox>
+																					</HBox>
+
+																					<HBox>
+																						<Text text="{i18n>ZF_END}" visible="{device>/isPhone}"
+																							width="50px" />
+																						<TimePicker id="Care2E"
+																							value="{path: 'WorkingHours>Care2E',
+				                              														type: 'WorkingTime'}"
+																							displayFormat="HH:mm" valueFormat="HH:mm"
+																							change="onTimerPickerChange" editable="{SettingInfo>WorkingHoursEditable}"
+																							minutesStep="{screenModel>/step}" class="ZZNoIME">
+																							<customData>
+																								<sap.ui.core:CustomData
+																									key="id" value="Care2" />
+																							</customData>
+																						</TimePicker>
+																						<CheckBox class="sapUiSmallMarginBegin ZZHidden">
+																							<customData>
+																								<sap.ui.core:CustomData
+																									key="id" value="WorkingHours" />
+																							</customData>
+																						</CheckBox>
+																					</HBox>
+																					<HBox visible="{device>/isNoPhone}">
+																						<Text
+																							text="{path: 'WorkingHours>Care2H',
+																													formatter:  '.changePCHours'}">
+																						</Text>
+																						<Text text="">
+																						</Text>
+																					</HBox>
+																				</sap.ui.layout.form:fields>
+																			</sap.ui.layout.form:FormElement>
+																			<sap.ui.layout.form:FormElement
+																				visible="{SettingInfo>ManageVisible}">
+																				<sap.ui.layout.form:label>
+																					<Label text="{i18n>ZF_OTRAESON}">
+																					</Label>
+																				</sap.ui.layout.form:label>
+																				<sap.ui.layout.form:fields>
+																					<Input id="OTREASON"
+																						value="{
+																							path: 'WorkingHours>ReasonOvertime',
+																							type: 'sap.ui.model.odata.type.String',
+																							constraints:{
+																								maxLength : 40
+																								}}"
+																						fieldGroupIds="ZZInputField" width="80%"
+																						fieldWidth="60%" editable="{SettingInfo>WorkingHoursEditable}" />
+																				</sap.ui.layout.form:fields>
+																			</sap.ui.layout.form:FormElement>
+																			<sap.ui.layout.form:FormElement
+																				visible="{SettingInfo>SubHolidayfVisible}">
+																				<sap.ui.layout.form:label>
+																					<Label text="{i18n>ZF_COMPDAY}">
+																					</Label>
+																				</sap.ui.layout.form:label>
+																				<sap.ui.layout.form:fields>
+																					<Select selectedKey="{path: 'WorkingHours>SubstituteHoliday'}"
+																						enabled="{SettingInfo>WorkingHoursEditable}"
+																						width="50%">
+																						<sap.ui.core:Item key="" text="" />
+																						<sap.ui.core:Item key="0"
+																							text="{i18n>ZF_NOTAPPLY}" />
+																						<sap.ui.core:Item key="1"
+																							text="{i18n>ZF_APPLY}" />
+																					</Select>
+																				</sap.ui.layout.form:fields>
+																			</sap.ui.layout.form:FormElement>
+
+																			<sap.ui.layout.form:FormElement>
+																				<sap.ui.layout.form:label>
+																					<!-- <Label text="{i18n>ZF_SUBHOLI}" id="exchgHoliWork"> 
+																						</Label> -->
+																					<Label
+																						text="{parts: [{path: 'Calendar>WorkingDay'},
+				                                                                                                          {path: 'WorkingHours>CompensatingDay'}],
+																									formatter: '.fmtCompensatingDayLabel'}"
+																						id="exchgHoliWork">
+																					</Label>
+
+																				</sap.ui.layout.form:label>
+																				<sap.ui.layout.form:fields>
+																					<DatePicker editable="false"
+																						valueFormat="YYYY/MM/dd" displayFormat="YYYY/MM/dd"
+																						value="{path: 'WorkingHours>CompensatingDay',
+																							formatter: 'sap.ZG001.timesheet.input.dailyDemo.util.Formatter.fmtCompensatingDay'}"
+																						width="50%">
+																						<customData>
+																							<sap.ui.core:CustomData
+																								key="id" value="CompensatingDay" />
+																						</customData>
+																					</DatePicker>
+
+																				</sap.ui.layout.form:fields>
+																			</sap.ui.layout.form:FormElement>
+																			
+																			
+																			<sap.ui.layout.form:FormElement>
+																				<sap.ui.layout.form:label>
+																					<Label text="{i18n>ZF_JOB}">
+																					
+<!-- 																						<layoutData> -->
+<!-- 																							<sap.ui.layout:GridData span="L3 M6 S6" /> -->
+<!-- 																						</layoutData> -->
+																					</Label>
+																				</sap.ui.layout.form:label>
+																				<sap.ui.layout.form:fields>
+																					<CheckBox>
+<!-- 																						<layoutData> -->
+<!-- 																							<sap.ui.layout:GridData span="L9 M6 S6" /> -->
+<!-- 																						</layoutData> -->
+																					</CheckBox>
+																				</sap.ui.layout.form:fields>
+																			</sap.ui.layout.form:FormElement>
+																		</sap.ui.layout.form:FormContainer>
+																	</sap.ui.layout.form:formContainers>
+																</sap.ui.layout.form:Form>
+																<!-- <sap.ui.layout:Grid defaultSpan="L6 M12 S12" defaultIndent="L0 
+																	M0 S0" width="auto" hSpacing="0" vSpacing="0" class="sapUiMediumMarginBottom"> 
+																	<sap.ui.layout:content> -->
+																<ObjectHeader id="subtotalInformation"
+																	titleLevel="H1" class="ZZObjectHeaderSmall " title="{i18n>ZF_TODAYWORK}"
+																	number="8.00" numberUnit="{i18n>ZF_HOURS}">
+																</ObjectHeader>
+
+																<ObjectHeader id="OTTimeInformation"
+																	class="ZZObjectHeaderSmall sapUiSmallMarginTop" title="{i18n>ZF_OVERTIME}"
+																	number="10.00 / 20.00"
+																	titleLevel="H1" numberUnit="{i18n>ZF_HOURS}">
+																</ObjectHeader>
+																<!-- </sap.ui.layout:content> </sap.ui.layout:Grid> -->
+															</sap.ui.layout:BlockLayoutCell>
+														</sap.ui.layout:BlockLayoutRow>
+													</sap.ui.layout:BlockLayout>
+												</Panel>
+											</sap.ui.layout:content>
+
+											<sap.ui.layout:content>
+												<sap.ui.layout:VerticalLayout
+													width="100%">
+													<Panel class="sapUiSmallMarginTop layoutWhite" id="tabPanel">
+														<TabContainer id="myTabContainer"
+															showAddNewButton="{SettingInfo>WorkingHoursEditable}"
+															itemSelect="itemSelectHandler" addNewButtonPress="addNewButtonPressHandler"
+															itemClose="itemCloseHandler" items="{TimesheetData>today}"
+															class="ZZTabContainer">
+															<items>
+																<sap.ui.core:Fragment
+																	fragmentName="sap.ZG001.timesheet.input.dailyDemo.view.TabContainerItem"
+																	type="XML" />
+															</items>
+														</TabContainer>
+													</Panel>
+												</sap.ui.layout:VerticalLayout>
+											</sap.ui.layout:content>
+										</sap.ui.layout:Grid>
+									</IconTabFilter>
+									<IconTabFilter text="{i18n>ZF_TAB_HOLIDAY}" key="Holiday" icon="sap-icon://appointment">
+										<sap.ui.layout.form:Form
+											maxContainerCols="2">
+											<sap.ui.layout.form:toolbar>
+												<Toolbar>
+													<Title text="{i18n>ZF_TAB_HOLIDAY}" level="H5"
+														titleStyle="H5" />
+												</Toolbar>
+											</sap.ui.layout.form:toolbar>
+											<sap.ui.layout.form:layout>
+												<sap.ui.layout.form:ResponsiveGridLayout
+													labelSpanL="4" emptySpanL="3" labelSpanM="4" emptySpanM="2"
+													columnsL="2" columnsM="2" />
+											</sap.ui.layout.form:layout>
+
+											<sap.ui.layout.form:formContainers>
+												<sap.ui.layout.form:FormContainer>
+													<sap.ui.layout.form:FormElement>
+
+													</sap.ui.layout.form:FormElement>
+
+												</sap.ui.layout.form:FormContainer>
+											</sap.ui.layout.form:formContainers>
+										</sap.ui.layout.form:Form>
+										<ScrollContainer vertical="false" focusable="true"
+											visible="{device>/isPhone}">
+											<Table>
+												<columns>
+													<Column width="100px">
+													</Column>
+													<Column width="100px">
+														<VBox>
+															<Text text="{i18n>ZF_FUYO}" />
+														</VBox>
+													</Column>
+													<Column width="100px">
+														<VBox>
+															<Text text="{i18n>ZF_KIRI}" />
+														</VBox>
+													</Column>
+													<Column width="100px">
+														<VBox>
+															<Text text="{i18n>ZF_SHOKA}" />
+														</VBox>
+													</Column>
+													<Column width="100px">
+														<VBox>
+															<Text text="{i18n>ZF_UTI}" />
+														</VBox>
+													</Column>
+												</columns>
+												<items>
+													<ColumnListItem>
+														<cells>
+															<VBox>
+																<Text text="{i18n>ZF_DAYS}" />
+															</VBox>
+															<VBox>
+																<VBox>
+																	<Text text="{i18n>ZF_TIME}" />
+																</VBox>
+															</VBox>
+															<VBox>
+																<VBox>
+																	<Text text="{i18n>ZF_TIME}" />
+																</VBox>
+															</VBox>
+															<VBox>
+																<VBox>
+																	<Text text="{i18n>ZF_TIME}" />
+																</VBox>
+															</VBox>
+															<VBox>
+																<VBox>
+																	<Text text="{i18n>ZF_TIME}" />
+																</VBox>
+															</VBox>
+														</cells>
+													</ColumnListItem>
+												</items>
+											</Table>
+										</ScrollContainer>
+										<ScrollContainer vertical="false" focusable="true"
+											visible="{device>/isPhone}">
+											<Table>
+												<columns>
+													<Column width="100px">
+													</Column>
+													<Column width="100px">
+														<VBox>
+															<Text text="{i18n>ZF_LASTYEAR}" />
+														</VBox>
+													</Column>
+													<Column width="100px">
+														<VBox>
+															<Text text="{i18n>ZF_CURTYEAR}" />
+														</VBox>
+													</Column>
+													<Column width="200px">
+														<VBox>
+															<Text text="{i18n>ZF_HOMEPOS}" />
+														</VBox>
+													</Column>
+												</columns>
+												<items>
+													<ColumnListItem>
+														<cells>
+															<VBox>
+																<Text text="{i18n>ZF_LEFTDAYS}" />
+															</VBox>
+															<VBox>
+																<VBox>
+																	<Text text="{i18n>ZF_TIME}" />
+																</VBox>
+															</VBox>
+															<VBox>
+																<VBox>
+																	<Text text="{i18n>ZF_TIME}" />
+																</VBox>
+															</VBox>
+															<VBox>
+																<VBox>
+																	<Text text="{i18n>ZF_TIME}" />
+																</VBox>
+															</VBox>
+														</cells>
+													</ColumnListItem>
+												</items>
+											</Table>
+										</ScrollContainer>
+										<Table visible="{device>/isNoPhone}">
+											<columns>
+												<Column width="20%">
+												</Column>
+												<Column width="20%">
+													<VBox>
+														<Text text="{i18n>ZF_FUYO}" />
+													</VBox>
+												</Column>
+												<Column width="20%">
+													<VBox>
+														<Text text="{i18n>ZF_KIRI}" />
+													</VBox>
+												</Column>
+												<Column width="20%">
+													<VBox>
+														<Text text="{i18n>ZF_SHOKA}" />
+													</VBox>
+												</Column>
+												<Column width="20%">
+													<VBox>
+														<Text text="{i18n>ZF_UTI}" />
+													</VBox>
+												</Column>
+											</columns>
+											<items>
+												<ColumnListItem>
+													<cells>
+														<VBox>
+															<Text text="{i18n>ZF_DAYS}" />
+														</VBox>
+														<VBox>
+															<VBox>
+																<Text text="{i18n>ZF_TIME}" />
+															</VBox>
+														</VBox>
+														<VBox>
+															<VBox>
+																<Text text="{i18n>ZF_TIME}" />
+															</VBox>
+														</VBox>
+														<VBox>
+															<VBox>
+																<Text text="{i18n>ZF_TIME}" />
+															</VBox>
+														</VBox>
+														<VBox>
+															<VBox>
+																<Text text="{i18n>ZF_TIME}" />
+															</VBox>
+														</VBox>
+													</cells>
+												</ColumnListItem>
+											</items>
+										</Table>
+										<Table visible="{device>/isNoPhone}">
+											<columns>
+												<Column width="20%">
+												</Column>
+												<Column width="20%">
+													<VBox>
+														<Text text="{i18n>ZF_LASTYEAR}" />
+													</VBox>
+												</Column>
+												<Column width="20%">
+													<VBox>
+														<Text text="{i18n>ZF_CURTYEAR}" />
+													</VBox>
+												</Column>
+												<Column width="40%">
+													<VBox>
+														<Text text="{i18n>ZF_HOMEPOS}" />
+													</VBox>
+												</Column>
+											</columns>
+											<items>
+												<ColumnListItem>
+													<cells>
+														<VBox>
+															<Text text="{i18n>ZF_LEFTDAYS}" />
+														</VBox>
+														<VBox>
+															<VBox>
+																<Text text="{i18n>ZF_TIME}" />
+															</VBox>
+														</VBox>
+														<VBox>
+															<VBox>
+																<Text text="{i18n>ZF_TIME}" />
+															</VBox>
+														</VBox>
+														<VBox>
+															<VBox>
+																<Text text="{i18n>ZF_TIME}" />
+															</VBox>
+														</VBox>
+													</cells>
+												</ColumnListItem>
+											</items>
+										</Table>
+									</IconTabFilter>
+								</items>
+							</IconTabBar>
+
+							<unified:CalendarLegend id="LEGEND">
+								<unified:items>
+									<unified:CalendarLegendItem text="{i18n>ZF_CALDSAVED}"
+										type="Type01" />
+									<unified:CalendarLegendItem text="{i18n>ZF_CALDPROCESSING}"
+										type="Type05" />
+									<unified:CalendarLegendItem text="{i18n>ZF_CALDAPPROVED}"
+										type="Type04" />
+									<unified:CalendarLegendItem text="{i18n>ZF_CALDREJECTED}"
+										type="Type02" />
+								</unified:items>
+							</unified:CalendarLegend>
+						</content>
+					</ScrollContainer>
+				</sap.ui.layout:flexContent>
+			</sap.ui.layout:FixFlex>
+		</content>
+		<footer>
+			<Toolbar id="footerToolbar">
+				<ToolbarSpacer />
+				<Button text="{i18n>ZF_POTAL}" press="onNavToPortal"
+					visible="{parts: [{path: 'SettingInfo>PersonalPortalVisible'},
+                                                                                      {path: 'device>/isNoPhone'}],
+																					formatter: 'sap.ZG001.timesheet.input.dailyDemo.util.Formatter.fmtPersonalPortalVisible'}" />
+				<Button text="{i18n>ZF_BTN_DELETE}" press="onDelete"
+					visible="{SettingInfo>DeleteVisible}" />
+				<Button text="{i18n>ZF_BTN_SEND}" visible="{SettingInfo>SendVisible}"
+					enabled="{SettingInfo>SendClickable}" press="onSend" />
+				<Button text="{i18n>ZF_BTN_RESEND}" visible="{SettingInfo>ResendVisible}"
+					enabled="{SettingInfo>ResendClickable}" press="onResend" />
+				<Button text="{i18n>ZF_BTN_UPLOAD}" visible="{SettingInfo>UploadVisible}"
+					enabled="{SettingInfo>UploadClickable}" />
+				<Button text="{i18n>ZF_BTN_SAVE}" visible="{SettingInfo>SaveVisible}"
+					enabled="{SettingInfo>SaveClickable}" press="onSave" />
+				<Button text="{i18n>ZF_BTN_CANCEL}" visible="{SettingInfo>CancelVisible}"
+					enabled="{SettingInfo>CancelClickable}" press="onCancel" />
+			</Toolbar>
+		</footer>
+	</Page>
+
+</mvc:View>

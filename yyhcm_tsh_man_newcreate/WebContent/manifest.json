@@ -1,0 +1,195 @@
+{
+	"_version": "1.4.0",
+	"sap.app": {
+		"id": "soreturn",
+		"type": "application",
+		"i18n": "i18n/i18n.properties",
+		"title": "{{appTitle}}",
+		"description": "{{appDescription}}",
+		"applicationVersion": {
+			"version": "1.0.0"
+		},
+		"dataSources": {
+			"mainService": {
+				"uri": "proxy/sap/opu/odata/sap/ZSALE_CUSTOM_RE_SRV/?sap-client=100",
+				"type": "OData",
+				"settings": {
+					"odataVersion": "2.0",
+					"localUri": "model/metadata.xml"
+				}
+			}
+		},
+		"sourceTemplate": {
+			"id": "sap.ui.ui5-template-plugin.2masterdetail",
+			"version": "1.46.8"
+		}
+	},
+	"sap.ui": {
+		"technology": "UI5",
+		"icons": {
+			"icon": "sap-icon://detail-view",
+			"favIcon": "",
+			"phone": "",
+			"phone@2": "",
+			"tablet": "",
+			"tablet@2": ""
+		},
+		"deviceTypes": {
+			"desktop": true,
+			"tablet": true,
+			"phone": true
+		},
+		"supportedThemes": [
+			"sap_hcb",
+			"sap_bluecrystal"
+		]
+	},
+	"sap.ui5": {
+		"rootView": {
+			"viewName": "soreturn.view.Full",
+			"type": "XML",
+			"id": "full"
+		},
+		"dependencies": {
+			"minUI5Version": "1.42.0",
+			"libs": {
+				"sap.ui.core": {
+					"minVersion": "1.42.0"
+				},
+				"sap.m": {
+					"minVersion": "1.42.0"
+				},
+				"sap.ushell": {
+					"minVersion": "1.42.0"
+				},
+				"sap.collaboration": {
+					"minVersion": "1.42.0"
+				},
+				"sap.ui.comp": {
+					"minVersion": "1.42.0"
+				},
+				"sap.ui.fl": {
+					"minVersion": "1.42.0"
+				}
+			}
+		},
+		"contentDensities": {
+			"compact": true,
+			"cozy": true
+		},
+		"models": {
+			"i18n": {
+				"type": "sap.ui.model.resource.ResourceModel",
+				"settings": {
+					"bundleName": "soreturn.i18n.i18n"
+				}
+			},
+			"": {
+				"dataSource": "mainService",
+				"preload": true,
+				"settings": {
+					"defaultBindingMode": "TwoWay"
+				}
+			}
+		},
+		"routing": {
+			"config": {
+				"routerClass": "sap.m.routing.Router",
+				"viewType": "XML",
+				"viewPath": "soreturn.view",
+				"controlId": "idFullControl",
+				"controlAggregation": "pages",
+				"bypassed": {
+					"target": [
+						"master",
+						"notFound"
+					]
+				},
+				"async": true
+			},
+			"routes": [
+				{
+					"pattern": "",
+					"name": "master",
+					"target": [
+						"object",
+						"master"
+					]
+				},
+				{
+					"pattern": "OrderInfSet(Vbeln='{sObject}',Posnr='{sItem}')",
+					"name": "object",
+					"target": [
+						"master",
+						"object"
+					]
+				},
+				{
+					"pattern": "Create",
+					"name": "create",
+					"target": [
+						"create"
+					]
+				},
+				{
+					"pattern": "Upload",
+					"name": "upload",
+					"target": [
+						"upload"
+					]
+				}
+			],
+			"targets": {
+				"masterDetail": {
+					"viewName": "App",
+					"viewLevel": 0,
+					"viewId": "app",
+					"controlId": "idFullControl",
+					"controlAggregation": "pages"
+				},
+				"master": {
+					"viewName": "Master",
+					"viewLevel": 1,
+					"viewId": "master",
+					"controlId": "idAppControl",
+					"controlAggregation": "masterPages",
+					"parent": "masterDetail"
+				},
+				"object": {
+					"viewName": "Detail",
+					"viewId": "detail",
+					"viewLevel": 1,
+					"controlId": "idAppControl",
+					"controlAggregation": "detailPages",
+					"parent": "masterDetail"
+				},
+				"create": {
+					"viewName": "Create",
+					"viewId": "create",
+					"viewLevel": 2,
+					"controlId": "idFullControl",
+					"controlAggregation": "pages"
+				},
+				"upload": {
+					"viewName": "Upload",
+					"viewId": "upload",
+					"controlId": "idFullControl",
+					"controlAggregation": "pages",
+					"viewLevel": 2
+				},
+				"detailObjectNotFound": {
+					"viewName": "DetailObjectNotFound",
+					"viewId": "detailObjectNotFound"
+				},
+				"detailNoObjectsAvailable": {
+					"viewName": "DetailNoObjectsAvailable",
+					"viewId": "detailNoObjectsAvailable"
+				},
+				"notFound": {
+					"viewName": "NotFound",
+					"viewId": "notFound"
+				}
+			}
+		}
+	}
+}

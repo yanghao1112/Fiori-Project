@@ -1,0 +1,482 @@
+{
+	"Company": {
+		"values": [
+			{
+				"key": "all",
+				"name": "ABC"
+			},
+			{
+				"key": "all",
+				"name": "GDC"
+			}
+		]
+	},
+	"Sector": {
+		"values": [
+			{
+				"key": "all",
+				"name": "Sector1"
+			},
+			{
+				"key": "all",
+				"name": "Sector2"
+			}
+		]
+	},
+	"Org": {
+		"values": [
+			{
+				"key": "all",
+				"name": "ABC",
+				"items": [
+					{
+						"key": "MFG",
+						"name": "MFG"
+					},
+					{
+						"key": "CB",
+						"name": "CB"
+					}
+				]
+			},
+			{
+				"key": "all",
+				"name": "GDC",
+				"items": [
+					{
+						"key": "ABAP",
+						"name": "ABAP"
+					},
+					{
+						"key": "AMO",
+						"name": "AMO"
+					}
+				]
+			}
+		]
+	},
+	"Pattern": {
+		"values": [
+			{
+				"key": "0",
+				"name": "Periodical",
+				"vizType": "stacked_column"
+			},
+			{
+				"key": "1",
+				"name": "Accumulated",
+				"vizType": "column"
+			}
+		]
+	},
+	"VS": {
+		"values": [
+			{
+				"key": "0",
+				"name": "vs Plan",
+				"vizType": "stacked_column"
+			},
+			{
+				"key": "1",
+				"name": "vs Last Year",
+				"vizType": "column"
+			}
+		]
+	},
+	"Year": {
+		"values": [
+			{
+				"key": "0",
+				"name": "2016",
+				"vizType": "stacked_column"
+			},
+			{
+				"key": "1",
+				"name": "2017",
+				"vizType": "column"
+			},
+			{
+				"key": "2",
+				"name": "2018",
+				"vizType": "100_stacked_column"
+			},
+			{
+				"key": "2",
+				"name": "2019",
+				"vizType": "100_stacked_column"
+			},
+			{
+				"key": "2",
+				"name": "2020",
+				"vizType": "100_stacked_column"
+			},
+			{
+				"key": "2",
+				"name": "2021",
+				"vizType": "100_stacked_column"
+			},
+			{
+				"key": "2",
+				"name": "2022",
+				"vizType": "100_stacked_column"
+			},
+			{
+				"key": "2",
+				"name": "2023",
+				"vizType": "100_stacked_column"
+			}
+		]
+	},
+	"chartType": {
+		"name": "ChartType",
+		"defaultSelected": "0",
+		"values": [
+			{
+				"key": "0",
+				"name": "\u7A4D\u307F\u4E0A\u3052\u7E26\u68D2",
+				"vizType": "stacked_column"
+			},
+			{
+				"key": "1",
+				"name": "\u96C6\u5408\u7E26\u68D2",
+				"vizType": "column"
+			},
+			{
+				"key": "2",
+				"name": "100% \u7A4D\u307F\u4E0A\u3052\u7E26\u68D2",
+				"vizType": "100_stacked_column"
+			},
+			{
+				"key": "3",
+				"name": "\u7A4D\u307F\u4E0A\u3052\u6A2A\u68D2",
+				"vizType": "stacked_bar"
+			},
+			{
+				"key": "4",
+				"name": "\u96C6\u5408\u6A2A\u68D2",
+				"vizType": "bar"
+			},
+			{
+				"key": "5",
+				"name": "100% \u7A4D\u307F\u4E0A\u3052\u6A2A\u68D2",
+				"vizType": "100_stacked_bar"
+			},
+			{
+				"key": "6",
+				"name": "\u6298\u308C\u7DDA",
+				"vizType": "line"
+			},
+			{
+				"key": "7",
+				"name": "\u30DE\u30FC\u30AB\u30FC\u4ED8\u304D\u6298\u308C\u7DDA",
+				"vizType": "line"
+			},
+			{
+				"key": "8",
+				"name": "\u30A6\u30A9\u30FC\u30BF\u30FC\u30D5\u30A9\u30FC\u30EB\u30B0\u30E9\u30D5",
+				"vizType": "waterfall"
+			},
+			{
+				"key": "9",
+				"name": "\u5186\u30B0\u30E9\u30D5",
+				"vizType": "pie"
+			},
+			{
+				"key": "10",
+				"name": "\u30D0\u30D6\u30EB\u30C1\u30E3\u30FC\u30C8",
+				"vizType": "bubble"
+			}
+		]
+	},
+	"BU": {
+		"name": "BU",
+		"defaultSelected": "10",
+		"values": [
+			{
+				"key": "1",
+				"name": "MFG"
+			},
+			{
+				"key": "2",
+				"name": "FSI"
+			},
+			{
+				"key": "3",
+				"name": "CB"
+			},
+			{
+				"key": "4",
+				"name": "Public"
+			},
+			{
+				"key": "5",
+				"name": "Common-Ind"
+			},
+			{
+				"key": "6",
+				"name": "SAP Dev"
+			},
+			{
+				"key": "7",
+				"name": "Others"
+			},
+			{
+				"key": "8",
+				"name": "TI"
+			},
+			{
+				"key": "9",
+				"name": "AMO"
+			},
+			{
+				"key": "10",
+				"name": "ALL"
+			}
+		]
+	},
+	"Data": [
+		{
+			"Period": "P01",
+			"Year": 2017,
+			"Target": 700,
+			"Prosepct": 300,
+			"Opportunity": 300,
+			"Backlog": 1900,
+			"Actual(YTD)": 339,
+			"Plan(YTD)": 291,
+			"Status": "Warning"
+		},
+		{
+			"Period": "P02",
+			"Year": 2017,
+			"Target": 600,
+			"Prosepct": 300,
+			"Opportunity": 200,
+			"Backlog": 1700,
+			"Actual(YTD)": 635,
+			"Plan(YTD)": 575,
+			"Status": "None"
+		},
+		{
+			"Period": "P03",
+			"Year": 2017,
+			"Target": 700,
+			"Prosepct": 100,
+			"Opportunity": 100,
+			"Backlog": 1700,
+			"Actual(YTD)": 1123,
+			"Plan(YTD)": 1040,
+			"Status": "None"
+		},
+		{
+			"Period": "P04",
+			"Year": 2017,
+			"Target": 600,
+			"Prosepct": 200,
+			"Opportunity": 200,
+			"Backlog": 1500,
+			"Actual(YTD)": 1464,
+			"Plan(YTD)": 1392,
+			"Status": "Error"
+		},
+		{
+			"Period": "P05",
+			"Year": 2017,
+			"Target": 600,
+			"Prosepct": 300,
+			"Opportunity": 300,
+			"Backlog": 1400,
+			"Actual(YTD)": 1792,
+			"Plan(YTD)": 1711,
+			"Status": "None"
+		},
+		{
+			"Period": "P06",
+			"Year": 2017,
+			"Target": 0,
+			"Prosepct": 0,
+			"Opportunity": 0,
+			"Backlog": 0,
+			"Actual(YTD)": 0,
+			"Plan(YTD)": 2136,
+			"Status": "None"
+		},
+		{
+			"Period": "P07",
+			"Year": 2017,
+			"Target": 0,
+			"Prosepct": 0,
+			"Opportunity": 0,
+			"Backlog": 0,
+			"Actual(YTD)": 0,
+			"Plan(YTD)": 2488,
+			"Status": "None"
+		},
+		{
+			"Period": "P08",
+			"Year": 2017,
+			"Target": 0,
+			"Prosepct": 0,
+			"Opportunity": 0,
+			"Backlog": 0,
+			"Actual(YTD)": 0,
+			"Plan(YTD)": 2844,
+			"Status": "None"
+		},
+		{
+			"Period": "P09",
+			"Year": 2017,
+			"Target": 0,
+			"Prosepct": 0,
+			"Opportunity": 0,
+			"Backlog": 0,
+			"Actual(YTD)": 0,
+			"Plan(YTD)": 3000,
+			"Status": "None"
+		},
+		{
+			"Period": "P10",
+			"Year": 2017,
+			"Target": 0,
+			"Prosepct": 0,
+			"Opportunity": 0,
+			"Backlog": 0,
+			"Actual(YTD)": 0,
+			"Plan(YTD)": 3200,
+			"Status": "None"
+		},
+		{
+			"Period": "P11",
+			"Year": 2017,
+			"Target": 0,
+			"Prosepct": 0,
+			"Opportunity": 0,
+			"Backlog": 0,
+			"Actual(YTD)": 0,
+			"Plan(YTD)": 3400,
+			"Status": "None"
+		},
+		{
+			"Period": "P12",
+			"Year": 2017,
+			"Target": 0,
+			"Prosepct": 0,
+			"Opportunity": 0,
+			"Backlog": 0,
+			"Actual(YTD)": 0,
+			"Plan(YTD)": 3600,
+			"Status": "None"
+		}
+	],
+	"vizProperties": {
+		"valueAxis": {
+			"title": {
+				"visible": false
+			},
+			"label": {
+				"visible": true,
+				"style": {
+					
+				}
+			},
+			"axisLine": {
+				"visible": true
+			},
+			"axisTick": {
+				"visible": true
+			}
+		},
+		"categoryAxis": {
+			"title": {
+				"visible": false
+			},
+			"axisTick": {
+				"shortTickVisible": true
+			},
+			"label": {
+				
+			}
+		},
+		"title": {
+			"visible": false,
+			"style": {
+				
+			}
+		},
+		"general": {
+			"background": {
+				
+			}
+		},
+		"legend": {
+			"label": {
+				"style": {
+					
+				}
+			},
+			"marker": {
+				"showLine": false,
+				"shape": "squareWithRadius"
+			}
+		},
+		"legendGroup": {
+			"layout": {
+				"position": "left"
+			}
+		},
+		"plotArea": {
+			"line": {
+				"marker": {
+					"visible": false
+				}
+			},
+			"window": {
+				"end": {
+					"categoryAxis": {
+						"Period": "P12",
+						"Year": 2017
+					}
+				}
+			},
+			"isFixedDataPointSize": true,
+			"isSmoothed": true,
+			"adjustScale": true,
+			"background": {
+				"border": {
+					"top": {
+						"visible": true
+					},
+					"right": {
+						"visible": true
+					},
+					"left": {
+						"visible": true
+					}
+				}
+			},
+			"callout": {
+				"line": {
+					"color": "red"
+				}
+			},
+			"dataLabel": {
+				"visible": false,
+				"hideWhenOverlap": false,
+				"formatString": "0.0"
+			},
+			"dataShape": {
+				"primaryAxis": [
+				]
+			},
+			"gridline": {
+				"zeroLine": {
+					"highlight": true,
+					"unhighlightAxis": true
+				}
+			},
+			"gap": {
+				"barSpacing": 1
+			}
+		}
+	}
+}

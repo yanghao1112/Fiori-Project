@@ -1,0 +1,130 @@
+<mvc:View
+	controllerName="soapprove.controller.Master"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns:core="sap.ui.core"
+	xmlns="sap.m"
+	xmlns:l="sap.ui.layout" 
+	xmlns:u="sap.ui.unified"
+	xmlns:semantic="sap.m.semantic">
+
+	<Page
+		id="page"
+		title="Sales Orders"
+		navButtonPress="onNavBack"
+		showNavButton="true">
+		<subHeader>
+			<Bar id="headerBar">
+				<contentLeft>
+					<SearchField
+						id="searchField" showRefreshButton="{= !${device>/support/touch} }"
+						tooltip="{i18n>masterSearchTooltip}" width="100%"
+						search="onSearch">
+					</SearchField>
+				</contentLeft>
+			</Bar>
+		</subHeader>
+		<content>
+			<PullToRefresh id="pullToRefresh" visible="{device>/support/touch}" refresh="onRefresh" />
+			<List
+				id="list"
+				items="{
+					path: '/OrdersSet',
+					sorter: {
+						path: 'SalesOrderNo',
+						descending: false
+						},
+					groupHeaderFactory: '.createGroupHeader'
+				}"
+				busyIndicatorDelay="{Orders>/delay}" noDataText="{Orders>/noDataText}"
+				growing="true"
+				growingScrollToLoad="true" updateFinished="onUpdateFinished"
+				selectionChange="onSelectionChange">
+				<items>
+					<CustomListItem press="onNavigate" title="{SalesOrderNo}" type="Navigation">
+						<VBox class="sapUiSmallMargin">
+							<l:Grid defaultSpan="L8 M8 S8" vSpacing="0" hSpacing="0">
+								<Title text="{SalesOrderNo}" level="H4" titleStyle="H4">
+									<layoutData>
+										<l:GridData span="L4 M4 S4" />
+									</layoutData>
+								</Title>
+								<VBox class="ZTextRight ZTextLarge" width="100%">
+									<u:Currency value="{
+										path: 'TotalAmount',
+										formatter: '.formatter.fmtValue'
+									}"
+									 currency="{Currency}"  useSymbol="false" >
+									 </u:Currency>
+								</VBox>
+							</l:Grid>
+							<l:Grid defaultSpan="L8 M8 S8" vSpacing="0" hSpacing="0" class="sapUiTinyMarginTop">
+								<Text text="Block Reason">
+									<layoutData>
+										<l:GridData span="L4 M4 S4" />
+									</layoutData>
+								</Text>
+								<VBox class="ZTextRight" width="100%">
+									<ObjectStatus text="{BlockReasonText}" state="None">
+									</ObjectStatus>
+								</VBox>
+							</l:Grid>
+							<l:Grid defaultSpan="L8 M8 S8" vSpacing="0" hSpacing="0" class="sapUiTinyMarginTop">
+								<Text text="Customer">
+									<layoutData>
+										<l:GridData span="L4 M4 S4" />
+									</layoutData>
+								</Text>
+								<VBox class="ZTextRight" width="100%">
+									<ObjectStatus text="{Customer}" state="None">
+									</ObjectStatus>
+								</VBox>
+							</l:Grid>
+							<l:Grid defaultSpan="L8 M8 S8" vSpacing="0" hSpacing="0" class="sapUiTinyMarginTop">
+								<Text text="Item Count">
+									<layoutData>
+										<l:GridData span="L4 M4 S4" />
+									</layoutData>
+								</Text>
+								<VBox class="ZTextRight" width="100%">
+									<Text
+									text="{		path: 'ItemCount',
+													formatter: '.formatter.fmtItemCount'
+												}">
+									</Text>
+								</VBox>
+							</l:Grid>
+							<l:Grid defaultSpan="L8 M8 S8" vSpacing="0" hSpacing="0" class="sapUiTinyMarginTop">
+								<Text text="Managed by">
+									<layoutData>
+										<l:GridData span="L4 M4 S4" />
+									</layoutData>
+								</Text>
+								<VBox class="ZTextRight" width="100%">
+									<Link text="{PersonName}" press="onPersonPress">
+									<customData>
+										<core:CustomData key="SalesOrderNo" value="{SalesOrderNo}"/>
+									</customData>
+									</Link>
+								</VBox>
+							</l:Grid>
+						</VBox>
+						<customData>
+							<core:CustomData key="SalesOrderNo" value="{SalesOrderNo}"/>
+						</customData>
+					</CustomListItem>
+				</items>
+			</List>
+		</content>
+		<footer>
+			<Toolbar>
+				<Button text="Approval List" type="Default" press="onEdit" id="Edit" icon="sap-icon://edit"/>
+				<Button text="Back" type="Default" press="onReturn" icon="sap-icon://nav-back"
+					id="Return" visible="false" />
+				<ToolbarSpacer/>
+				<Button text="Approve" press="onButtonPress" id="Approve"  visible="false" type="Accept"/>
+				<Button text="Reject" press="onButtonPress" id="Reject"  visible="false" type="Reject"/>
+			</Toolbar>
+		</footer>
+	</Page>
+
+</mvc:View>

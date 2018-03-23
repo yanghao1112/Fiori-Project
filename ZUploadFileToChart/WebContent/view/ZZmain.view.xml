@@ -1,0 +1,195 @@
+<mvc:View controllerName="sap.ZZZ01.ZCHARTTEST.controller.ZZmain"
+	xmlns:core="sap.ui.core" xmlns:layout="sap.ui.layout" xmlns="sap.m"
+	xmlns:commons="sap.suite.ui.commons" xmlns:viz="sap.viz.ui5.controls"
+	xmlns:viz.data="sap.viz.ui5.data" xmlns:viz.feeds="sap.viz.ui5.controls.common.feeds"
+	xmlns:table="sap.ui.table" xmlns:mvc="sap.ui.core.mvc" xmlns:f="sap.ui.layout.form"
+	xmlns:unified="sap.ui.unified"
+	height="100%">
+	<Page>
+		<!--Below is the setting panel -->
+		<Panel id='settingsPanel' class="panelStyle" expandable="true"
+			expanded="true" headerText="Settings" width="auto">
+			<content>
+				<HBox>
+					<VBox width="200px">
+						<Label text="Upload" />
+						<unified:FileUploader change="onChange" />
+					</VBox>
+				</HBox>
+			</content>
+		</Panel>
+		<commons:ChartContainer id="chartContainer"
+			showFullScreen="true" showPersonalization="false" autoAdjustHeight="true"
+
+			title="Revenue">
+			<commons:content>
+				<commons:ChartContainerContent icon="sap-icon://line-chart"
+					title="Line Chart">
+					<commons:content>
+						<viz:VizFrame id="idVizFrame" uiConfig="{applicationSet:'fiori'}"
+							height='80%' width="100%" vizScales="{list>/Scales}"
+							vizProperties="{list>/vizProperties}" vizType='stacked_column'
+							class="ZLabel">
+							<viz:dataset>
+								<viz.data:FlattenedDataset data="{list>/Data}">
+									<viz.data:dimensions>
+										<viz.data:DimensionDefinition
+											name="Year" value="{list>Year}" />
+										<viz.data:DimensionDefinition
+											name="Period" value="{list>Period}" />
+										<!-- <viz.data:DimensionDefinition name="Shop" -->
+										<!-- value="{list>Shop}" /> -->
+									</viz.data:dimensions>
+									<viz.data:measures>
+										<viz.data:MeasureDefinition name="Target"
+											value="{list>Target}" />
+										<viz.data:MeasureDefinition name="Prosepct"
+											value="{list>Prosepct}" />
+										<viz.data:MeasureDefinition name="Opportunity"
+											value="{list>Opportunity}" />
+										<viz.data:MeasureDefinition name="Backlog"
+											value="{list>Backlog}" />
+										<viz.data:MeasureDefinition name="Actual(YTD)"
+											value="{list>Actual(YTD)}" />
+										<viz.data:MeasureDefinition name="Plan(YTD)"
+											value="{list>Plan(YTD)}" />
+									</viz.data:measures>
+								</viz.data:FlattenedDataset>
+							</viz:dataset>
+							<viz:feeds>
+								<viz.feeds:FeedItem uid="valueAxis" type="Measure"
+									values="Target" />
+								<viz.feeds:FeedItem uid="valueAxis" type="Measure"
+									values="Prosepct" />
+								<viz.feeds:FeedItem uid="valueAxis" type="Measure"
+									values="Opportunity" />
+								<viz.feeds:FeedItem uid="valueAxis" type="Measure"
+									values="Backlog" />
+								<viz.feeds:FeedItem uid="valueAxis" type="Measure"
+									values="Actual(YTD)" />
+								<viz.feeds:FeedItem uid="valueAxis" type="Measure"
+									values="Plan(YTD)" />
+								<viz.feeds:FeedItem uid="categoryAxis" type="Dimension"
+									values="Year,Period" />
+							</viz:feeds>
+						</viz:VizFrame>
+					</commons:content>
+				</commons:ChartContainerContent>
+				<commons:ChartContainerContent icon="sap-icon://table-view"
+					title="Table">
+					<commons:content>
+
+						<table:Table rows="{list>/Data}" selectionMode="None"
+							visibleRowCount="12" id="MessageTable">
+
+							<table:columns>
+								<table:Column>
+									<Label text="Period" />
+									<table:template>
+										<ObjectIdentifier title="{list>Period}" />
+									</table:template>
+								</table:Column>
+								<table:Column>
+									<Label text="Target" />
+									<table:template>
+										<ObjectNumber number="{list>Target}" state="{list>Status}" />
+									</table:template>
+								</table:Column>
+								<table:Column>
+									<Label text="Prosepct" />
+									<table:template>
+										<Text text="{list>Prosepct}" />
+									</table:template>
+								</table:Column>
+								<table:Column>
+									<Label text="Opportunity" />
+									<table:template>
+										<Text text="{list>Opportunity}" />
+									</table:template>
+								</table:Column>
+								<table:Column>
+									<Label text="Backlog" />
+									<table:template>
+										<Text text="{list>Backlog}" />
+									</table:template>
+								</table:Column>
+								<table:Column>
+									<Label text="Actual(YTD)" />
+									<table:template>
+										<Text text="{list>Actual(YTD)}" />
+									</table:template>
+								</table:Column>
+								<table:Column>
+									<Label text="Plan(YTD)" />
+									<table:template>
+										<Text text="{list>Plan(YTD)}" />
+									</table:template>
+								</table:Column>
+
+							</table:columns>
+						</table:Table>
+
+
+					</commons:content>
+				</commons:ChartContainerContent>
+
+				<commons:ChartContainerContent icon="sap-icon://table-view"
+					title="Table">
+					<commons:content>
+
+						<table:TreeTable id="treeTable" selectionMode="Single"
+							enableColumnReordering="false" expandFirstLevel="false"
+							rows="{
+						            path : '/Nodes',
+						            parameters : {
+						                countMode: 'Inline',
+						                treeAnnotationProperties : {
+						                    hierarchyLevelFor : 'HierarchyLevel',
+						                    hierarchyNodeFor : 'NodeID',
+						                    hierarchyParentNodeFor : 'ParentNodeID',
+						                    hierarchyDrillStateFor : 'DrillState'
+						                }
+						            }
+						        }">
+
+							<table:columns>
+
+								<table:Column label="Description">
+									<table:template>
+										<Text text="{Description}" />
+									</table:template>
+								</table:Column>
+
+								<table:Column label="HierarchyLevel">
+									<table:template>
+										<Text text="{HierarchyLevel}" />
+									</table:template>
+								</table:Column>
+
+								<table:Column label="NodeID">
+									<table:template>
+										<Text text="{NodeID}" />
+									</table:template>
+								</table:Column>
+
+								<table:Column label="ParentNodeID">
+									<table:template>
+										<Text text="{ParentNodeID}" />
+									</table:template>
+								</table:Column>
+
+							</table:columns>
+
+						</table:TreeTable>
+
+
+					</commons:content>
+				</commons:ChartContainerContent>
+			</commons:content>
+		</commons:ChartContainer>
+
+
+
+
+	</Page>
+</mvc:View>

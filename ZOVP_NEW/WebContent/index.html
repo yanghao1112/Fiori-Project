@@ -1,0 +1,82 @@
+
+
+
+
+<!DOCTYPE HTML>
+
+<html>
+<head>
+
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta charset="UTF-8">
+
+	<title>ZOverviewPage</title>
+       <script>
+           window["sap-ushell-config"] = {
+               defaultRenderer: "fiori2",
+               renderers: {
+                   fiori2: {
+                       componentData: {
+                           config: {
+                               enableSearch: false,
+                               enableUserDefaultParameters: true,
+                               rootIntent: "Shell-home"
+                           }
+                       }
+                   }
+               },
+               services: {
+                   NavTargetResolution: {
+                       config: {
+                           "runStandaloneAppFolderWhitelist": {
+                               "*" : true
+                           },
+                           allowTestUrlComponentConfig : true
+                       }
+                   },
+                   SupportTicket: {
+                       // switched off as the local adapter is not connected to a ticket system
+                       config: {
+                           enabled: false
+                       }
+                   },
+                   EndUserFeedback: {
+                       adapter: {
+                           config: {
+                               enabled: false
+                           }
+                       }
+                   }
+               }
+           };
+       </script>
+	<script id="sap-ushell-bootstrap" src="test-resources/sap/ushell/bootstrap/sandbox.js"></script>
+	<script id="sap-ui-bootstrap"
+		src="resources/sap-ui-core.js"
+		data-sap-ui-libs="sap.m"
+		data-sap-ui-theme="sap_bluecrystal"
+		data-sap-ui-compatVersion="edge"
+		data-sap-ui-resourceroots='{"OverviewPageNew": "./"}'>
+	</script>
+
+<!-- Application launch configuration -->
+	<script>
+        sap.ui.getCore().attachInitEvent(function () {
+            var oComponentContainer = new sap.ui.core.ComponentContainer({
+                height : "100%",
+                name:"OverviewPageNew"
+            });
+            oComponentContainer.placeAt("content");
+        });
+		
+		
+    </script>
+
+</head>
+
+<!-- UI Content -->
+<body class="sapUiBody" id="content" role="application">
+</body>
+
+</html>

@@ -1,0 +1,539 @@
+<edmx:Edmx xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx"
+	Version="4.0">
+	<edmx:Reference xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx"
+		Uri="proxy/sap/opu/odata/sap/ZOVERVIEWPAGE_NEW_SRV/$metadata">
+		<edmx:Include xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx"
+			Namespace="ZOVERVIEWPAGE_NEW_SRV" Alias="ZOVERVIEWPAGE_NEW_SRV" />
+	</edmx:Reference>
+	<edmx:Reference
+		Uri="http://docs.oasis-open.org/odata/odata-data-aggregation-ext/v4.0/cs02/vocabularies/Org.OData.Aggregation.V1.xml">
+		<edmx:Include Alias="Aggregation" Namespace="Org.OData.Aggregation.V1" />
+	</edmx:Reference>
+	<edmx:Reference
+		Uri="http://docs.oasis-open.org/odata/odata/v4.0/errata03/os/complete/vocabularies/Org.OData.Capabilities.V1.xml">
+		<edmx:Include Alias="Capabilities" Namespace="Org.OData.Capabilities.V1" />
+	</edmx:Reference>
+	<edmx:Reference
+		Uri="https://wiki.scn.sap.com/wiki/download/attachments/448470974/Common.xml?api=v2">
+		<edmx:Include Alias="Common" Namespace="com.sap.vocabularies.Common.v1" />
+	</edmx:Reference>
+	<edmx:Reference
+		Uri="https://wiki.scn.sap.com/wiki/download/attachments/448470971/Communication.xml?api=v2">
+		<edmx:Include Alias="vCard"
+			Namespace="com.sap.vocabularies.Communication.v1" />
+	</edmx:Reference>
+	<edmx:Reference
+		Uri="http://docs.oasis-open.org/odata/odata/v4.0/errata03/os/complete/vocabularies/Org.OData.Core.V1.xml">
+		<edmx:Include Alias="Core" Namespace="Org.OData.Core.V1" />
+	</edmx:Reference>
+	<edmx:Reference
+		Uri="http://docs.oasis-open.org/odata/odata/v4.0/errata03/os/complete/vocabularies/Org.OData.Measures.V1.xml">
+		<edmx:Include Alias="CQP" Namespace="Org.OData.Measures.V1" />
+	</edmx:Reference>
+	<edmx:Reference
+		Uri="https://wiki.scn.sap.com/wiki/download/attachments/448470968/UI.xml?api=v2">
+		<edmx:Include Alias="UI" Namespace="com.sap.vocabularies.UI.v1" />
+	</edmx:Reference>
+	<edmx:DataServices>
+		<Schema xmlns="http://docs.oasis-open.org/odata/ns/edm">
+
+			<!-- For Entity Orders -->
+			<Annotations Target="ZOVERVIEWPAGE_NEW_SRV.SalesOrder">
+				<Annotation Term="UI.SelectionFields">
+					<Collection>
+						<PropertyPath>Kunnr</PropertyPath>
+					</Collection>
+				</Annotation>
+				<!-- List in List Report Page -->
+				<Annotation Term="UI.LineItem" Qualifier="Card00">
+					<Collection>
+						<Record Type="UI.DataField">
+							<PropertyValue Property="Value" Path="Vbeln" />
+						</Record>
+						<Record Type="UI.DataField">
+							<PropertyValue Property="Value" Path="Kunnr" />
+						</Record>
+						<Record Type="UI.DataFieldForAnnotation">
+							<PropertyValue Property="Target" AnnotationPath="@UI.DataPoint#DayCount" />
+							<PropertyValue Property="Label" String="{@i18n>NetValueLabel}" />
+						</Record>
+						<Record Type="UI.DataFieldForAnnotation">
+							<PropertyValue Property="Target" AnnotationPath="@UI.DataPoint#ItemCount" />
+							<PropertyValue Property="Label" String="{@i18n>NetValueLabel}" />
+						</Record>
+						<Record Type="UI.DataFieldForAnnotation">
+							<PropertyValue Property="Target" AnnotationPath="@UI.DataPoint#NetValue" />
+							<PropertyValue Property="Label" String="{@i18n>NetValueLabel}" />
+						</Record>
+						<Record Type="UI.DataFieldForAnnotation">
+							<PropertyValue Property="Target" AnnotationPath="@UI.Identification#222" />
+							<PropertyValue Property="Label" String="{@i18n>NetValueLabel}" />
+						</Record>
+
+					</Collection>
+				</Annotation>
+
+				<Annotation Term="UI.DataPoint" Qualifier="DayCount">
+					<Record Type="UI.DataPointType">
+						<PropertyValue Property="TargetValue" Path="Zdays" />
+						<PropertyValue Property="ForecastValue" Path="Zdays" />
+						<PropertyValue Property="CriticalityCalculation">
+							<Record Type="UI.CriticalityCalculationType">
+								<PropertyValue Property="ImprovementDirection"
+									EnumMember="UI.ImprovementDirectionType/Maximize" />
+								<PropertyValue Property="ToleranceRangeLowValue"
+									Decimal="7" />
+								<PropertyValue Property="DeviationRangeLowValue"
+									Decimal="3" />
+							</Record>
+						</PropertyValue>
+						<PropertyValue Property="Value" Path="Zdays" />
+						<PropertyValue Property="Visualization"
+							EnumMember="UI.VisualizationType/Number" />
+					</Record>
+					<Annotation Term="Common.Heading" String="Title" />
+				</Annotation>
+
+				<Annotation Term="UI.DataPoint" Qualifier="ItemCount">
+					<Record Type="UI.DataPointType">
+						<PropertyValue Property="Title" String="{@i18n>ItemCountLabel}" />
+						<PropertyValue Property="Value">
+							<Apply Function="odata.concat">
+								<String>Items : </String>
+								<Path>Itcount</Path>
+							</Apply>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+
+				<Annotation Term="UI.DataPoint" Qualifier="NetValue">
+					<Record Type="UI.DataPointType">
+						<PropertyValue Property="Value" Path="Netwr" />
+					</Record>
+				</Annotation>
+
+				<Annotation Term="UI.LineItem" Qualifier="Card01">
+					<Collection>
+						<Record Type="UI.DataField">
+							<PropertyValue Property="Value" Path="Kunnr" />
+							<PropertyValue Property="Value">
+								<Apply Function="odata.concat">
+									<Path>Kunnr</Path>
+									<String> / </String>
+									<Path>Vbeln</Path>
+								</Apply>
+							</PropertyValue>
+						</Record>
+						<Record Type="UI.DataField">
+							<PropertyValue Property="Value" Path="Wadat" />
+						</Record>
+						<Record Type="UI.DataField">
+							<PropertyValue Property="Value" Path="Btgew" />
+						</Record>
+						<Record Type="UI.DataFieldForAnnotation">
+							<PropertyValue Property="Target" AnnotationPath="@UI.Identification#222" />
+							<PropertyValue Property="Label" String="{@i18n>NetValueLabel}" />
+						</Record>
+					</Collection>
+				</Annotation>
+
+				<Annotation Term="UI.Identification" Qualifier="222">
+					<Collection>
+						<Record Type="UI.DataFieldForIntentBasedNavigation">
+							<PropertyValue Property="SemanticObject" String="SalesOrder" />
+							<PropertyValue Property="Action" String="ysomd" />
+							<PropertyValue Property="Label" String="SO Navigation" />
+						</Record>
+					</Collection>
+				</Annotation>
+
+			</Annotations>
+
+			<Annotations Target="ZOVERVIEWPAGE_NEW_SRV.Billing">
+
+				<Annotation Term="UI.Facets" Qualifier="Card02">
+					<Collection>
+						<Record Type="UI.ReferenceFacet">
+							<Annotation Term="UI.IsSummary" />
+							<PropertyValue Property="Label" String="test" />
+							<PropertyValue Property="Target"
+								AnnotationPath="@UI.FieldGroup#BillingData" />
+						</Record>
+						<Record Type="UI.ReferenceFacet">
+							<Annotation Term="UI.IsSummary" />
+							<PropertyValue Property="Target"
+								AnnotationPath="@UI.Identification#Actions" />
+						</Record>
+					</Collection>
+				</Annotation>
+
+				<Annotation Term="UI.FieldGroup" Qualifier="BillingData">
+					<Record Type="UI.FieldGroupType">
+						<PropertyValue Property="Label" String="Billing Document" />
+						<PropertyValue Property="Data">
+							<Collection>
+								<Record Type="UI.DataField">
+									<PropertyValue Property="Value" Path="Kunnr" />
+									<PropertyValue Property="Label" String="{@i18n>BillTo}" />
+								</Record>
+								<Record Type="UI.DataField">
+									<PropertyValue Property="Value" Path="Netwr" />
+									<PropertyValue Property="Label" String="{@i18n>RemainingAmount}" />
+								</Record>
+								<Record Type="UI.DataField">
+									<PropertyValue Property="Value" Path="Kunrg" />
+									<PropertyValue Property="Label" String="{@i18n>PIC}" />
+								</Record>
+								<Record Type="UI.DataField">
+									<PropertyValue Property="Value" Path="Telf1" />
+									<PropertyValue Property="Label" String="{@i18n>TelNumber}" />
+								</Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+
+				<Annotation Term="UI.Identification" Qualifier="Actions">
+					<Collection>
+						<Record Type="UI.DataFieldForIntentBasedNavigation">
+							<PropertyValue Property="SemanticObject" String="SalesOrder" />
+							<PropertyValue Property="Action" String="zobjectpage" />
+							<PropertyValue Property="Label" String="GoTo" />
+							<Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High" />
+						</Record>
+					</Collection>
+				</Annotation>
+
+				<Annotation Term="UI.Identification" Qualifier="Actions2">
+					<Collection>
+						<Record Type="UI.DataFieldWithUrl">
+							<PropertyValue Property="Url">
+								<Apply Function="odata.fillUriTemplate">
+									<String><![CDATA[#SalesOrder-displayFactSheet&/C_Salesorderfs({ID1})]]></String>
+									<LabeledElement Name="ID1">
+										<Apply Function="odata.uriEncode">
+											<Path>Vbeln</Path>
+										</Apply>
+									</LabeledElement>
+								</Apply>
+							</PropertyValue>
+							<PropertyValue Property="Value" String="Vbeln" />
+							<PropertyValue Property="Label" String="{@i18n>ButtonforStack}" />
+						</Record>
+
+					</Collection>
+				</Annotation>
+
+				<Annotation Term="UI.HeaderInfo">
+					<Record Type="UI.HeaderInfoType">
+						<PropertyValue Property="TypeName" String="Billing" />
+						<PropertyValue Property="TypeNamePlural" String="Billing" />
+						<PropertyValue Property="Title">
+							<Record Type="UI.DataField">
+								<PropertyValue Property="Value" Path="Vbeln" />
+							</Record>
+						</PropertyValue>
+						<PropertyValue Property="Description">
+							<Record Type="UI.DataField">
+								<PropertyValue Property="Value" Path="Name1" />
+							</Record>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+
+			</Annotations>
+
+			<Annotations Target="ZOVERVIEWPAGE_NEW_SRV.Shipment">
+
+				<Annotation Term="UI.DataPoint" Qualifier="Eval_by_Currency">
+					<Record Type="UI.DataPointType">
+						<PropertyValue Property="ValueFormat">
+							<Record>
+								<PropertyValue Property="ScaleFactor" Int="1000" />
+								<PropertyValue Property="NumberOfFractionalDigits"
+									Int="0" />
+							</Record>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+				<Annotation Term="UI.Chart" Qualifier="Bubble">
+					<Record Type="UI.ChartDefinitionType">
+						<PropertyValue Property="ChartType" EnumMember="UI.ChartType/Bubble" />
+						<PropertyValue Property="MeasureAttributes">
+							<Collection>
+								<Record Type="UI.ChartMeasureAttributeType">
+									<PropertyValue Property="Measure" PropertyPath="Zdays" />
+									<PropertyValue Property="Role"
+										EnumMember="UI.ChartMeasureRoleType/Axis1" />
+									<PropertyValue Property="DataPoint"
+										AnnotationPath="@UI.DataPoint#Eval_by_Currency" />
+								</Record>
+								<Record Type="UI.ChartMeasureAttributeType">
+									<PropertyValue Property="Measure" PropertyPath="Btgew" />
+									<PropertyValue Property="Role"
+										EnumMember="UI.ChartMeasureRoleType/Axis2" />
+									<PropertyValue Property="DataPoint"
+										AnnotationPath="@UI.DataPoint#Eval_by_Currency" />
+
+								</Record>
+								<Record Type="UI.ChartMeasureAttributeType">
+									<PropertyValue Property="Measure" PropertyPath="Lfimg" />
+									<PropertyValue Property="Role"
+										EnumMember="UI.ChartMeasureRoleType/Axis3" />
+								</Record>
+							</Collection>
+						</PropertyValue>
+						<PropertyValue Property="DimensionAttributes">
+							<Collection>
+								<Record Type="UI.ChartDimensionAttributeType">
+									<PropertyValue Property="Dimension" PropertyPath="Wgbez" />
+									<PropertyValue Property="Role"
+										EnumMember="UI.ChartDimensionRoleType/Series" />
+								</Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+
+			<Annotations Target="ZOVERVIEWPAGE_NEW_SRV.OpenSales">
+
+				<Annotation Term="UI.DataPoint" Qualifier="Eval_by_Currency1">
+					<Record Type="UI.DataPointType">
+						<PropertyValue Property="ValueFormat">
+							<Record>
+								<PropertyValue Property="ScaleFactor" Int="1000" />
+								<PropertyValue Property="NumberOfFractionalDigits"
+									Int="0" />
+							</Record>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+				<Annotation Term="UI.Chart" Qualifier="ColumnStacked">
+					<Record Type="UI.ChartDefinitionType">
+						<PropertyValue Property="Title" String="{@i18n>TitleforCard05}" />
+						<PropertyValue Property="ChartType" EnumMember="UI.ChartType/ColumnStacked" />
+						<PropertyValue Property="Dimensions">
+							<Collection>
+								<PropertyPath>Yearweek</PropertyPath>
+								<PropertyPath>Bezei</PropertyPath>
+							</Collection>
+						</PropertyValue>
+						<PropertyValue Property="DimensionAttributes">
+							<Collection>
+								<Record Type="UI.ChartDimensionAttributeType">
+									<PropertyValue Property="Dimension" PropertyPath="Yearweek" />
+									<PropertyValue Property="Role"
+										EnumMember="UI.ChartDimensionRoleType/Category" />
+								</Record>
+								<Record Type="UI.ChartDimensionAttributeType">
+									<Annotation Term="Common.Label" Path="Bezei" />
+									<PropertyValue Property="Dimension" PropertyPath="Bezei" />
+									<PropertyValue Property="Role"
+										EnumMember="UI.ChartDimensionRoleType/Series" />
+								</Record>
+							</Collection>
+						</PropertyValue>
+						<PropertyValue Property="Measures">
+							<Collection>
+								<PropertyPath>Netwr</PropertyPath>
+							</Collection>
+						</PropertyValue>
+						<PropertyValue Property="MeasureAttributes">
+							<Collection>
+								<Record Type="UI.ChartMeasureAttributeType">
+									<PropertyValue Property="Measure" PropertyPath="Netwr" />
+									<PropertyValue Property="Role"
+										EnumMember="UI.ChartMeasureRoleType/Axis3" />
+
+									<PropertyValue Property="DataPoint"
+										AnnotationPath="@UI.DataPoint#Eval_by_Currency1" />
+								</Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+
+				<Annotation Term="UI.Chart" Qualifier="Donut">
+					<Record Type="UI.ChartDefinitionType">
+						<PropertyValue Property="Title" String="{@i18n>TitleforCard03}" />
+						<PropertyValue Property="ChartType" EnumMember="UI.ChartType/Donut" />
+						<PropertyValue Property="Dimensions">
+							<Collection>
+								<PropertyPath>Bezei</PropertyPath>
+							</Collection>
+						</PropertyValue>
+						<PropertyValue Property="DimensionAttributes">
+							<Collection>
+								<Record Type="UI.ChartDimensionAttributeType">
+									<PropertyValue Property="Dimension" PropertyPath="Bezei" />
+									<PropertyValue Property="Role"
+										EnumMember="UI.ChartDimensionRoleType/Category" />
+								</Record>
+
+							</Collection>
+						</PropertyValue>
+						<PropertyValue Property="Measures">
+							<Collection>
+								<PropertyPath>Netwr</PropertyPath>
+							</Collection>
+						</PropertyValue>
+						<PropertyValue Property="MeasureAttributes">
+							<Collection>
+								<Record Type="UI.ChartMeasureAttributeType">
+									<PropertyValue Property="Measure" PropertyPath="Netwr" />
+									<PropertyValue Property="Role"
+										EnumMember="UI.ChartMeasureRoleType/Axis3" />
+								</Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+
+			<Annotations Target="ZOVERVIEWPAGE_NEW_SRV.ImcompleteOrder">
+				<Annotation Term="UI.HeaderInfo">
+					<Record Type="UI.HeaderInfoType">
+						<PropertyValue Property="TypeName" String="{@i18n>IncompleteOrder}" />
+						<PropertyValue Property="TypeNamePlural" Path="Vbeln" />
+						<PropertyValue Property="Title">
+							<Record Type="UI.DataField">
+								<PropertyValue Property="Value" Path="Vbeln" />
+							</Record>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+
+				<Annotation Term="UI.Facets" Qualifier="Card02">
+					<Collection>
+						<Record Type="UI.ReferenceFacet">
+							<Annotation Term="UI.IsSummary" />
+							<PropertyValue Property="Label" String="{@i18n>IncompleteOrder}" />
+							<PropertyValue Property="Target"
+								AnnotationPath="@UI.FieldGroup#ImcompleteOrder" />
+						</Record>
+						<Record Type="UI.ReferenceFacet">
+							<Annotation Term="UI.IsSummary" />
+							<PropertyValue Property="Target"
+								AnnotationPath="@UI.Identification#Actions" />
+						</Record>
+					</Collection>
+				</Annotation>
+
+				<Annotation Term="UI.FieldGroup" Qualifier="ImcompleteOrder">
+					<Record Type="UI.FieldGroupType">
+						<PropertyValue Property="Data">
+							<Collection>
+								<Record Type="UI.DataField">
+									<PropertyValue Property="Value" Path="Audat" />
+									<PropertyValue Property="Label" String="{@i18n>DocumentDate}" />
+								</Record>
+								<Record Type="UI.DataField">
+									<PropertyValue Property="Value" Path="Auart" />
+									<PropertyValue Property="Label" String="{@i18n>OrderType}" />
+								</Record>
+								<Record Type="UI.DataField">
+									<PropertyValue Property="Value" Path="Netwr" />
+									<PropertyValue Property="Label" String="{@i18n>NetValue}" />
+								</Record>
+								<Record Type="UI.DataField">
+									<PropertyValue Property="Value" Path="Vtweg" />
+									<PropertyValue Property="Label" String="{@i18n>DistrChannel}" />
+								</Record>
+								<Record Type="UI.DataField">
+									<PropertyValue Property="Value" Path="Vkgrp" />
+									<PropertyValue Property="Label" String="{@i18n>SalesGroup}" />
+								</Record>
+								<Record Type="UI.DataField">
+									<PropertyValue Property="Value" Path="Vkbur" />
+									<PropertyValue Property="Label" String="{@i18n>SalesOffice}" />
+								</Record>
+								<Record Type="UI.DataField">
+									<PropertyValue Property="Value" Path="Kunnr" />
+									<PropertyValue Property="Label" String="{@i18n>Sold-toParty}" />
+								</Record>
+								<Record Type="UI.DataField">
+									<PropertyValue Property="Value" Path="NameOrg1" />
+									<PropertyValue Property="Label" String="{@i18n>CustomerName}" />
+								</Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+
+				<Annotation Term="UI.Identification" Qualifier="Actions">
+					<Collection>
+<!-- 						<Record Type="UI.DataFieldForIntentBasedNavigation"> -->
+<!-- 							<PropertyValue Property="SemanticObject" String="SalesOrder" /> -->
+<!-- 							<PropertyValue Property="Action" String="zobjectpage" /> -->
+<!-- 							<PropertyValue Property="Label" String="GoTo" /> -->
+<!-- 							<Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High" /> -->
+<!-- 						</Record> -->
+					</Collection>
+				</Annotation>
+
+				<Annotation Term="UI.Identification" Qualifier="Actions2">
+					<Collection>
+						<Record Type="UI.DataFieldWithUrl">
+							<PropertyValue Property="Url">
+								<Apply Function="odata.fillUriTemplate">
+									<String><![CDATA[#SalesOrder-displayFactSheet&/C_Salesorderfs({ID1})]]></String>
+									<LabeledElement Name="ID1">
+										<Apply Function="odata.uriEncode">
+											<Path>Vbeln</Path>
+										</Apply>
+									</LabeledElement>
+								</Apply>
+							</PropertyValue>
+							<PropertyValue Property="Value" String="Vbeln" />
+							<PropertyValue Property="Label" String="{@i18n>ButtonforStack}" />
+						</Record>
+
+					</Collection>
+				</Annotation>
+			</Annotations>
+
+			<Annotations Target="ZOVERVIEWPAGE_NEW_SRV.FollowUp">
+
+				<Annotation Term="UI.HeaderInfo">
+					<Record Type="UI.HeaderInfoType">
+						<PropertyValue Property="TypeName" String="{@i18n>card04_title}" />
+						<PropertyValue Property="TypeNamePlural" String="{@i18n>card04_title}" />
+						<PropertyValue Property="Title">
+							<Record Type="DataField">
+								<PropertyValue Property="Value" Path="Text"></PropertyValue>
+							</Record>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+				<Annotation Term="UI.LineItem">
+					<Collection>
+						<Record Type="UI.DataFieldWithUrl">
+							<PropertyValue Property="Url" String="Uri">
+							</PropertyValue>
+							<PropertyValue Property="Value" String="Value" />
+						</Record>
+					</Collection>
+				</Annotation>
+				<!-- <Annotation Term="UI.Identification"> -->
+				<!-- <Collection> -->
+				<!-- <Record Type="UI.DataFieldWithUrl"> -->
+				<!-- <PropertyValue Property="Url"> -->
+				<!-- <Apply Function="odata.concat"> -->
+				<!-- <String><![CDATA[#]]></String> -->
+				<!-- <Path>SeObj</Path> -->
+				<!-- <String><![CDATA[-]]></String> -->
+				<!-- <Path>Action</Path> -->
+				<!-- <String><![CDATA[?]]></String> -->
+				<!-- <Path>Para</Path> -->
+				<!-- </Apply> -->
+				<!-- </PropertyValue> -->
+				<!-- <PropertyValue Property="Value" String="Value" /> -->
+				<!-- <PropertyValue Property="Action" String="Action" /> -->
+				<!-- </Record> -->
+				<!-- </Collection> -->
+				<!-- </Annotation> -->
+			</Annotations>
+		</Schema>
+	</edmx:DataServices>
+</edmx:Edmx>

@@ -1,0 +1,101 @@
+
+<mvc:View controllerName="sap.ZZZ01.YY_TS_SETTING.controller.ZZmain"
+	xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc"
+	xmlns:core="sap.ui.core." xmlns="sap.m" xmlns:f="sap.ui.layout.form" xmlns:l="sap.ui.layout"
+	xmlns:sap.ui.layout.form="sap.ui.layout.form" xmlns:extension="sap.ZZZ01.YY_TS_SETTING.extension"
+	height="100%">
+	<Page
+		class="sapUiContentPadding">
+		
+		<f:Form id="FormChange354"
+			editable="true">
+			<f:title>
+				<core:Title text="Validation" />
+			</f:title>
+			<f:layout>
+				<f:ResponsiveGridLayout
+					labelSpanXL="5"
+					labelSpanL="5"
+					labelSpanM="5"
+					labelSpanS="12"
+					adjustLabelSpan="false"
+					emptySpanXL="4"
+					emptySpanL="4"
+					emptySpanM="4"
+					emptySpanS="0"
+					columnsXL="1"
+					columnsL="1"
+					columnsM="1"
+					singleContainerFullSize="false" />
+			</f:layout>
+			<f:formContainers>
+				<f:FormContainer>
+					<f:formElements>
+						<f:FormElement label="Decimal(Length 13 Decimal Place 3)">
+							<f:fields>
+								<Input id="name" submit="onDecimalCheck">
+									<layoutData>
+										<l:GridData span="XL1 L3 M3 S4" />
+									</layoutData>
+								</Input>
+							</f:fields>
+						</f:FormElement>
+						<f:FormElement label="Date(YYYY.MM.DD | YYYYMMDD |YYYY-MM-DD)">
+							<f:fields>
+								<Input id="date" submit="onDateCheck">
+									<layoutData>
+										<l:GridData span="XL1 L3 M3 S4" />
+									</layoutData>
+								</Input>
+							</f:fields>
+						</f:FormElement>
+						<f:FormElement label="Int16">
+							<f:fields>
+								<Input id="int" submit="onIntCheck">
+									<layoutData>
+										<l:GridData span="XL1 L3 M3 S4" />
+									</layoutData>
+								</Input>
+							</f:fields>
+						</f:FormElement>
+						<f:FormElement label="String(Length 30)">
+							<f:fields>
+								<Input id="string" submit="onStringCheck">
+									<layoutData>
+										<l:GridData span="XL1 L3 M3 S4" />
+									</layoutData>
+								</Input>
+							</f:fields>
+						</f:FormElement>
+						<f:FormElement label="String to Number(parseInt)">
+							<f:fields>
+								<Input submit="onStringToInt">
+									<layoutData>
+										<l:GridData span="XL1 L3 M3 S4" />
+									</layoutData>
+								</Input>
+							</f:fields>
+						</f:FormElement>
+						<f:FormElement label="String to Number(parseFloat)">
+							<f:fields>
+								<Input submit="onStringToFloat">
+									<layoutData>
+										<l:GridData span="XL1 L3 M3 S4" />
+									</layoutData>
+								</Input>
+							</f:fields>
+						</f:FormElement>
+					</f:formElements>
+				</f:FormContainer>
+			</f:formContainers>
+		</f:Form>
+		<footer>
+			<Toolbar>
+				<ToolbarSpacer/>
+				<Button 
+					text="Check" 
+					press="onPressOutput"/>
+			</Toolbar>
+		</footer>
+	</Page>
+</mvc:View>

@@ -1,0 +1,104 @@
+.ZZsapUiCal .sapUiCalMonthView, .sapUiCal .sapUiCalRow {
+	padding-bottom:0rem !important;
+}
+.sapUiCalHead {
+	padding-top:0rem !important;
+	padding-bottom:0rem !important;
+}
+.sapUiCal {
+	padding : 0rem 0.5rem 0rem 0.5rem !important;
+}
+.ZZpanel .sapMPanelContent {
+	padding : 0rem 1rem 1rem 1rem !important;
+}
+.ZZObjectHeaderSmall .sapMOHBottomRow {
+  margin-top: 0px !important;
+}
+.ZZBlockLayoutCellDaily .sapUiBlockCellContent {
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+}
+.ZZObjectHeaderSmall {
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+}
+/* Adjust tab container to display correctly in mobile */
+.ZZTabContainer .sapMTabContainerContent .sapMTabContainerInnerContent {
+    position: relative;
+}
+/* Adjust tab container to display correctly in mobile */
+.ZZTabContainer .sapMTabContainerContent{
+    -ms-flex-preferred-size: auto;
+}
+.layoutWhite {
+  background-color: white;
+}
+.ZZTestRight {
+text-align: right;
+}
+.ZZRed {
+     background-color: red;
+}
+.ZZYellow {
+     background-color: yellow ;
+}
+.sapUiCalItemSel {
+    background-color: #007cc0 !important;
+    background-image: none !important;
+}
+/* #Reject Day LegendType */
+.sapUiCalLegDayType02>.sapUiUnifiedLegendSquare>.sapUiUnifiedLegendSquareColor {
+	background-color: #ee1e67 ;
+}
+.sapUiCalItemType02 {
+	background-color: #ee1e67 ;
+}
+.sapUiCalItemType02>.sapUiCalItemText {
+    box-shadow: none !important;
+}
+.sapUiCalItemType04 {
+    background-color: #d9ebf6;
+}
+.sapUiCalLegDayType04>.sapUiUnifiedLegendSquare>.sapUiUnifiedLegendSquareColor {
+    background-color: #d9ebf6;
+}
+.sapUiCalItemType04>.sapUiCalItemText {
+    box-shadow: none !important;
+}
+.sapUiCalItemType05 {
+    background-color: #d9ebf6;
+    background-image: url(../img/bg_white_transparent.png);
+}
+.sapUiCalLegDayType05>.sapUiUnifiedLegendSquare>.sapUiUnifiedLegendSquareColor {
+    background-color: #d9ebf6;
+    background-image: url(../img/bg_white_transparent.png);
+}
+.sapUiCalItemType05>.sapUiCalItemText {
+    box-shadow: none !important;
+}
+.sapUiCalItemType01 {
+	background-color: #fceaea;
+    background-image: url(../img/bg_white_transparent.png);
+}
+.sapUiCalLegDayType01>.sapUiUnifiedLegendSquare>.sapUiUnifiedLegendSquareColor {
+	background-color: #fceaea;
+    background-image: url(../img/bg_white_transparent.png);
+}
+.sapUiCalItemType01>.sapUiCalItemText {
+    box-shadow: none !important;
+}
+/* #NonWorking Day Type */
+.sapUiCalItemType03 {
+	background-color: #e5e5e5;
+}
+.sapUiCalItemType03>.sapUiCalItemText {
+    box-shadow: none !important;
+}
+.ZZHidden {
+	visibility: hidden;
+}
+.ZZNoIME > input{
+	ime-mode: disabled !important;
+}

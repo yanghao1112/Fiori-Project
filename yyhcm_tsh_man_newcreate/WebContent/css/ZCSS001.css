@@ -1,0 +1,10 @@
+.ZTextRight .sapUiUfdCurrencyAlign{
+	text-align: left;
+}
+.ZTextLarge .sapUiUfdCurrencyValue {
+	font-size: 22px;
+}
+
+.zztext {
+	    white-space: initial !important;
+}

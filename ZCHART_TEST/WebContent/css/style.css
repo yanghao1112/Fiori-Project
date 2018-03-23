@@ -1,0 +1,14 @@
+/* Enter your custom styles here */
+.sapMObjLAttrRow .sapMObjStatus {
+    overflow: initial !important;
+    white-space: pre-wrap !important;
+}
+.ZZLabel {
+  text-align: right;
+}
+/*
+.sapMSLI>.sapMLIBContent{
+    overflow: initial !important;
+    white-space: pre-wrap !important;
+}
+*/

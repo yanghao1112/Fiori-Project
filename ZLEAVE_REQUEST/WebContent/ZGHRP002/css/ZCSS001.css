@@ -1,0 +1,227 @@
+/* Padding and Border for BlockLayoutCell */
+.ZZBlockLayoutCell .sapUiBlockCellContent {
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+  border-top:1px solid grey;
+  border-right:1px solid grey
+}
+/* Left Border Line for BlockLayoutCell */
+.ZZBlockLayoutCellLeftBorder .sapUiBlockCellContent {
+  border-left:1px solid grey;
+}
+/* Top Border Line for BlockLayoutCell */
+.ZZBlockLayoutCellTopBorder .sapUiBlockCellContent {
+  border-top:1px solid grey;
+}
+/* Right Border Line for BlockLayoutCell */
+.ZZBlockLayoutCellRightBorder .sapUiBlockCellContent {
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+  border-right:1px solid grey;
+}
+/* No Padding for BlockLayoutCell */
+.ZZBlockLayoutCellNoPadding .sapUiBlockCellContent {
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+}
+/* White Background-color */
+.ZZLayoutWhite {
+  background-color: white;
+}
+/* Grey Background-color */
+.ZZLayoutGrey {
+	background-color: rgb(217,217,217);
+}
+/* Blue Background-color */
+.ZZLayoutLBule {
+	background-color: rgb(220,230,241);
+	height: 2rem;
+}
+/* Dark Blue Background-color */
+.ZZLayoutDBule {
+	background-color: rgb(79,129,189);
+}
+/* Bottom Border Line */
+.ZZBottomBorder {
+  	border-bottom:1px solid grey;
+}
+/* Margin for Vbox */
+.ZZInputVBox >div {
+    margin-left: 5px;
+    margin-right: 5px;
+}
+/* VBox Top Position */
+.ZZInputVBoxMiddle >div {
+    top: 35%;
+}
+/* VBox Blue background Color */
+.ZZVBoxBlue {
+	background-color: rgb(220,230,241);
+}
+/* Checkbox Right padding */
+.ZZCheckBoxOverDay {
+	padding: 0 0 0 2rem;
+}
+/* Checkbox Left position */
+.ZZCheckBoxOverDay >div {
+	left: 0.5rem;
+}
+/* Checkbox Left Margin */
+.ZZCheckBoxCheckDay{
+	margin-left: 2.8rem;
+}
+/* Text Right align */
+.ZZTextRight {
+	text-align: right;
+}
+/* Text Left align */
+.ZZTextLeft {
+text-align: Left !important;
+
+}
+/* Indent 2 */
+.ZZIndent2 {
+	text-indent:2em;
+}
+/* Indent 4 */
+.ZZIndent4 {
+	text-indent:4em;
+}
+
+/* Action Reuqired Day Style */
+.ZZCalendarDateType01 {
+	background-color: #fceaea;
+    background-image: url(../img/bg_white_transparent.png);
+}
+
+/* Reject Day Type Style */
+.ZZCalendarDateType02 {
+	background-color: #ee1e67;
+}
+
+/* NonWorking Day Type Style */
+.ZZCalendarDateType03 {
+	background-color: #e5e5e5;
+}
+
+/* Approved Day Type Style */
+.ZZCalendarDateType04 {
+	background-color: #d9ebf6;
+}
+
+/* Need Approval Day Type Style */
+.ZZCalendarDateType05 {
+    background-color: #d9ebf6;
+    background-image: url(../img/bg_white_transparent.png);
+}
+/* NonWorking Day Type Style (Calendar)*/
+.sapUiCalItemType03>.sapUiCalItemText {
+    box-shadow: none !important;
+}
+.sapUiCalItemType03 {
+	background-color: #e5e5e5;
+}
+
+/* Approved Day Legend Style */
+.sapUiCalLegDayType04>.sapUiUnifiedLegendSquare>.sapUiUnifiedLegendSquareColor {
+    background-color: #d9ebf6;
+}
+/* Approved Day Calendar Style */
+.sapUiCalItemType04 {
+    background-color: #d9ebf6;
+}
+.sapUiCalItemType04>.sapUiCalItemText {
+    box-shadow: none !important;
+}
+/* Need Approval Day Legend Style */
+.sapUiCalLegDayType05>.sapUiUnifiedLegendSquare>.sapUiUnifiedLegendSquareColor {
+    background-color: #d9ebf6;
+    background-image: url(../img/bg_white_transparent.png);
+}
+/* Need Approval Day Calendar Style */
+.sapUiCalItemType05 {
+    background-color: #d9ebf6;
+    background-image: url(../img/bg_white_transparent.png);
+}
+.sapUiCalItemType05>.sapUiCalItemText {
+    box-shadow: none !important;
+}
+
+/* Reject Day Legend Style */
+.sapUiCalLegDayType02>.sapUiUnifiedLegendSquare>.sapUiUnifiedLegendSquareColor {
+	background-color: #ee1e67 ;
+}
+/* Reject Day Calendar Style */
+.sapUiCalItemType02 {
+	background-color: #ee1e67 ;
+}
+.sapUiCalItemType02>.sapUiCalItemText {
+    box-shadow: none !important;
+}
+
+/* Action Required Day Legend Style */
+.sapUiCalLegDayType01>.sapUiUnifiedLegendSquare>.sapUiUnifiedLegendSquareColor {
+    background-color: #fceaea;
+    background-image: url(../img/bg_white_transparent.png);
+}
+/* Action Required Day Calendar Style */
+.sapUiCalItemType01 {
+	background-color: #fceaea ;
+    background-image: url(../img/bg_white_transparent.png);
+}
+.sapUiCalItemType01>.sapUiCalItemText {
+    box-shadow: none !important;
+}
+/* Calendar Day Hover Style */
+html.sap-desktop .sapUiCalItem:hover {
+    background-color: none !important;
+}
+/* Selected Calendar Day Style */
+.sapUiCalItemSel {
+	background-image: none;
+	background-color: #346187;
+}
+/* Selected Calendar Day Style */
+.ZZFontWhite {
+	color:white;
+}
+/* Vertical Layout Width */
+.ZZVerticalLayout {
+    width: 1250px;
+}
+/* Vertical Layout Left Margin */
+.ZZVerticalLayoutMargin {
+    margin-left: 10px;
+}
+/* Vertical Layout Left Margin */
+.ZZBlockLayout {
+    border-left: 1px solid grey;
+}
+/* Input overflow Style */
+.ZZInputOverflow > input{
+	text-overflow: ellipsis;
+	overflow: hidden;
+}
+/* Red Background color */
+.ZZRed {
+	background-color: red;
+}
+.ZZYellow {
+	background-color: yellow ;
+}
+.ZZLabelMiddle {
+	margin-top: 7px;
+}
+.ZZLabelFontSize {
+	font-size: 12px;
+}
+
+.ZZNoIME > input{
+	ime-mode: disabled !important;
+}

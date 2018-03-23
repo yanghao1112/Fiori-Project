@@ -1,0 +1,321 @@
+<!--
+
+    Copyright (C) 2009-2014 SAP SE or an SAP affiliate company. All rights reserved
+
+-->
+<core:View
+	xmlns:core="sap.ui.core"
+	xmlns="sap.m"
+	xmlns:me="sap.me"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns:form="sap.ui.layout.form"
+	xmlns:layout="sap.ui.layout"
+	controllerName="hcm.approve.leaverequest.view.S3">
+	<Page id="detailPage" path="{a>/Details}">
+		<ObjectHeader
+			id="S3_DETAILHEADHER"
+			number="{parts:[{path:'AbsenceDays'},{path:'AbsenceHours'},{path:'AllDayFlag'}], formatter:'hcm.approve.leaverequest.util.Conversions.formatterAbsenceDuration'}"
+			numberUnit="{parts:[{path:'AbsenceDays'},{path:'AbsenceHours'},{path:'AllDayFlag'}], formatter:'hcm.approve.leaverequest.util.Conversions.formatterAbsenceDurationUnit'}"
+			title="{RequesterName}"
+			titleActive="true"
+			titlePress="_handleNamePress">
+			<statuses>
+				<ObjectStatus id="S3_CHANGEDATE"
+					text="{parts:[{path:'ChangeDate'}], formatter:'hcm.approve.leaverequest.util.Conversions.formatterTimestampToDate'}"></ObjectStatus>
+				<ObjectStatus id="S3_CANCELSTATUS"
+					state="Warning"
+					text="{parts:[{path:'LeaveRequestType'},{path:'RequesterName'}], formatter:'hcm.approve.leaverequest.util.Conversions.formatterHeaderCancelStatus'}"></ObjectStatus>
+			</statuses>
+			<attributes>
+				<ObjectAttribute id="S3_REQ_PERNR"
+					text="{parts:[{path:'RequesterNumber'}], formatter:'hcm.approve.leaverequest.util.Conversions.formatterEmployeeID'}"></ObjectAttribute>
+				<ObjectAttribute id="S3_LEAVEDESC"
+					text="{LeaveTypeDesc}"></ObjectAttribute>
+				<ObjectAttribute id="S3_TIMEFRAME"
+					text="{parts:[{path:'StartDate'},{path:'BeginTime'},{path:'EndDate'},{path:'EndTime'},{path:'AllDayFlag'}], formatter:'hcm.approve.leaverequest.util.Conversions.formatterAbsenceDays3'}"></ObjectAttribute>
+			</attributes>
+			<!-- extension point for additional fields in header -->
+			<core:ExtensionPoint name="extS3Header"></core:ExtensionPoint>
+		</ObjectHeader>
+		<IconTabBar
+			id="LRAtc"
+			select="_handleTabSelect">
+			<items>
+				<IconTabFilter
+					icon="sap-icon://hint"
+					iconColor="Default"
+					key="contentInfo">
+					<content>
+						<form:Form id="myForm">
+							<form:layout>
+								<form:ResponsiveLayout id="informationLayout" />
+							</form:layout>
+							<form:formContainers>
+								<form:FormContainer id="formContainer">
+									<form:layoutData>
+										<layout:ResponsiveFlowLayoutData
+											linebreak="true"
+											margin="false"></layout:ResponsiveFlowLayoutData>
+									</form:layoutData>
+									<form:formElements>
+										<form:FormElement id="S3_TIME_QUOTA_FELEM"
+											visible="{parts:[{path:'CurrentBalTimeUnitCode'}], formatter:'hcm.approve.leaverequest.util.Conversions.formatterCurrentBalanceVisible'}">
+											<form:layoutData>
+												<layout:ResponsiveFlowLayoutData
+													linebreak="true"
+													margin="false"></layout:ResponsiveFlowLayoutData>
+											</form:layoutData>
+											<form:label>
+												<Label
+													id="CurrentBalanceLabel"
+													text="{i18n>view.AddInfo.CurrentBalance}">
+													<layoutData>
+														<layout:ResponsiveFlowLayoutData
+															weight="3"
+															min-width="192"></layout:ResponsiveFlowLayoutData>
+													</layoutData>
+												</Label>
+											</form:label>
+											<form:fields>
+												<Text
+													id="CurrentBalance"
+													text="{parts:[{path:'CurrentBalance'},{path:'CurrentBalTimeUnitCode'}], formatter:'hcm.approve.leaverequest.util.Conversions.formatterCurrentBalance'}">
+													<layoutData>
+														<layout:ResponsiveFlowLayoutData
+															weight="5"></layout:ResponsiveFlowLayoutData>
+													</layoutData>
+												</Text>
+											</form:fields>
+										</form:FormElement>
+										<form:FormElement>
+											<form:layoutData>
+												<layout:ResponsiveFlowLayoutData
+													linebreak="true"
+													margin="false"></layout:ResponsiveFlowLayoutData>
+											</form:layoutData>
+											<form:label>
+												<Label
+													id="RequestedLabel"
+													text="{i18n>view.AddInfo.Requested}">
+													<layoutData>
+														<layout:ResponsiveFlowLayoutData
+															weight="3"
+															min-width="192"></layout:ResponsiveFlowLayoutData>
+													</layoutData>
+												</Label>
+											</form:label>
+											<form:fields>
+												<Text
+													id="Requested"
+													text="{parts:[{path:'AbsenceDays'},{path:'AbsenceHours'},{path:'AllDayFlag'}], formatter:'hcm.approve.leaverequest.util.Conversions.formatterAbsenceDurationAndUnit'}">
+													<layoutData>
+														<layout:ResponsiveFlowLayoutData
+															weight="5"></layout:ResponsiveFlowLayoutData>
+													</layoutData>
+												</Text>
+											</form:fields>
+										</form:FormElement>
+										<form:FormElement id="S3_TIME_QUOTA_DEDUCTED"
+											visible="{parts:[{path:'Deduction'}], formatter:'hcm.approve.leaverequest.util.Conversions.formatterDeductionVisible'}">
+											<form:layoutData>
+												<layout:ResponsiveFlowLayoutData
+													linebreak="true"
+													margin="false"></layout:ResponsiveFlowLayoutData>
+											</form:layoutData>
+											<form:label>
+												<Label
+													id="DeductionLabel"
+													text="{i18n>view.AddInfo.Deduction}">
+													<layoutData>
+														<layout:ResponsiveFlowLayoutData
+															weight="3"
+															min-width="192"></layout:ResponsiveFlowLayoutData>
+													</layoutData>
+												</Label>
+											</form:label>
+											<form:fields>
+												<Text
+													id="Deduction"
+													text="{parts:[{path:'Deduction'},{path:'CurrentBalTimeUnitCode'}], formatter:'hcm.approve.leaverequest.util.Conversions.formatterCurrentBalance'}">
+													<layoutData>
+														<layout:ResponsiveFlowLayoutData
+															weight="5"></layout:ResponsiveFlowLayoutData>
+													</layoutData>
+												</Text>
+											</form:fields>
+										</form:FormElement>
+										<form:FormElement
+									                 id = "S3_Duration"
+									                 visible = "{parts:[{path:'AllDayFlag'}], formatter:'hcm.approve.leaverequest.util.Conversions.formatterTimeDurationVisible'}">
+											<form:layoutData>
+												<layout:ResponsiveFlowLayoutData
+													linebreak="true"
+													margin="false"></layout:ResponsiveFlowLayoutData>
+											</form:layoutData>
+											<form:label>
+												<Label
+													id="S3_DurationLabel"
+													text="{i18n>view.Detail.FromTo}">
+													<layoutData>
+														<layout:ResponsiveFlowLayoutData
+															weight="3"
+															min-width="192"></layout:ResponsiveFlowLayoutData>
+													</layoutData>
+												</Label>
+											</form:label>
+											<form:fields>
+												<Text
+													id ="RequestedDurationTime"
+													
+													text = "{parts:[{path:'BeginTime'},{path:'EndTime'}], formatter:'hcm.approve.leaverequest.util.Conversions.formatterDurationTime'}">
+													<layoutData>
+														<layout:ResponsiveFlowLayoutData
+															weight="5"></layout:ResponsiveFlowLayoutData>
+													</layoutData>
+												</Text>
+											</form:fields>
+										</form:FormElement>
+										<form:FormElement>
+											<form:layoutData>
+												<layout:ResponsiveFlowLayoutData
+													linebreak="true"
+													margin="false"></layout:ResponsiveFlowLayoutData>
+											</form:layoutData>
+											<form:label>
+												<Label
+													id="LeaveType"
+													text="{i18n>view.AddInfo.LeaveType}">
+													<layoutData>
+														<layout:ResponsiveFlowLayoutData
+															weight="3"
+															min-width="192"></layout:ResponsiveFlowLayoutData>
+													</layoutData>
+												</Label>
+											</form:label>
+											<form:fields>
+												<Text
+													id="formLeaveTypeDesc"
+													text="{LeaveTypeDesc}">
+													<layoutData>
+														<layout:ResponsiveFlowLayoutData
+															weight="5"></layout:ResponsiveFlowLayoutData>
+													</layoutData>
+												</Text>
+											</form:fields>
+										</form:FormElement>
+										<form:FormElement
+											id="Overlaps"
+											visible="false">
+											<form:layoutData>
+												<layout:ResponsiveFlowLayoutData
+													linebreak="true"
+													margin="false"></layout:ResponsiveFlowLayoutData>
+											</form:layoutData>
+											<form:label>
+												<Label
+													id="OverlapListLabel">
+													<layoutData>
+														<layout:ResponsiveFlowLayoutData
+															weight="3"
+															min-width="192"></layout:ResponsiveFlowLayoutData>
+													</layoutData>
+												</Label>
+											</form:label>
+											<form:fields>
+												<Text
+													id="OverlapList"
+													text="{parts:[{path:'OverlapList'}], formatter:'hcm.approve.leaverequest.util.Conversions._parseOverlapList'}">
+													<layoutData>
+														<layout:ResponsiveFlowLayoutData
+															weight="5"
+															align-items="End"></layout:ResponsiveFlowLayoutData>
+													</layoutData>
+												</Text>
+											</form:fields>
+										</form:FormElement>
+
+									</form:formElements>
+								</form:FormContainer>
+							</form:formContainers>
+						</form:Form>
+					</content>
+				</IconTabFilter>
+				<IconTabFilter
+					icon="sap-icon://notes"
+					iconColor="Default"
+					count="{NotesCounter}"
+					key="contentNotes"
+					visible="{parts:[{path:'NotesCounter'}], formatter:'hcm.approve.leaverequest.util.Conversions.formatterNotesVisible'}">
+					<List
+							id="NotesList"
+							items="{notes>/NotesCollection}"
+							inset="false"
+							showSeparators="None"
+							headerDesign="Plain">
+						<FeedListItem
+								id="feed"
+								sender="{notes>Author}"
+								senderPress="_handleSenderPress"
+								timestamp="{notes>Timestamp}"
+                                text="{notes>Text}"
+								></FeedListItem>
+					</List>
+				</IconTabFilter>
+				<IconTabFilter id="S3_ATTACH_ICNTAB"  
+					count="{AttachmentsCounter}" 
+					icon="sap-icon://attachment" 
+					visible="{parts:[{path:'AttachmentsCounter'}], formatter:'hcm.approve.leaverequest.util.Conversions.formatterNotesVisible'}">
+					<content>
+						<layout:VerticalLayout
+                                width="100%">
+							<UploadCollection id="S3_FILE_LIST"
+                                  uploadEnabled="false"
+                                  items="{files>/AttachmentsCollection}">
+								<UploadCollectionItem
+                                     contributor= "{files>Contributor}"
+                                     documentId="{files>DocumentId}"
+                                     enableDelete="false"
+                                     enableEdit="false"
+                                     url="{files>FileUrl}"
+                                     mimeType="{files>MimeType}"
+                                     fileName="{files>FileName}"
+                                     fileSize="{files>FileSize}"
+                                     uploadedDate="{files>UploadedDate}"
+                                     ></UploadCollectionItem>
+							</UploadCollection>
+						</layout:VerticalLayout>
+					</content>
+				</IconTabFilter>
+				<IconTabFilter id="S3_OverlapCalendar"  
+					icon="sap-icon://calendar"
+					count="{Overlaps}" 
+					key = "calendar"
+					visible="false">
+					<content>
+						<me:OverlapCalendar
+				            id="OverlapCalendar2"
+				            startDate="2015-04-16T00:00:00"
+				            weeksPerRow="2"
+				            swipeToNavigate="false"
+				            endOfData="_onEndOfData"
+				            changeDate="_onChangeDate"></me:OverlapCalendar>
+						<me:CalendarLegend
+				                id="CalenderLegend"
+				                legendWidth="18em">
+				        </me:CalendarLegend>
+				        <Text   id="infoText" 
+				                class="sapUiSmallMarginBeginEnd sapUiSmallMarginTop"
+				                textAlign = "Right"
+				                width = "98%" > <!--value changed from 80 to 98% and textAllign Center to right FA 2289207 -->
+				        </Text>
+					</content>
+				</IconTabFilter>
+				<!-- extension point for additional IconTabFilter -->
+				<core:ExtensionPoint name="extS3Tab"/>
+			</items>
+		</IconTabBar>
+		<footer>
+			<Bar id="detailFooter"></Bar>
+		</footer>
+	</Page>
+</core:View>

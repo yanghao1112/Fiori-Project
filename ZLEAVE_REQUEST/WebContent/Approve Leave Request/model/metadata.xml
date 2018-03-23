@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+    Copyright (C) 2009-2014 SAP SE or an SAP affiliate company. All rights reserved
+
+-->
+<edmx:Edmx xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData" Version="1.0">
+   <edmx:DataServices m:DataServiceVersion="2.0">
+      <Schema xmlns="http://schemas.microsoft.com/ado/2008/09/edm" Namespace="HCM_LEAVE_REQ_APPROVE_SRV" xml:lang="en" sap:schema-version="1">
+         <EntityType Name="Employee" sap:content-version="1">
+            <Key>
+               <PropertyRef Name="EmployeeNumber" />
+            </Key>
+            <Property Name="EmployeeNumber" Type="Edm.String" Nullable="false" MaxLength="8" sap:label="Personnel No." sap:creatable="false" sap:updatable="false" sap:sortable="false" />
+            <Property Name="Name" Type="Edm.String" MaxLength="60" sap:label="Text" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" sap:semantics="name" />
+            <Property Name="Mobile" Type="Edm.String" MaxLength="25" sap:label="Telephone no." sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" sap:semantics="tel" />
+            <Property Name="Phone" Type="Edm.String" MaxLength="25" sap:label="Telephone no." sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" sap:semantics="tel" />
+            <Property Name="Email" Type="Edm.String" MaxLength="241" sap:label="E-Mail Address" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:semantics="email" />
+            <Property Name="Company" Type="Edm.String" MaxLength="25" sap:label="Company Name" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:semantics="org" />
+            <Property Name="Department" Type="Edm.String" MaxLength="40" sap:label="Text, 40 Characters Long" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:semantics="org" />
+            <Property Name="Address" Type="Edm.String" MaxLength="255" sap:label="Char255" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:semantics="location" />
+            <Property Name="MimeType" Type="Edm.String" MaxLength="128" sap:label="MIME Type" sap:creatable="false" sap:updatable="false" sap:sortable="false" />
+         </EntityType>
+         <EntityType Name="FileAttachment" m:HasStream="true" sap:content-version="1">
+            <Key>
+               <PropertyRef Name="LeaveRequestId" />
+               <PropertyRef Name="ArchivDocId" />
+            </Key>
+            <Property Name="LeaveRequestId" Type="Edm.String" Nullable="false" MaxLength="32" sap:label="Document ID" sap:creatable="false" sap:updatable="false" sap:sortable="false" />
+            <Property Name="FilePath" Type="Edm.String" sap:label="File Path" sap:sortable="false" sap:filterable="false" />
+            <Property Name="FileName" Type="Edm.String" sap:label="Attachment Name" sap:sortable="false" sap:filterable="false" />
+            <Property Name="FileType" Type="Edm.String" MaxLength="128" sap:label="File Type" sap:sortable="false" sap:filterable="false" />
+            <Property Name="FileSizeDescr" Type="Edm.String" sap:label="File Size Description" sap:sortable="false" sap:filterable="false" />
+            <Property Name="FileSize" Type="Edm.String" MaxLength="12" sap:label="File Size" sap:sortable="false" sap:filterable="false" />
+            <Property Name="FileContent" Type="Edm.Binary" sap:label="File Content" sap:sortable="false" sap:filterable="false" />
+            <Property Name="FileUrl" Type="Edm.String" sap:label="Attachment URL" sap:sortable="false" sap:filterable="false" />
+            <Property Name="DeleteEnabled" Type="Edm.String" MaxLength="1" sap:label="TRUE" sap:sortable="false" sap:filterable="false" />
+            <Property Name="CreateUser" Type="Edm.String" MaxLength="12" sap:label="User Name" sap:sortable="false" sap:filterable="false" />
+            <Property Name="CreateDate" Type="Edm.DateTime" Precision="7" sap:label="Storage date" sap:sortable="false" sap:filterable="false" />
+            <Property Name="CreateTime" Type="Edm.Time" Precision="0" sap:label="Time" sap:sortable="false" sap:filterable="false" />
+            <Property Name="ArchivDocId" Type="Edm.String" Nullable="false" MaxLength="40" sap:label="Doc. ID" sap:sortable="false" />
+            <Property Name="AttachmentStatus" Type="Edm.String" MaxLength="1" sap:label="Attachment Status" sap:sortable="false" sap:filterable="false" />
+            <Property Name="FileSeqnr" Type="Edm.String" MaxLength="3" sap:label="File Sequence Number" sap:sortable="false" sap:filterable="false" />
+            <Property Name="Action" Type="Edm.String" MaxLength="132" sap:label="URL" sap:sortable="false" sap:filterable="false" />
+         </EntityType>
+         <EntityType Name="TeamCalendarHeader" sap:content-version="1">
+            <Key>
+               <PropertyRef Name="StartDate" />
+               <PropertyRef Name="EndDate" />
+               <PropertyRef Name="RequestID" />
+            </Key>
+            <Property Name="StartDate" Type="Edm.DateTime" Nullable="false" Precision="0" sap:label="Date" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+            <Property Name="EndDate" Type="Edm.DateTime" Nullable="false" Precision="0" sap:label="Date" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+            <Property Name="RequestID" Type="Edm.String" Nullable="false" MaxLength="32" sap:label="Document ID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+            <Property Name="FilterLeaves" Type="Edm.Boolean" sap:label="TRUE" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+            <Property Name="PastPendingLeaves" Type="Edm.Int32" sap:label="Number" sap:creatable="false" sap:updatable="false" sap:sortable="false" />
+            <Property Name="FuturePendingLeaves" Type="Edm.Int32" sap:label="Number" sap:creatable="false" sap:updatable="false" sap:sortable="false" />
+         </EntityType>
+         <EntityType Name="TeamCalendar" sap:content-version="1">
+            <Key>
+               <PropertyRef Name="EventKey" />
+            </Key>
+            <Property Name="OverlapList" Type="Edm.String" sap:label="Overlap List" sap:creatable="false" sap:updatable="false" sap:sortable="false" />
+            <Property Name="EventKey" Type="Edm.String" Nullable="false" sap:label="Attendance Stat" sap:creatable="false" sap:updatable="false" sap:sortable="false" />
+            <Property Name="EmployeeNumber" Type="Edm.String" Nullable="false" MaxLength="8" sap:label="Employee No." sap:creatable="false" sap:updatable="false" sap:sortable="false" />
+            <Property Name="EmployeeName" Type="Edm.String" MaxLength="40" sap:label="Employee Name" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+            <Property Name="StartDate" Type="Edm.DateTime" Precision="0" sap:label="Start date" sap:creatable="false" sap:updatable="false" sap:sortable="false" />
+            <Property Name="EndDate" Type="Edm.DateTime" Precision="0" sap:label="End Date" sap:creatable="false" sap:updatable="false" sap:sortable="false" />
+            <Property Name="AbsenceType" Type="Edm.String" MaxLength="40" sap:label="Leave Type" sap:creatable="false" sap:updatable="false" sap:sortable="false" />
+            <Property Name="LegendType" Type="Edm.String" MaxLength="2" sap:label="Legend Type" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+            <Property Name="ActionSupported" Type="Edm.Boolean" sap:label="TRUE" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+            <Property Name="AllDayFlag" Type="Edm.Boolean" sap:label="TRUE" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+            <Property Name="Order" Type="Edm.Int32" sap:label="Order" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+            <Property Name="LeaveID" Type="Edm.String" MaxLength="32" sap:label="UUID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+         </EntityType>
+         <EntityType Name="ItemCount" sap:content-version="1">
+            <Key>
+               <PropertyRef Name="key" />
+            </Key>
+            <Property Name="number" Type="Edm.Int16" Nullable="false" sap:label="Int2" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+            <Property Name="key" Type="Edm.Int16" Nullable="false" sap:label="Int2" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+            <Property Name="info" Type="Edm.String" MaxLength="255" sap:label="Char255" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+         </EntityType>
+         <EntityType Name="LeaveRequest" sap:content-version="1">
+            <Key>
+               <PropertyRef Name="RequestId" />
+            </Key>
+            <Property Name="RequestId" Type="Edm.String" Nullable="false" MaxLength="32" sap:label="Document ID" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+            <Property Name="ApproverName" Type="Edm.String" MaxLength="80" sap:label="Full Name" sap:sortable="false" sap:filterable="false" />
+            <Property Name="ApproverNumber" Type="Edm.String" MaxLength="8" sap:label="Personnel No." sap:sortable="false" sap:filterable="false" />
+            <Property Name="RequesterName" Type="Edm.String" MaxLength="80" sap:label="Full Name" sap:sortable="false" sap:filterable="false" />
+            <Property Name="RequesterNumber" Type="Edm.String" MaxLength="8" sap:label="Personnel No." sap:sortable="false" sap:filterable="false" />
+            <Property Name="FirstSubmDate" Type="Edm.DateTime" Precision="7" sap:label="Submit Date" sap:sortable="false" sap:filterable="false" />
+            <Property Name="FirstSubmTime" Type="Edm.String" MaxLength="6" sap:label="Submit Time" sap:sortable="false" sap:filterable="false" />
+            <Property Name="InfoType" Type="Edm.String" MaxLength="4" sap:label="Infotype" sap:sortable="false" sap:filterable="false" />
+            <Property Name="LeaveType" Type="Edm.String" MaxLength="4" sap:label="Att./abs. type" sap:sortable="false" sap:filterable="false" />
+            <Property Name="LeaveTypeDesc" Type="Edm.String" MaxLength="25" sap:label="A/A type text" sap:sortable="false" sap:filterable="false" />
+            <Property Name="StartDate" Type="Edm.DateTime" Precision="7" sap:label="Start date" sap:sortable="false" sap:filterable="false" />
+            <Property Name="EndDate" Type="Edm.DateTime" Precision="7" sap:label="End Date" sap:sortable="false" sap:filterable="false" />
+            <Property Name="BeginTime" Type="Edm.String" MaxLength="6" sap:label="Time" sap:sortable="false" sap:filterable="false" />
+            <Property Name="EndTime" Type="Edm.String" MaxLength="6" sap:label="Time" sap:sortable="false" sap:filterable="false" />
+            <Property Name="AbsenceHours" Type="Edm.Decimal" Precision="7" Scale="2" sap:label="Annual hours" sap:sortable="false" sap:filterable="false" />
+            <Property Name="AllDayFlag" Type="Edm.Boolean" sap:label="TRUE" sap:sortable="false" sap:filterable="false" />
+            <Property Name="AbsenceDays" Type="Edm.Decimal" Precision="6" Scale="2" sap:label="Att./abs. days" sap:sortable="false" sap:filterable="false" />
+            <Property Name="CalendarDays" Type="Edm.Decimal" Precision="6" Scale="2" sap:label="Calendar days" sap:sortable="false" sap:filterable="false" />
+            <Property Name="Note" Type="Edm.String" sap:label="Note from Employee/Approver" sap:sortable="false" sap:filterable="false" />
+            <Property Name="Version" Type="Edm.Int32" sap:label="Doc. Version" sap:sortable="false" sap:filterable="false" />
+            <Property Name="StatusCode" Type="Edm.String" MaxLength="12" sap:label="Document Status" sap:sortable="false" sap:filterable="false" />
+            <Property Name="StatusName" Type="Edm.String" MaxLength="20" sap:label="Char20" sap:sortable="false" sap:filterable="false" />
+            <Property Name="ChangeDate" Type="Edm.DateTime" Precision="7" sap:label="Date" sap:sortable="false" sap:filterable="false" />
+            <Property Name="ChangeTime" Type="Edm.String" MaxLength="6" sap:label="Time" sap:sortable="false" sap:filterable="false" />
+            <Property Name="ChangePersName" Type="Edm.String" MaxLength="80" sap:label="Full Name" sap:sortable="false" sap:filterable="false" />
+            <Property Name="FilterGetAllRequests" Type="Edm.String" MaxLength="1" sap:label="TRUE" sap:sortable="false" sap:filterable="false" />
+            <Property Name="LeaveRequestType" Type="Edm.Int16" sap:label="Int2" sap:sortable="false" sap:filterable="false" />
+            <Property Name="Overlaps" Type="Edm.Int32" sap:label="Number" sap:sortable="false" sap:filterable="false" />
+            <Property Name="OverlapList" Type="Edm.String" sap:label="Overlap list" sap:sortable="false" sap:filterable="false" />
+            <Property Name="NotesCounter" Type="Edm.Int32" sap:label="Number" sap:sortable="false" sap:filterable="false" />
+            <Property Name="TaskDefinitionID" Type="Edm.String" MaxLength="16" sap:label="Field of length 16" sap:sortable="false" sap:filterable="false" />
+            <Property Name="CurrentBalance" Type="Edm.Decimal" Precision="10" Scale="5" sap:label="Quota number" sap:sortable="false" sap:filterable="false" />
+            <Property Name="CurrentBalanceTimeUnit" Type="Edm.String" MaxLength="60" sap:label="Short Text" sap:sortable="false" sap:filterable="false" />
+            <Property Name="CurrentBalTimeUnitCode" Type="Edm.String" MaxLength="3" sap:label="Time Unit" sap:sortable="false" sap:filterable="false" />
+            <Property Name="CurrentBalanceWarning" Type="Edm.String" MaxLength="1" sap:label="TRUE" sap:sortable="false" sap:filterable="false" />
+            <Property Name="CalculateOverlaps" Type="Edm.String" MaxLength="1" sap:label="TRUE" sap:sortable="false" sap:filterable="false" />
+            <Property Name="WorkitemID" Type="Edm.String" MaxLength="12" sap:label="ID" sap:sortable="false" sap:filterable="false" />
+            <Property Name="AttachmentsCounter" Type="Edm.Int16" sap:label="Int2" sap:sortable="false" sap:filterable="false" />
+            <Property Name="Fileattachments" Type="Edm.String" sap:label="All file attachements details" sap:sortable="false" sap:filterable="false" />
+            <Property Name="ActionCode" Type="Edm.String" MaxLength="30" sap:label="ACTION" sap:sortable="false" sap:filterable="false" />
+            <Property Name="ActionText" Type="Edm.String" sap:label="ACTION_TEXT" sap:sortable="false" sap:filterable="false" />
+            <NavigationProperty Name="TeamCalendar" Relationship="HCM_LEAVE_REQ_APPROVE_SRV.LeaveRequestTeamCalendar" FromRole="FromRole_LeaveRequestTeamCalendar" ToRole="ToRole_LeaveRequestTeamCalendar" />
+            <NavigationProperty Name="LeaveRequestFileAttachment" Relationship="HCM_LEAVE_REQ_APPROVE_SRV.Assoc_Attachments" FromRole="FromRole_Assoc_Attachments" ToRole="ToRole_Assoc_Attachments" />
+         </EntityType>
+         <Association Name="LeaveRequestTeamCalendar" sap:content-version="1">
+            <End Type="HCM_LEAVE_REQ_APPROVE_SRV.LeaveRequest" Multiplicity="0..1" Role="FromRole_LeaveRequestTeamCalendar" />
+            <End Type="HCM_LEAVE_REQ_APPROVE_SRV.TeamCalendar" Multiplicity="0..1" Role="ToRole_LeaveRequestTeamCalendar" />
+         </Association>
+         <Association Name="Assoc_Attachments" sap:content-version="1">
+            <End Type="HCM_LEAVE_REQ_APPROVE_SRV.LeaveRequest" Multiplicity="1" Role="FromRole_Assoc_Attachments" />
+            <End Type="HCM_LEAVE_REQ_APPROVE_SRV.FileAttachment" Multiplicity="*" Role="ToRole_Assoc_Attachments" />
+         </Association>
+         <EntityContainer Name="HCM_LEAVE_REQ_APPROVE_SRV_Entities" m:IsDefaultEntityContainer="true" sap:supported-formats="atom json">
+            <EntitySet Name="EmployeeSet" EntityType="HCM_LEAVE_REQ_APPROVE_SRV.Employee" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1" />
+            <EntitySet Name="FileAttachmentSet" EntityType="HCM_LEAVE_REQ_APPROVE_SRV.FileAttachment" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1" />
+            <EntitySet Name="TeamCalendarHeaderSet" EntityType="HCM_LEAVE_REQ_APPROVE_SRV.TeamCalendarHeader" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1" />
+            <EntitySet Name="TeamCalendarSet" EntityType="HCM_LEAVE_REQ_APPROVE_SRV.TeamCalendar" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1" />
+            <EntitySet Name="ItemCountSet" EntityType="HCM_LEAVE_REQ_APPROVE_SRV.ItemCount" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1" />
+            <EntitySet Name="LeaveRequestSet" EntityType="HCM_LEAVE_REQ_APPROVE_SRV.LeaveRequest" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1" />
+            <AssociationSet Name="LeaveRequestTeamCalendarSet" Association="HCM_LEAVE_REQ_APPROVE_SRV.LeaveRequestTeamCalendar" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+               <End EntitySet="LeaveRequestSet" Role="FromRole_LeaveRequestTeamCalendar" />
+               <End EntitySet="TeamCalendarSet" Role="ToRole_LeaveRequestTeamCalendar" />
+            </AssociationSet>
+            <AssociationSet Name="Assoc_AttachmentsSet" Association="HCM_LEAVE_REQ_APPROVE_SRV.Assoc_Attachments" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+               <End EntitySet="LeaveRequestSet" Role="FromRole_Assoc_Attachments" />
+               <End EntitySet="FileAttachmentSet" Role="ToRole_Assoc_Attachments" />
+            </AssociationSet>
+            <FunctionImport Name="ApplyLeaveRequestDecision" ReturnType="Collection(HCM_LEAVE_REQ_APPROVE_SRV.LeaveRequest)" EntitySet="LeaveRequestSet" m:HttpMethod="GET" sap:label="LeaveApprove">
+               <Parameter Name="Version" Type="Edm.Int32" Mode="In" />
+               <Parameter Name="RequestId" Type="Edm.String" Mode="In" MaxLength="32" />
+               <Parameter Name="Decision" Type="Edm.String" Mode="In" MaxLength="32" />
+               <Parameter Name="Comment" Type="Edm.String" Mode="In" MaxLength="255" />
+            </FunctionImport>
+         </EntityContainer>
+         <atom:link xmlns:atom="http://www.w3.org/2005/Atom" rel="self" href="https://ldcigm4.wdf.sap.corp:44355/sap/opu/odata/sap/HCM_LEAVE_REQ_APPROVE_SRV/$metadata" />
+         <atom:link xmlns:atom="http://www.w3.org/2005/Atom" rel="latest-version" href="https://ldcigm4.wdf.sap.corp:44355/sap/opu/odata/sap/HCM_LEAVE_REQ_APPROVE_SRV/$metadata" />
+      </Schema>
+   </edmx:DataServices>
+</edmx:Edmx>

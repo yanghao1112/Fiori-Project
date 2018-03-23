@@ -1,0 +1,99 @@
+<mvc:View controllerName="soreturn.controller.Create" xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:semantic="sap.m.semantic"
+	xmlns:f="sap.ui.layout.form" xmlns:footerbar="sap.ushell.ui.footerbar" xmlns:l="sap.ui.layout" xmlns:core="sap.ui.core"
+	xmlns:smartField="sap.ui.comp.smartfield"
+	xmlns:u="sap.ui.unified" xmlns:fb="sap.ui.comp.smartfilterbar" >
+	<semantic:DetailPage id="page" navButtonPress="onNavBack" showNavButton="true" title="{i18n>detailTitle}"
+		busy="{detailView>/busy}" busyIndicatorDelay="{detailView>/delay}" >
+		<semantic:content>
+			<f:Form id="FormDisplay"
+				editable="true">
+				<f:title>
+					<core:Title text="Return Document" />
+				</f:title>
+				<f:layout>
+					<f:ResponsiveGridLayout
+						labelSpanXL="4"
+						labelSpanL="4"
+						labelSpanM="4"
+						labelSpanS="12"
+						adjustLabelSpan="false"
+						emptySpanXL="1"
+						emptySpanL="1"
+						emptySpanM="1"
+						emptySpanS="0"
+						columnsXL="1"
+						columnsL="1"
+						columnsM="1"
+						singleContainerFullSize="false" />
+				</f:layout>
+				<f:formContainers>
+					<f:FormContainer>
+						<f:formElements>
+							<f:FormElement>
+								<f:label>
+									<smartField:SmartLabel labelFor="idVgbel" />
+								</f:label>
+								<smartField:SmartField value="{Vgbel}" id="idVgbel" width="40%">
+								</smartField:SmartField>
+								<!-- <f:fields>
+									<Input id="SalesOrder" width="40%" value="{ReturnOrder>/Vgbel}" >
+									</Input>
+								</f:fields> -->
+							</f:FormElement>	
+							<f:FormElement label="Material">
+								<f:fields>
+									<smartField:SmartField id="Material" width="40%" value="{Matnr}">
+									</smartField:SmartField>
+								</f:fields>
+							</f:FormElement>
+							<f:FormElement label="Quantity">
+								<f:fields>
+									<StepInput value="{path : 'Kwmeng',
+												type: 'sap.ui.model.odata.type.String'}"  
+											width="30%" step="5" id="Quantity"/>
+								</f:fields>
+							</f:FormElement>
+							<f:FormElement label="Return Date">
+								<f:fields>
+									<MaskInput mask="CCCC-CC-CC" placeholderSymbol="_" 
+											placeholder="Enter Return Date" width="30%"
+											value="{path : 'Audat',
+												type: 'ZDate'}" 
+											id="ReturnDate">
+										<rules>
+											<MaskInputRule maskFormatSymbol = "C" regex = "[0-9]" />
+										</rules>
+									</MaskInput>
+								</f:fields>
+							</f:FormElement>
+							<f:FormElement label="Order Reason">
+								<f:fields>
+									<Select
+										id="OrderReason" 
+										forceSelection="true"
+										selectedKey="{Augru}"
+										width="60%"
+										items="{
+											path: '/OrderReasonSet',
+											sorter: { path: 'Augru' }
+										}">
+										<core:Item key="{Augru}" text="{Bezei}" />
+									</Select>
+								</f:fields>
+							</f:FormElement>
+							<f:FormElement label="Comments">
+								<f:fields>
+									<TextArea value="{Text}" rows="3" width="60%" id=""/>
+								</f:fields>
+							</f:FormElement>
+						</f:formElements>
+					</f:FormContainer>
+				</f:formContainers>
+			</f:Form>
+		</semantic:content>
+		<semantic:customFooterContent>
+			<Button text="Save" type="Accept" press="onSave"/>
+			<Button text="Cancel" type="Reject" press="onCancel"/>
+		</semantic:customFooterContent>
+	</semantic:DetailPage>
+</mvc:View>

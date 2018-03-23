@@ -1,0 +1,21 @@
+{
+	"Collection": [
+		{
+			"Id":"JP000001",
+			"Name": "Yamashita Takatoshi"
+		},
+		{
+			"Id":"JP000002",
+			"Name": "Yamada Shumpei"
+			
+		},
+		{
+			"Id":"JP000003",
+			"Name": "Nagatochi Takenori"
+		},
+		{
+			"Id":"JP000004",
+			"Name": "Shoji Kentaro"
+		}
+	]
+}	

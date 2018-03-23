@@ -1,0 +1,27 @@
+<!--
+
+    Copyright (C) 2009-2014 SAP SE or an SAP affiliate company. All rights reserved
+
+-->
+<core:View
+	xmlns:core="sap.ui.core"
+	xmlns="sap.m"
+	xmlns:me="sap.me"
+	controllerName="hcm.approve.leaverequest.view.S4">
+	<Page id="overlapPage">
+		<VBox id="overlapCalendar">
+			<me:OverlapCalendar
+				id="OverlapCalendar2"
+				startDate="2013-04-09T00:00:00"
+				weeksPerRow="2"
+				swipeToNavigate="false"
+				endOfData="_onEndOfData"
+				changeDate="_onChangeDate">
+			</me:OverlapCalendar>
+			<me:CalendarLegend
+				id="CalenderLegend"
+				legendWidth="18em">
+			</me:CalendarLegend>
+		</VBox>
+	</Page>
+</core:View>

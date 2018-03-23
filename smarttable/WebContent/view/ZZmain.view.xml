@@ -1,0 +1,115 @@
+<mvc:View controllerName="sap.ZG001.simpleReport2.controller.ZZmain"
+	xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:fb="sap.ui.comp.smartfilterbar"
+	xmlns:table="sap.ui.table"
+	xmlns:t="sap.ui.comp.smarttable"
+	xmlns:vm="sap.ui.comp.smartvariants"
+	xmlns:smtf="sap.ui.comp.smartfield"
+	xmlns:customData="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1"
+	xmlns:layout="sap.ui.layout" xmlns:form="sap.ui.layout.form" xmlns:core="sap.ui.core">
+	<!-- 
+    <HBox class="exPageVariantPadding">                                                
+    <vm:SmartVariantManagement        
+             id="pageVariantId"
+             persistencyKey="PageVariantPKey2" 
+             showShare="true"/>     
+    </HBox>
+ 	<fb:SmartFilterBar 
+		id="smartFilterBar" useToolbar="false"
+		smartVariant="pageVariantId"
+		persistencyKey="SmartFilterPKey"
+		entitySet="DeliverySet" customData:dateFormatSettings='\{"UTC":true\}'>
+		<fb:controlConfiguration>
+			<fb:ControlConfiguration
+				key="Vbeln" visibleInAdvancedArea="true" mandatory="mandatory"
+				preventInitialDataFetchInValueHelpDialog="false">
+			</fb:ControlConfiguration>
+		</fb:controlConfiguration>
+	</fb:SmartFilterBar>
+	 -->
+	<IconTabBar
+		expanded="true"
+		id="idIconTabBar"
+		select="onselect">
+		<items>
+			<IconTabFilter
+				icon="sap-icon://activity-items"
+				iconColor="Default"
+				design="Horizontal"
+				count="0"
+				text="All of documents"
+				key="N" 
+				select="onselect"/>
+			<IconTabSeparator icon="sap-icon://open-command-field" />
+			<IconTabFilter
+				icon="sap-icon://home"
+				iconColor="Critical"
+				design="Horizontal"
+				count="2"
+				text="Not yet processed"
+				key="A" />
+			<IconTabSeparator icon="sap-icon://open-command-field" />
+			<IconTabFilter
+				icon="sap-icon://shipping-status"
+				iconColor="Negative"
+				design="Horizontal"
+				count="2"
+				text="Partially processed"
+				key="B" />
+			<IconTabSeparator icon="sap-icon://open-command-field" />
+			<IconTabFilter  class="zzIconTab"	
+				icon="sap-icon://complete"
+				iconColor="Positive"
+				design="Horizontal"
+				count="1"
+				text="Completely processed"
+				key="C" />
+		</items>
+		<content>
+
+
+	<t:SmartTable tableType="AnalyticalTable"
+		id="smartTable"
+		smartFilterId="smartFilterBar" height="80%"
+		smartVariant="pageVariantId" editTogglable="false"
+		enableAutoBinding="true" entitySet="DeliverySet"
+		beforeRebindTable="onBeforeRebindTable"
+		useVariantManagement="true" persistencyKey="SmartTablePKey"
+		useTablePersonalisation="true" header="Documents"
+		showRowCount="false" useExportToExcel="true" customData:useSmartField="true"
+		initiallyVisibleFields="Vbeln,Lfimg,Brgew"
+		customData:p13nDialogSettings='\{"filter": \{"visible" : false\}\}'
+		>
+		<table:AnalyticalTable>
+			<table:columns>
+				<table:AnalyticalColumn width="110px" leadingProperty="Vbeln"
+					customData:p13nData='\{"columnKey": "Vbeln", "maxLength": "10","columnIndex":"0", "leadingProperty": "Vbeln", "additionalProperty": "Url" }'>
+					<Label text="{/#Delivery/Vbeln/@sap:label}" />
+					<table:template>
+						<Link text="{Vbeln}" href="{parts : [{path : 'Wbsta'}, {path : 'Vbeln'}, {path : 'Posnr'}], formatter : '.fmtUrl'}" target="_blank"/>
+					</table:template>
+				</table:AnalyticalColumn> 
+				
+				<table:AnalyticalColumn
+					leadingProperty="Wbsta"
+					customData:p13nData='\{"columnKey": "Wbsta", "maxLength": "3","columnIndex":"9", "leadingProperty": "Wbsta" }'>
+					<Label text="{/#Delivery/Wbsta/@sap:label}" />
+					<table:template>
+						<smtf:SmartField value="{= ${Vbeln} }" >
+							<smtf:controlProposal>
+								<smtf:ControlProposal>
+									<smtf:objectStatus>
+										<smtf:ObjectStatus criticality="{path : 'Wbsta',
+																	formatter : '.fmtStatus'}" />
+									</smtf:objectStatus>
+								</smtf:ControlProposal>
+							</smtf:controlProposal>
+							</smtf:SmartField>
+					</table:template>
+				</table:AnalyticalColumn>
+			</table:columns>
+		</table:AnalyticalTable>
+	</t:SmartTable>
+		</content>
+	</IconTabBar>
+
+</mvc:View>

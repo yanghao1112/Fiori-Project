@@ -1,0 +1,23 @@
+{
+	"Title": "Client",
+	"noDataText": "No Client Data",
+	"Collection": [
+		{
+			"Id":"Client 1",
+			"Name": "Name 1"
+		},
+		{
+			"Id":"Client 2",
+			"Name": "Name 2"
+			
+		},
+		{
+			"Id":"Client 3",
+			"Name": "Name 3"
+		},
+		{
+			"Id":"Client 4",
+			"Name": "Name 4"
+		}
+	]
+}	

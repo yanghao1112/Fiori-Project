@@ -1,0 +1,234 @@
+<mvc:View controllerName="SalesOrderList.controller.Detail" xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:semantic="sap.m.semantic" 
+	xmlns:f="sap.ui.layout.form" xmlns:footerbar="sap.ushell.ui.footerbar" xmlns:l="sap.ui.layout" xmlns:core="sap.ui.core"
+	xmlns:u="sap.ui.unified">
+	<semantic:DetailPage id="page" navButtonPress="onNavBack" showNavButton="{device>/system/phone}" title="{i18n>detailTitle}"
+		busy="{detailView>/busy}" busyIndicatorDelay="{detailView>/delay}">
+		<semantic:content>
+<!-- 			<ObjectHeader id="objectHeader" title="{OrderNo}"
+				number="{ path: 'NetValue', formatter: '.formatter.currencyValue' }" 
+				numberUnit="{Currency}">
+				<attributes>
+					<ObjectAttribute text="{CustomerRef}"/>
+				</attributes>
+				<statuses>
+					<ObjectStatus text="{
+								path: 'Createon',
+								formatter: '.formatter.fmtDate' 
+								}" state="None" />
+					<ObjectStatus text="{Createby}" state="None" />
+				</statuses>
+			</ObjectHeader> -->
+			<VBox class="sapUiLargeMargin">
+				<l:Grid defaultSpan="L8 M8 S8" vSpacing="0" hSpacing="0">
+					<Title text="{OrderNo}" level="H2" titleStyle="H2">
+						<layoutData>
+							<l:GridData span="L4 M4 S4" />
+						</layoutData>
+					</Title>
+					<VBox class="ZTextRight ZTextLarge" width="100%">
+						<u:Currency value="{
+													path: 'NetValue',
+													formatter: '.formatter.fmtValue'
+												}" currency="{Currency}"
+							useSymbol="false">
+						</u:Currency>
+					</VBox>
+				</l:Grid>
+				<l:Grid defaultSpan="L8 M8 S8" vSpacing="0" hSpacing="0"
+					class="sapUiSmallMarginTop">
+					<ObjectAttribute text="{CustomerRef}">
+						<layoutData>
+							<l:GridData span="L4 M4 S4" />
+						</layoutData>
+					</ObjectAttribute>
+					<VBox class="ZTextRight" width="100%">
+									<u:Currency value="{
+													path: 'NetwrOpen',
+													formatter: '.formatter.fmtValue'
+												}"
+										currency="{Currency}"
+										useSymbol="false">
+									</u:Currency>
+					</VBox>
+				</l:Grid>
+				<l:Grid defaultSpan="L12 M12 S12" vSpacing="0" hSpacing="0"
+					class="ZTextRight sapUiSmallMarginTop">
+					<VBox class="ZTextRight" width="100%">
+						<ObjectStatus
+							text="{
+												path: 'Createon',
+												formatter: '.formatter.fmtDate' 
+												}"
+							state="None">
+						</ObjectStatus>
+					</VBox>
+				</l:Grid>
+				<l:Grid defaultSpan="L12 M12 S12" vSpacing="0" hSpacing="0"
+					class="ZTextRight sapUiSmallMarginTop">
+					<VBox width="100%">
+						<ObjectStatus text="{Createby}"
+						state="None">
+						</ObjectStatus>
+					</VBox>
+				</l:Grid>
+			</VBox>
+			<IconTabBar id="iconTabBar" class="sapUiResponsiveContentPadding">
+				<items>
+					<IconTabFilter id="iconTabBarFilter1" icon="sap-icon://money-bills" tooltip="{i18n>detailIconTabBarInfo}">
+						<content>
+							<f:Form editable="false" objectBindings="{Billings}">
+								<f:layout>
+									<f:ResponsiveGridLayout
+										labelSpanXL="3"
+										labelSpanL="3"
+										labelSpanM="3"
+										labelSpanS="12"
+										adjustLabelSpan="false"
+										emptySpanXL="4"
+										emptySpanL="4"
+										emptySpanM="4"
+										emptySpanS="0"
+										columnsXL="1"
+										columnsL="1"
+										columnsM="1"
+										singleContainerFullSize="false" />
+								</f:layout>
+								<f:formContainers>
+									<f:FormContainer>
+										<f:formElements>
+											<f:FormElement label="{i18n>Payer}">
+												<f:fields>
+													<Text text="{Customer}"/>
+												</f:fields>
+											</f:FormElement>
+											<f:FormElement label="{i18n>IncotermsVersion}">
+												<f:fields>
+													<Text text="{Incoterms}"/>
+												</f:fields>
+											</f:FormElement>
+											<f:FormElement label="{i18n>IncotermsLocation1}">
+												<f:fields>
+													<Text text="{Location1}"/>
+												</f:fields>
+											</f:FormElement>
+											<f:FormElement label="{i18n>IncotermsLocation2}">
+												<f:fields>
+													<Text text="{Location2}"/>
+												</f:fields>
+											</f:FormElement>
+											<f:FormElement label="{i18n>Paymentterms}">
+												<f:fields>
+													<Text text="{Paytterms}"/>
+												</f:fields>
+											</f:FormElement>
+											<f:FormElement label="{i18n>BillingDate}">
+												<f:fields>
+													<Text text="{
+														path: 'BillingDate',
+														formatter: '.formatter.fmtDate' 
+														}"/>
+												</f:fields>
+											</f:FormElement>
+											<f:FormElement label="{i18n>CompanyCodetoBeBilled}">
+												<f:fields>
+													<Text text="{CCode}"/>
+												</f:fields>
+											</f:FormElement>
+										</f:formElements>
+									</f:FormContainer>
+								</f:formContainers>
+							</f:Form>
+						</content>
+					</IconTabFilter>
+					<IconTabFilter id="iconTabBarFilter2" icon="sap-icon://collaborate" tooltip="{i18n>detailIconTabBarAttachments}">
+						<content>
+							<Table id="lineItemsList" width="auto" items="{Partners}" updateFinished="onListUpdateFinished"
+								noDataText="{i18n>detailLineItemTableNoDataText}" busyIndicatorDelay="{detailView>/lineItemTableDelay}" class="sapUiResponsiveMargin">
+								<columns>
+									<Column>
+										<Text text="{i18n>Partnerfunction}"/>
+									</Column>
+									<Column>
+										<Text text="{i18n>Partners}"/>
+									</Column>
+									<Column>
+										<Text text="{i18n>Name}"/>
+									</Column>
+									<Column>
+										<Text text="{i18n>Street}"/>
+									</Column>
+									<Column>
+										<Text text="{i18n>City}"/>
+									</Column>
+								</columns>
+								<items>
+									<ColumnListItem>
+										<cells>
+											<ObjectIdentifier title="{PartnerFunc}" text="{ID}"/>
+											<Text text="{Customer}"/>
+											<Text text="{Name1}"/>
+											<Text text="{Street}"/>
+											<Text text="{City}"/>
+										</cells>
+									</ColumnListItem>
+								</items>
+							</Table>
+						</content>
+					</IconTabFilter>
+					<IconTabFilter id="iconTabBarFilter3" icon="sap-icon://list" tooltip="{i18n>detailIconTabBarAttachments}">
+						<content>
+							<Table id="lineItemsList2" width="auto" items="{Items}" updateFinished="onListUpdateFinished"
+								noDataText="{i18n>detailLineItemTableNoDataText}" busyIndicatorDelay="{detailView>/lineItemTableDelay}" class="sapUiResponsiveMargin">
+								<columns>
+									<Column>
+										<Text text="{i18n>SalesDocumentItem}"/>
+									</Column>
+									<Column>
+										<Text text="{i18n>Material}"/>
+									</Column>
+									<Column hAlign="Right">
+										<Text text="{i18n>OrderQuantity}" />
+									</Column>
+									<Column hAlign="Right">
+										<Text text="{i18n>NetPrice}" />
+									</Column>
+									<Column hAlign="Right">
+										<Text text="{i18n>NetValue}" />
+									</Column>
+								</columns>
+								<items>
+									<ColumnListItem>
+										<cells>
+											<Text text="{Item}"/>
+											<Text text="{Material}"/>
+											<ObjectNumber number="{Orderquantity}" unit="{QUnit}" />
+											<u:Currency value="{
+													path: 'Netpr',
+													formatter: '.formatter.fmtValue'
+												}"
+												 currency="{NUnit}"  useSymbol="false" />
+											<u:Currency value="{
+													path: 'NetVa',
+													formatter: '.formatter.fmtValue'
+												}"
+												 currency="{NUnit}"  useSymbol="false" />
+										</cells>
+									</ColumnListItem>
+								</items>
+							</Table>
+						</content>	
+					</IconTabFilter>
+				</items>
+			</IconTabBar>
+		</semantic:content>
+		<semantic:sendEmailAction>
+			<semantic:SendEmailAction id="shareEmail" press="onShareEmailPress"/>
+		</semantic:sendEmailAction>
+		<semantic:shareInJamAction>
+			<semantic:ShareInJamAction id="shareInJam" visible="{FLP>/isShareInJamActive}" press="onShareInJamPress"/>
+		</semantic:shareInJamAction>
+		<semantic:saveAsTileAction>
+			<footerbar:AddBookmarkButton id="shareTile" title="{detailView>/saveAsTileTitle}"/>
+		</semantic:saveAsTileAction>
+	</semantic:DetailPage>
+</mvc:View>

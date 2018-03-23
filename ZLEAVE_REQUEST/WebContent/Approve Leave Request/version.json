@@ -1,0 +1,8 @@
+{ "application" : "hcm.approve.leaverequest",
+  "version" : "1.8.25",
+  "buildNumber" : "2",
+  "buildId" : "2016-05-10_13-58-31",
+  "branch" : "origin/rel-1.8",
+  "revision" : "ebcdaf9d01f9b79fcb71995ea530a752461906a7",
+  "GitURL" : ""
+}

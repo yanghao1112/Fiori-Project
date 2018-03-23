@@ -1,0 +1,289 @@
+<sap.ui.core:FragmentDefinition xmlns="sap.m"
+	xmlns:sap.ui.layout="sap.ui.layout" xmlns:sap.ui.layout.form="sap.ui.layout.form"
+	xmlns:sap.ui.core="sap.ui.core">
+	<TabContainerItem
+		name="{path: 'TimesheetData>TSCdOutput',
+		formatter:  '.setTabContainerItemHeaderText'}">
+		<content>
+			<sap.ui.layout.form:Form maxContainerCols="2"
+				editable="true" class="ZZMarginTop layoutWhite">
+				<sap.ui.layout.form:layout>
+					<sap.ui.layout.form:ResponsiveGridLayout
+						labelSpanL="3" emptySpanL="1" labelSpanM="3" labelSpanS="3"
+						emptySpanM="1" columnsL="2" columnsM="2" />
+				</sap.ui.layout.form:layout>
+				<sap.ui.layout.form:formContainers>
+					<sap.ui.layout.form:FormContainer>
+						<sap.ui.layout.form:formElements>
+							<sap.ui.layout.form:FormElement>
+								<sap.ui.layout.form:label>
+									<Label text="Client">
+										<layoutData>
+											<sap.ui.layout:GridData
+												span="{path: 'device>/isPhone',
+	                                      formatter: 'sap.ZG001.timesheet.input.dailyDemo.util.Formatter.fmtSpanLabel'}" />
+										</layoutData>
+									</Label>
+								</sap.ui.layout.form:label>
+								<sap.ui.layout.form:fields>
+									<Input showValueHelp="true"
+										value="{parts: [ {
+													path: 'TimesheetData>DataFields/ClntCd',
+													type: 'sap.ui.model.odata.type.String',
+														constraints:{
+															maxLength : 10
+															}
+											 	},{
+											 		path: 'TimesheetData>ClientNameOutput'
+											 	}],
+													type: 'typCodeText' 
+											}"
+										change="onChangeCode"
+										fieldGroupIds="ZZInputField"
+										valueHelpRequest="handleClientSearchHelp" name="Client"
+										placeholder="{i18n>ZF_PH_CLIENT}"
+										editable="{SettingInfo>WorkingHoursEditable}"
+										class="ZZNoIME">
+										<customData>
+											<sap.ui.core:CustomData key="id"
+												value="Client" />
+										</customData>
+										<layoutData>
+											<sap.ui.layout:GridData
+												span="{path: 'device>/isPhone',
+														formatter: 'sap.ZG001.timesheet.input.dailyDemo.util.Formatter.fmtSpanSingle'}" />
+										</layoutData>
+									</Input>
+								</sap.ui.layout.form:fields>
+							</sap.ui.layout.form:FormElement>
+							<sap.ui.layout.form:FormElement>
+								<sap.ui.layout.form:label>
+									<Label text="{i18n>ZF_TIMESHEETCD}">
+										<layoutData>
+											<sap.ui.layout:GridData
+												span="{path: 'device>/isPhone',
+	                                      formatter: 'sap.ZG001.timesheet.input.dailyDemo.util.Formatter.fmtSpanLabel'}" />
+										</layoutData>
+									</Label>
+								</sap.ui.layout.form:label>
+								<sap.ui.layout.form:fields>
+									<Input showValueHelp="true"
+										value="{parts: [{
+														path: 'TimesheetData>TSCdOutput',
+														type: 'sap.ui.model.odata.type.String',
+															constraints:{
+																maxLength : 10
+																}
+													},{
+														path: 'TimesheetData>TSTextOutput'
+													}],
+												type: 'typCodeText'}"
+										fieldGroupIds="ZZInputField"
+										
+										change="onChangeCode"
+										valueHelpRequest="handleTSSearchHelp"
+										name="Timesheet" placeholder="{i18n>ZF_PH_TSCODE}"
+										editable="{SettingInfo>WorkingHoursEditable}"
+										class="ZZNoIME">
+										<customData>
+											<sap.ui.core:CustomData key="id"
+												value="Timesheet Cd" />
+										</customData>
+										<layoutData>
+											<sap.ui.layout:GridData
+												span="{path: 'device>/isPhone',
+	                                      formatter: 'sap.ZG001.timesheet.input.dailyDemo.util.Formatter.fmtpanTSCode'}" />
+										</layoutData>
+									</Input>
+									<Input showValueHelp="false"
+										value="{path: 'TimesheetData>DataFields/TsSbCd',
+												type: 'ZInteger',
+													formatOptions: {
+														pattern:'00'
+                                                        },
+													constraints:{
+														maximum : 99,
+														minimum : 00
+                                                        }}"
+										fieldGroupIds="ZZInputField"
+										change="onChangeCode"
+										valueHelpRequest="handleTSSearchHelp" name="Timesheet"
+										editable="{SettingInfo>WorkingHoursEditable}"
+										class="ZZNumberOnlyN ZZNoIME">
+										<customData>
+											<sap.ui.core:CustomData key="id"
+												value="TimsheetSub" />
+										</customData>
+										<layoutData>
+											<sap.ui.layout:GridData
+												span="{path: 'device>/isPhone',
+	                                      formatter: 'sap.ZG001.timesheet.input.dailyDemo.util.Formatter.fmtpanTSSubCode'}" />
+										</layoutData>
+									</Input>
+								</sap.ui.layout.form:fields>
+							</sap.ui.layout.form:FormElement>
+							<sap.ui.layout.form:FormElement visible="{SettingInfo>LocationVisible}">
+								<sap.ui.layout.form:label>
+									<Label text="Location">
+										<layoutData>
+											<sap.ui.layout:GridData
+												span="{path: 'device>/isPhone',
+	                                      formatter: 'sap.ZG001.timesheet.input.dailyDemo.util.Formatter.fmtSpanLabel'}" />
+										</layoutData>
+									</Label>
+								</sap.ui.layout.form:label>
+								<sap.ui.layout.form:fields>
+									<Input showValueHelp="true" placeholder="Country"
+										value="{parts: [{path: 'TimesheetData>Land'}, {path: 'TimesheetData>LandName'}],
+												type: 'typCodeText'}"
+										editable="{SettingInfo>WorkingHoursEditable}"
+										class="ZZNoIME">
+										<customData>
+											<sap.ui.core:CustomData key="id"
+												value="Land" />
+										</customData>
+										<layoutData>
+											<sap.ui.layout:GridData
+												span="{path: 'device>/isPhone',
+	                                      formatter: 'sap.ZG001.timesheet.input.dailyDemo.util.Formatter.fmtSpanMulti'}" />
+										</layoutData>
+									</Input>
+									<Input showValueHelp="true" placeholder="State"
+										value="{parts: [{path: 'TimesheetData>Regio'}, {path: 'TimesheetData>RegioName'}],
+												type: 'typCodeText'}"
+										editable="{SettingInfo>WorkingHoursEditable}"
+										class="ZZNoIME">
+										<customData>
+											<sap.ui.core:CustomData key="id"
+												value="Regio" />
+										</customData>
+										<layoutData>
+											<sap.ui.layout:GridData
+												span="{path: 'device>/isPhone',
+	                                      formatter: 'sap.ZG001.timesheet.input.dailyDemo.util.Formatter.fmtSpanMulti'}" />
+										</layoutData>
+									</Input>
+									<Input showValueHelp="true" placeholder="City"
+										value="{parts: [{path: 'TimesheetData>Cityc'}, {path: 'TimesheetData>CityName'}],
+												type: 'typCodeText'}"
+										editable="{SettingInfo>WorkingHoursEditable}"
+										class="ZZNoIME">
+										<customData>
+											<sap.ui.core:CustomData key="id"
+												value="City" />
+										</customData>
+										<layoutData>
+											<sap.ui.layout:GridData
+												span="{path: 'device>/isPhone',
+	                                      formatter: 'sap.ZG001.timesheet.input.dailyDemo.util.Formatter.fmtSpanMulti'}" />
+										</layoutData>
+									</Input>
+
+								</sap.ui.layout.form:fields>
+							</sap.ui.layout.form:FormElement>
+							<sap.ui.layout.form:FormElement visible="{SettingInfo>ManageVisible}">
+								<sap.ui.layout.form:label>
+									<Label text="{i18n>ZF_APPROVER}">
+										<layoutData>
+											<sap.ui.layout:GridData
+												span="{path: 'device>/isPhone',
+	                                      formatter: 'sap.ZG001.timesheet.input.dailyDemo.util.Formatter.fmtSpanLabel'}" />
+										</layoutData>
+									</Label>
+								</sap.ui.layout.form:label>
+								<sap.ui.layout.form:fields>
+									<Input showValueHelp="true"
+										value="{parts: [{
+														path: 'TimesheetData>DataFields/Appointapp',
+														type: 'sap.ui.model.odata.type.String',
+															constraints:{
+																isDigitSequence : true,
+											 					maxLength : 8
+																}
+														}, {
+														path: 'TimesheetData>ApproverName'
+														}],
+												type: 'typCodeText'}"
+										change="onChangeCode"
+										fieldGroupIds="ZZInputField"
+										valueHelpRequest="handleApproverSearchHelp" name="Approver"
+										editable="{SettingInfo>WorkingHoursEditable}"
+										placeholder="{i18n>ZF_PH_APPROVER}"
+										class="ZZNoIME ZZNumberOnlyN">
+										<customData>
+											<sap.ui.core:CustomData key="id"
+												value="Approver" />
+										</customData>
+										<layoutData>
+											<sap.ui.layout:GridData
+												span="{path: 'device>/isPhone',
+	                                      formatter: 'sap.ZG001.timesheet.input.dailyDemo.util.Formatter.fmtSpanSingle'}" />
+										</layoutData>
+									</Input>
+								</sap.ui.layout.form:fields>
+							</sap.ui.layout.form:FormElement>
+							<sap.ui.layout.form:FormElement>
+								<sap.ui.layout.form:label>
+									<Label text="{i18n>ZF_HOURS}">
+										<layoutData>
+											<sap.ui.layout:GridData
+												span="{path: 'device>/isPhone',
+	                                      formatter: 'sap.ZG001.timesheet.input.dailyDemo.util.Formatter.fmtSpanLabel'}" />
+										</layoutData>
+									</Label>
+								</sap.ui.layout.form:label>
+								<sap.ui.layout.form:fields>
+									<Input 
+										value="{path : 'TimesheetData>DataFields/Catshours',
+												type: 'sap.ui.model.odata.type.Decimal',
+														formatOptions:{
+															decimalSeparator : '.',
+															groupingSeparator : ','
+														},
+											 			constraints:{
+											 				precision : 4,
+											 				scale : 2
+											 		}}"
+										fieldGroupIds="ZZInputField"
+										change="onHourChange"
+										width="30%" editable="{SettingInfo>WorkingHoursEditable}"
+										class="ZZNoIME ZZNumberOnly"
+										placeholder="0.00">
+										<layoutData>
+											<sap.ui.layout:GridData
+												span="{path: 'device>/isPhone',
+	                                      formatter: 'sap.ZG001.timesheet.input.dailyDemo.util.Formatter.fmtSpanSingle'}" />
+										</layoutData>
+									</Input>
+								</sap.ui.layout.form:fields>
+							</sap.ui.layout.form:FormElement>
+							<sap.ui.layout.form:FormElement>
+								<sap.ui.layout.form:label>
+									<Label text="{i18n>ZF_STATUS}">
+										<layoutData>
+											<sap.ui.layout:GridData
+												span="{path: 'device>/isPhone',
+	                                      formatter: 'sap.ZG001.timesheet.input.dailyDemo.util.Formatter.fmtSpanLabel'}" />
+										</layoutData>
+									</Label>
+								</sap.ui.layout.form:label>
+								<sap.ui.layout.form:fields>
+									<Input
+										value="{ path : 'TimesheetData>DataFields/Status',
+													formatter: '.formatStatusText'}"
+													editable="false" width="40%">
+										<layoutData>
+											<sap.ui.layout:GridData
+												span="{path: 'device>/isPhone',
+	                                      formatter: 'sap.ZG001.timesheet.input.dailyDemo.util.Formatter.fmtSpanSingle'}" />
+										</layoutData>
+									</Input>
+								</sap.ui.layout.form:fields>
+							</sap.ui.layout.form:FormElement>
+						</sap.ui.layout.form:formElements>
+					</sap.ui.layout.form:FormContainer>
+				</sap.ui.layout.form:formContainers>
+			</sap.ui.layout.form:Form>
+		</content>
+	</TabContainerItem>
+</sap.ui.core:FragmentDefinition>

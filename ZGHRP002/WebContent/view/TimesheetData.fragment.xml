@@ -1,0 +1,493 @@
+<core:FragmentDefinition xmlns="sap.m"
+	xmlns:core="sap.ui.core" xmlns:sap.ui.layout="sap.ui.layout">
+	<sap.ui.layout:VerticalLayout class="ZZVerticalLayout ZZVerticalLayoutMargin">
+		<sap.ui.layout:BlockLayout class="ZZBlockLayout">
+			<sap.ui.layout:BlockLayoutRow class="layoutWhite sapUiSmallMarginTop">
+				<sap.ui.layout:BlockLayoutCell width="1"
+					class="ZZBlockLayoutCell">
+					<VBox class="ZZBottomBorder ZZLayoutLBule">
+						<Label text="{i18n>ZF_CLIENT}" textAlign="Center" width="100%" class="ZZLabelMiddle ZZLabelFontSize"/>
+					</VBox>
+					<VBox class="ZZBottomBorder">
+						<Input showValueHelp="true" placeholder="{i18n>ZF_PH_CLIENT}" class="ZZNoIME"
+							valueHelpRequest="handleClientSearchHelp" value="{
+																				path: 'TimesheetData>ClientCd',
+																				type: 'sap.ui.model.odata.type.String',
+																					constraints : {
+																						maxLength : 10
+																					}
+																			}"
+							fieldGroupIds="ZZInputField"
+							editable="{parts: [{path: 'TimesheetData>dayHours/0/WeekHours'},
+												{path: 'SettingInfo>/0/WorkingHoursEditable'},
+												{path: 'TimesheetData>dayHours/1/WeekHours'},
+												{path: 'SettingInfo>/1/WorkingHoursEditable'},
+												{path: 'TimesheetData>dayHours/2/WeekHours'},
+												{path: 'SettingInfo>/2/WorkingHoursEditable'},
+												{path: 'TimesheetData>dayHours/3/WeekHours'},
+												{path: 'SettingInfo>/3/WorkingHoursEditable'},
+												{path: 'TimesheetData>dayHours/4/WeekHours'},
+												{path: 'SettingInfo>/4/WorkingHoursEditable'},
+												{path: 'TimesheetData>dayHours/5/WeekHours'},
+												{path: 'SettingInfo>/5/WorkingHoursEditable'},
+												{path: 'TimesheetData>dayHours/6/WeekHours'},
+												{path: 'SettingInfo>/6/WorkingHoursEditable'}],
+									formatter: 'sap.ZG001.timesheet.input.weekly.util.Formatter.fmtTSEditable'}"
+							change="onChangeCode">
+							<customData>
+								<core:CustomData key="id" value="ClientCode" />
+							</customData>
+						</Input>				
+					</VBox>
+					<VBox class="" width="100%">
+						<Input value="{TimesheetData>ClientName}" textAlign="Center"
+							editable="false" class="ZZInputOverflow"/>
+					</VBox>
+				</sap.ui.layout:BlockLayoutCell>
+				<sap.ui.layout:BlockLayoutCell width="1"
+					class="ZZBlockLayoutCell">
+					<VBox class="ZZBottomBorder ZZLayoutLBule">
+						<Label class="ZZHourText ZZLabelMiddle ZZLabelFontSize" text="{i18n>ZF_TIMESHEETCD}"
+							textAlign="Center" width="100%" />
+					</VBox>
+					<VBox class="ZZBottomBorder">
+						<Input showValueHelp="true" placeholder="{i18n>ZF_PH_TSCODE}" class="ZZNoIME"
+							valueHelpRequest="handleTSSearchHelp" 
+							value="{parts: [{
+												path: 'TimesheetData>TimesheetCd',
+												type: 'sap.ui.model.odata.type.String'
+											},
+											{
+												path: 'TimesheetData>Subcode',
+												type: 'ZInteger',
+												formatOptions: {
+													pattern:'00'
+												},
+												constraints : {
+													maximum : 99,
+													minimum : 00
+												}
+											}],
+											type: 'ZTSCodeType'}"
+							fieldGroupIds="ZZInputField"
+							editable="{parts: [{path: 'TimesheetData>dayHours/0/WeekHours'},
+												{path: 'SettingInfo>/0/WorkingHoursEditable'},
+												{path: 'TimesheetData>dayHours/1/WeekHours'},
+												{path: 'SettingInfo>/1/WorkingHoursEditable'},
+												{path: 'TimesheetData>dayHours/2/WeekHours'},
+												{path: 'SettingInfo>/2/WorkingHoursEditable'},
+												{path: 'TimesheetData>dayHours/3/WeekHours'},
+												{path: 'SettingInfo>/3/WorkingHoursEditable'},
+												{path: 'TimesheetData>dayHours/4/WeekHours'},
+												{path: 'SettingInfo>/4/WorkingHoursEditable'},
+												{path: 'TimesheetData>dayHours/5/WeekHours'},
+												{path: 'SettingInfo>/5/WorkingHoursEditable'},
+												{path: 'TimesheetData>dayHours/6/WeekHours'},
+												{path: 'SettingInfo>/6/WorkingHoursEditable'}],
+									formatter: 'sap.ZG001.timesheet.input.weekly.util.Formatter.fmtTSEditable'}"
+							 change="onChangeCode">
+							<customData>
+								<core:CustomData key="id" value="TSCode" />
+							</customData>
+						</Input>
+					</VBox>
+					<VBox class="">
+						<Input value="{TimesheetData>TimesheetName}" textAlign="Center"
+							editable="false" class="ZZInputOverflow" />
+					</VBox>
+				</sap.ui.layout:BlockLayoutCell>
+				<sap.ui.layout:BlockLayoutCell class="ZZBlockLayoutCell">
+					<VBox class="ZZInputVBox ZZInputVBoxMiddle ZZBorder" height="100%">
+						<Input value="{
+										path: 'TimesheetData>dayHours/0/WeekHours',
+										type: 'sap.ui.model.odata.type.Decimal',
+										formatOptions: {
+											decimalSeparator: '.',
+											groupingSeparator: ','
+										},
+										constraints : {
+											precision : 4,
+											scale: 2
+										}
+									}" class="ZZNoIME ZZNumberOnly"
+							fieldGroupIds="ZZInputField"
+							textAlign="Center" change="onCalculateTotalHours"
+							editable="{SettingInfo>/0/WorkingHoursEditable}"
+							placeholder="{i18n>ZF_PH_HOURS}">
+							<customData>
+								<core:CustomData key="id" value="/0/WeekHours" />
+							</customData>
+						</Input>
+					</VBox>
+				</sap.ui.layout:BlockLayoutCell>
+				<sap.ui.layout:BlockLayoutCell class="ZZBlockLayoutCell">
+					<VBox class="ZZInputVBox ZZInputVBoxMiddle ZZBorder" height="100%">
+						<Input value="{
+										path: 'TimesheetData>dayHours/1/WeekHours',
+										type: 'sap.ui.model.odata.type.Decimal',
+										formatOptions: {
+											decimalSeparator: '.',
+											groupingSeparator: ','
+										},
+										constraints : {
+											precision : 4,
+											scale: 2
+										}
+									}" class="ZZNoIME ZZNumberOnly"
+							fieldGroupIds="ZZInputField"
+							textAlign="Center" change="onCalculateTotalHours"
+							editable="{SettingInfo>/1/WorkingHoursEditable}"
+							placeholder="{i18n>ZF_PH_HOURS}">
+							<customData>
+								<core:CustomData key="id" value="/1/WeekHours" />
+							</customData>
+						</Input>
+					</VBox>
+				</sap.ui.layout:BlockLayoutCell>
+				<sap.ui.layout:BlockLayoutCell class="ZZBlockLayoutCell">
+					<VBox class="ZZInputVBox ZZInputVBoxMiddle ZZBorder" height="100%">
+						<Input value="{
+										path: 'TimesheetData>dayHours/2/WeekHours',
+										type: 'sap.ui.model.odata.type.Decimal',
+										formatOptions: {
+											decimalSeparator: '.',
+											groupingSeparator: ','
+										},
+										constraints : {
+											precision : 4,
+											scale: 2
+										}
+									}" class="ZZNoIME ZZNumberOnly"
+							fieldGroupIds="ZZInputField"
+							textAlign="Center" change="onCalculateTotalHours"
+							editable="{SettingInfo>/2/WorkingHoursEditable}"
+							placeholder="{i18n>ZF_PH_HOURS}">
+							<customData>
+								<core:CustomData key="id" value="/2/WeekHours" />
+							</customData>
+						</Input>
+					</VBox>
+				</sap.ui.layout:BlockLayoutCell>
+				<sap.ui.layout:BlockLayoutCell class="ZZBlockLayoutCell">
+					<VBox class="ZZInputVBox ZZInputVBoxMiddle ZZBorder" height="100%">
+						<Input value="{
+										path: 'TimesheetData>dayHours/3/WeekHours',
+										type: 'sap.ui.model.odata.type.Decimal',
+										formatOptions: {
+											decimalSeparator: '.',
+											groupingSeparator: ','
+										},
+										constraints : {
+											precision : 4,
+											scale: 2
+										}
+									}" class="ZZNoIME ZZNumberOnly"
+							fieldGroupIds="ZZInputField"
+							textAlign="Center" change="onCalculateTotalHours"
+							editable="{SettingInfo>/3/WorkingHoursEditable}"
+							placeholder="{i18n>ZF_PH_HOURS}">
+							<customData>
+								<core:CustomData key="id" value="/3/WeekHours" />
+							</customData>
+						</Input>
+					</VBox>
+				</sap.ui.layout:BlockLayoutCell>
+				<sap.ui.layout:BlockLayoutCell class="ZZBlockLayoutCell">
+					<VBox class="ZZInputVBox ZZInputVBoxMiddle ZZBorder" height="100%">
+						<Input value="{
+										path: 'TimesheetData>dayHours/4/WeekHours',
+										type: 'sap.ui.model.odata.type.Decimal',
+										formatOptions: {
+											decimalSeparator: '.',
+											groupingSeparator: ','
+										},
+										constraints : {
+											precision : 4,
+											scale: 2
+										}
+									}" class="ZZNoIME ZZNumberOnly"
+							fieldGroupIds="ZZInputField"
+							textAlign="Center" change="onCalculateTotalHours"
+							editable="{SettingInfo>/4/WorkingHoursEditable}"
+							placeholder="{i18n>ZF_PH_HOURS}">
+							<customData>
+								<core:CustomData key="id" value="/4/WeekHours" />
+							</customData>
+						</Input>
+					</VBox>
+				</sap.ui.layout:BlockLayoutCell>
+				<sap.ui.layout:BlockLayoutCell class="ZZBlockLayoutCell">
+					<VBox class="ZZInputVBox ZZInputVBoxMiddle ZZBorder" height="100%">
+						<Input value="{
+										path: 'TimesheetData>dayHours/5/WeekHours',
+										type: 'sap.ui.model.odata.type.Decimal',
+										formatOptions: {
+											decimalSeparator: '.',
+											groupingSeparator: ','
+										},
+										constraints : {
+											precision : 4,
+											scale: 2
+										}
+									}" class="ZZNoIME ZZNumberOnly"
+							fieldGroupIds="ZZInputField"
+							textAlign="Center" change="onCalculateTotalHours"
+							editable="{SettingInfo>/5/WorkingHoursEditable}"
+							placeholder="{i18n>ZF_PH_HOURS}">
+							<customData>
+								<core:CustomData key="id" value="/5/WeekHours" />
+							</customData>
+						</Input>
+					</VBox>
+				</sap.ui.layout:BlockLayoutCell>
+				<sap.ui.layout:BlockLayoutCell class="ZZBlockLayoutCell">
+					<VBox class="ZZInputVBox ZZInputVBoxMiddle ZZBorder" height="100%">
+						<Input value="{
+										path: 'TimesheetData>dayHours/6/WeekHours',
+										type: 'sap.ui.model.odata.type.Decimal',
+										formatOptions: {
+											decimalSeparator: '.',
+											groupingSeparator: ','
+										},
+										constraints : {
+											precision : 4,
+											scale: 2
+										}
+									}" class="ZZNoIME ZZNumberOnly"
+							fieldGroupIds="ZZInputField"
+							textAlign="Center" change="onCalculateTotalHours"
+							editable="{SettingInfo>/6/WorkingHoursEditable}"
+							placeholder="{i18n>ZF_PH_HOURS}">
+							<customData>
+								<core:CustomData key="id" value="/6/WeekHours" />
+							</customData>
+						</Input>
+					</VBox>
+				</sap.ui.layout:BlockLayoutCell>
+				<sap.ui.layout:BlockLayoutCell width="1"
+					class="ZZBlockLayoutCell" visible="{SettingInfo>/0/ManageVisible}">
+					<VBox class="ZZBottomBorder ZZLayoutLBule">
+						<Label text="{i18n>ZF_APPROVER}" textAlign="Center" width="100%" class="ZZLabelMiddle ZZLabelFontSize"/>
+					</VBox>
+					<VBox class="ZZBottomBorder">
+						<Input showValueHelp="true" placeholder="{i18n>ZF_PH_APPROVER}" class="ZZNoIME ZZNumberOnlyN"
+							valueHelpRequest="handleApproverSearchHelp"
+							value="{path: 'TimesheetData>ApproverCd',
+									type: 'sap.ui.model.odata.type.String',
+									constraints : {
+													isDigitSequence : true,
+													maxLength : 8,
+													nullable: true
+												}
+									}"
+							fieldGroupIds="ZZInputField"
+							editable="{parts: [{path: 'TimesheetData>dayHours/0/WeekHours'},
+												{path: 'SettingInfo>/0/WorkingHoursEditable'},
+												{path: 'TimesheetData>dayHours/1/WeekHours'},
+												{path: 'SettingInfo>/1/WorkingHoursEditable'},
+												{path: 'TimesheetData>dayHours/2/WeekHours'},
+												{path: 'SettingInfo>/2/WorkingHoursEditable'},
+												{path: 'TimesheetData>dayHours/3/WeekHours'},
+												{path: 'SettingInfo>/3/WorkingHoursEditable'},
+												{path: 'TimesheetData>dayHours/4/WeekHours'},
+												{path: 'SettingInfo>/4/WorkingHoursEditable'},
+												{path: 'TimesheetData>dayHours/5/WeekHours'},
+												{path: 'SettingInfo>/5/WorkingHoursEditable'},
+												{path: 'TimesheetData>dayHours/6/WeekHours'},
+												{path: 'SettingInfo>/6/WorkingHoursEditable'}],
+									formatter: 'sap.ZG001.timesheet.input.weekly.util.Formatter.fmtTSEditable'}"
+							change="onChangeCode">
+							<customData>
+								<core:CustomData key="id" value="ApproverCode" />
+							</customData>
+						</Input>			
+					</VBox>
+					<VBox class="ZZBottomBorder">
+						<Input value="{TimesheetData>ApproverName}" textAlign="Center"
+							editable="false" class="ZZInputOverflow" />
+					</VBox>
+				</sap.ui.layout:BlockLayoutCell>
+				<sap.ui.layout:BlockLayoutCell width="1"
+					visible="{= (${SettingInfo>/0/ManageVisible} === false)}">
+					<VBox height="100%">
+					</VBox>
+				</sap.ui.layout:BlockLayoutCell>
+			</sap.ui.layout:BlockLayoutRow>
+			<!-- GBL Information -->
+			<sap.ui.layout:BlockLayoutRow class="layoutWhite"
+				visible="{SettingInfo>/0/LocationVisible}">
+				<sap.ui.layout:BlockLayoutCell width="1"
+					class="ZZBlockLayoutCell">
+					<VBox class="ZZLayoutLBule" height="100%">
+						<Label class="ZZHourText ZZLabelMiddle ZZLabelFontSize" text="{i18n>ZF_LOCATION}"
+							textAlign="Center" width="100%" />
+					</VBox>
+				</sap.ui.layout:BlockLayoutCell>
+				<sap.ui.layout:BlockLayoutCell width="1"
+					class="ZZBlockLayoutCell">
+					<VBox class="ZZBottomBorder ZZLayoutLBule" height="33%">
+						<Label class="ZZHourText ZZLabelMiddle ZZLabelFontSize" text="{i18n>ZF_PH_COUNTRY}"
+							textAlign="Center" width="100%" />
+					</VBox>
+					<VBox class="ZZBottomBorder ZZLayoutLBule" height="33%">
+						<Label text="{i18n>ZF_PH_STATE}" textAlign="Center" width="100%" class="ZZLabelMiddle ZZLabelFontSize"/>
+					</VBox>
+					<VBox class="ZZLayoutLBule" height="34%">
+						<Label text="{i18n>ZF_PH_CITY}" textAlign="Center" width="100%" class="ZZLabelMiddle ZZLabelFontSize"/>
+					</VBox>
+				</sap.ui.layout:BlockLayoutCell>
+				<sap.ui.layout:BlockLayoutCell class="ZZBlockLayoutCell">
+					<VBox class="ZZInputVBox ZZBottomBorder">
+						<Input showValueHelp="true" class="ZZNoIME"/>
+					</VBox>
+					<VBox class="ZZInputVBox ZZBottomBorder">
+						<Input showValueHelp="true" class="ZZNoIME"/>
+					</VBox>
+					<VBox class="ZZInputVBox">
+						<Input showValueHelp="true" class="ZZNoIME"/>
+					</VBox>
+				</sap.ui.layout:BlockLayoutCell>
+				<sap.ui.layout:BlockLayoutCell class="ZZBlockLayoutCell">
+					<VBox class="ZZInputVBox ZZBottomBorder">
+						<Input showValueHelp="true" class="ZZNoIME"/>
+					</VBox>
+					<VBox class="ZZInputVBox ZZBottomBorder">
+						<Input showValueHelp="true" class="ZZNoIME"/>
+					</VBox>
+					<VBox class="ZZInputVBox">
+						<Input showValueHelp="true" class="ZZNoIME"/>
+					</VBox>
+				</sap.ui.layout:BlockLayoutCell>
+				<sap.ui.layout:BlockLayoutCell class="ZZBlockLayoutCell">
+					<VBox class="ZZInputVBox ZZBottomBorder">
+						<Input showValueHelp="true" class="ZZNoIME"/>
+					</VBox>
+					<VBox class="ZZInputVBox ZZBottomBorder">
+						<Input showValueHelp="true" class="ZZNoIME"/>
+					</VBox>
+					<VBox class="ZZInputVBox">
+						<Input showValueHelp="true" class="ZZNoIME"/>
+					</VBox>
+				</sap.ui.layout:BlockLayoutCell>
+				<sap.ui.layout:BlockLayoutCell class="ZZBlockLayoutCell">
+					<VBox class="ZZInputVBox ZZBottomBorder">
+						<Input showValueHelp="true" class="ZZNoIME"/>
+					</VBox>
+					<VBox class="ZZInputVBox ZZBottomBorder">
+						<Input showValueHelp="true" class="ZZNoIME"/>
+					</VBox>
+					<VBox class="ZZInputVBox">
+						<Input showValueHelp="true" class="ZZNoIME"/>
+					</VBox>
+				</sap.ui.layout:BlockLayoutCell>
+				<sap.ui.layout:BlockLayoutCell class="ZZBlockLayoutCell">
+					<VBox class="ZZInputVBox ZZBottomBorder">
+						<Input showValueHelp="true" class="ZZNoIME"/>
+					</VBox>
+					<VBox class="ZZInputVBox ZZBottomBorder">
+						<Input showValueHelp="true" class="ZZNoIME"/>
+					</VBox>
+					<VBox class="ZZInputVBox">
+						<Input showValueHelp="true" class="ZZNoIME"/>
+					</VBox>
+				</sap.ui.layout:BlockLayoutCell>
+				<sap.ui.layout:BlockLayoutCell class="ZZBlockLayoutCell">
+					<VBox class="ZZInputVBox ZZBottomBorder">
+						<Input showValueHelp="true" class="ZZNoIME"/>
+					</VBox>
+					<VBox class="ZZInputVBox ZZBottomBorder">
+						<Input showValueHelp="true" class="ZZNoIME"/>
+					</VBox>
+					<VBox class="ZZInputVBox">
+						<Input showValueHelp="true" class="ZZNoIME"/>
+					</VBox>
+				</sap.ui.layout:BlockLayoutCell>
+				<sap.ui.layout:BlockLayoutCell class="ZZBlockLayoutCell">
+					<VBox class="ZZInputVBox ZZBottomBorder">
+						<Input showValueHelp="true" class="ZZNoIME"/>
+					</VBox>
+					<VBox class="ZZInputVBox ZZBottomBorder">
+						<Input showValueHelp="true" class="ZZNoIME"/>
+					</VBox>
+					<VBox class="ZZInputVBox">
+						<Input showValueHelp="true" class="ZZNoIME"/>
+					</VBox>
+				</sap.ui.layout:BlockLayoutCell>
+				<sap.ui.layout:BlockLayoutCell class="ZZBlockLayoutCellNoPadding" width="1">
+					<VBox height="100%">
+					</VBox>
+				</sap.ui.layout:BlockLayoutCell>
+			</sap.ui.layout:BlockLayoutRow>
+
+			<sap.ui.layout:BlockLayoutRow>
+				<sap.ui.layout:BlockLayoutCell width="2"
+					class="ZZBlockLayoutCell">
+					<VBox class="ZZBottomBorder ZZVBoxBlue" height="100%">
+						<Label class="ZZHourText ZZLabelMiddle ZZLabelFontSize" text="{i18n>ZF_STATUS}" textAlign="Left"
+							width="100%" />
+					</VBox>
+				</sap.ui.layout:BlockLayoutCell>
+				<sap.ui.layout:BlockLayoutCell class="ZZBlockLayoutCell">
+					<VBox height="100%" class="ZZBottomBorder ZZLayoutGrey">
+						<Label
+							text="{path: 'TimesheetData>dayHours/0/Status',
+												formatter: '.formatStatusText'}"
+							textAlign="Center" width="100%" class="ZZLabelMiddle ZZLabelFontSize"/>
+					</VBox>
+				</sap.ui.layout:BlockLayoutCell>
+				<sap.ui.layout:BlockLayoutCell class="ZZBlockLayoutCell">
+					<VBox height="100%" class="ZZBottomBorder ZZLayoutGrey">
+						<Label
+							text="{path: 'TimesheetData>dayHours/1/Status',
+												formatter: '.formatStatusText'}"
+							textAlign="Center" width="100%"  class="ZZLabelMiddle ZZLabelFontSize"/>
+					</VBox>
+				</sap.ui.layout:BlockLayoutCell>
+				<sap.ui.layout:BlockLayoutCell class="ZZBlockLayoutCell">
+					<VBox height="100%" class="ZZBottomBorder ZZLayoutGrey">
+						<Label
+							text="{path: 'TimesheetData>dayHours/2/Status',
+												formatter: '.formatStatusText'}"
+							textAlign="Center" width="100%"  class="ZZLabelMiddle ZZLabelFontSize"/>
+					</VBox>
+				</sap.ui.layout:BlockLayoutCell>
+				<sap.ui.layout:BlockLayoutCell class="ZZBlockLayoutCell">
+					<VBox height="100%" class="ZZBottomBorder ZZLayoutGrey">
+						<Label
+							text="{path: 'TimesheetData>dayHours/3/Status',
+												formatter: '.formatStatusText'}"
+							textAlign="Center" width="100%"  class="ZZLabelMiddle ZZLabelFontSize"/>
+					</VBox>
+				</sap.ui.layout:BlockLayoutCell>
+				<sap.ui.layout:BlockLayoutCell class="ZZBlockLayoutCell">
+					<VBox height="100%" class="ZZBottomBorder ZZLayoutGrey">
+						<Label
+							text="{path: 'TimesheetData>dayHours/4/Status',
+												formatter: '.formatStatusText'}"
+							textAlign="Center" width="100%" class="ZZLabelMiddle ZZLabelFontSize"/>
+					</VBox>
+				</sap.ui.layout:BlockLayoutCell>
+				<sap.ui.layout:BlockLayoutCell class="ZZBlockLayoutCell">
+					<VBox height="100%" class="ZZBottomBorder ZZLayoutGrey">
+						<Label
+							text="{path: 'TimesheetData>dayHours/5/Status',
+												formatter: '.formatStatusText'}"
+							textAlign="Center" width="100%" class="ZZLabelMiddle ZZLabelFontSize"/>
+					</VBox>
+				</sap.ui.layout:BlockLayoutCell>
+				<sap.ui.layout:BlockLayoutCell class="ZZBlockLayoutCell">
+					<VBox height="100%" class="ZZBottomBorder ZZLayoutGrey">
+						<Label
+							text="{path: 'TimesheetData>dayHours/6/Status',
+												formatter: '.formatStatusText'}"
+							textAlign="Center" width="100%" class="ZZLabelMiddle ZZLabelFontSize"/>
+					</VBox>
+				</sap.ui.layout:BlockLayoutCell>
+				<sap.ui.layout:BlockLayoutCell class="ZZBlockLayoutCellNoPadding"  width="1">
+					<VBox height="100%">
+					</VBox>
+				</sap.ui.layout:BlockLayoutCell>
+			</sap.ui.layout:BlockLayoutRow>
+		</sap.ui.layout:BlockLayout>
+	</sap.ui.layout:VerticalLayout>
+</core:FragmentDefinition>			

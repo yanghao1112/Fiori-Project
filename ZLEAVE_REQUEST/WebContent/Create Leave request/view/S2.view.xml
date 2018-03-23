@@ -1,0 +1,60 @@
+<!--
+
+    Copyright (C) 2009-2014 SAP SE or an SAP affiliate company. All rights reserved
+
+-->
+<!--Copyright (C) 2009-2013 SAP AG or an SAP affiliate company. All rights reserved-->
+<core:View id="S2" xmlns:core="sap.ui.core"
+    xmlns="sap.m" xmlns:sap.ui.layout="sap.ui.layout" controllerName="hcm.myleaverequest.view.S2">
+
+   <Page id="S2_page" >
+        <content>
+            <Table id="entitlemntTble" items="{TimeAccountCollection}">
+                <ColumnListItem id="LRS2_LISTITEM">
+                        <cells>
+                              <sap.ui.layout:VerticalLayout width="100%">
+                                
+                                    <ObjectIdentifier id="LRS2_LIST_ITEM_ACCOUNT" title="{TimeAccountTypeName}" badgeNotes="false" badgePeople="false" badgeAttachments="false"></ObjectIdentifier>
+                                        <sap.ui.layout:HorizontalLayout id="LRS2_HBOX1">
+                                       
+                                            <ObjectIdentifier text="{i18n>LR_UP_TO}" hAlign="Left" badgeNotes="false" badgePeople="false" badgeAttachments="false"></ObjectIdentifier>
+                                            <Label width="1em"></Label>
+                                            <ObjectIdentifier id="LRS2_LIST_ITEM_END_DATE" hAlign="Center" text="{path:'DeductionEndDate', formatter:'hcm.myleaverequest.utils.Formatters.DATE_ODATA_EEEdMMMyyyy'}" badgeNotes="false" badgePeople="false" badgeAttachments="false"></ObjectIdentifier>
+                                        
+                                        </sap.ui.layout:HorizontalLayout>
+                              </sap.ui.layout:VerticalLayout>
+                            <ObjectNumber number="{path:'BalanceAvailableQuantity', formatter:'hcm.myleaverequest.utils.Formatters.BALANCE'}" numberUnit="{TimeUnitName}"></ObjectNumber>
+                            <ObjectNumber number="{parts: [{path:'BalanceUsedQuantity'},{path: 'BalanceApprovedQuantity'},{path: 'BalanceRequestedQuantity'}], formatter:'hcm.myleaverequest.utils.Formatters.calculateUsed'}" numberUnit="{TimeUnitName}"></ObjectNumber>
+                            <ObjectNumber number="{path:'BalanceEntitlementQuantity', formatter:'hcm.myleaverequest.utils.Formatters.BALANCE'}" numberUnit="{TimeUnitName}"></ObjectNumber>
+                            <!-- extension point for additional Column Item -->
+                            <core:ExtensionPoint name="extS2ColItem"></core:ExtensionPoint>
+                        </cells>
+                </ColumnListItem>               
+                <columns>
+                    <Column width="19em">
+                        <header>
+                            <Label text="{i18n>LR_BALANCE_DEDUCTIBLE}"></Label>
+                        </header>
+                    </Column>
+                    <Column hAlign="Right" minScreenWidth="small" demandPopin="true">
+                        <header>
+                            <Label text="{i18n>LR_BALANCE_BALANCE}"></Label>
+                        </header>
+                    </Column>
+                    <Column hAlign="Right" minScreenWidth="small" demandPopin="true">
+                        <header>
+                            <Label text="{i18n>LR_BALANCE_USED}"></Label>
+                        </header>
+                    </Column>
+                    <Column hAlign="Right" minScreenWidth="small" demandPopin="true">
+                        <header>
+                            <Label text="{i18n>LR_ENTITLEMENT_QUOTA}"></Label>
+                        </header>
+                    </Column>
+                    <!-- extension point for additional Column Header -->
+                    <core:ExtensionPoint name="extS2ColHeader"></core:ExtensionPoint>
+                </columns>
+            </Table>
+        </content>
+    </Page>
+</core:View>

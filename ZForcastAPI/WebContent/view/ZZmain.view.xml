@@ -1,0 +1,58 @@
+<mvc:View controllerName="ShipmentHF.controller.ZZmain"
+	xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:fb="sap.ui.comp.smartfilterbar"
+	xmlns:table="sap.ui.table" xmlns:t="sap.ui.comp.smarttable" xmlns:vm="sap.ui.comp.smartvariants"
+	xmlns:smtf="sap.ui.comp.smartfield"
+	xmlns:customData="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1"
+	xmlns:viz="sap.viz.ui5.controls" xmlns:viz.data="sap.viz.ui5.data"
+	xmlns:viz.feeds="sap.viz.ui5.controls.common.feeds" xmlns:f="sap.ui.layout.form">
+	<VBox height="100%">
+		<viz:VizFrame id="idVizFrame" uiConfig="{applicationSet:'fiori'}"
+			width="100%" vizType="line">
+			<viz:dataset>
+				<viz.data:FlattenedDataset>
+					<viz.data:dimensions>
+						<viz.data:DimensionDefinition name="Period"
+							value="{Period}" />
+					</viz.data:dimensions>
+					<viz.data:measures>
+						<viz.data:MeasureDefinition name="Revenue"
+							value="{Revenue}" />
+					</viz.data:measures>
+				</viz.data:FlattenedDataset>
+			</viz:dataset>
+			<viz:feeds>
+				<viz.feeds:FeedItem uid="valueAxis" type="Measure"
+					values="Revenue" />
+				<viz.feeds:FeedItem uid="categoryAxis" type="Dimension"
+					values="Period" />
+			</viz:feeds>
+		</viz:VizFrame>
+
+<!-- 		<viz:VizFrame id="idVizFrame" uiConfig="{applicationSet:'fiori'}" -->
+<!-- 			width="100%" vizType="line"> -->
+<!-- 			<viz:dataset> -->
+<!-- 				<viz.data:FlattenedDataset data="{/}"> -->
+<!-- 					<viz.data:dimensions> -->
+<!-- 						<viz.data:DimensionDefinition name="Period" -->
+<!-- 							value="{Month}"  -->
+<!-- 							displayValue="{Period}"/> -->
+<!-- 						<viz.data:DimensionDefinition name="Calendar Year" -->
+<!-- 							value="{Year}" /> -->
+<!-- 					</viz.data:dimensions> -->
+<!-- 					<viz.data:measures> -->
+<!-- 						<viz.data:MeasureDefinition name="Quantity" -->
+<!-- 							value="{Plnmg}" /> -->
+<!-- 					</viz.data:measures> -->
+<!-- 				</viz.data:FlattenedDataset> -->
+<!-- 			</viz:dataset> -->
+<!-- 			<viz:feeds> -->
+<!-- 				<viz.feeds:FeedItem uid="valueAxis" type="Measure" -->
+<!-- 					values="Quantity" /> -->
+<!-- 				<viz.feeds:FeedItem uid="categoryAxis" type="Dimension" -->
+<!-- 					values="Calendar Year" /> -->
+<!-- 				<viz.feeds:FeedItem uid="categoryAxis" type="Dimension" -->
+<!-- 					values="Period" /> -->
+<!-- 			</viz:feeds> -->
+<!-- 		</viz:VizFrame> -->
+	</VBox>
+</mvc:View>

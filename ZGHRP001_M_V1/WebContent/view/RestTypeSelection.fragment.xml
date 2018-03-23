@@ -1,0 +1,19 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core">
+	<SelectDialog
+		noDataText="No Data"
+		title="Select Rest Type"
+		search="handleSearch"
+		confirm="handleClose"
+		close="handleClose"
+		contentHeight="30%"
+		contentWidth="5%"
+		items="{
+			path : '/Selections'
+		}" >
+		<StandardListItem
+			title="{Text}"
+			type="Active" />
+	</SelectDialog>
+</core:FragmentDefinition>

@@ -1,0 +1,63 @@
+<core:FragmentDefinition xmlns="sap.m"
+	xmlns:core="sap.ui.core"
+ 	xmlns:vh="sap.ui.comp.valuehelpdialog"
+	xmlns:fb="sap.ui.comp.filterbar"
+	>
+	<!--
+		As the fast navigation box display automatically for MultiSelect Dialog,
+		must add following CSS style to make the box invisible
+		 
+		.compVHTokensPanel {
+			display: none;
+		} 
+	 -->
+	<vh:ValueHelpDialog title="Search Help" supportMultiselect="true" supportRanges="false" supportRangesOnly="false"
+		stretch="{device>isPhone}" contentHeight="70%">
+		<vh:customData>
+      		<core:CustomData key="sap-ui-fastnavgroup" value="false" writeToDom="false" />
+    	</vh:customData>
+		<vh:filterBar>
+			<fb:FilterBar id="ZHE_APPLICANT_FB" advancedMode="true" filterBarExpanded="true" showClearOnFB="true" showGoButton="true" showGoOnFB="true" >
+				<fb:filterGroupItems>
+					<fb:FilterGroupItem groupTitle="" groupName="gn1" name="n1" label="{i18n>ZF_LABEL_EMPLOYEECD}">
+						<fb:control>
+							<Input value="{search>/Pernr}"></Input>
+						</fb:control>
+					</fb:FilterGroupItem>
+					<fb:FilterGroupItem groupTitle="" groupName="gn1" name="n2" label="{i18n>ZF_LABEL_LASTNAME}">
+						<fb:control>
+							<Input value="{search>/Zlname}"></Input>
+						</fb:control>
+					</fb:FilterGroupItem>
+					<fb:FilterGroupItem groupTitle="" groupName="gn1" name="n3" label="{i18n>ZF_LABEL_TSCODE}">
+						<fb:control>
+							<Input value="{search>/ZtsMaCd}"></Input>
+						</fb:control>
+					</fb:FilterGroupItem>
+					<fb:FilterGroupItem groupTitle="" groupName="gn1" name="n4" label="{i18n>ZF_LABEL_BUNAME}">
+						<fb:control>
+							<Input value="{search>/Orgtx}"></Input>
+						</fb:control>
+					</fb:FilterGroupItem>
+					<fb:FilterGroupItem groupTitle="" groupName="gn1" name="n5" label="{i18n>ZF_LABEL_EMPLOYEENM}">
+						<fb:control>
+							<Input value="{search>/Ename}"></Input>
+						</fb:control>
+					</fb:FilterGroupItem>
+					<fb:FilterGroupItem groupTitle="" groupName="gn1" name="n6" label="{i18n>ZF_LABEL_FIRSTNAME}">
+						<fb:control>
+							<Input value="{search>/Zfname}"></Input>
+						</fb:control>
+					</fb:FilterGroupItem>
+					<fb:FilterGroupItem groupTitle="" groupName="gn1" name="n7" label="{i18n>ZF_LABEL_TSNAME}">
+						<fb:control>
+							<Input value="{search>/ZtsTx}"></Input>
+						</fb:control>
+					</fb:FilterGroupItem>
+				</fb:filterGroupItems>
+
+			</fb:FilterBar>
+		</vh:filterBar>
+	</vh:ValueHelpDialog>
+
+</core:FragmentDefinition>

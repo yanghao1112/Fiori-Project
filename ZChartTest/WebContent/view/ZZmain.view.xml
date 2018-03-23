@@ -1,0 +1,174 @@
+<mvc:View controllerName="sap.ZZZ01.ZCHARTTEST.controller.ZZmain"
+	xmlns:core="sap.ui.core" xmlns:layout="sap.ui.layout" xmlns="sap.m"
+	xmlns:tnt="sap.tnt" xmlns:commons="sap.suite.ui.commons" xmlns:viz="sap.viz.ui5.controls"
+	xmlns:viz.data="sap.viz.ui5.data" xmlns:viz.feeds="sap.viz.ui5.controls.common.feeds"
+	xmlns:table="sap.ui.table" xmlns:mvc="sap.ui.core.mvc" xmlns:f="sap.ui.layout.form"
+	xmlns:ext="sap.ZZZ01.ZCHARTTEST.ext"
+	height="100%">
+	<Page>
+		<!--Below is the setting panel -->
+		<headerContent>
+			<Button icon="sap-icon://begin" tooltip="Share" press="onPress" />
+		</headerContent>
+		<layout:Splitter orientation="Vertical" resize="onResize">
+			<layout:contentAreas>
+				<layout:Splitter width="100%" class="Filter">
+					<layout:layoutData>
+						<layout:SplitterLayoutData size="30%" />
+					</layout:layoutData>
+
+					<VBox>
+						<Title level="H2" text="Organization"
+							class="sapMIBar sapMListHdrTBar sapMTB sapMTB-Transparent-CTX sapMTBInactive sapMTBNewFlex" />
+						<ComboBox items="{ path: 'list>/Company/values'
+							}"
+							class="sapUiTinyMargin">
+							<core:Item key="{list>name}" text="{list>name}" />
+						</ComboBox>
+						<ComboBox items="{ path: 'list>/BU/values'
+							}"
+							class="sapUiTinyMargin">
+							<core:Item key="{list>name}" text="{list>name}" />
+						</ComboBox>
+						<ComboBox items="{ path: 'list>/Sector/values'
+							}"
+							class="sapUiTinyMargin">
+							<core:Item key="{list>name}" text="{list>name}" />
+						</ComboBox>
+						<layoutData>
+							<layout:SplitterLayoutData size="200px" />
+						</layoutData>
+					</VBox>
+					<layout:FixFlex>
+						<layout:fixContent>
+
+							<Title level="H2" text="Year"
+								class="sapMIBar sapMListHdrTBar sapMTB sapMTB-Transparent-CTX sapMTBInactive sapMTBNewFlex" />
+						</layout:fixContent>
+						<layout:flexContent>
+							<ScrollContainer id="scroller" vertical="true"
+								height="100%" focusable="true">
+								<content>
+									<List id="YearList" items="{path: 'list>/Year/values'}"
+										mode="SingleSelectLeft" includeItemInSelection="true">
+										<StandardListItem title="{list>name}" />
+
+									</List>
+								</content>
+							</ScrollContainer>
+						</layout:flexContent>
+						<layout:layoutData>
+							<layout:SplitterLayoutData size="200px" />
+						</layout:layoutData>
+					</layout:FixFlex>
+					<VBox>
+						<Title level="H2" text="Compare"
+							class="sapMIBar sapMListHdrTBar sapMTB sapMTB-Transparent-CTX sapMTBInactive sapMTBNewFlex" />
+						<List id="CompareList" items="{path: 'list>/VS/values'}"
+							mode="MultiSelect" includeItemInSelection="true">
+							<StandardListItem title="{list>name}" />
+						</List>
+						<layoutData>
+							<layout:SplitterLayoutData size="200px" />
+						</layoutData>
+					</VBox>
+					<VBox>
+						<Title level="H2" text="Pattern"
+							class="sapMIBar sapMListHdrTBar sapMTB sapMTB-Transparent-CTX sapMTBInactive sapMTBNewFlex" />
+						<List id="PatternList" items="{path: 'list>/Pattern/values'}"
+							mode="SingleSelectLeft" includeItemInSelection="true">
+							<StandardListItem title="{list>name}" />
+						</List>
+						<layoutData>
+							<layout:SplitterLayoutData size="200px" />
+						</layoutData>
+					</VBox>
+					<VBox>
+						<Title level="H2" text="Weighting"
+							class="sapMIBar sapMListHdrTBar sapMTB sapMTB-Transparent-CTX sapMTBInactive sapMTBNewFlex" />
+						<Switch state="true" class="sapUiSmallMargin">
+							<layoutData>
+								<FlexItemData growFactor="1" />
+							</layoutData>
+						</Switch>
+						<layoutData>
+							<layout:SplitterLayoutData size="200px" />
+						</layoutData>
+					</VBox>
+					<VBox id="dummy">
+							<layoutData>
+								<layout:SplitterLayoutData size="auto" />
+							</layoutData>
+					</VBox>
+<!-- 					<VBox id="action"> -->
+<!-- 						<ext:Button icon="sap-icon://begin" tooltip="Share" press="onPress" class="Button"> -->
+<!-- 							<ext:layoutData> -->
+<!-- 								<layout:SplitterLayoutData size="100px" /> -->
+<!-- 							</ext:layoutData> -->
+<!-- 						</ext:Button> -->
+<!-- 					</VBox> -->
+				</layout:Splitter>
+				<VBox id="ChartVBox" height="100%">
+				
+					<layoutData>
+						<layout:SplitterLayoutData size="70%"/>
+					</layoutData>
+					<Toolbar>
+						<ToolbarSpacer></ToolbarSpacer>
+						<Title text="Chart" />
+						<ToolbarSpacer></ToolbarSpacer>
+						<Button icon="sap-icon://download" tooltip="Download"
+							press="onPressDownload" type="Transparent" />
+					</Toolbar>
+					<viz:VizFrame id="idVizFrame" uiConfig="{applicationSet:'fiori'}"
+						width="80%" vizScales="{list>/Scales}"
+						vizProperties="{list>/vizProperties}" vizType='stacked_column'
+						selectData="selectData">
+						<viz:dataset>
+							<viz.data:FlattenedDataset data="{list>/Data}">
+								<viz.data:dimensions>
+									<viz.data:DimensionDefinition
+										name="Year" value="{list>Year}" />
+									<viz.data:DimensionDefinition
+										name="Period" value="{list>Period}" />
+									<!-- <viz.data:DimensionDefinition name="Shop" -->
+									<!-- value="{list>Shop}" /> -->
+								</viz.data:dimensions>
+								<viz.data:measures>
+									<viz.data:MeasureDefinition name="Target"
+										value="{list>Target}" />
+									<viz.data:MeasureDefinition name="Prosepct"
+										value="{list>Prosepct}" />
+									<viz.data:MeasureDefinition name="Opportunity"
+										value="{list>Opportunity}" />
+									<viz.data:MeasureDefinition name="Backlog"
+										value="{list>Backlog}" />
+									<viz.data:MeasureDefinition name="Actual(YTD)"
+										value="{list>Actual(YTD)}" />
+									<viz.data:MeasureDefinition name="Plan(YTD)"
+										value="{list>Plan(YTD)}" />
+								</viz.data:measures>
+							</viz.data:FlattenedDataset>
+						</viz:dataset>
+						<viz:feeds>
+							<viz.feeds:FeedItem uid="valueAxis" type="Measure"
+								values="Target" />
+							<viz.feeds:FeedItem uid="valueAxis" type="Measure"
+								values="Prosepct" />
+							<viz.feeds:FeedItem uid="valueAxis" type="Measure"
+								values="Opportunity" />
+							<viz.feeds:FeedItem uid="valueAxis" type="Measure"
+								values="Backlog" />
+							<viz.feeds:FeedItem uid="valueAxis" type="Measure"
+								values="Actual(YTD)" />
+							<viz.feeds:FeedItem uid="valueAxis" type="Measure"
+								values="Plan(YTD)" />
+							<viz.feeds:FeedItem uid="categoryAxis" type="Dimension"
+								values="Year,Period" />
+						</viz:feeds>
+					</viz:VizFrame>
+				</VBox>
+			</layout:contentAreas>
+		</layout:Splitter>
+	</Page>
+</mvc:View>

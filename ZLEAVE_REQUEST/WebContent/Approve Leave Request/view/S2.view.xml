@@ -1,0 +1,60 @@
+<!--
+
+    Copyright (C) 2009-2014 SAP SE or an SAP affiliate company. All rights reserved
+
+-->
+<core:View
+	xmlns:core="sap.ui.core"
+	xmlns="sap.m"
+	controllerName="hcm.approve.leaverequest.view.S2">
+	<Page
+		id="page"
+		title="{i18n>view.Master.title}">
+		<content>
+			<List
+				id="list"
+				mode="{device>/listMode}"
+				select="_handleSelect">
+				<ObjectListItem
+					id="MAIN_LIST_ITEM"
+					type="{device>/listItemType}"
+					press="_handleItemPress"
+					title="{RequesterName}"
+					number="{parts:[{path:'AbsenceDays'},{path:'AbsenceHours'},{path:'AllDayFlag'}], formatter:'hcm.approve.leaverequest.util.Conversions.formatterAbsenceDuration'}"
+			        numberUnit="{parts:[{path:'AbsenceDays'},{path:'AbsenceHours'},{path:'AllDayFlag'}], formatter:'hcm.approve.leaverequest.util.Conversions.formatterAbsenceDurationUnit'}">
+					<firstStatus>
+						<ObjectStatus
+							text="{parts:[{path:'ChangeDate'}], formatter:'hcm.approve.leaverequest.util.Conversions.formatterTimestampToDate'}"></ObjectStatus>
+					</firstStatus>
+					<secondStatus>
+						<ObjectStatus
+							state="Warning"
+							text="{parts:[{path:'LeaveRequestType'}], formatter:'hcm.approve.leaverequest.util.Conversions.formatterListCancelStatus'}"></ObjectStatus>
+					</secondStatus>
+					<attributes>
+						<ObjectAttribute
+							id="ATTR1"
+							text="{LeaveTypeDesc}" />
+						<ObjectAttribute
+							id="TimeframeList"
+							text="{parts:[{path:'StartDate'},{path:'BeginTime'},{path:'EndDate'},{path:'EndTime'},{path:'AllDayFlag'}], formatter:'hcm.approve.leaverequest.util.Conversions.formatterAbsenceDays3Short'}" />
+						<ObjectAttribute
+							id="ATTR2"
+							text="{parts:[{path:'Overlaps'}], formatter:'hcm.approve.leaverequest.util.Conversions.formatterOverlaps'}" />
+						<!-- extension added to add fields in list item -->	
+                		<core:ExtensionPoint name="extS2ListItem"></core:ExtensionPoint>
+					</attributes>
+				</ObjectListItem>
+				<swipeContent>
+					<Button
+						text="{i18n>XBUT_APPROVE}"
+						type="Accept"
+						tap="_handleListSwipe" />
+				</swipeContent>
+			</List>
+		</content>
+		<footer>
+			<Bar id="footer"></Bar>
+		</footer>
+	</Page>
+</core:View>

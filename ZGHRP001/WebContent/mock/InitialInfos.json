@@ -1,0 +1,174 @@
+{
+    "d": {
+        "results": [
+		{
+                "__metadata": {
+                    "id": "http://erptestap03.braxtonj.com:8000/sap/opu/odata/sap/HCM_TIMESHEET_MAN_SRV/InitialInfos('00000000')", 
+                    "uri": "http://erptestap03.braxtonj.com:8000/sap/opu/odata/sap/HCM_TIMESHEET_MAN_SRV/InitialInfos('00000000')", 
+                    "type": "HCM_TIMESHEET_MAN_SRV.InitialInfo"
+                }, 
+                "Pernr": "00005002", 
+                "EmployeeName": "", 
+                "AllowNonWorkingDays": "1", 
+                "ClockEntry": "FALSE", 
+                "StartDate": "20161017", 
+                "EndDate": "20161017", 
+                "WeekHours": "", 
+                "MonthHours": "", 
+                "AllHours": "", 
+                "ReleaseDirectly": "FALSE", 
+                "ReleaseFuture": "TRUE", 
+                "FavoriteAvailable": true, 
+                "ProfileID": "ESS", 
+                "WithTargetHours": true
+		},
+            {
+                "__metadata": {
+                    "id": "http://erptestap03.braxtonj.com:8000/sap/opu/odata/sap/HCM_TIMESHEET_MAN_SRV/InitialInfos('00000000')", 
+                    "uri": "http://erptestap03.braxtonj.com:8000/sap/opu/odata/sap/HCM_TIMESHEET_MAN_SRV/InitialInfos('00000000')", 
+                    "type": "HCM_TIMESHEET_MAN_SRV.InitialInfo"
+                }, 
+                "Pernr": "00005002", 
+                "EmployeeName": "", 
+                "AllowNonWorkingDays": "1", 
+                "ClockEntry": "FALSE", 
+                "StartDate": "20161020", 
+                "EndDate": "20161020", 
+                "WeekHours": "", 
+                "MonthHours": "", 
+                "AllHours": "", 
+                "ReleaseDirectly": "FALSE", 
+                "ReleaseFuture": "TRUE", 
+                "FavoriteAvailable": true, 
+                "ProfileID": "ESS", 
+                "WithTargetHours": true
+            },
+            {
+                "__metadata": {
+                    "id": "http://erptestap03.braxtonj.com:8000/sap/opu/odata/sap/HCM_TIMESHEET_MAN_SRV/InitialInfos('00000000')", 
+                    "uri": "http://erptestap03.braxtonj.com:8000/sap/opu/odata/sap/HCM_TIMESHEET_MAN_SRV/InitialInfos('00000000')", 
+                    "type": "HCM_TIMESHEET_MAN_SRV.InitialInfo"
+                }, 
+                "Pernr": "00005002", 
+                "EmployeeName": "", 
+                "AllowNonWorkingDays": "1", 
+                "ClockEntry": "FALSE", 
+                "StartDate": "20161021", 
+                "EndDate": "20161021", 
+                "WeekHours": "", 
+                "MonthHours": "", 
+                "AllHours": "", 
+                "ReleaseDirectly": "FALSE", 
+                "ReleaseFuture": "TRUE", 
+                "FavoriteAvailable": true, 
+                "ProfileID": "ESS", 
+                "WithTargetHours": true
+            },
+            {
+                "__metadata": {
+                    "id": "http://erptestap03.braxtonj.com:8000/sap/opu/odata/sap/HCM_TIMESHEET_MAN_SRV/InitialInfos('00000000')", 
+                    "uri": "http://erptestap03.braxtonj.com:8000/sap/opu/odata/sap/HCM_TIMESHEET_MAN_SRV/InitialInfos('00000000')", 
+                    "type": "HCM_TIMESHEET_MAN_SRV.InitialInfo"
+                }, 
+                "Pernr": "00005002", 
+                "EmployeeName": "", 
+                "AllowNonWorkingDays": "1", 
+                "ClockEntry": "FALSE", 
+                "StartDate": "20161024", 
+                "EndDate": "20161024", 
+                "WeekHours": "", 
+                "MonthHours": "", 
+                "AllHours": "", 
+                "ReleaseDirectly": "FALSE", 
+                "ReleaseFuture": "TRUE", 
+                "FavoriteAvailable": true, 
+                "ProfileID": "ESS", 
+                "WithTargetHours": true
+            },
+            {
+                "__metadata": {
+                    "id": "http://erptestap03.braxtonj.com:8000/sap/opu/odata/sap/HCM_TIMESHEET_MAN_SRV/InitialInfos('00000000')", 
+                    "uri": "http://erptestap03.braxtonj.com:8000/sap/opu/odata/sap/HCM_TIMESHEET_MAN_SRV/InitialInfos('00000000')", 
+                    "type": "HCM_TIMESHEET_MAN_SRV.InitialInfo"
+                }, 
+                "Pernr": "00005002", 
+                "EmployeeName": "", 
+                "AllowNonWorkingDays": "1", 
+                "ClockEntry": "FALSE", 
+                "StartDate": "20161025", 
+                "EndDate": "20161025", 
+                "WeekHours": "", 
+                "MonthHours": "", 
+                "AllHours": "", 
+                "ReleaseDirectly": "FALSE", 
+                "ReleaseFuture": "TRUE", 
+                "FavoriteAvailable": true, 
+                "ProfileID": "ESS", 
+                "WithTargetHours": true
+            },
+            {
+                "__metadata": {
+                    "id": "http://erptestap03.braxtonj.com:8000/sap/opu/odata/sap/HCM_TIMESHEET_MAN_SRV/InitialInfos('00000000')", 
+                    "uri": "http://erptestap03.braxtonj.com:8000/sap/opu/odata/sap/HCM_TIMESHEET_MAN_SRV/InitialInfos('00000000')", 
+                    "type": "HCM_TIMESHEET_MAN_SRV.InitialInfo"
+                }, 
+                "Pernr": "00005002", 
+                "EmployeeName": "", 
+                "AllowNonWorkingDays": "1", 
+                "ClockEntry": "FALSE", 
+                "StartDate": "20161026", 
+                "EndDate": "20161026", 
+                "WeekHours": "", 
+                "MonthHours": "", 
+                "AllHours": "", 
+                "ReleaseDirectly": "FALSE", 
+                "ReleaseFuture": "TRUE", 
+                "FavoriteAvailable": true, 
+                "ProfileID": "ESS", 
+                "WithTargetHours": true
+            },
+            {
+                "__metadata": {
+                    "id": "http://erptestap03.braxtonj.com:8000/sap/opu/odata/sap/HCM_TIMESHEET_MAN_SRV/InitialInfos('00000000')", 
+                    "uri": "http://erptestap03.braxtonj.com:8000/sap/opu/odata/sap/HCM_TIMESHEET_MAN_SRV/InitialInfos('00000000')", 
+                    "type": "HCM_TIMESHEET_MAN_SRV.InitialInfo"
+                }, 
+                "Pernr": "00005002", 
+                "EmployeeName": "", 
+                "AllowNonWorkingDays": "1", 
+                "ClockEntry": "FALSE", 
+                "StartDate": "20161027", 
+                "EndDate": "20161027", 
+                "WeekHours": "", 
+                "MonthHours": "", 
+                "AllHours": "", 
+                "ReleaseDirectly": "FALSE", 
+                "ReleaseFuture": "TRUE", 
+                "FavoriteAvailable": true, 
+                "ProfileID": "ESS", 
+                "WithTargetHours": true
+            },
+            {
+                "__metadata": {
+                    "id": "http://erptestap03.braxtonj.com:8000/sap/opu/odata/sap/HCM_TIMESHEET_MAN_SRV/InitialInfos('00000000')", 
+                    "uri": "http://erptestap03.braxtonj.com:8000/sap/opu/odata/sap/HCM_TIMESHEET_MAN_SRV/InitialInfos('00000000')", 
+                    "type": "HCM_TIMESHEET_MAN_SRV.InitialInfo"
+                }, 
+                "Pernr": "00005002", 
+                "EmployeeName": "", 
+                "AllowNonWorkingDays": "1", 
+                "ClockEntry": "FALSE", 
+                "StartDate": "20161028", 
+                "EndDate": "20161028", 
+                "WeekHours": "", 
+                "MonthHours": "", 
+                "AllHours": "", 
+                "ReleaseDirectly": "FALSE", 
+                "ReleaseFuture": "TRUE", 
+                "FavoriteAvailable": true, 
+                "ProfileID": "ESS", 
+                "WithTargetHours": true
+            }
+        ]
+    }
+}

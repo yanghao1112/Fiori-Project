@@ -1,0 +1,142 @@
+{
+	"20160725": {
+		"START_RANGE":"0008000000",
+		"END_RANGE":"0020000000",
+		"RANGE_Hours":"12",
+		"START_REST1":"1100",
+		"END_REST1":"1130",
+		"START_REST2":"1100",
+		"END_REST2":"1130",
+		"START_REST3":"1100",
+		"END_REST3":"1130",
+		"START_REST4":"1100",
+		"END_REST4":"1130",
+		"START_REST5":"1100",
+		"END_REST5":"1130",
+		"REASON":"Test",
+		"timesheetEntry": [
+			{
+				"client_text": "client_text",
+				"client": "client",
+				"timesheet_text": "timesheet_text",
+				"timesheet": "timesheet",
+				"country_text": "country_text",
+				"country": "country",
+				"state_text": "state_text",
+				"state": "state",
+				"city_text": "city_text",
+				"city": "city",
+				"approver_text": "approver_text",
+				"approver":"approver",
+				"hours":"8",
+				"process_text":"process_text"
+			},
+			{
+				"client_text": "client_text2",
+				"client": "client2",
+				"timesheet_text": "timesheet_text2",
+				"timesheet": "timesheet2",
+				"country_text": "country_text2",
+				"country": "country2",
+				"state_text": "state_text2",
+				"state": "state2",
+				"city_text": "city_text2",
+				"city": "city2",
+				"approver_text": "approver_text2",
+				"approver":"approver2",
+				"hours":"8",
+				"process_text":"process_text2"
+			}
+		]
+	},
+	"20160726": {
+		"START_RANGE":"0008000000",
+		"END_RANGE":"0020000000",
+		"RANGE_Hours":"12",
+		"START_REST1":"1100",
+		"END_REST1":"1130",
+		"START_REST2":"1100",
+		"END_REST2":"1130",
+		"START_REST3":"1100",
+		"END_REST3":"1130",
+		"START_REST4":"1100",
+		"END_REST4":"1130",
+		"START_REST5":"1100",
+		"END_REST5":"1130",
+		"REASON":"Test",
+		"Time_Type": "Weekly",
+		"Working_Times": "40.00",
+		"timesheetEntry": [
+			{
+				"client_text": "client_text",
+				"client": "client",
+				"timesheet_text": "timesheet_text",
+				"timesheet": "timesheet",
+				"country_text": "country_text",
+				"country": "country",
+				"state_text": "state_text",
+				"state": "state",
+				"city_text": "city_text",
+				"city": "city",
+				"approver_text": "approver_text",
+				"approver":"approver",
+				"hours":"8",
+				"process_text":"process_text"
+			},
+			{
+				"client_text": "client_text2",
+				"client": "client2",
+				"timesheet_text": "timesheet_text2",
+				"timesheet": "timesheet2",
+				"country_text": "country_text2",
+				"country": "country2",
+				"state_text": "state_text2",
+				"state": "state2",
+				"city_text": "city_text2",
+				"city": "city2",
+				"approver_text": "approver_text2",
+				"approver":"approver2",
+				"hours":"8",
+				"process_text":"process_text2"
+			},
+			{
+				"client_text": "client_text3",
+				"client": "client3",
+				"timesheet_text": "timesheet_text3",
+				"timesheet": "timesheet3",
+				"country_text": "country_text3",
+				"country": "country3",
+				"state_text": "state_text3",
+				"state": "state3",
+				"city_text": "city_text3",
+				"city": "city3",
+				"approver_text": "approver_text3",
+				"approver":"approver3",
+				"hours":"8",
+				"process_text":"process_text3"
+			}
+		]
+	},
+	"20160804": {
+
+		"timesheetEntry": [
+			{
+				"tab_text": "New Entry",
+				"client_text": "",
+				"client": "",
+				"timesheet_text": "",
+				"timesheet": "",
+				"country_text": "",
+				"country": "",
+				"state_text": "",
+				"state": "",
+				"city_text": "",
+				"city": "",
+				"approver_text": "",
+				"approver":"",
+				"hours":"",
+				"process_text":""
+			}
+		]
+	}		
+}	

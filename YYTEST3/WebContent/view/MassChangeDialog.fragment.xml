@@ -1,0 +1,33 @@
+<core:FragmentDefinition
+		xmlns="sap.m"
+		xmlns:core="sap.ui.core"
+		xmlns:l="sap.ui.layout"
+		xmlns:sap.ui.core="sap.ui.core"
+		xmlns:f="sap.ui.layout.form">
+
+	<Dialog
+		title="Mass Change">
+		<buttons>
+			<Button
+				text="Date1"/>
+			<Button	text="Date 2"/>
+			<Button	text="Input 1"/>
+			<Button	text="Input 2"/>
+			<Button	text="Cancel" press="onPressCancel"/>
+		</buttons>
+
+	    <content>
+		    <VBox class="sapUiSmallMargin">
+				<Label text="Finalized Release Date" labelFor="DATE1"/>
+				<DatePicker id="DATE1" valueFormat="yyyy-MM-dd" displayFormat="yyyy/MM/dd"  />
+				<Label text="Available Date" labelFor="DATE2"/>
+				<DatePicker id="DATE2" valueFormat="yyyy-MM-dd" displayFormat="yyyy/MM/dd" />
+				<Label text="LEM Comment" labelFor="INPUT1"/>
+				<Input id="INPUT1" editable="true" />
+				<Label text="Assigner Comment" labelFor="INPUT2"/>
+				<Input id="INPUT2" editable="true" />
+			</VBox>	
+	    </content>
+	</Dialog>
+
+</core:FragmentDefinition>

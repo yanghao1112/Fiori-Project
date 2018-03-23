@@ -1,0 +1,77 @@
+<mvc:View controllerName="soreturn.controller.Detail" xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:semantic="sap.m.semantic" 
+	xmlns:f="sap.ui.layout.form" xmlns:footerbar="sap.ushell.ui.footerbar" xmlns:l="sap.ui.layout" xmlns:core="sap.ui.core"
+	xmlns:u="sap.ui.unified">
+	<semantic:DetailPage id="page" navButtonPress="onNavBack" showNavButton="{device>/system/phone}" title="{i18n>detailTitle}"
+		busy="{detailView>/busy}" busyIndicatorDelay="{detailView>/delay}">
+		<semantic:content>
+			<ObjectHeader id="objectHeader" title="{Vbeln}"
+				number="{Kwmeng}" 
+				numberUnit="{Vrkme}">
+				<attributes>
+					<ObjectAttribute text="{Bstnk}"/>
+					<ObjectAttribute text="{Matnr}"/>
+				</attributes>
+				<statuses>
+					<ObjectStatus text="{
+		                path: 'Audat',
+		                formatter: '.formatter.fmtDate' 
+		                }" state="None" />
+					<ObjectStatus text="{Bezei}" state="None" />
+				</statuses>
+			</ObjectHeader>
+			<IconTabBar id="iconTabBar" class="sapUiResponsiveContentPadding">
+				<items>
+					<IconTabFilter id="iconTabBarFilter1" icon="sap-icon://money-bills" tooltip="{i18n>detailIconTabBarInfo}">
+						<content>
+							<f:Form editable="false">
+								<f:layout>
+									<f:ResponsiveGridLayout
+										labelSpanXL="3"
+										labelSpanL="3"
+										labelSpanM="3"
+										labelSpanS="12"
+										adjustLabelSpan="false"
+										emptySpanXL="4"
+										emptySpanL="4"
+										emptySpanM="4"
+										emptySpanS="0"
+										columnsXL="1"
+										columnsL="1"
+										columnsM="1"
+										singleContainerFullSize="false" />
+								</f:layout>
+								<f:formContainers>
+									<f:FormContainer>
+										<f:formElements>
+											<f:FormElement label="{i18n>Sales Order}">
+												<f:fields>
+													<Text text="{Vgbel}"/>
+												</f:fields>
+											</f:FormElement>
+											<f:FormElement label="{i18n>Amount}">
+												<f:fields >
+													<u:Currency value="{
+																				path: 'Netwr',
+																				formatter: '.formatter.fmtValue'
+																			}" currency="{Waerk}"
+														useSymbol="false" class="ZTextRight">
+													</u:Currency>
+												</f:fields>
+											</f:FormElement>
+											<f:FormElement label="{i18n>Comments}">
+												<f:fields>
+													<Text text="{Text}"/>
+												</f:fields>
+											</f:FormElement>
+										</f:formElements>
+									</f:FormContainer>
+								</f:formContainers>
+							</f:Form>
+						</content>
+					</IconTabFilter>
+				</items>
+			</IconTabBar>
+		</semantic:content>
+
+	</semantic:DetailPage>
+</mvc:View>

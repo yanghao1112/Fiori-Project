@@ -1,0 +1,102 @@
+<mvc:View
+  controllerName="soreturn.controller.Master"
+  xmlns:mvc="sap.ui.core.mvc"
+  xmlns:core="sap.ui.core"
+  xmlns="sap.m"
+  xmlns:semantic="sap.m.semantic"
+  xmlns:u="sap.ui.unified">
+
+  <semantic:MasterPage
+    id="page"
+    title="Sales Orders"
+    navButtonPress="onNavBack"
+    showNavButton="true">
+    <semantic:subHeader>
+      <Bar id="headerBar">
+        <contentMiddle>
+          <SearchField
+            id="searchField"
+            showRefreshButton="{= !${device>/support/touch} }"
+            tooltip="{i18n>masterSearchTooltip}"
+            width="100%"
+            search="onSearch">
+          </SearchField>
+        </contentMiddle>
+      </Bar>
+    </semantic:subHeader>
+
+    <semantic:content>
+      <PullToRefresh
+        id="pullToRefresh"
+        visible="{device>/support/touch}"
+        refresh="onRefresh" />
+      <!-- For client side filtering add this to the items attribute:  parameters: {operationMode: 'Client'}}" -->
+      <List
+        id="list"
+        items="{
+          path: '/OrderInfSet',
+          sorter: {
+            path: 'Vbeln',
+            descending: false
+            },
+          groupHeaderFactory: '.createGroupHeader'
+        }"
+        busyIndicatorDelay="{Orders>/delay}"
+        noDataText="{Orders>/noDataText}"
+        mode="{= ${device>/system/phone} ? 'None' : 'SingleSelectMaster'}"
+        growing="true"
+        growingScrollToLoad="true"
+        updateFinished="onUpdateFinished"
+        selectionChange="onSelectionChange">
+        <infoToolbar>
+          <Toolbar
+            active="true"
+            id="filterBar"
+            visible="{Orders>/isFilterBarVisible}"
+            press="onOpenViewSettings">
+            <Title
+              id="filterBarLabel"
+              text="{OrderInfSet>/Vbeln}" />
+          </Toolbar>
+        </infoToolbar>
+        <items>
+          <ObjectListItem
+            type="{= ${device>/system/phone} ? 'Active' : 'Inactive'}"
+            press="onSelectionChange"
+            title="{Vbeln}"
+            number="{Kwmeng}"
+            numberUnit="{Vrkme}">
+            <attributes>
+              <ObjectAttribute text="{Bstnk}"/>
+              <ObjectAttribute text="{Matnr}"/>
+            </attributes>
+            <firstStatus>
+              <ObjectStatus text="{
+                path: 'Audat',
+                formatter: '.formatter.fmtDate' 
+                }" state="None" />
+            </firstStatus>
+            <secondStatus>
+              <ObjectStatus text="{Bezei}" state="None" class="zztext"/>
+            </secondStatus>
+          </ObjectListItem>
+
+        </items>
+      </List>
+    </semantic:content>
+   
+    <semantic:customFooterContent>
+		 <MenuButton icon="sap-icon://add">
+            <menu>
+                <Menu itemSelected="onMenuAction">
+                    <items>
+                        <MenuItem text="New Create" icon="sap-icon://write-new" press="onCreate"/>
+                        <MenuItem text="File Upload" icon="sap-icon://create-form" press="onUpload"/>
+                    </items>
+                </Menu>
+            </menu>
+        </MenuButton>
+	</semantic:customFooterContent>
+  </semantic:MasterPage>
+
+</mvc:View>

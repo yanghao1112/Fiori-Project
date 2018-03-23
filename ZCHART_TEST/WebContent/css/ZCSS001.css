@@ -1,0 +1,10 @@
+.sapMObjLAttrRow .sapMObjStatus {
+    overflow: initial !important;
+    white-space: pre-wrap !important;
+}
+.ZZLabel {
+  text-align: right;
+}
+
+.ZZTabContainer .sapMTabContainerContent .sapMTabContainerInnerContent {
+    position: relative;

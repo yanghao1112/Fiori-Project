@@ -1,0 +1,91 @@
+<sap.ui.core:FragmentDefinition xmlns="sap.m"
+	xmlns:sap.ui.layout.form="sap.ui.layout.form" xmlns:sap.ui.core="sap.ui.core"
+	xmlns:sap.ui.layout="sap.ui.layout">
+	<sap.ui.layout.form:FormElement label="{i18n>
+		ZF_KIMHOUR}">
+		<sap.ui.layout.form:label>
+			<Label
+				text="{FormElements>Label}{path: 'FormElements>Hours',
+											formatter:  '.changeHours'}">
+			</Label>
+		</sap.ui.layout.form:label>
+		<sap.ui.layout.form:fields>
+			<HBox>
+				<Text text="{i18n>ZF_START}" visible="{device>/isPhone}" width="50px" />
+				<TimePicker
+					value="{path: 'FormElements>Start',
+                 														type: 'WorkingTime'}"
+					displayFormat="HH:mm" valueFormat="HH:mm" change="onTimerPickerChange"
+					editable="{SettingInfo>WorkingHoursEditable}" minutesStep="{screenModel>/step}"
+					class="ZZNoIME">
+					<customData>
+						<sap.ui.core:CustomData key="id" value="WorkingHours" />
+					</customData>
+				</TimePicker>
+				<CheckBox class="sapUiSmallMarginBegin" selected="{WorkingHours>WorkingHoursSF}"
+					enabled="{SettingInfo>WorkingHoursEditable}" select="onTimerPickerChange">
+					<customData>
+						<sap.ui.core:CustomData key="id" value="WorkingHours" />
+					</customData>
+				</CheckBox>
+			</HBox>
+			<HBox>
+				<Text text="{i18n>ZF_END}" visible="{device>/isPhone}" width="50px" />
+				<TimePicker
+					value="{path: 'FormElements>End',
+                 			type: 'WorkingTime'}"
+					displayFormat="HH:mm" valueFormat="HH:mm" change="onTimerPickerChange"
+					editable="{SettingInfo>WorkingHoursEditable}" minutesStep="{screenModel>/step}"
+					class="ZZNoIME">
+					<customData>
+						<sap.ui.core:CustomData key="id" value="WorkingHours" />
+					</customData>
+				</TimePicker>
+				<CheckBox selected="{WorkingHours>WorkingHoursEF}" enabled="{SettingInfo>WorkingHoursEditable}"
+					select="onTimerPickerChange" class="sapUiSmallMarginBegin">
+					<customData>
+						<sap.ui.core:CustomData key="id" value="WorkingHours" />
+					</customData>
+				</CheckBox>
+			</HBox>
+			<HBox>
+				<Text visible="{device>/isNoPhone}"
+					text="{path: 'FormElements>Hours',
+											formatter:  '.changePCHours'}">
+				</Text>
+
+
+				<HBox visible="{device>/isNoPhone}">
+					<Button icon="sap-icon://add" visible="{FormElements>Add}"
+						enabled="true" press="onPressAddWorkingHours" class="sapUiSmallMarginBegin">
+						<customData>
+							<sap.ui.core:CustomData key="id" value="RestTime2" />
+						</customData>
+					</Button>
+					<Button visible="{FormElements>Cancel}" icon="sap-icon://less"
+						enabled="true" press="onCancelAdd" class="sapUiTinyMarginBegin">
+						<customData>
+							<sap.ui.core:CustomData key="id" value="RestTime2" />
+						</customData>
+					</Button>
+
+				</HBox>
+
+				<HBox visible="{device>/isPhone}">
+					<Button icon="sap-icon://add" visible="{FormElements>Add}"
+						enabled="true" press="onPressAddWorkingHours">
+						<customData>
+							<sap.ui.core:CustomData key="id" value="RestTime2" />
+						</customData>
+					</Button>
+					<Button visible="{FormElements>Cancel}" icon="sap-icon://less"
+						enabled="true" press="onCancelAdd">
+						<customData>
+							<sap.ui.core:CustomData key="id" value="RestTime2" />
+						</customData>
+					</Button>
+				</HBox>
+			</HBox>
+		</sap.ui.layout.form:fields>
+	</sap.ui.layout.form:FormElement>
+</sap.ui.core:FragmentDefinition>
