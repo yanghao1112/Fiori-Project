@@ -1,0 +1,125 @@
+{
+	"Select": {
+		"Pattern": {
+			"values": [
+				{
+					"key": "0",
+					"name": "Total Revenue",
+					"selected": true
+				},
+				{
+					"key": "3",
+					"name": "Project Margin",
+					"selected": false
+				}
+			]
+		},
+		"Currency": {
+			"values": [
+				{
+					"key": "0",
+					"name": "Global",
+					"selected": true
+				},
+				{
+					"key": "1",
+					"name": "Local",
+					"selected": false
+				}
+			]
+		},
+		"Company": {
+			"values": [
+				{
+					"key": "0",
+					"name": "ABJP"
+				},
+				{
+					"key": "1",
+					"name": "GDC"
+				}
+			]
+		},
+		"Sector": {
+			"values": [
+				{
+					"key": "0",
+					"name": "*"
+				},
+				{
+					"key": "1",
+					"name": "Sector1"
+				},
+				{
+					"key": "2",
+					"name": "Sector2"
+				}
+			]
+		},
+		"BU": {
+			"name": "BU",
+			"values": [
+				{
+					"key": "1",
+					"name": "MFG&CB"
+				},
+				{
+					"key": "2",
+					"name": "FSI"
+				}
+			]
+		},
+		"VS": {
+			"values": [
+				{
+					"key": "0",
+					"name": "Entity Plan",
+					"selected": true
+				},
+				{
+					"key": "1",
+					"name": "BU Plan",
+					"selected": false
+				},
+				{
+					"key": "2",
+					"name": "PJ Plan",
+					"selected": false
+				}
+			]
+		},
+		"Year": {
+			"values": [
+				{
+					"key": "0",
+					"name": "2017",
+					"selected": true
+				},
+				{
+					"key": "1",
+					"name": "2018",
+					"selected": false
+				},
+				{
+					"key": "2",
+					"name": "2019",
+					"selected": false
+				}
+			]
+		},
+		"Simulation": {
+			"values": [
+				{
+					"key": 0,
+					"name": "Baseline",
+					"selected": true
+				},
+				{
+					"key": 1,
+					"name": "Backlog",
+					"selected": false
+				}
+			]
+		}
+	}
+}

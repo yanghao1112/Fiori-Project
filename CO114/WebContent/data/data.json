@@ -1,0 +1,111 @@
+{
+	"Data": [
+		{
+			"Period": "2015/12",
+			"contribution": 2,
+			"development": 1
+		},
+		{
+			"Period": "2016/12",
+			"contribution": 2,
+			"development": 1
+		},
+		{
+			"Period": "2017/12",
+			"contribution": 3,
+			"development": 2
+		}
+	],
+	"Scales": [
+		{
+			"feed": "valueAxis",
+			"max": 3,
+			"min": 1
+		},
+		{
+			"feed": "valueAxis2",
+			"max": 3,
+			"min": 1
+		}
+	],
+	"vizProperties": {
+		"valueAxis": {
+			"title": {
+				"visible": true,
+				"text": "\u6210\u679C\u306E\u5927\u304D\u3055(\u8CA2\u732E\u306E\u5927\u304D\u3055)",
+				"style":{
+				"color": "#8FBADD"
+				}
+				
+			},
+			"label": {
+				"visible": true
+			},
+			"axisLine": {
+				"visible": false
+			}
+		},
+		"legendGroup": {
+			"layout": {
+				"alignment": "center",
+				"position":  "bottom"
+			}
+		},
+		"valueAxis2": {
+			"title": {
+				"visible": true,
+				"text": "\u6210\u9577\u306E\u53EF\u80FD\u6027(\u4FDD\u6709\u80FD\u529B)"
+			},
+			"label": {
+				"visible": true
+			},
+			"axisLine": {
+				"visible": false
+			}
+		},
+		"categoryAxis": {
+			"title": {
+				"visible": false
+			}
+		},
+		"title": {
+			"visible": false
+		},
+		"plotArea": {
+			"line": {
+				"visible": true
+			},
+			"lineVisible": true,
+			"dataShape": {
+				"primaryAxis": []
+			},
+			"dataPointStyle": {
+				"rules": [
+					{
+						"dataContext": {
+							"contribution": "*"
+						},
+						"properties": {
+							"color": "#8FBADD",
+							"lineColor": "#8FBADD"
+						},
+						"displayName": "\u6210\u679C\u306E\u5927\u304D\u3055(\u8CA2\u732E\u306E\u5927\u304D\u3055)",
+						"dataName": {
+							"contribution": "contribution"
+						}
+					}
+				],
+				"others": {
+					"properties": {
+						"color": "#000000",
+						"lineColor": "#000000"
+					},
+					"displayName": "\u6210\u9577\u306E\u53EF\u80FD\u6027(\u4FDD\u6709\u80FD\u529B)",
+					"dataName": {
+						"development": "development"
+					}
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,155 @@
+<mvc:View controllerName="sap.ZG001.Sample.CO114.controller.ZZmain"
+	xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:t="sap.ui.table"
+	xmlns:layout="sap.ui.layout" xmlns:core="sap.ui.core" xmlns:viz="sap.viz.ui5.controls"
+	xmlns:viz.data="sap.viz.ui5.data" xmlns:viz.feeds="sap.viz.ui5.controls.common.feeds">
+	<Page showHeader="false">
+		<layout:Splitter orientation="Vertical" resize="onResize">
+			<layout:contentAreas>
+				<layout:Splitter width="100%">
+					<layout:layoutData>
+						<layout:SplitterLayoutData size="30%"
+							id="showchart" />
+					</layout:layoutData>
+
+					<layout:FixFlex>
+						<layout:fixContent>
+							<Title level="H2" text="Organization"
+								class="sapMIBar sapMListHdrTBar sapMTB sapMTB-Transparent-CTX sapMTBInactive sapMTBNewFlex" />
+						</layout:fixContent>
+						<layout:flexContent>
+							<ScrollContainer id="scrollerOrganization"
+								vertical="true" height="100%" focusable="false">
+								<content>
+									<VBox>
+
+										<ComboBox id="Company"
+											items="{ path: 'Organization>/Company'
+							}" class="sapUiTinyMargin"
+											selectionChange="onCompanyChange">
+											<core:Item key="{Organization>}" text="{Organization>}" />
+										</ComboBox>
+										<ComboBox id="BU" items="{ path: 'Organization>/BU'
+							}"
+											class="sapUiTinyMargin">
+											<core:Item key="{Organization>}" text="{Organization>}" />
+										</ComboBox>
+									</VBox>
+								</content>
+							</ScrollContainer>
+						</layout:flexContent>
+						<layout:layoutData>
+							<layout:SplitterLayoutData size="200px" />
+						</layout:layoutData>
+					</layout:FixFlex>
+
+					<layout:FixFlex>
+						<layout:fixContent>
+							<Title level="H2" text="Year"
+								class="sapMIBar sapMListHdrTBar sapMTB sapMTB-Transparent-CTX sapMTBInactive sapMTBNewFlex" />
+						</layout:fixContent>
+						<layout:flexContent>
+							<ScrollContainer id="scrollerCompare" vertical="true"
+								height="100%" focusable="false">
+								<content>
+
+									<ComboBox id="YearList" items="{ path: 'Year>/'
+							}"
+										class="sapUiTinyMargin">
+										<core:Item key="{Year>CVPYear}" text="{Year>CVPYear}" />
+									</ComboBox>
+									<!-- <List id="YearList" items="{path: 'Year>/'}" -->
+									<!-- mode="SingleSelectLeft" includeItemInSelection="true"> -->
+									<!-- <StandardListItem title="{Year>CVPYear}" selected="{Year>bSelected}"/> -->
+									<!-- </List> -->
+								</content>
+							</ScrollContainer>
+						</layout:flexContent>
+						<layout:layoutData>
+							<layout:SplitterLayoutData size="200px" />
+						</layout:layoutData>
+					</layout:FixFlex>
+
+
+
+					<VBox id="dummy">
+						<layoutData>
+							<layout:SplitterLayoutData size="auto" />
+
+						</layoutData>
+					</VBox>
+					<layout:layoutData>
+						<layout:SplitterLayoutData size="180px" />
+					</layout:layoutData>
+				</layout:Splitter>
+
+				<VBox height="100%">
+					<Toolbar level="H2"
+						class="sapMIBar sapMListHdrTBar sapMTB sapMTB-Transparent-CTX sapMTBInactive sapMTBNewFlex ZToolBarOverflow">
+						<RangeSlider id="rangeSlider" width="20%" change="onLiveChange"
+							inputsAsTooltips="true" visible="false" class="ZRangeSlider" />
+						<FormattedText
+							htmlText="&lt;p style='font-size: 14px;'&gt;Scale Range&lt;/p&gt;"
+							id="scaleTitle" visible="false" />
+
+						<ToolbarSpacer />
+						<ToggleButton id="showTableButton" level="H2"
+							icon="sap-icon://table-view" pressed="true" tooltip="Go" press="onShowTable" />
+						<ToggleButton id="showChartButton" level="H2"
+							icon="sap-icon://business-objects-experience" tooltip="Go"
+							press="onShowChart" />
+<!-- 						<Button level="H2" icon="sap-icon://initiative" tooltip="Go" -->
+<!-- 							press="onPress" /> -->
+<!-- 						<Button level="H2" icon="sap-icon://download" tooltip="Download" -->
+<!-- 							press="onDownload" /> -->
+						<layoutData>
+							<layout:SplitterLayoutData minSize="3rem"
+								size="3rem" />
+						</layoutData>
+					</Toolbar>
+
+					<VBox id="ChartVBox" height="100%" class="sapMNav sapMNavFlip"
+						renderType="Bare">
+						<t:Table id='t0' selectionMode='None' rows='{path:"table>/rows"}'
+							width="100%" rowHeight='24px' visibleRowCount="15"
+							columns='{path:"table>/cols", factory:".columnFactory"}' class="sapMNavItem  ztable">
+							<t:layoutData>
+								<layout:SplitterLayoutData minSize="400px" />
+							</t:layoutData>
+						</t:Table>
+
+						<viz:VizFrame id="idVizFrame" uiConfig="{applicationSet:'fiori'}"
+							width="100%" vizType='stacked_column' class="sapMNavItem sapMNavItemHidden">
+							<viz:dataset>
+								<viz.data:FlattenedDataset data="{chartData>/results}">
+									<viz.data:dimensions>
+										<viz.data:DimensionDefinition
+											name="Period" value="{chartData>Period}" />
+									</viz.data:dimensions>
+									<viz.data:measures>
+										<viz.data:MeasureDefinition name="Target"
+											value="{chartData>Target}" />
+									</viz.data:measures>
+								</viz.data:FlattenedDataset>
+							</viz:dataset>
+							<viz:feeds>
+								<viz.feeds:FeedItem uid="valueAxis" type="Measure"
+									values="Target" />
+								<viz.feeds:FeedItem uid="categoryAxis" type="Dimension"
+									values="Period" />
+							</viz:feeds>
+						</viz:VizFrame>
+					</VBox>
+				</VBox>
+			</layout:contentAreas>
+		</layout:Splitter>
+		<footer>
+			<Toolbar>
+				<ToolbarSpacer />
+				<Button level="H2" icon="sap-icon://initiative" tooltip="Execute" text="Execute"
+					press="onPress" />
+				<Button level="H2" icon="sap-icon://download" tooltip="Download" text="Download"
+					press="onDownload" />
+			</Toolbar>
+		</footer>
+	</Page>
+</mvc:View>

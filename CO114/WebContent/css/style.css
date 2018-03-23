@@ -1,0 +1,62 @@
+.col_header_current_week {
+	background-color: #EEEE00 !important;
+    background-image: url(../image/bg_white_transparent.png);
+}
+.ztable tr.row_level1 td{
+  background-color: #b4c6e7 !important;
+}
+.ztable tr.row_level2 td.sapUiTableTdFirst{
+  padding-left: 10px;
+}
+.ztable tr.sapUiTableTr td.sapUiTableTdFirst{
+  text-align: left !important;
+}
+.ztable tr.row_center td{
+  text-align: center !important;
+}
+.ztable tr.row_right td{
+  text-align: right !important;
+}
+.ztable td.sapUiTableTdFirst {
+  background-color: #d9e1f2;
+}
+.cell_minus bdi{
+  color: red !important;
+}
+
+
+.cell_plus bdi{
+  color: blue !important;
+}
+
+td.cell_no_data {
+  background-color: #d9d9d9;
+}
+
+.ZRangeSlider .sapMSlider .sapMSliderHandleTooltip,.sapMSlider .sapMSliderTooltipContainer{
+/* 		visibility: visible !important; */
+		z-index: 9999 !important;
+}
+.sapUiLoSplitterContent {
+    overflow: visible !important;
+}
+.ZToolBarOverflow {
+    overflow: visible !important;
+}
+.ZRangeSlider .sapMSliderProgress:focus{
+	outline:none
+}
+.ZRangeSlider .sapMSliderProgress:focus:before{
+	border:0px dotted #000000 !important;
+}
+
+.ZRangeSlider .sapMSliderLabels {
+	visibility: hidden;
+}
+
+
+td.cell_actual {
+	background-color: #EEEE00;
+    background-image: url(../image/bg_white_transparent.png);
+}
+

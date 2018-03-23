@@ -1,0 +1,18 @@
+{
+  "cols" : [
+    {"labelText":"", "value": "field"},
+    {"labelText":"Q1/Total/*", "value": "value01"}, 
+    {"labelText":"Q2/7/Total", "value": "value02"},
+    {"labelText":"Q2/8/W1", "value": "value03"},
+    {"labelText":"Q2/8/W2", "value": "value04"},
+    {"labelText":"Q2/8/W3", "value": "value05"},
+    {"labelText":"Q2/8/W4", "value": "value06"},
+    {"labelText":"Q2/8/W5", "value": "value07"},
+    {"labelText":"Q2/8/Total", "value": "value08"},
+    {"labelText":"Q2/9/Total", "value": "value09"},
+    {"labelText":"Q2/*/*", "value": "value10"},
+    {"labelText":"Q3/Total/*", "value": "value11"},
+    {"labelText":"Q4/Total/*", "value": "value12"},
+    {"labelText":"*/*/*", "value": "value13"}
+  ]
+}

@@ -1,0 +1,41 @@
+.sapUiTable>.sapUiTableTbr.sapUiTableMTbr {
+	height: 3rem
+}
+
+.ZTextRight {
+	text-algin: right !important;
+}
+
+.Hide {
+	visible: false
+}
+
+.ZLabel .v-m-categoryAxis .v-label-group g:nth-child(5)>rect {
+	fill: red;
+}
+
+.sapMSlider .sapMSliderHandleTooltip, .sapMSlider .sapMSliderTooltipContainer
+	{
+	/* 		visibility: visible !important; */
+	z-index: 9999 !important;
+}
+
+.sapUiLoSplitterContent {
+	overflow: visible !important;
+}
+
+.ZToolBarOverflow {
+	overflow: visible !important;
+}
+
+.sapMSliderProgress:focus {
+	outline: none
+}
+
+.sapMSliderProgress:focus:before {
+	border: 0px dotted #000000 !important;
+}
+
+.sapMSliderLabels {
+	visibility: hidden;
+}
