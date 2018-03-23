@@ -1,0 +1,116 @@
+{
+	"recipient" : {
+		"name" : "I'm name of recipient"
+	},
+	"buttonText" : "I'm button",
+	"text": "Lorem ipsum dolor st amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat",
+	"listData" : [ {
+		"ProductName" : "Pineapple",
+		"Quantity" : 21,
+		"Price" : 87.2000
+	}, {
+		"ProductName" : "Apple",
+		"Quantity" : 15,
+		"Price" : 30.2000
+	}, {
+		"ProductName" : "Orange",
+		"Quantity" : 20,
+		"Price" : 35.2000
+	}, {
+		"ProductName" : "Grape",
+		"Quantity" : 36,
+		"Price" : 70.2000
+	}, {
+		"ProductName" : "Peach",
+		"Quantity" : 60,
+		"Price" : 90.2000
+	} ],
+	
+	"personInfo": {
+		"image":"image/P1.PNG",
+		"name":"Tanaka Makoto",
+		"level":"生産本部長"
+	},
+	"title" : [ {
+		"icon" : "sap-icon://accelerated",
+		"bu" : "部門HQ",
+		"pernr" : "50000000"
+
+	}
+	],
+	"summary" : [ {
+		"icon" : "sap-icon://history",
+		"title" : "勤続年数",
+		"value" : "5年、3カ月"
+	}, {
+		"icon" : "sap-icon://appointment",
+		"title" : "開始済",
+		"value" : "2017/10/15"
+	}, {
+		"icon" : "sap-icon://tree",
+		"title" : "退職時の影響",
+		"value" : "高　　　　　　"
+	}, {
+		"icon" : "",
+		"title" : "退職時リスク",
+		"value" : "低　　　　　　"
+	} ],
+	"cell1" : {
+		"title" : "人材情報",
+		"content" : [ {
+			"icon" : "sap-icon://flag",
+			"iconColor" : "#FE1B09",
+			"title" : "退職時の影響"
+		},
+
+		{
+			"icon" : "sap-icon://alert",
+			"iconColor" : "#2B9518",
+			"title" : "退職時リスク"
+		}
+
+		]
+	},
+	"cell2" : {
+		"title" : "パフォーマンストと潜在力",
+		"content" : []
+	},
+	"cell3" : {
+		"title" : "学歴",
+		"content" : [ {
+			"icon" : "sap-icon://learning-assistant",
+			"qualifications" : "学士",
+			"subject" : "法律",
+			"period" : "1998/03/31",
+			"college" : "慶應義塾大学"
+		},
+
+		{
+			"icon" : "sap-icon://learning-assistant",
+			"qualifications" : "学士",
+			"subject" : "法律",
+			"period" : "1998/03/31",
+			"college" : "慶應義塾大学"
+		} ]
+	},
+	"cell4" : {
+		"title" : "社内勤務経験",
+		"content" : [ {
+			"icon" : "sap-icon://employee-pane",
+			"level" : "生産本部長",
+			"period" : "2015/04-"
+		},{
+			"icon" : "sap-icon://employee-pane",
+			"level" : "社長, TME",
+			"period" : "2009/06-2015/03"
+		},{
+			"icon" : "sap-icon://employee-pane",
+			"level" : "工場長, 三重工場",
+			"period" : "2004/04-2009/05"
+		} ]
+	},
+	"cell5" : {
+		"title" : "言語:日本語,会話能力:上級",
+		"content" : [  ]
+	}
+}

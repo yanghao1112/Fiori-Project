@@ -1,0 +1,96 @@
+/* Radar Chart Settings */
+.RadarInnerDiv .level {
+    stroke: grey;
+    stroke-width: 0.5;
+  }
+  
+.RadarInnerDiv .axis line {
+    stroke: grey;
+    stroke-width: 1;
+}
+.RadarInnerDiv .axis .legend {
+    font-family: sans-serif;
+    font-size: 0.75rem;
+}
+.RadarInnerDiv .axis .legend.top {
+    dy:1em;
+}
+.RadarInnerDiv .axis .legend.left {
+    text-anchor: start;
+}
+.RadarInnerDiv .axis .legend.middle {
+    text-anchor: middle;
+}
+.RadarInnerDiv .axis .legend.right {
+    text-anchor: end;
+}
+.RadarInnerDiv .axis .legend.emphasis {
+    stroke: red;
+}
+.RadarInnerDiv .tooltip {
+    font-family: sans-serif;
+    font-size: 0.75rem;
+    transition: opacity 200ms;
+    opacity: 0;
+}
+.RadarInnerDiv .tooltip.visible {
+    opacity: 1;
+}
+  
+/* area transition when hovering */
+.RadarInnerDiv .area {
+    stroke-width: 2;
+    fill-opacity: 0.5;
+}
+.RadarInnerDiv.focus .area {
+    fill-opacity: 0.1;
+}
+.RadarInnerDiv.focus .area.focused {
+    fill-opacity: 0.7;
+}
+.RadarInnerDiv.circle {
+    fill-opacity: 0.9;
+}
+  
+/* transitions */
+.RadarInnerDiv .area, .RadarInnerDiv .circle {
+    transition: opacity 300ms, fill-opacity 200ms;
+    opacity: 0.6;
+}
+.RadarInnerDiv .d3-enter, .RadarInnerDiv .d3-exit {
+    opacity: 0;
+}
+
+.RadarInnerDiv .level-group .legend.left {
+    text-anchor: start;
+    font-size: 0.8rem;
+}
+.RadarInnerDiv .level-group .legend.middle {
+    text-anchor: middle;
+    font-size: 0.8rem;
+}
+.RadarInnerDiv .level-group .legend.right {
+    text-anchor: end;
+    font-size: 0.8rem;
+}
+
+/* legend settings */
+svg .legendCells {
+    font-size: 0.75rem;
+}
+
+.GaugeDiv g.arc {
+    fill: steelblue;
+}
+
+.GaugeDiv g.pointer {
+    fill: black;
+    stroke: #a1421c;
+}
+
+.GaugeDiv g.label text {
+    text-anchor: middle;
+    font-size: 0.75rem;
+    font-weight: bold;
+    fill: #666;
+}
