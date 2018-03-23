@@ -1,0 +1,94 @@
+<mvc:View controllerName="sap.ZZZ01.ZCHARTTEST.controller.ZZmain"
+	xmlns:core="sap.ui.core" xmlns:layout="sap.ui.layout" xmlns="sap.m"
+	xmlns:tnt="sap.tnt" xmlns:commons="sap.suite.ui.commons" xmlns:viz="sap.viz.ui5.controls"
+	xmlns:viz.data="sap.viz.ui5.data" xmlns:viz.feeds="sap.viz.ui5.controls.common.feeds"
+	xmlns:table="sap.ui.table" xmlns:mvc="sap.ui.core.mvc" xmlns:f="sap.ui.layout.form"
+	height="100%">
+	<Page>
+		<!--Below is the setting panel -->
+		<headerContent>
+			<Button icon="sap-icon://begin" tooltip="Share" press="onPress" />
+		</headerContent>
+		<layout:Splitter orientation="Vertical">
+			<layout:contentAreas >
+				<layout:Splitter width="100%" >
+					<layout:layoutData>
+						<layout:SplitterLayoutData size="100%" id="showchart" />
+					</layout:layoutData>
+					<VBox >
+						<Title level="H2" text="Organization"
+							class="sapMIBar sapMListHdrTBar sapMTB sapMTB-Transparent-CTX sapMTBInactive sapMTBNewFlex" />
+						<ComboBox id="Company" items="{ path: 'Select>/Company/values'
+							}" class="sapUiTinyMargin">
+							<core:Item key="{Select>name}" text="{Select>name}" />
+						</ComboBox>
+						<ComboBox id="BU" items="{ path: 'Select>/BU/values'
+							}" class="sapUiTinyMargin">
+							<core:Item key="{Select>name}" text="{Select>name}" />
+						</ComboBox>
+						<layoutData>
+							<layout:SplitterLayoutData size="200px" />
+						</layoutData>
+					</VBox>
+					<VBox>
+						<Title level="H2" text="Compare"
+							class="sapMIBar sapMListHdrTBar sapMTB sapMTB-Transparent-CTX sapMTBInactive sapMTBNewFlex" />
+						<List id="CompareList" items="{path: 'Select>/VS/values'}"
+							mode="MultiSelect" includeItemInSelection="true" >
+							<StandardListItem title="{Select>name}" />
+						</List>
+						<layoutData>
+							<layout:SplitterLayoutData size="300px" />
+						</layoutData>
+					</VBox>
+					<VBox>
+						<Title level="H2" text="Currency"
+							class="sapMIBar sapMListHdrTBar sapMTB sapMTB-Transparent-CTX sapMTBInactive sapMTBNewFlex" />
+						<List id="CurrencyList" items="{path: 'Select>/Currency/values'}"
+							mode="SingleSelectLeft" includeItemInSelection="true">
+							<StandardListItem title="{Select>name}" />
+						</List>
+						<layoutData>
+							<layout:SplitterLayoutData size="200px" />
+						</layoutData>
+					</VBox>
+					<VBox>
+						<Title level="H2" text="Weighting"
+							class="sapMIBar sapMListHdrTBar sapMTB sapMTB-Transparent-CTX sapMTBInactive sapMTBNewFlex" />
+						<Switch state="true" class="sapUiSmallMargin" id="Weighting">
+							<layoutData>
+								<FlexItemData growFactor="1" />
+							</layoutData>
+						</Switch>
+						<layoutData>
+							<layout:SplitterLayoutData size="200px" />
+						</layoutData>
+					</VBox>
+					<VBox id="dummy">
+						<layoutData>
+							<layout:SplitterLayoutData size="auto" />
+						</layoutData>
+					</VBox>
+				</layout:Splitter>
+				<VBox >
+					<Title level="H2" text="ComboBox"
+						class="sapMIBar sapMListHdrTBar sapMTB sapMTB-Transparent-CTX sapMTBInactive sapMTBNewFlex" />
+					<viz:VizFrame id="idVizFrame" uiConfig="{applicationSet:'fiori'}"
+						width="100%"  vizScales="{/Scales}" vizProperties="{/vizProperties}"
+						vizType='stacked_column' class="ZLabel">
+						<viz:dataset>
+							<viz.data:FlattenedDataset data="{/Data}">
+								<viz.data:dimensions>
+								</viz.data:dimensions>
+								<viz.data:measures>
+								</viz.data:measures>
+							</viz.data:FlattenedDataset>
+						</viz:dataset>
+						<viz:feeds>
+						</viz:feeds>
+					</viz:VizFrame>
+				</VBox>
+			</layout:contentAreas>
+		</layout:Splitter>
+	</Page>
+</mvc:View>

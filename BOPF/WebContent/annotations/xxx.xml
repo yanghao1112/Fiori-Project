@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="4.0" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+	<edmx:Reference
+		Uri="../../catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMON',Version='0001',SAP__Origin='LOCAL')/$value">
+		<edmx:Include Namespace="com.sap.vocabularies.Common.v1"
+			Alias="Common" />
+	</edmx:Reference>
+	<edmx:Reference
+		Uri="../../catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_UI',Version='0001',SAP__Origin='LOCAL')/$value">
+		<edmx:Include Namespace="com.sap.vocabularies.UI.v1"
+			Alias="UI" />
+	</edmx:Reference>
+	<edmx:Reference
+		Uri="../../catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMUNICATION',Version='0001',SAP__Origin='LOCAL')/$value">
+		<edmx:Include Namespace="com.sap.vocabularies.Communication.v1"
+			Alias="Communication" />
+	</edmx:Reference>
+	<edmx:Reference Uri="../../../sap/zdemo29_c_salesorder_tp_d_cds/$metadata">
+		<edmx:Include Namespace="ZDEMO29_C_SALESORDER_TP_D_CDS"
+			Alias="SAP" />
+	</edmx:Reference>
+	<edmx:DataServices>
+		<Schema Namespace="zdemo29_c_salesorder_tp_d_cd_van.v1" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+			<Annotations
+				Target="ZDEMO29_C_SALESORDER_TP_D_CDS.I_DraftAdministrativeDataType/DraftUUID">
+				<Annotation Term="Common.FieldControl" EnumMember="Common.FieldControlType/Hidden" />
+				<Annotation Term="UI.Hidden" />
+			</Annotations>
+			<Annotations
+				Target="ZDEMO29_C_SALESORDER_TP_D_CDS.I_DraftAdministrativeDataType/ProcessingStartDateTime">
+				<Annotation Term="Common.FieldControl" EnumMember="Common.FieldControlType/Hidden" />
+				<Annotation Term="UI.Hidden" />
+			</Annotations>
+			<Annotations
+				Target="ZDEMO29_C_SALESORDER_TP_D_CDS.I_DraftAdministrativeDataType/DraftIsKeptByUser">
+				<Annotation Term="Common.FieldControl" EnumMember="Common.FieldControlType/Hidden" />
+				<Annotation Term="UI.Hidden" />
+			</Annotations>
+			<Annotations
+				Target="ZDEMO29_C_SALESORDER_TP_D_CDS.I_DraftAdministrativeDataType/EnqueueStartDateTime">
+				<Annotation Term="Common.FieldControl" EnumMember="Common.FieldControlType/Hidden" />
+				<Annotation Term="UI.Hidden" />
+			</Annotations>
+			<Annotations
+				Target="ZDEMO29_C_SALESORDER_TP_D_CDS.I_DraftAdministrativeDataType/DraftIsCreatedByMe">
+				<Annotation Term="Common.FieldControl" EnumMember="Common.FieldControlType/Hidden" />
+				<Annotation Term="UI.Hidden" />
+			</Annotations>
+			<Annotations
+				Target="ZDEMO29_C_SALESORDER_TP_D_CDS.I_DraftAdministrativeDataType/DraftIsLastChangedByMe">
+				<Annotation Term="Common.FieldControl" EnumMember="Common.FieldControlType/Hidden" />
+				<Annotation Term="UI.Hidden" />
+			</Annotations>
+			<Annotations
+				Target="ZDEMO29_C_SALESORDER_TP_D_CDS.I_DraftAdministrativeDataType/DraftIsProcessedByMe">
+				<Annotation Term="Common.FieldControl" EnumMember="Common.FieldControlType/Hidden" />
+				<Annotation Term="UI.Hidden" />
+			</Annotations>
+			<Annotations
+				Target="ZDEMO29_C_SALESORDER_TP_D_CDS.I_DraftAdministrativeDataType/CreatedByUserDescription">
+				<Annotation Term="Common.FieldControl" EnumMember="Common.FieldControlType/Hidden" />
+				<Annotation Term="UI.Hidden" />
+			</Annotations>
+			<Annotations
+				Target="ZDEMO29_C_SALESORDER_TP_D_CDS.I_DraftAdministrativeDataType/LastChangedByUserDescription">
+				<Annotation Term="Common.FieldControl" EnumMember="Common.FieldControlType/Hidden" />
+				<Annotation Term="UI.Hidden" />
+			</Annotations>
+			<Annotations
+				Target="ZDEMO29_C_SALESORDER_TP_D_CDS.I_DraftAdministrativeDataType/InProcessByUserDescription">
+				<Annotation Term="Common.FieldControl" EnumMember="Common.FieldControlType/Hidden" />
+				<Annotation Term="UI.Hidden" />
+			</Annotations>
+			<Annotations
+				Target="ZDEMO29_C_SALESORDER_TP_D_CDS.I_DraftAdministrativeDataType/DraftEntityType">
+				<Annotation Term="Common.FieldControl" EnumMember="Common.FieldControlType/Hidden" />
+				<Annotation Term="UI.Hidden" />
+			</Annotations>
+			<Annotations
+				Target="ZDEMO29_C_SALESORDER_TP_D_CDS.I_DraftAdministrativeDataType/PrincipalDraftKey">
+				<Annotation Term="Common.FieldControl" EnumMember="Common.FieldControlType/Hidden" />
+				<Annotation Term="UI.Hidden" />
+			</Annotations>
+			<Annotations
+				Target="ZDEMO29_C_SALESORDER_TP_D_CDS.I_DraftAdministrativeDataType/DraftAccessType">
+				<Annotation Term="Common.FieldControl" EnumMember="Common.FieldControlType/Hidden" />
+				<Annotation Term="UI.Hidden" />
+			</Annotations>
+			<Annotations Target="ZDEMO29_C_SALESORDER_TP_D_CDS.SEPM_I_AddressType">
+				<Annotation Term="Communication.Contact">
+					<Record>
+						<PropertyValue Property="adr">
+							<Collection>
+								<Record>
+									<PropertyValue Property="type"
+										EnumMember="Communication.ContactInformationType/pref" />
+									<PropertyValue Property="locality" Path="CityName" />
+									<PropertyValue Property="street" Path="StreetName" />
+									<PropertyValue Property="country" Path="Country" />
+									<PropertyValue Property="code" Path="PostalCode" />
+								</Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+				<Annotation Term="Communication.Address">
+					<Record>
+						<PropertyValue Property="type"
+							EnumMember="Communication.ContactInformationType/pref" />
+						<PropertyValue Property="locality" Path="CityName" />
+						<PropertyValue Property="street" Path="StreetName" />
+						<PropertyValue Property="country" Path="Country" />
+						<PropertyValue Property="code" Path="PostalCode" />
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations
+				Target="ZDEMO29_C_SALESORDER_TP_D_CDS.SEPM_I_BusinessPartnerType">
+				<Annotation Term="Communication.Contact">
+					<Record>
+						<PropertyValue Property="tel">
+							<Collection>
+								<Record>
+									<PropertyValue Property="type"
+										EnumMember="Communication.PhoneType/fax" />
+									<PropertyValue Property="uri" Path="FaxNumber" />
+								</Record>
+								<Record>
+									<PropertyValue Property="type"
+										EnumMember="Communication.PhoneType/preferred" />
+									<PropertyValue Property="uri" Path="PhoneNumber" />
+								</Record>
+							</Collection>
+						</PropertyValue>
+						<PropertyValue Property="email">
+							<Collection>
+								<Record>
+									<PropertyValue Property="address" Path="EmailAddress" />
+								</Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="ZDEMO29_C_SALESORDER_TP_D_CDS.SEPM_I_EmployeeType">
+				<Annotation Term="Communication.Contact">
+					<Record>
+						<PropertyValue Property="n">
+							<Record>
+								<PropertyValue Property="given" Path="FirstName" />
+								<PropertyValue Property="additional" Path="MiddleName" />
+								<PropertyValue Property="surname" Path="LastName" />
+							</Record>
+						</PropertyValue>
+						<PropertyValue Property="tel">
+							<Collection>
+								<Record>
+									<PropertyValue Property="type"
+										EnumMember="Communication.PhoneType/preferred" />
+									<PropertyValue Property="uri" Path="PhoneNumber" />
+								</Record>
+							</Collection>
+						</PropertyValue>
+						<PropertyValue Property="email">
+							<Collection>
+								<Record>
+									<PropertyValue Property="address" Path="EmailAddress" />
+								</Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations
+				Target="ZDEMO29_C_SALESORDER_TP_D_CDS.ZDEMO29_C_SalesOrder_TP_DType/ActiveUUID">
+				<Annotation Term="UI.HiddenFilter" />
+				<Annotation Term="Common.FieldControl" EnumMember="Common.FieldControlType/Hidden" />
+				<Annotation Term="UI.Hidden" />
+			</Annotations>
+			<Annotations
+				Target="ZDEMO29_C_SALESORDER_TP_D_CDS.ZDEMO29_C_SalesOrder_TP_DType/HasActiveEntity">
+				<Annotation Term="UI.HiddenFilter" />
+				<Annotation Term="Common.FieldControl" EnumMember="Common.FieldControlType/Hidden" />
+				<Annotation Term="UI.Hidden" />
+			</Annotations>
+			<Annotations
+				Target="ZDEMO29_C_SALESORDER_TP_D_CDS.ZDEMO29_C_SalesOrder_TP_DType/HasDraftEntity">
+				<Annotation Term="UI.HiddenFilter" />
+				<Annotation Term="Common.FieldControl" EnumMember="Common.FieldControlType/Hidden" />
+				<Annotation Term="UI.Hidden" />
+			</Annotations>
+			<Annotations
+				Target="ZDEMO29_C_SALESORDER_TP_D_CDS.ZDEMO29_C_SalesOrder_TP_DType/IsActiveEntity">
+				<Annotation Term="UI.HiddenFilter" />
+				<Annotation Term="Common.FieldControl" EnumMember="Common.FieldControlType/Hidden" />
+				<Annotation Term="UI.Hidden" />
+			</Annotations>
+			<Annotations
+				Target="ZDEMO29_C_SALESORDER_TP_D_CDS.ZDEMO29_C_SalesOrder_TP_DType/SalesOrderUUID">
+				<Annotation Term="Common.FieldControl" EnumMember="Common.FieldControlType/Hidden" />
+				<Annotation Term="UI.Hidden" />
+			</Annotations>
+			<Annotations
+				Target="ZDEMO29_C_SALESORDER_TP_D_CDS.ZDEMO29_C_SalesOrder_TP_DType/DraftEntityCreationDateTime">
+				<Annotation Term="Common.FieldControl" EnumMember="Common.FieldControlType/Hidden" />
+				<Annotation Term="UI.Hidden" />
+			</Annotations>
+			<Annotations
+				Target="ZDEMO29_C_SALESORDER_TP_D_CDS.ZDEMO29_C_SalesOrder_TP_DType/DraftEntityLastChangeDateTime">
+				<Annotation Term="Common.FieldControl" EnumMember="Common.FieldControlType/Hidden" />
+				<Annotation Term="UI.Hidden" />
+			</Annotations>
+			<Annotations
+				Target="ZDEMO29_C_SALESORDER_TP_D_CDS.ZDEMO29_C_SalesOrder_TP_DType/Activation_ac">
+				<Annotation Term="Common.FieldControl" EnumMember="Common.FieldControlType/Hidden" />
+				<Annotation Term="UI.Hidden" />
+			</Annotations>
+			<Annotations
+				Target="ZDEMO29_C_SALESORDER_TP_D_CDS.ZDEMO29_C_SalesOrder_TP_DType/Edit_ac">
+				<Annotation Term="Common.FieldControl" EnumMember="Common.FieldControlType/Hidden" />
+				<Annotation Term="UI.Hidden" />
+			</Annotations>
+			<Annotations
+				Target="ZDEMO29_C_SALESORDER_TP_D_CDS.ZDEMO29_C_SalesOrder_TP_DType/Preparation_ac">
+				<Annotation Term="Common.FieldControl" EnumMember="Common.FieldControlType/Hidden" />
+				<Annotation Term="UI.Hidden" />
+			</Annotations>
+			<Annotations
+				Target="ZDEMO29_C_SALESORDER_TP_D_CDS.ZDEMO29_C_SalesOrder_TP_DType/Validation_ac">
+				<Annotation Term="Common.FieldControl" EnumMember="Common.FieldControlType/Hidden" />
+				<Annotation Term="UI.Hidden" />
+			</Annotations>
+			<Annotations
+				Target="ZDEMO29_C_SALESORDER_TP_D_CDS.ZDEMO29_C_SalesOrder_TP_DType">
+				<Annotation Term="UI.HeaderInfo">
+					<Record>
+						<PropertyValue Property="TypeName" String="Sales Order" />
+						<PropertyValue Property="TypeNamePlural" String="Sales Orders" />
+						<PropertyValue Property="Title">
+							<Record Type="UI.DataField">
+								<PropertyValue Property="Value" Path="SalesOrder" />
+							</Record>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+				<Annotation Term="UI.Identification">
+					<Collection>
+						<Record Type="UI.DataField">
+							<PropertyValue Property="Label" String="Sales Order ID" />
+							<PropertyValue Property="Value" Path="SalesOrder" />
+						</Record>
+						<Record Type="UI.DataField">
+							<PropertyValue Property="Label" String="Customer" />
+							<PropertyValue Property="Value" Path="BusinessPartner" />
+						</Record>
+						<Record Type="UI.DataField">
+							<PropertyValue Property="Label" String="Status" />
+							<PropertyValue Property="Value" Path="OverallStatus" />
+						</Record>
+					</Collection>
+				</Annotation>
+				<Annotation Term="UI.LineItem">
+					<Collection>
+						<Record Type="UI.DataField">
+							<PropertyValue Property="Label" String="Sales Order ID" />
+							<PropertyValue Property="Value" Path="SalesOrder" />
+							<Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High" />
+						</Record>
+						<Record Type="UI.DataField">
+							<PropertyValue Property="Label" String="Customer" />
+							<PropertyValue Property="Value" Path="BusinessPartner" />
+							<Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/Medium" />
+						</Record>
+						<Record Type="UI.DataField">
+							<PropertyValue Property="Label" String="Status" />
+							<PropertyValue Property="Value" Path="OverallStatus" />
+							<Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/Medium" />
+						</Record>
+					</Collection>
+				</Annotation>
+				<Annotation Term="UI.SelectionFields">
+					<Collection>
+						<PropertyPath>SalesOrder</PropertyPath>
+						<PropertyPath>OverallStatus</PropertyPath>
+					</Collection>
+				</Annotation>
+			</Annotations>
+		</Schema>
+	</edmx:DataServices>
+</edmx:Edmx>

@@ -1,0 +1,1801 @@
+<%@page language="abap"%>
+<?xml version="1.0" encoding="utf-8"?><edmx:Edmx Version="4.0" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+ <edmx:Reference Uri="/sap/bc/ui5_ui5/ui2/ushell/resources/sap/ushell/components/factsheet/vocabularies/UI.xml">
+  <edmx:Include Namespace="com.sap.vocabularies.UI.v1" Alias="UI"/>
+ </edmx:Reference>
+ <edmx:Reference Uri="/sap/bc/ui5_ui5/ui2/ushell/resources/sap/ushell/components/factsheet/vocabularies/Communication.xml">
+  <edmx:Include Namespace="com.sap.vocabularies.Communication.v1" Alias="vCard"/>
+ </edmx:Reference>
+ <edmx:Reference Uri="http://docs.oasis-open.org/odata/odata/v4.0/cs01/vocabularies/Org.OData.Measures.V1.xml">
+  <edmx:Include Namespace="Org.OData.Measures.V1" Alias="CQP"/>
+ </edmx:Reference>
+ <edmx:Reference Uri="/sap/bc/ui5_ui5/ui2/ushell/resources/sap/ushell/components/factsheet/vocabularies/Common.xml">
+  <edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="Common"/>
+ </edmx:Reference>
+ <edmx:Reference Uri="/sap/opu/odata/sap/CB_MATERIAL_SRV/$metadata">
+  <edmx:Include Namespace="CB_MATERIAL_SRV" Alias="CB_MATERIAL_SRV"/>
+ </edmx:Reference>
+ <edmx:DataServices>
+  <Schema Namespace="sap.cbesh.cestbon.CB_MATERIAL_SRVAnnotation" Alias="CB_MATERIAL_SRVAnnotation" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+   <Annotations Target="CB_MATERIAL_SRV.PurchasingContract/ContractTargetValue">
+    <Annotation Term="CQP.ISOCurrency" Path="Currency"/>
+   </Annotations>
+   <Annotations Target="CB_MATERIAL_SRV.SalesOrder/NetAmount">
+    <Annotation Term="CQP.ISOCurrency" Path="TransactionCurrency"/>
+   </Annotations>
+   <Annotations Target="CB_MATERIAL_SRV.SalesContract/NetAmount">
+    <Annotation Term="CQP.ISOCurrency" Path="NetAmountCurrency"/>
+   </Annotations>
+   <Annotations Target="CB_MATERIAL_SRV.Material">
+    <Annotation Term="UI.DataPoint" Qualifier="DataPoint01">
+     <Record>
+      <PropertyValue Property="Title" X-SAP-OTR="BSCBN_UI_ANF_MG/MATERIRAL_TYPE" String="<%= otr(BSCBN_UI_ANF_MG/MATERIRAL_TYPE)%>"/>
+      <PropertyValue Property="Value" Path="MaterialTypeName"/>
+     </Record>
+    </Annotation>
+    <Annotation Term="UI.DataPoint" Qualifier="DataPoint02">
+     <Record>
+      <PropertyValue Property="Title" X-SAP-OTR="BSCBN_UI_ANF_MG/MATERIRAL_GROUP" String="<%= otr(BSCBN_UI_ANF_MG/MATERIRAL_GROUP)%>"/>
+      <PropertyValue Property="Value" Path="MaterialGroupName"/>
+     </Record>
+    </Annotation>
+    <Annotation Term="UI.HeaderInfo">
+     <Record>
+      <PropertyValue Property="TypeName" X-SAP-OTR="BSCBN_UI_ANF_MG/MATERIAL" String=" <%= otr(BSCBN_UI_ANF_MG/MATERIAL)%>"/>
+      <PropertyValue Property="TypeNamePlural" X-SAP-OTR="BSCBN_UI_ANF_MG/MATERIAL" String=" <%= otr(BSCBN_UI_ANF_MG/MATERIAL)%>"/>
+      <PropertyValue Property="Title">
+       <Record Type="UI.DataField">
+        <PropertyValue Property="Value" Path="MaterialName"/>
+       </Record>
+      </PropertyValue>
+      <PropertyValue Property="Description">
+       <Record Type="UI.DataField">
+        <PropertyValue Property="Value" Path="Material"/>
+       </Record>
+      </PropertyValue>
+     </Record>
+    </Annotation>
+    <Annotation Term="UI.Badge">
+     <Record>
+      <PropertyValue Property="HeadLine">
+       <Record Type="UI.DataField">
+        <PropertyValue Property="Value" X-SAP-OTR="BSCBN_UI_ANF_MG/MATERIAL" String=" <%= otr(BSCBN_UI_ANF_MG/MATERIAL)%>"/>
+       </Record>
+      </PropertyValue>
+      <PropertyValue Property="Title">
+       <Record Type="UI.DataField">
+        <PropertyValue Property="Value" Path="MaterialName"/>
+       </Record>
+      </PropertyValue>
+      <PropertyValue Property="MainInfo">
+       <Record Type="UI.DataField">
+        <PropertyValue Property="Value" Path="Material"/>
+       </Record>
+      </PropertyValue>
+     </Record>
+    </Annotation>
+    <Annotation Term="UI.Identification">
+     <Collection>
+      <Record Type="UI.DataField">
+       <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+       <PropertyValue Property="Value" Path="MaterialTypeName"/>
+      </Record>
+      <Record Type="UI.DataField">
+       <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+       <PropertyValue Property="Value">
+        <Apply Function="odata.concat">
+         <Path>MaterialGroupName</Path>
+         <String><![CDATA[ ]]> </String>
+         <String><![CDATA[ (]]></String>
+         <Path>MaterialGroup</Path>
+         <String><![CDATA[) ]]></String>
+        </Apply>
+       </PropertyValue>
+      </Record>
+      <Record Type="UI.DataField">
+       <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+       <PropertyValue Property="Value" Path="ProductHierarchyName"/>
+      </Record>
+      <Record Type="UI.DataField">
+       <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+       <PropertyValue Property="Value" Path="MaterialBaseUnitDesc"/>
+      </Record>
+      <Record Type="UI.DataField">
+       <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+       <PropertyValue Property="Value" Path="PurgDocOrderQuantityUnitDesc"/>
+      </Record>
+      <Record Type="UI.DataField">
+       <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/Medium"/>
+       <PropertyValue Property="Value" Path="ManufacturerName"/>
+      </Record>
+      <Record Type="UI.DataField">
+       <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/Medium"/>
+       <PropertyValue Property="Label" X-SAP-OTR="BSCBN_UI_ANF_MG/NETWEIGHT" String="<%= otr(BSCBN_UI_ANF_MG/NETWEIGHT)%>"/>
+       <PropertyValue Property="Value">
+        <Apply Function="odata.concat">
+         <Path>MaterialNetWeight</Path>
+         <String><![CDATA[ ]]> </String>
+         <String><![CDATA[ (]]></String>
+         <Path>UnitOfNetWeightDesc</Path>
+         <String><![CDATA[) ]]></String>
+        </Apply>
+       </PropertyValue>
+      </Record>
+      <Record Type="UI.DataField">
+       <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/Medium"/>
+       <PropertyValue Property="Label" X-SAP-OTR="BSCBN_UI_ANF_MG/CROSSWEIGHT" String="<%= otr(BSCBN_UI_ANF_MG/CROSSWEIGHT)%>"/>
+       <PropertyValue Property="Value">
+        <Apply Function="odata.concat">
+         <Path>MaterialGrossWeight</Path>
+         <String><![CDATA[ ]]> </String>
+         <String><![CDATA[ (]]></String>
+         <Path>UnitOfGrossWeightDesc</Path>
+         <String><![CDATA[) ]]></String>
+        </Apply>
+       </PropertyValue>
+      </Record>
+      <Record Type="UI.DataField">
+       <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/Medium"/>
+       <PropertyValue Property="Value" Path="DivisionName"/>
+      </Record>
+      <Record Type="UI.DataField">
+       <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+       <PropertyValue Property="Value" Path="SourceOfSupplyDesc"/>
+      </Record>
+     </Collection>
+    </Annotation>
+    <Annotation Term="UI.LineItem">
+     <Collection>
+      <Record Type="UI.DataField">
+       <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+       <PropertyValue Property="Value" Path="MaterialName"/>
+      </Record>
+     </Collection>
+    </Annotation>
+    <Annotation Term="UI.Facets">
+     <Collection>
+      <Record Type="UI.CollectionFacet">
+       <Annotation Term="UI.IsSummary"/>
+       <PropertyValue Property="Facets">
+        <Collection>
+         <Record Type="UI.ReferenceFacet">
+          <PropertyValue Property="Target" AnnotationPath="@UI.Identification"/>
+         </Record>
+        </Collection>
+       </PropertyValue>
+      </Record>
+      <Record Type="UI.ReferenceFacet">
+       <PropertyValue Property="Label" X-SAP-OTR="BSCBN_UI_ANF_MG/PLANT_DATA_AND_CONTACTS" String="<%= otr(BSCBN_UI_ANF_MG/PLANT_DATA_AND_CONTACTS)%>"/>
+       <PropertyValue Property="Target" AnnotationPath="SNAV_MARC/@UI.LineItem"/>
+      </Record>
+      <Record Type="UI.ReferenceFacet">
+       <PropertyValue Property="Label" X-SAP-OTR="BSCBN_UI_ANF_MG/SALES_DATA" String="<%= otr(BSCBN_UI_ANF_MG/SALES_DATA)%>"/>
+       <PropertyValue Property="Target" AnnotationPath="SNAV_MVKE/@UI.LineItem"/>
+      </Record>
+      <Record Type="UI.ReferenceFacet">
+       <PropertyValue Property="Label" X-SAP-OTR="BSCBN_UI_ANF_MG/VALUATION_DATA" String="<%= otr(BSCBN_UI_ANF_MG/VALUATION_DATA)%>"/>
+       <PropertyValue Property="Target" AnnotationPath="CMATERIAL_VALUATION/@UI.LineItem"/>
+      </Record>
+      <Record Type="UI.ReferenceFacet">
+       <PropertyValue Property="Label" X-SAP-OTR="BSCBN_UI_ANF_MG/SUPPLIERS" String="<%= otr(BSCBN_UI_ANF_MG/SUPPLIERS)%>"/>
+       <PropertyValue Property="Target" AnnotationPath="CSUPPLIER/@UI.LineItem"/>
+      </Record>
+      <Record Type="UI.ReferenceFacet">
+       <PropertyValue Property="Label" X-SAP-OTR="BSCBN_UI_ANF_MG/SALES_ORDERS" String="<%= otr(BSCBN_UI_ANF_MG/SALES_ORDERS)%>"/>
+       <PropertyValue Property="Target" AnnotationPath="CSALES_ORDER/@UI.LineItem"/>
+      </Record>
+      <Record Type="UI.ReferenceFacet">
+       <PropertyValue Property="Label" X-SAP-OTR="BSCBN_UI_ANF_MG/SALES_CONTRACT" String="<%= otr(BSCBN_UI_ANF_MG/SALES_CONTRACT)%>"/>
+       <PropertyValue Property="Target" AnnotationPath="CCUSTOMER_CONTRACT/@UI.LineItem"/>
+      </Record>
+      <Record Type="UI.ReferenceFacet">
+       <PropertyValue Property="Label" X-SAP-OTR="BSCBN_UI_ANF_MG/PURCHASE_ORDERS" String="<%= otr(BSCBN_UI_ANF_MG/PURCHASE_ORDERS)%>"/>
+       <PropertyValue Property="Target" AnnotationPath="CPURCHASE_ORDER/@UI.LineItem"/>
+      </Record>
+      <Record Type="UI.ReferenceFacet">
+       <PropertyValue Property="Label" X-SAP-OTR="BSCBN_UI_ANF_MG/PURCHASE_CONTRACTS" String="<%= otr(BSCBN_UI_ANF_MG/PURCHASE_CONTRACTS)%>"/>
+       <PropertyValue Property="Target" AnnotationPath="CPURCHASE_CONTRACT/@UI.LineItem"/>
+      </Record>
+      <Record Type="UI.ReferenceFacet">
+       <PropertyValue Property="Label" X-SAP-OTR="BSCBN_UI_ANF_MG/PURCHASE_INFO_RECORDS" String="<%= otr(BSCBN_UI_ANF_MG/PURCHASE_INFO_RECORDS)%>"/>
+       <PropertyValue Property="Target" AnnotationPath="CPURCHASE_INFO_RECORD/@UI.LineItem"/>
+      </Record>
+      <Record Type="UI.ReferenceFacet">
+       <PropertyValue Property="Label" X-SAP-OTR="BSCBN_UI_ANF_MG/SCHEDULING_AGREEMENTS" String="<%= otr(BSCBN_UI_ANF_MG/SCHEDULING_AGREEMENTS)%>"/>
+       <PropertyValue Property="Target" AnnotationPath="CSCHEDULUNG_AGREEMENTS/@UI.LineItem"/>
+      </Record>
+      <Record Type="UI.ReferenceFacet">
+       <PropertyValue Property="Label" X-SAP-OTR="BSCBN_UI_ANF_MG/PRODUCTION_ORDERS" String="<%= otr(BSCBN_UI_ANF_MG/PRODUCTION_ORDERS)%>"/>
+       <PropertyValue Property="Target" AnnotationPath="CPRODUCTION_ORDER/@UI.LineItem"/>
+      </Record>
+     </Collection>
+    </Annotation>
+   </Annotations>
+   <Annotations Target="CB_MATERIAL_SRV.PurchasingInfoRecord">
+    <Annotation Term="UI.HeaderInfo">
+     <Record>
+      <PropertyValue Property="TypeName" X-SAP-OTR="No Label maintained for Entity PurchasingInfoRecord" String="No Label maintained for Entity PurchasingInfoRecord"/>
+      <PropertyValue Property="TypeNamePlural" X-SAP-OTR="No Label maintained for Entity PurchasingInfoRecord" String="No Label maintained for Entity PurchasingInfoRecord"/>
+      <PropertyValue Property="Title">
+       <Record Type="UI.DataFieldWithUrl">
+        <PropertyValue Property="Url">
+         <Apply Function="odata.fillUriTemplate">
+          <String><![CDATA[#PurchasingInfoRecord-displayFactSheet?PurchasingInfoRecord={ID1}]]></String>
+          <LabeledElement Name="ID1">
+           <Apply Function="odata.UriEncode">
+            <Path>PurchasingInfoRecord</Path>
+           </Apply>
+          </LabeledElement>
+         </Apply>
+        </PropertyValue>
+        <PropertyValue Property="Value" Path="PurchasingInfoRecord"/>
+       </Record>
+      </PropertyValue>
+      <PropertyValue Property="Description">
+       <Record Type="UI.DataField">
+        <PropertyValue Property="Value" Path="VendorName"/>
+       </Record>
+      </PropertyValue>
+     </Record>
+    </Annotation>
+    <Annotation Term="UI.Badge">
+     <Record>
+      <PropertyValue Property="HeadLine">
+       <Record Type="UI.DataField">
+        <PropertyValue Property="Value" X-SAP-OTR="No Label maintained for Entity PurchasingInfoRecord" String="No Label maintained for Entity PurchasingInfoRecord"/>
+       </Record>
+      </PropertyValue>
+      <PropertyValue Property="Title">
+       <Record Type="UI.DataFieldWithUrl">
+        <PropertyValue Property="Url">
+         <Apply Function="odata.fillUriTemplate">
+          <String><![CDATA[#PurchasingInfoRecord-displayFactSheet?PurchasingInfoRecord={ID1}]]></String>
+          <LabeledElement Name="ID1">
+           <Apply Function="odata.UriEncode">
+            <Path>PurchasingInfoRecord</Path>
+           </Apply>
+          </LabeledElement>
+         </Apply>
+        </PropertyValue>
+        <PropertyValue Property="Value" Path="PurchasingInfoRecord"/>
+       </Record>
+      </PropertyValue>
+      <PropertyValue Property="MainInfo">
+       <Record Type="UI.DataField">
+        <PropertyValue Property="Value" Path="VendorName"/>
+       </Record>
+      </PropertyValue>
+     </Record>
+    </Annotation>
+    <Annotation Term="UI.Identification">
+     <Collection>
+      <Record Type="UI.DataFieldWithUrl">
+       <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+       <PropertyValue Property="Url">
+        <Apply Function="odata.fillUriTemplate">
+         <String><![CDATA[#PurchasingInfoRecord-displayFactSheet?PurchasingInfoRecord={ID1}]]></String>
+         <LabeledElement Name="ID1">
+          <Apply Function="odata.UriEncode">
+           <Path>PurchasingInfoRecord</Path>
+          </Apply>
+         </LabeledElement>
+        </Apply>
+       </PropertyValue>
+       <PropertyValue Property="Value" Path="PurchasingInfoRecord"/>
+      </Record>
+     </Collection>
+    </Annotation>
+    <Annotation Term="UI.LineItem">
+     <Collection>
+      <Record Type="UI.DataFieldWithUrl">
+       <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+       <PropertyValue Property="Url">
+        <Apply Function="odata.fillUriTemplate">
+         <String><![CDATA[#PurchasingInfoRecord-displayFactSheet?PurchasingInfoRecord={ID1}]]></String>
+         <LabeledElement Name="ID1">
+          <Apply Function="odata.UriEncode">
+           <Path>PurchasingInfoRecord</Path>
+          </Apply>
+         </LabeledElement>
+        </Apply>
+       </PropertyValue>
+       <PropertyValue Property="Value" Path="PurchasingInfoRecord"/>
+      </Record>
+      <Record Type="UI.DataFieldWithUrl">
+       <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+       <PropertyValue Property="Label" X-SAP-OTR="BSCBN_UI_ANF_MG/SUPPLIER" String="<%= otr(BSCBN_UI_ANF_MG/SUPPLIER)%>"/>
+       <PropertyValue Property="Url">
+        <Apply Function="odata.fillUriTemplate">
+         <String><![CDATA[#Vendor-displayFactSheet?Vendor={ID0}]]></String>
+         <LabeledElement Name="ID0">
+          <Apply Function="odata.UriEncode">
+           <Path>Vendor</Path>
+          </Apply>
+         </LabeledElement>
+        </Apply>
+       </PropertyValue>
+       <PropertyValue Property="Value">
+        <Apply Function="odata.concat">
+         <Path>VendorName</Path>
+         <String><![CDATA[ ]]> </String>
+         <String><![CDATA[ (]]></String>
+         <Path>Vendor</Path>
+         <String><![CDATA[) ]]></String>
+        </Apply>
+       </PropertyValue>
+      </Record>
+      <Record Type="UI.DataField">
+       <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+       <PropertyValue Property="Label" X-SAP-OTR="BSCBN_UI_ANF_MM/MANUFACTURER" String="<%= otr(BSCBN_UI_ANF_MM/MANUFACTURER)%>"/>
+       <PropertyValue Property="Value" Path="ManufacturerName"/>
+      </Record>
+     </Collection>
+    </Annotation>
+    <Annotation Term="UI.Facets">
+     <Collection>
+      <Record Type="UI.CollectionFacet">
+       <Annotation Term="UI.IsSummary"/>
+       <PropertyValue Property="Facets">
+        <Collection>
+         <Record Type="UI.ReferenceFacet">
+          <PropertyValue Property="Target" AnnotationPath="@UI.Identification"/>
+         </Record>
+        </Collection>
+       </PropertyValue>
+      </Record>
+     </Collection>
+    </Annotation>
+   </Annotations>
+   <Annotations Target="CB_MATERIAL_SRV.PurchasingContract">
+    <Annotation Term="UI.HeaderInfo">
+     <Record>
+      <PropertyValue Property="TypeName" X-SAP-OTR="No Label maintained for Entity PurchasingContract" String="No Label maintained for Entity PurchasingContract"/>
+      <PropertyValue Property="TypeNamePlural" X-SAP-OTR="No Label maintained for Entity PurchasingContract" String="No Label maintained for Entity PurchasingContract"/>
+      <PropertyValue Property="Title">
+       <Record Type="UI.DataFieldWithUrl">
+        <PropertyValue Property="Url">
+         <Apply Function="odata.fillUriTemplate">
+          <String><![CDATA[#PurchasingContract-displayFactSheet?PurchaseContract={ID0}]]></String>
+          <LabeledElement Name="ID0">
+           <Apply Function="odata.UriEncode">
+            <Path>PurchaseContract</Path>
+           </Apply>
+          </LabeledElement>
+         </Apply>
+        </PropertyValue>
+        <PropertyValue Property="Value">
+         <Apply Function="odata.concat">
+          <Path>PurgDocumentTypeDescription</Path>
+          <String><![CDATA[ ]]> </String>
+          <String><![CDATA[ (]]></String>
+          <Path>PurchaseContract</Path>
+          <String><![CDATA[) ]]></String>
+         </Apply>
+        </PropertyValue>
+       </Record>
+      </PropertyValue>
+      <PropertyValue Property="Description">
+       <Record Type="UI.DataField">
+        <PropertyValue Property="Value" Path="VendorName"/>
+       </Record>
+      </PropertyValue>
+     </Record>
+    </Annotation>
+    <Annotation Term="UI.Badge">
+     <Record>
+      <PropertyValue Property="HeadLine">
+       <Record Type="UI.DataField">
+        <PropertyValue Property="Value" X-SAP-OTR="No Label maintained for Entity PurchasingContract" String="No Label maintained for Entity PurchasingContract"/>
+       </Record>
+      </PropertyValue>
+      <PropertyValue Property="Title">
+       <Record Type="UI.DataFieldWithUrl">
+        <PropertyValue Property="Url">
+         <Apply Function="odata.fillUriTemplate">
+          <String><![CDATA[#PurchasingContract-displayFactSheet?PurchaseContract={ID0}]]></String>
+          <LabeledElement Name="ID0">
+           <Apply Function="odata.UriEncode">
+            <Path>PurchaseContract</Path>
+           </Apply>
+          </LabeledElement>
+         </Apply>
+        </PropertyValue>
+        <PropertyValue Property="Value">
+         <Apply Function="odata.concat">
+          <Path>PurgDocumentTypeDescription</Path>
+          <String><![CDATA[ ]]> </String>
+          <String><![CDATA[ (]]></String>
+          <Path>PurchaseContract</Path>
+          <String><![CDATA[) ]]></String>
+         </Apply>
+        </PropertyValue>
+       </Record>
+      </PropertyValue>
+      <PropertyValue Property="MainInfo">
+       <Record Type="UI.DataField">
+        <PropertyValue Property="Value" Path="VendorName"/>
+       </Record>
+      </PropertyValue>
+     </Record>
+    </Annotation>
+    <Annotation Term="UI.Identification">
+     <Collection>
+      <Record Type="UI.DataFieldWithUrl">
+       <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+       <PropertyValue Property="Url">
+        <Apply Function="odata.fillUriTemplate">
+         <String><![CDATA[#PurchasingContract-displayFactSheet?PurchaseContract={ID0}]]></String>
+         <LabeledElement Name="ID0">
+          <Apply Function="odata.UriEncode">
+           <Path>PurchaseContract</Path>
+          </Apply>
+         </LabeledElement>
+        </Apply>
+       </PropertyValue>
+       <PropertyValue Property="Value" Path="PurchaseContract"/>
+      </Record>
+      <Record Type="UI.DataField">
+       <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+       <PropertyValue Property="Value" Path="PurgDocumentTypeDescription"/>
+      </Record>
+     </Collection>
+    </Annotation>
+    <Annotation Term="UI.LineItem">
+     <Collection>
+      <Record Type="UI.DataFieldWithUrl">
+       <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+       <PropertyValue Property="Url">
+        <Apply Function="odata.fillUriTemplate">
+         <String><![CDATA[#PurchasingContract-displayFactSheet?PurchaseContract={ID0}]]></String>
+         <LabeledElement Name="ID0">
+          <Apply Function="odata.UriEncode">
+           <Path>PurchaseContract</Path>
+          </Apply>
+         </LabeledElement>
+        </Apply>
+       </PropertyValue>
+       <PropertyValue Property="Value" Path="PurchaseContract"/>
+      </Record>
+      <Record Type="UI.DataFieldWithUrl">
+       <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+       <PropertyValue Property="Label" X-SAP-OTR="BSCBN_UI_ANF_MG/SUPPLIER" String="<%= otr(BSCBN_UI_ANF_MG/SUPPLIER)%>"/>
+       <PropertyValue Property="Url">
+        <Apply Function="odata.fillUriTemplate">
+         <String><![CDATA[#Vendor-displayFactSheet?Vendor={ID1}]]></String>
+         <LabeledElement Name="ID1">
+          <Apply Function="odata.UriEncode">
+           <Path>Vendor</Path>
+          </Apply>
+         </LabeledElement>
+        </Apply>
+       </PropertyValue>
+       <PropertyValue Property="Value">
+        <Apply Function="odata.concat">
+         <Path>VendorName</Path>
+         <String><![CDATA[ ]]> </String>
+         <String><![CDATA[ (]]></String>
+         <Path>Vendor</Path>
+         <String><![CDATA[) ]]></String>
+        </Apply>
+       </PropertyValue>
+      </Record>
+      <Record Type="UI.DataField">
+       <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+       <PropertyValue Property="Value" Path="PaymentTerms"/>
+      </Record>
+      <Record Type="UI.DataField">
+       <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+       <PropertyValue Property="Value" Path="ValidityStartDate"/>
+      </Record>
+      <Record Type="UI.DataField">
+       <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+       <PropertyValue Property="Value" Path="ValidityEndDate"/>
+      </Record>
+     </Collection>
+    </Annotation>
+    <Annotation Term="UI.Facets">
+     <Collection>
+      <Record Type="UI.CollectionFacet">
+       <Annotation Term="UI.IsSummary"/>
+       <PropertyValue Property="Facets">
+        <Collection>
+         <Record Type="UI.ReferenceFacet">
+          <PropertyValue Property="Target" AnnotationPath="@UI.Identification"/>
+         </Record>
+        </Collection>
+       </PropertyValue>
+      </Record>
+     </Collection>
+    </Annotation>
+   </Annotations>
+   <Annotations Target="CB_MATERIAL_SRV.SchedulingAgreement">
+    <Annotation Term="UI.HeaderInfo">
+     <Record>
+      <PropertyValue Property="TypeName" X-SAP-OTR="No Label maintained for Entity SchedulingAgreement" String="No Label maintained for Entity SchedulingAgreement"/>
+      <PropertyValue Property="TypeNamePlural" X-SAP-OTR="No Label maintained for Entity SchedulingAgreement" String="No Label maintained for Entity SchedulingAgreement"/>
+      <PropertyValue Property="Title">
+       <Record Type="UI.DataField">
+        <PropertyValue Property="Value">
+         <Apply Function="odata.concat">
+          <Path>PurgDocumentTypeDescription</Path>
+          <String><![CDATA[ ]]> </String>
+          <String><![CDATA[ (]]></String>
+          <Path>SchedulingAgreement</Path>
+          <String><![CDATA[) ]]></String>
+         </Apply>
+        </PropertyValue>
+       </Record>
+      </PropertyValue>
+      <PropertyValue Property="Description">
+       <Record Type="UI.DataField">
+        <PropertyValue Property="Value" Path="VendorName"/>
+       </Record>
+      </PropertyValue>
+     </Record>
+    </Annotation>
+    <Annotation Term="UI.Badge">
+     <Record>
+      <PropertyValue Property="HeadLine">
+       <Record Type="UI.DataField">
+        <PropertyValue Property="Value" X-SAP-OTR="No Label maintained for Entity SchedulingAgreement" String="No Label maintained for Entity SchedulingAgreement"/>
+       </Record>
+      </PropertyValue>
+      <PropertyValue Property="Title">
+       <Record Type="UI.DataField">
+        <PropertyValue Property="Value">
+         <Apply Function="odata.concat">
+          <Path>PurgDocumentTypeDescription</Path>
+          <String><![CDATA[ ]]> </String>
+          <String><![CDATA[ (]]></String>
+          <Path>SchedulingAgreement</Path>
+          <String><![CDATA[) ]]></String>
+         </Apply>
+        </PropertyValue>
+       </Record>
+      </PropertyValue>
+      <PropertyValue Property="MainInfo">
+       <Record Type="UI.DataField">
+        <PropertyValue Property="Value" Path="VendorName"/>
+       </Record>
+      </PropertyValue>
+     </Record>
+    </Annotation>
+    <Annotation Term="UI.Identification">
+     <Collection>
+      <Record Type="UI.DataField">
+       <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+       <PropertyValue Property="Value" Path="SchedulingAgreement"/>
+      </Record>
+      <Record Type="UI.DataField">
+       <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+       <PropertyValue Property="Value" Path="PurgDocumentTypeDescription"/>
+      </Record>
+     </Collection>
+    </Annotation>
+    <Annotation Term="UI.LineItem">
+     <Collection>
+      <Record Type="UI.DataField">
+       <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+       <PropertyValue Property="Value" Path="SchedulingAgreement"/>
+      </Record>
+      <Record Type="UI.DataFieldWithUrl">
+       <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+       <PropertyValue Property="Label" X-SAP-OTR="BSCBN_UI_ANF_MG/SUPPLIER" String="<%= otr(BSCBN_UI_ANF_MG/SUPPLIER)%>"/>
+       <PropertyValue Property="Url">
+        <Apply Function="odata.fillUriTemplate">
+         <String><![CDATA[#Vendor-displayFactSheet?Vendor={ID0}]]></String>
+         <LabeledElement Name="ID0">
+          <Apply Function="odata.UriEncode">
+           <Path>Vendor</Path>
+          </Apply>
+         </LabeledElement>
+        </Apply>
+       </PropertyValue>
+       <PropertyValue Property="Value">
+        <Apply Function="odata.concat">
+         <Path>VendorName</Path>
+         <String><![CDATA[ ]]> </String>
+         <String><![CDATA[ (]]></String>
+         <Path>Vendor</Path>
+         <String><![CDATA[) ]]></String>
+        </Apply>
+       </PropertyValue>
+      </Record>
+      <Record Type="UI.DataField">
+       <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+       <PropertyValue Property="Value" Path="ValidityEndDate"/>
+      </Record>
+      <Record Type="UI.DataField">
+       <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+       <PropertyValue Property="Value" Path="ValidityStartDate"/>
+      </Record>
+     </Collection>
+    </Annotation>
+    <Annotation Term="UI.Facets">
+     <Collection>
+      <Record Type="UI.CollectionFacet">
+       <Annotation Term="UI.IsSummary"/>
+       <PropertyValue Property="Facets">
+        <Collection>
+         <Record Type="UI.ReferenceFacet">
+          <PropertyValue Property="Target" AnnotationPath="@UI.Identification"/>
+         </Record>
+        </Collection>
+       </PropertyValue>
+      </Record>
+     </Collection>
+    </Annotation>
+   </Annotations>
+   <Annotations Target="CB_MATERIAL_SRV.MARC">
+    <Annotation Term="UI.HeaderInfo">
+     <Record>
+      <PropertyValue Property="TypeName" X-SAP-OTR="No Label maintained for Entity MARC" String="No Label maintained for Entity MARC"/>
+      <PropertyValue Property="TypeNamePlural" X-SAP-OTR="No Label maintained for Entity MARC" String="No Label maintained for Entity MARC"/>
+      <PropertyValue Property="Title">
+       <Record Type="UI.DataField">
+        <PropertyValue Property="Value" Path="PlantName"/>
+       </Record>
+      </PropertyValue>
+      <PropertyValue Property="Description">
+       <Record Type="UI.DataField">
+        <PropertyValue Property="Value" Path="PurchasingGroupName"/>
+       </Record>
+      </PropertyValue>
+     </Record>
+    </Annotation>
+    <Annotation Term="UI.Badge">
+     <Record>
+      <PropertyValue Property="HeadLine">
+       <Record Type="UI.DataField">
+        <PropertyValue Property="Value" X-SAP-OTR="No Label maintained for Entity MARC" String="No Label maintained for Entity MARC"/>
+       </Record>
+      </PropertyValue>
+      <PropertyValue Property="Title">
+       <Record Type="UI.DataField">
+        <PropertyValue Property="Label" X-SAP-OTR="BSCBN_UI_ANF_MG/PLANT" String="<%= otr(BSCBN_UI_ANF_MG/PLANT)%>"/>
+        <PropertyValue Property="Value" Path="PlantName"/>
+       </Record>
+      </PropertyValue>
+      <PropertyValue Property="MainInfo">
+       <Record Type="UI.DataField">
+        <PropertyValue Property="Value" Path="PurchasingGroupName"/>
+       </Record>
+      </PropertyValue>
+     </Record>
+    </Annotation>
+    <Annotation Term="UI.Identification">
+     <Collection>
+      <Record Type="UI.DataField">
+       <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+       <PropertyValue Property="Label" X-SAP-OTR="BSCBN_UI_ANF_MG/PLANT" String="<%= otr(BSCBN_UI_ANF_MG/PLANT)%>"/>
+       <PropertyValue Property="Value" Path="PlantName"/>
+      </Record>
+      <Record Type="UI.DataField">
+       <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+       <PropertyValue Property="Value" Path="PurchasingGroupName"/>
+      </Record>
+     </Collection>
+    </Annotation>
+    <Annotation Term="UI.LineItem">
+     <Collection>
+      <Record Type="UI.DataField">
+       <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+       <PropertyValue Property="Label" X-SAP-OTR="BSCBN_UI_ANF_MG/PLANT" String="<%= otr(BSCBN_UI_ANF_MG/PLANT)%>"/>
+       <PropertyValue Property="Value">
+        <Apply Function="odata.concat">
+         <Path>PlantName</Path>
+         <String><![CDATA[ ]]> </String>
+         <String><![CDATA[ (]]></String>
+         <Path>Plant</Path>
+         <String><![CDATA[) ]]></String>
+        </Apply>
+       </PropertyValue>
+      </Record>
+      <Record Type="UI.DataField">
+       <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+       <PropertyValue Property="Label" X-SAP-OTR="BSCBN_UI_ANF_MG/PURCHASING_GROUP" String="<%= otr(BSCBN_UI_ANF_MG/PURCHASING_GROUP)%>"/>
+       <PropertyValue Property="Value">
+        <Apply Function="odata.concat">
+         <Path>PurchasingGroupName</Path>
+         <String><![CDATA[ ]]> </String>
+         <String><![CDATA[ (]]></String>
+         <Path>PurchasingGroup</Path>
+         <String><![CDATA[) ]]></String>
+         <Path>EKTEL</Path>
+        </Apply>
+       </PropertyValue>
+      </Record>
+      <Record Type="UI.DataField">
+       <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+       <PropertyValue Property="Label" X-SAP-OTR="BSCBN_UI_ANF_MG/MRPCONTROLLER" String="<%= otr(BSCBN_UI_ANF_MG/MRPCONTROLLER)%>"/>
+       <PropertyValue Property="Value">
+        <Apply Function="odata.concat">
+         <Path>DSNAM</Path>
+         <String><![CDATA[ ]]> </String>
+         <String><![CDATA[ (]]></String>
+         <Path>DISPO</Path>
+         <String><![CDATA[) ]]></String>
+         <Path>DSTEL</Path>
+        </Apply>
+       </PropertyValue>
+      </Record>
+      <Record Type="UI.DataField">
+       <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+       <PropertyValue Property="Value">
+        <Apply Function="odata.concat">
+         <Path>MaterialABCClassificationDesc</Path>
+         <String><![CDATA[ ]]> </String>
+         <String><![CDATA[ (]]></String>
+         <Path>MaterialABCClassification</Path>
+         <String><![CDATA[) ]]></String>
+        </Apply>
+       </PropertyValue>
+      </Record>
+      <Record Type="UI.DataField">
+       <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+       <PropertyValue Property="Value">
+        <Apply Function="odata.concat">
+         <Path>CountryOfOriginName</Path>
+         <String><![CDATA[ ]]> </String>
+         <String><![CDATA[ (]]></String>
+         <Path>CountryOfOrigin</Path>
+         <String><![CDATA[) ]]></String>
+        </Apply>
+       </PropertyValue>
+      </Record>
+     </Collection>
+    </Annotation>
+    <Annotation Term="UI.Facets">
+     <Collection>
+      <Record Type="UI.CollectionFacet">
+       <Annotation Term="UI.IsSummary"/>
+       <PropertyValue Property="Facets">
+        <Collection>
+         <Record Type="UI.ReferenceFacet">
+          <PropertyValue Property="Target" AnnotationPath="@UI.Identification"/>
+         </Record>
+        </Collection>
+       </PropertyValue>
+      </Record>
+     </Collection>
+    </Annotation>
+   </Annotations>
+   <Annotations Target="CB_MATERIAL_SRV.MVKE">
+    <Annotation Term="UI.HeaderInfo">
+     <Record>
+      <PropertyValue Property="TypeName" X-SAP-OTR="No Label maintained for Entity MVKE" String="No Label maintained for Entity MVKE"/>
+      <PropertyValue Property="TypeNamePlural" X-SAP-OTR="No Label maintained for Entity MVKE" String="No Label maintained for Entity MVKE"/>
+      <PropertyValue Property="Title">
+       <Record Type="UI.DataField">
+        <PropertyValue Property="Value" Path="SalesOrganizationName"/>
+       </Record>
+      </PropertyValue>
+      <PropertyValue Property="Description">
+       <Record Type="UI.DataField">
+        <PropertyValue Property="Value" Path="DistributionChannelName"/>
+       </Record>
+      </PropertyValue>
+     </Record>
+    </Annotation>
+    <Annotation Term="UI.Badge">
+     <Record>
+      <PropertyValue Property="HeadLine">
+       <Record Type="UI.DataField">
+        <PropertyValue Property="Value" X-SAP-OTR="No Label maintained for Entity MVKE" String="No Label maintained for Entity MVKE"/>
+       </Record>
+      </PropertyValue>
+      <PropertyValue Property="Title">
+       <Record Type="UI.DataField">
+        <PropertyValue Property="Value" Path="SalesOrganizationName"/>
+       </Record>
+      </PropertyValue>
+      <PropertyValue Property="MainInfo">
+       <Record Type="UI.DataField">
+        <PropertyValue Property="Value" Path="DistributionChannelName"/>
+       </Record>
+      </PropertyValue>
+     </Record>
+    </Annotation>
+    <Annotation Term="UI.Identification">
+     <Collection>
+      <Record Type="UI.DataField">
+       <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+       <PropertyValue Property="Value" Path="SalesOrganizationName"/>
+      </Record>
+      <Record Type="UI.DataField">
+       <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+       <PropertyValue Property="Value" Path="DistributionChannelName"/>
+      </Record>
+     </Collection>
+    </Annotation>
+    <Annotation Term="UI.LineItem">
+     <Collection>
+      <Record Type="UI.DataField">
+       <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+       <PropertyValue Property="Value">
+        <Apply Function="odata.concat">
+         <Path>SalesOrganizationName</Path>
+         <String><![CDATA[ ]]> </String>
+         <String><![CDATA[ (]]></String>
+         <Path>SalesOrganization</Path>
+         <String><![CDATA[) ]]></String>
+        </Apply>
+       </PropertyValue>
+      </Record>
+      <Record Type="UI.DataField">
+       <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+       <PropertyValue Property="Value">
+        <Apply Function="odata.concat">
+         <Path>DistributionChannelName</Path>
+         <String><![CDATA[ ]]> </String>
+         <String><![CDATA[ (]]></String>
+         <Path>DistributionChannel</Path>
+         <String><![CDATA[) ]]></String>
+        </Apply>
+       </PropertyValue>
+      </Record>
+      <Record Type="UI.DataField">
+       <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+       <PropertyValue Property="Value">
+        <Apply Function="odata.concat">
+         <Path>UnitOfMsrOfDelivUnit</Path>
+         <String><![CDATA[ ]]> </String>
+         <Path>SalesUnitDesc</Path>
+        </Apply>
+       </PropertyValue>
+      </Record>
+      <Record Type="UI.DataField">
+       <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+       <PropertyValue Property="Label" X-SAP-OTR="BSCBN_UI_ANF_MG/DELIVERING_PLANT" String="<%= otr(BSCBN_UI_ANF_MG/DELIVERING_PLANT)%>"/>
+       <PropertyValue Property="Value">
+        <Apply Function="odata.concat">
+         <Path>SupplyingPlantName</Path>
+         <String><![CDATA[ ]]> </String>
+         <String><![CDATA[ (]]></String>
+         <Path>SupplyingPlant</Path>
+         <String><![CDATA[) ]]></String>
+        </Apply>
+       </PropertyValue>
+      </Record>
+     </Collection>
+    </Annotation>
+    <Annotation Term="UI.Facets">
+     <Collection>
+      <Record Type="UI.CollectionFacet">
+       <Annotation Term="UI.IsSummary"/>
+       <PropertyValue Property="Facets">
+        <Collection>
+         <Record Type="UI.ReferenceFacet">
+          <PropertyValue Property="Target" AnnotationPath="@UI.Identification"/>
+         </Record>
+        </Collection>
+       </PropertyValue>
+      </Record>
+     </Collection>
+    </Annotation>
+   </Annotations>
+   <Annotations Target="CB_MATERIAL_SRV.PurchaseOrder">
+    <Annotation Term="UI.HeaderInfo">
+     <Record>
+      <PropertyValue Property="TypeName" X-SAP-OTR="No Label maintained for Entity PurchaseOrder" String="No Label maintained for Entity PurchaseOrder"/>
+      <PropertyValue Property="TypeNamePlural" X-SAP-OTR="No Label maintained for Entity PurchaseOrder" String="No Label maintained for Entity PurchaseOrder"/>
+      <PropertyValue Property="Title">
+       <Record Type="UI.DataFieldWithUrl">
+        <PropertyValue Property="Url">
+         <Apply Function="odata.fillUriTemplate">
+          <String><![CDATA[#PurchaseOrder-displayFactSheet?PurchaseOrder={ID0}]]></String>
+          <LabeledElement Name="ID0">
+           <Apply Function="odata.UriEncode">
+            <Path>PurchaseOrder</Path>
+           </Apply>
+          </LabeledElement>
+         </Apply>
+        </PropertyValue>
+        <PropertyValue Property="Value">
+         <Apply Function="odata.concat">
+          <Path>PurgDocumentTypeDescription</Path>
+          <String><![CDATA[ ]]> </String>
+          <String><![CDATA[ (]]></String>
+          <Path>PurchaseOrder</Path>
+          <String><![CDATA[) ]]></String>
+         </Apply>
+        </PropertyValue>
+       </Record>
+      </PropertyValue>
+      <PropertyValue Property="Description">
+       <Record Type="UI.DataField">
+        <PropertyValue Property="Value" Path="VendorName"/>
+       </Record>
+      </PropertyValue>
+     </Record>
+    </Annotation>
+    <Annotation Term="UI.Badge">
+     <Record>
+      <PropertyValue Property="HeadLine">
+       <Record Type="UI.DataField">
+        <PropertyValue Property="Value" X-SAP-OTR="No Label maintained for Entity PurchaseOrder" String="No Label maintained for Entity PurchaseOrder"/>
+       </Record>
+      </PropertyValue>
+      <PropertyValue Property="Title">
+       <Record Type="UI.DataFieldWithUrl">
+        <PropertyValue Property="Url">
+         <Apply Function="odata.fillUriTemplate">
+          <String><![CDATA[#PurchaseOrder-displayFactSheet?PurchaseOrder={ID0}]]></String>
+          <LabeledElement Name="ID0">
+           <Apply Function="odata.UriEncode">
+            <Path>PurchaseOrder</Path>
+           </Apply>
+          </LabeledElement>
+         </Apply>
+        </PropertyValue>
+        <PropertyValue Property="Value">
+         <Apply Function="odata.concat">
+          <Path>PurgDocumentTypeDescription</Path>
+          <String><![CDATA[ ]]> </String>
+          <String><![CDATA[ (]]></String>
+          <Path>PurchaseOrder</Path>
+          <String><![CDATA[) ]]></String>
+         </Apply>
+        </PropertyValue>
+       </Record>
+      </PropertyValue>
+      <PropertyValue Property="MainInfo">
+       <Record Type="UI.DataField">
+        <PropertyValue Property="Value" Path="VendorName"/>
+       </Record>
+      </PropertyValue>
+     </Record>
+    </Annotation>
+    <Annotation Term="UI.Identification">
+     <Collection>
+      <Record Type="UI.DataFieldWithUrl">
+       <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+       <PropertyValue Property="Url">
+        <Apply Function="odata.fillUriTemplate">
+         <String><![CDATA[#PurchaseOrder-displayFactSheet?PurchaseOrder={ID0}]]></String>
+         <LabeledElement Name="ID0">
+          <Apply Function="odata.UriEncode">
+           <Path>PurchaseOrder</Path>
+          </Apply>
+         </LabeledElement>
+        </Apply>
+       </PropertyValue>
+       <PropertyValue Property="Value" Path="PurchaseOrder"/>
+      </Record>
+      <Record Type="UI.DataField">
+       <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+       <PropertyValue Property="Value" Path="PurgDocumentTypeDescription"/>
+      </Record>
+     </Collection>
+    </Annotation>
+    <Annotation Term="UI.LineItem">
+     <Collection>
+      <Record Type="UI.DataFieldWithUrl">
+       <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+       <PropertyValue Property="Url">
+        <Apply Function="odata.fillUriTemplate">
+         <String><![CDATA[#PurchaseOrder-displayFactSheet?PurchaseOrder={ID0}]]></String>
+         <LabeledElement Name="ID0">
+          <Apply Function="odata.UriEncode">
+           <Path>PurchaseOrder</Path>
+          </Apply>
+         </LabeledElement>
+        </Apply>
+       </PropertyValue>
+       <PropertyValue Property="Value" Path="PurchaseOrder"/>
+      </Record>
+      <Record Type="UI.DataFieldWithUrl">
+       <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+       <PropertyValue Property="Label" X-SAP-OTR="BSCBN_UI_ANF_MG/SUPPLIER" String="<%= otr(BSCBN_UI_ANF_MG/SUPPLIER)%>"/>
+       <PropertyValue Property="Url">
+        <Apply Function="odata.fillUriTemplate">
+         <String><![CDATA[#Vendor-displayFactSheet?Vendor={ID1}]]></String>
+         <LabeledElement Name="ID1">
+          <Apply Function="odata.UriEncode">
+           <Path>Vendor</Path>
+          </Apply>
+         </LabeledElement>
+        </Apply>
+       </PropertyValue>
+       <PropertyValue Property="Value">
+        <Apply Function="odata.concat">
+         <Path>VendorName</Path>
+         <String><![CDATA[ ]]> </String>
+         <String><![CDATA[ (]]></String>
+         <Path>Vendor</Path>
+         <String><![CDATA[) ]]></String>
+        </Apply>
+       </PropertyValue>
+      </Record>
+      <Record Type="UI.DataField">
+       <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+       <PropertyValue Property="Value" Path="LastChangeDate"/>
+      </Record>
+     </Collection>
+    </Annotation>
+    <Annotation Term="UI.Facets">
+     <Collection>
+      <Record Type="UI.CollectionFacet">
+       <Annotation Term="UI.IsSummary"/>
+       <PropertyValue Property="Facets">
+        <Collection>
+         <Record Type="UI.ReferenceFacet">
+          <PropertyValue Property="Target" AnnotationPath="@UI.Identification"/>
+         </Record>
+        </Collection>
+       </PropertyValue>
+      </Record>
+     </Collection>
+    </Annotation>
+   </Annotations>
+   <Annotations Target="CB_MATERIAL_SRV.SalesOrder">
+    <Annotation Term="UI.HeaderInfo">
+     <Record>
+      <PropertyValue Property="TypeName" X-SAP-OTR="No Label maintained for Entity SalesOrder" String="No Label maintained for Entity SalesOrder"/>
+      <PropertyValue Property="TypeNamePlural" X-SAP-OTR="No Label maintained for Entity SalesOrder" String="No Label maintained for Entity SalesOrder"/>
+      <PropertyValue Property="Title">
+       <Record Type="UI.DataFieldWithUrl">
+        <PropertyValue Property="Url">
+         <Apply Function="odata.fillUriTemplate">
+          <String><![CDATA[#SalesOrder-displayFactSheet?SalesOrder={ID0}]]></String>
+          <LabeledElement Name="ID0">
+           <Apply Function="odata.UriEncode">
+            <Path>SalesOrder</Path>
+           </Apply>
+          </LabeledElement>
+         </Apply>
+        </PropertyValue>
+        <PropertyValue Property="Value">
+         <Apply Function="odata.concat">
+          <Path>SalesOrderTypeName</Path>
+          <String><![CDATA[ ]]> </String>
+          <String><![CDATA[ (]]></String>
+          <Path>SalesOrder</Path>
+          <String><![CDATA[) ]]></String>
+         </Apply>
+        </PropertyValue>
+       </Record>
+      </PropertyValue>
+      <PropertyValue Property="Description">
+       <Record Type="UI.DataField">
+        <PropertyValue Property="Value" Path="SoldToPartyName"/>
+       </Record>
+      </PropertyValue>
+     </Record>
+    </Annotation>
+    <Annotation Term="UI.Badge">
+     <Record>
+      <PropertyValue Property="HeadLine">
+       <Record Type="UI.DataField">
+        <PropertyValue Property="Value" X-SAP-OTR="No Label maintained for Entity SalesOrder" String="No Label maintained for Entity SalesOrder"/>
+       </Record>
+      </PropertyValue>
+      <PropertyValue Property="Title">
+       <Record Type="UI.DataFieldWithUrl">
+        <PropertyValue Property="Url">
+         <Apply Function="odata.fillUriTemplate">
+          <String><![CDATA[#SalesOrder-displayFactSheet?SalesOrder={ID0}]]></String>
+          <LabeledElement Name="ID0">
+           <Apply Function="odata.UriEncode">
+            <Path>SalesOrder</Path>
+           </Apply>
+          </LabeledElement>
+         </Apply>
+        </PropertyValue>
+        <PropertyValue Property="Value">
+         <Apply Function="odata.concat">
+          <Path>SalesOrderTypeName</Path>
+          <String><![CDATA[ ]]> </String>
+          <String><![CDATA[ (]]></String>
+          <Path>SalesOrder</Path>
+          <String><![CDATA[) ]]></String>
+         </Apply>
+        </PropertyValue>
+       </Record>
+      </PropertyValue>
+      <PropertyValue Property="MainInfo">
+       <Record Type="UI.DataField">
+        <PropertyValue Property="Label" X-SAP-OTR="BSCBN_UI_ANF_MG/SOLD_TO_PARTY" String="<%= otr(BSCBN_UI_ANF_MG/SOLD_TO_PARTY)%>"/>
+        <PropertyValue Property="Value" Path="SoldToPartyName"/>
+       </Record>
+      </PropertyValue>
+     </Record>
+    </Annotation>
+    <Annotation Term="UI.Identification">
+     <Collection>
+      <Record Type="UI.DataFieldWithUrl">
+       <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+       <PropertyValue Property="Url">
+        <Apply Function="odata.fillUriTemplate">
+         <String><![CDATA[#SalesOrder-displayFactSheet?SalesOrder={ID0}]]></String>
+         <LabeledElement Name="ID0">
+          <Apply Function="odata.UriEncode">
+           <Path>SalesOrder</Path>
+          </Apply>
+         </LabeledElement>
+        </Apply>
+       </PropertyValue>
+       <PropertyValue Property="Value" Path="SalesOrder"/>
+      </Record>
+     </Collection>
+    </Annotation>
+    <Annotation Term="UI.LineItem">
+     <Collection>
+      <Record Type="UI.DataFieldWithUrl">
+       <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+       <PropertyValue Property="Url">
+        <Apply Function="odata.fillUriTemplate">
+         <String><![CDATA[#SalesOrder-displayFactSheet?SalesOrder={ID0}]]></String>
+         <LabeledElement Name="ID0">
+          <Apply Function="odata.UriEncode">
+           <Path>SalesOrder</Path>
+          </Apply>
+         </LabeledElement>
+        </Apply>
+       </PropertyValue>
+       <PropertyValue Property="Value" Path="SalesOrder"/>
+      </Record>
+      <Record Type="UI.DataField">
+       <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+       <PropertyValue Property="Label" X-SAP-OTR="BSCBN_UI_ANF_MG/SOLD_TO_PARTY" String="<%= otr(BSCBN_UI_ANF_MG/SOLD_TO_PARTY)%>"/>
+       <PropertyValue Property="Value">
+        <Apply Function="odata.concat">
+         <Path>SoldToPartyName</Path>
+         <String><![CDATA[ ]]> </String>
+         <String><![CDATA[ (]]></String>
+         <Path>SoldToParty</Path>
+         <String><![CDATA[) ]]></String>
+        </Apply>
+       </PropertyValue>
+      </Record>
+      <Record Type="UI.DataField">
+       <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+       <PropertyValue Property="Value" Path="SalesOrderDate"/>
+      </Record>
+     </Collection>
+    </Annotation>
+    <Annotation Term="UI.Facets">
+     <Collection>
+      <Record Type="UI.CollectionFacet">
+       <Annotation Term="UI.IsSummary"/>
+       <PropertyValue Property="Facets">
+        <Collection>
+         <Record Type="UI.ReferenceFacet">
+          <PropertyValue Property="Target" AnnotationPath="@UI.Identification"/>
+         </Record>
+        </Collection>
+       </PropertyValue>
+      </Record>
+     </Collection>
+    </Annotation>
+   </Annotations>
+   <Annotations Target="CB_MATERIAL_SRV.SalesContract">
+    <Annotation Term="UI.HeaderInfo">
+     <Record>
+      <PropertyValue Property="TypeName" X-SAP-OTR="No Label maintained for Entity SalesContract" String="No Label maintained for Entity SalesContract"/>
+      <PropertyValue Property="TypeNamePlural" X-SAP-OTR="No Label maintained for Entity SalesContract" String="No Label maintained for Entity SalesContract"/>
+      <PropertyValue Property="Title">
+       <Record Type="UI.DataFieldWithUrl">
+        <PropertyValue Property="Url">
+         <Apply Function="odata.fillUriTemplate">
+          <String><![CDATA[#SalesContract-displayFactSheet?SalesContract={ID0}]]></String>
+          <LabeledElement Name="ID0">
+           <Apply Function="odata.UriEncode">
+            <Path>SalesContract</Path>
+           </Apply>
+          </LabeledElement>
+         </Apply>
+        </PropertyValue>
+        <PropertyValue Property="Value">
+         <Apply Function="odata.concat">
+          <Path>SalesContractTypeName</Path>
+          <String><![CDATA[ ]]> </String>
+          <String><![CDATA[ (]]></String>
+          <Path>SalesContract</Path>
+          <String><![CDATA[) ]]></String>
+         </Apply>
+        </PropertyValue>
+       </Record>
+      </PropertyValue>
+      <PropertyValue Property="Description">
+       <Record Type="UI.DataField">
+        <PropertyValue Property="Value" Path="SoldToPartyName"/>
+       </Record>
+      </PropertyValue>
+     </Record>
+    </Annotation>
+    <Annotation Term="UI.Badge">
+     <Record>
+      <PropertyValue Property="HeadLine">
+       <Record Type="UI.DataField">
+        <PropertyValue Property="Value" X-SAP-OTR="No Label maintained for Entity SalesContract" String="No Label maintained for Entity SalesContract"/>
+       </Record>
+      </PropertyValue>
+      <PropertyValue Property="Title">
+       <Record Type="UI.DataFieldWithUrl">
+        <PropertyValue Property="Url">
+         <Apply Function="odata.fillUriTemplate">
+          <String><![CDATA[#SalesContract-displayFactSheet?SalesContract={ID0}]]></String>
+          <LabeledElement Name="ID0">
+           <Apply Function="odata.UriEncode">
+            <Path>SalesContract</Path>
+           </Apply>
+          </LabeledElement>
+         </Apply>
+        </PropertyValue>
+        <PropertyValue Property="Value">
+         <Apply Function="odata.concat">
+          <Path>SalesContractTypeName</Path>
+          <String><![CDATA[ ]]> </String>
+          <String><![CDATA[ (]]></String>
+          <Path>SalesContract</Path>
+          <String><![CDATA[) ]]></String>
+         </Apply>
+        </PropertyValue>
+       </Record>
+      </PropertyValue>
+      <PropertyValue Property="MainInfo">
+       <Record Type="UI.DataField">
+        <PropertyValue Property="Label" X-SAP-OTR="BSCBN_UI_ANF_MG/SOLD_TO_PARTY" String="<%= otr(BSCBN_UI_ANF_MG/SOLD_TO_PARTY)%>"/>
+        <PropertyValue Property="Value" Path="SoldToPartyName"/>
+       </Record>
+      </PropertyValue>
+     </Record>
+    </Annotation>
+    <Annotation Term="UI.Identification">
+     <Collection>
+      <Record Type="UI.DataFieldWithUrl">
+       <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+       <PropertyValue Property="Url">
+        <Apply Function="odata.fillUriTemplate">
+         <String><![CDATA[#SalesContract-displayFactSheet?SalesContract={ID0}]]></String>
+         <LabeledElement Name="ID0">
+          <Apply Function="odata.UriEncode">
+           <Path>SalesContract</Path>
+          </Apply>
+         </LabeledElement>
+        </Apply>
+       </PropertyValue>
+       <PropertyValue Property="Value" Path="SalesContract"/>
+      </Record>
+     </Collection>
+    </Annotation>
+    <Annotation Term="UI.LineItem">
+     <Collection>
+      <Record Type="UI.DataFieldWithUrl">
+       <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+       <PropertyValue Property="Url">
+        <Apply Function="odata.fillUriTemplate">
+         <String><![CDATA[#SalesContract-displayFactSheet?SalesContract={ID0}]]></String>
+         <LabeledElement Name="ID0">
+          <Apply Function="odata.UriEncode">
+           <Path>SalesContract</Path>
+          </Apply>
+         </LabeledElement>
+        </Apply>
+       </PropertyValue>
+       <PropertyValue Property="Value" Path="SalesContract"/>
+      </Record>
+      <Record Type="UI.DataField">
+       <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+       <PropertyValue Property="Value">
+        <Apply Function="odata.concat">
+         <Path>SalesContractTypeName</Path>
+         <String><![CDATA[ ]]> </String>
+         <String><![CDATA[ (]]></String>
+         <Path>SalesContractType</Path>
+         <String><![CDATA[) ]]></String>
+        </Apply>
+       </PropertyValue>
+      </Record>
+      <Record Type="UI.DataField">
+       <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+       <PropertyValue Property="Label" X-SAP-OTR="BSCBN_UI_ANF_MG/SOLD_TO_PARTY" String="<%= otr(BSCBN_UI_ANF_MG/SOLD_TO_PARTY)%>"/>
+       <PropertyValue Property="Value">
+        <Apply Function="odata.concat">
+         <Path>SoldToPartyName</Path>
+         <String><![CDATA[ ]]> </String>
+         <String><![CDATA[ (]]></String>
+         <Path>SoldToParty</Path>
+         <String><![CDATA[) ]]></String>
+        </Apply>
+       </PropertyValue>
+      </Record>
+      <Record Type="UI.DataField">
+       <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+       <PropertyValue Property="Value" Path="SalesContractValidityStartDate"/>
+      </Record>
+      <Record Type="UI.DataField">
+       <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+       <PropertyValue Property="Value" Path="SalesContractValidityEndDate"/>
+      </Record>
+     </Collection>
+    </Annotation>
+    <Annotation Term="UI.Facets">
+     <Collection>
+      <Record Type="UI.CollectionFacet">
+       <Annotation Term="UI.IsSummary"/>
+       <PropertyValue Property="Facets">
+        <Collection>
+         <Record Type="UI.ReferenceFacet">
+          <PropertyValue Property="Target" AnnotationPath="@UI.Identification"/>
+         </Record>
+        </Collection>
+       </PropertyValue>
+      </Record>
+     </Collection>
+    </Annotation>
+   </Annotations>
+   <Annotations Target="CB_MATERIAL_SRV.ProductionOrder">
+    <Annotation Term="UI.HeaderInfo">
+     <Record>
+      <PropertyValue Property="TypeName" X-SAP-OTR="No Label maintained for Entity ProductionOrder" String="No Label maintained for Entity ProductionOrder"/>
+      <PropertyValue Property="TypeNamePlural" X-SAP-OTR="No Label maintained for Entity ProductionOrder" String="No Label maintained for Entity ProductionOrder"/>
+      <PropertyValue Property="Title">
+       <Record Type="UI.DataFieldWithUrl">
+        <PropertyValue Property="Url">
+         <Apply Function="odata.fillUriTemplate">
+          <String><![CDATA[#ProductionOrder-displayFactSheet?ProductionOrder={ID0}]]></String>
+          <LabeledElement Name="ID0">
+           <Apply Function="odata.UriEncode">
+            <Path>ProductionOrder</Path>
+           </Apply>
+          </LabeledElement>
+         </Apply>
+        </PropertyValue>
+        <PropertyValue Property="Value">
+         <Apply Function="odata.concat">
+          <Path>OrderTypeName</Path>
+          <String><![CDATA[ ]]> </String>
+          <String><![CDATA[ (]]></String>
+          <Path>ProductionOrder</Path>
+          <String><![CDATA[) ]]></String>
+         </Apply>
+        </PropertyValue>
+       </Record>
+      </PropertyValue>
+      <PropertyValue Property="Description">
+       <Record Type="UI.DataField">
+        <PropertyValue Property="Value" Path="MfgOrderPlannedTotalQty"/>
+       </Record>
+      </PropertyValue>
+     </Record>
+    </Annotation>
+    <Annotation Term="UI.Badge">
+     <Record>
+      <PropertyValue Property="HeadLine">
+       <Record Type="UI.DataField">
+        <PropertyValue Property="Value" X-SAP-OTR="No Label maintained for Entity ProductionOrder" String="No Label maintained for Entity ProductionOrder"/>
+       </Record>
+      </PropertyValue>
+      <PropertyValue Property="Title">
+       <Record Type="UI.DataFieldWithUrl">
+        <PropertyValue Property="Label" X-SAP-OTR="BSCBN_UI_ANF_MG/ORDER_TYPE" String="<%= otr(BSCBN_UI_ANF_MG/ORDER_TYPE)%>"/>
+        <PropertyValue Property="Url">
+         <Apply Function="odata.fillUriTemplate">
+          <String><![CDATA[#ProductionOrder-displayFactSheet?ProductionOrder={ID0}]]></String>
+          <LabeledElement Name="ID0">
+           <Apply Function="odata.UriEncode">
+            <Path>ProductionOrder</Path>
+           </Apply>
+          </LabeledElement>
+         </Apply>
+        </PropertyValue>
+        <PropertyValue Property="Value">
+         <Apply Function="odata.concat">
+          <Path>OrderTypeName</Path>
+          <String><![CDATA[ ]]> </String>
+          <String><![CDATA[ (]]></String>
+          <Path>ProductionOrder</Path>
+          <String><![CDATA[) ]]></String>
+         </Apply>
+        </PropertyValue>
+       </Record>
+      </PropertyValue>
+      <PropertyValue Property="MainInfo">
+       <Record Type="UI.DataField">
+        <PropertyValue Property="Value" Path="MfgOrderPlannedTotalQty"/>
+       </Record>
+      </PropertyValue>
+     </Record>
+    </Annotation>
+    <Annotation Term="UI.Identification">
+     <Collection>
+      <Record Type="UI.DataFieldWithUrl">
+       <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+       <PropertyValue Property="Url">
+        <Apply Function="odata.fillUriTemplate">
+         <String><![CDATA[#ProductionOrder-displayFactSheet?ProductionOrder={ID0}]]></String>
+         <LabeledElement Name="ID0">
+          <Apply Function="odata.UriEncode">
+           <Path>ProductionOrder</Path>
+          </Apply>
+         </LabeledElement>
+        </Apply>
+       </PropertyValue>
+       <PropertyValue Property="Value" Path="ProductionOrder"/>
+      </Record>
+      <Record Type="UI.DataField">
+       <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+       <PropertyValue Property="Label" X-SAP-OTR="BSCBN_UI_ANF_MG/ORDER_TYPE" String="<%= otr(BSCBN_UI_ANF_MG/ORDER_TYPE)%>"/>
+       <PropertyValue Property="Value" Path="OrderTypeName"/>
+      </Record>
+     </Collection>
+    </Annotation>
+    <Annotation Term="UI.LineItem">
+     <Collection>
+      <Record Type="UI.DataFieldWithUrl">
+       <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+       <PropertyValue Property="Url">
+        <Apply Function="odata.fillUriTemplate">
+         <String><![CDATA[#ProductionOrder-displayFactSheet?ProductionOrder={ID0}]]></String>
+         <LabeledElement Name="ID0">
+          <Apply Function="odata.UriEncode">
+           <Path>ProductionOrder</Path>
+          </Apply>
+         </LabeledElement>
+        </Apply>
+       </PropertyValue>
+       <PropertyValue Property="Value" Path="ProductionOrder"/>
+      </Record>
+      <Record Type="UI.DataField">
+       <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+       <PropertyValue Property="Label" X-SAP-OTR="BSCBN_UI_ANF_MG/ORDER_TYPE" String="<%= otr(BSCBN_UI_ANF_MG/ORDER_TYPE)%>"/>
+       <PropertyValue Property="Value">
+        <Apply Function="odata.concat">
+         <Path>OrderTypeName</Path>
+         <String><![CDATA[ ]]> </String>
+         <String><![CDATA[ (]]></String>
+         <Path>OrderType</Path>
+         <String><![CDATA[) ]]></String>
+        </Apply>
+       </PropertyValue>
+      </Record>
+      <Record Type="UI.DataField">
+       <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+       <PropertyValue Property="Value" Path="MfgOrderPlannedTotalQty"/>
+      </Record>
+      <Record Type="UI.DataField">
+       <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+       <PropertyValue Property="Value">
+        <Apply Function="odata.concat">
+         <Path>MfgOrderPlannedStartDate</Path>
+         <String><![CDATA[ ]]> </String>
+         <Path>MfgOrderPlannedStartTime</Path>
+        </Apply>
+       </PropertyValue>
+      </Record>
+      <Record Type="UI.DataField">
+       <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+       <PropertyValue Property="Value">
+        <Apply Function="odata.concat">
+         <Path>MfgOrderPlannedEndDate</Path>
+         <String><![CDATA[ ]]> </String>
+         <Path>MfgOrderPlannedEndTime</Path>
+        </Apply>
+       </PropertyValue>
+      </Record>
+     </Collection>
+    </Annotation>
+    <Annotation Term="UI.Facets">
+     <Collection>
+      <Record Type="UI.CollectionFacet">
+       <Annotation Term="UI.IsSummary"/>
+       <PropertyValue Property="Facets">
+        <Collection>
+         <Record Type="UI.ReferenceFacet">
+          <PropertyValue Property="Target" AnnotationPath="@UI.Identification"/>
+         </Record>
+        </Collection>
+       </PropertyValue>
+      </Record>
+     </Collection>
+    </Annotation>
+   </Annotations>
+   <Annotations Target="CB_MATERIAL_SRV.MBEW_H">
+    <Annotation Term="UI.HeaderInfo">
+     <Record>
+      <PropertyValue Property="TypeName" X-SAP-OTR="No Label maintained for Entity MBEW_H" String="No Label maintained for Entity MBEW_H"/>
+      <PropertyValue Property="TypeNamePlural" X-SAP-OTR="No Label maintained for Entity MBEW_H" String="No Label maintained for Entity MBEW_H"/>
+      <PropertyValue Property="Title">
+       <Record Type="UI.DataField">
+        <PropertyValue Property="Value">
+         <Apply Function="odata.concat">
+          <Path>NAME1</Path>
+          <String><![CDATA[ ]]> </String>
+          <Path>BWTAR</Path>
+         </Apply>
+        </PropertyValue>
+       </Record>
+      </PropertyValue>
+      <PropertyValue Property="Description">
+       <Record Type="UI.DataField">
+        <PropertyValue Property="Value" Path="VALUE_TEXT1"/>
+       </Record>
+      </PropertyValue>
+     </Record>
+    </Annotation>
+    <Annotation Term="UI.Badge">
+     <Record>
+      <PropertyValue Property="HeadLine">
+       <Record Type="UI.DataField">
+        <PropertyValue Property="Value" X-SAP-OTR="No Label maintained for Entity MBEW_H" String="No Label maintained for Entity MBEW_H"/>
+       </Record>
+      </PropertyValue>
+      <PropertyValue Property="Title">
+       <Record Type="UI.DataField">
+        <PropertyValue Property="Label" X-SAP-OTR="BSCBN_UI_ANF_MG/PLANT" String="<%= otr(BSCBN_UI_ANF_MG/PLANT)%>"/>
+        <PropertyValue Property="Value">
+         <Apply Function="odata.concat">
+          <Path>NAME1</Path>
+          <String><![CDATA[ ]]> </String>
+          <Path>BWTAR</Path>
+         </Apply>
+        </PropertyValue>
+       </Record>
+      </PropertyValue>
+      <PropertyValue Property="MainInfo">
+       <Record Type="UI.DataField">
+        <PropertyValue Property="Value" Path="VALUE_TEXT1"/>
+       </Record>
+      </PropertyValue>
+     </Record>
+    </Annotation>
+    <Annotation Term="UI.Identification">
+     <Collection>
+      <Record Type="UI.DataField">
+       <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+       <PropertyValue Property="Label" X-SAP-OTR="BSCBN_UI_ANF_MG/PLANT" String="<%= otr(BSCBN_UI_ANF_MG/PLANT)%>"/>
+       <PropertyValue Property="Value" Path="NAME1"/>
+      </Record>
+      <Record Type="UI.DataField">
+       <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+       <PropertyValue Property="Value" Path="BWTAR"/>
+      </Record>
+     </Collection>
+    </Annotation>
+    <Annotation Term="UI.LineItem">
+     <Collection>
+      <Record Type="UI.DataField">
+       <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+       <PropertyValue Property="Label" X-SAP-OTR="BSCBN_UI_ANF_MG/PLANT" String="<%= otr(BSCBN_UI_ANF_MG/PLANT)%>"/>
+       <PropertyValue Property="Value">
+        <Apply Function="odata.concat">
+         <Path>NAME1</Path>
+         <String><![CDATA[ ]]> </String>
+         <String><![CDATA[ (]]></String>
+         <Path>WERKS</Path>
+         <String><![CDATA[) ]]></String>
+        </Apply>
+       </PropertyValue>
+      </Record>
+      <Record Type="UI.DataField">
+       <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+       <PropertyValue Property="Value" Path="BWTAR"/>
+      </Record>
+      <Record Type="UI.DataField">
+       <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+       <PropertyValue Property="Value" Path="VALUE_TEXT"/>
+      </Record>
+      <Record Type="UI.DataField">
+       <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+       <PropertyValue Property="Label" X-SAP-OTR="BSCBN_UI_ANF_MG/CURRENCY" String="<%= otr(BSCBN_UI_ANF_MG/CURRENCY)%>"/>
+       <PropertyValue Property="Value" Path="WAERS"/>
+      </Record>
+      <Record Type="UI.DataField">
+       <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+       <PropertyValue Property="Value">
+        <Apply Function="odata.concat">
+         <Path>VALUE_TEXT1</Path>
+         <String><![CDATA[ ]]> </String>
+         <String><![CDATA[ (]]></String>
+         <Path>VPRSV</Path>
+         <String><![CDATA[) ]]></String>
+        </Apply>
+       </PropertyValue>
+      </Record>
+      <Record Type="UI.DataField">
+       <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+       <PropertyValue Property="Value" Path="PEINH"/>
+      </Record>
+      <Record Type="UI.DataField">
+       <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/Medium"/>
+       <PropertyValue Property="Value" Path="STPRS"/>
+      </Record>
+      <Record Type="UI.DataField">
+       <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/Medium"/>
+       <PropertyValue Property="Value" Path="VERPR"/>
+      </Record>
+     </Collection>
+    </Annotation>
+    <Annotation Term="UI.Facets">
+     <Collection>
+      <Record Type="UI.CollectionFacet">
+       <Annotation Term="UI.IsSummary"/>
+       <PropertyValue Property="Facets">
+        <Collection>
+         <Record Type="UI.ReferenceFacet">
+          <PropertyValue Property="Target" AnnotationPath="@UI.Identification"/>
+         </Record>
+        </Collection>
+       </PropertyValue>
+      </Record>
+     </Collection>
+    </Annotation>
+   </Annotations>
+   <Annotations Target="CB_MATERIAL_SRV.Vendor">
+    <Annotation Term="UI.HeaderInfo">
+     <Record>
+      <PropertyValue Property="TypeName" X-SAP-OTR="No Label maintained for Entity Vendor" String="No Label maintained for Entity Vendor"/>
+      <PropertyValue Property="TypeNamePlural" X-SAP-OTR="No Label maintained for Entity Vendor" String="No Label maintained for Entity Vendor"/>
+      <PropertyValue Property="Title">
+       <Record Type="UI.DataFieldWithUrl">
+        <PropertyValue Property="Url">
+         <Apply Function="odata.fillUriTemplate">
+          <String><![CDATA[#Vendor-displayFactSheet?Vendor={ID0}]]></String>
+          <LabeledElement Name="ID0">
+           <Apply Function="odata.UriEncode">
+            <Path>Vendor</Path>
+           </Apply>
+          </LabeledElement>
+         </Apply>
+        </PropertyValue>
+        <PropertyValue Property="Value" Path="VendorName"/>
+       </Record>
+      </PropertyValue>
+      <PropertyValue Property="Description">
+       <Record Type="UI.DataField">
+        <PropertyValue Property="Value">
+         <Apply Function="odata.concat">
+          <Path>PostalCode</Path>
+          <String><![CDATA[ - ]]></String>
+          <Path>CityName</Path>
+          <String><![CDATA[ ]]> </String>
+          <Path>CountryName</Path>
+         </Apply>
+        </PropertyValue>
+       </Record>
+      </PropertyValue>
+     </Record>
+    </Annotation>
+    <Annotation Term="UI.Badge">
+     <Record>
+      <PropertyValue Property="HeadLine">
+       <Record Type="UI.DataField">
+        <PropertyValue Property="Value" X-SAP-OTR="No Label maintained for Entity Vendor" String="No Label maintained for Entity Vendor"/>
+       </Record>
+      </PropertyValue>
+      <PropertyValue Property="Title">
+       <Record Type="UI.DataFieldWithUrl">
+        <PropertyValue Property="Url">
+         <Apply Function="odata.fillUriTemplate">
+          <String><![CDATA[#Vendor-displayFactSheet?Vendor={ID0}]]></String>
+          <LabeledElement Name="ID0">
+           <Apply Function="odata.UriEncode">
+            <Path>Vendor</Path>
+           </Apply>
+          </LabeledElement>
+         </Apply>
+        </PropertyValue>
+        <PropertyValue Property="Value" Path="VendorName"/>
+       </Record>
+      </PropertyValue>
+      <PropertyValue Property="MainInfo">
+       <Record Type="UI.DataField">
+        <PropertyValue Property="Label" X-SAP-OTR="BSCBN_UI_ANF_MG/CITY" String="<%= otr(BSCBN_UI_ANF_MG/CITY)%>"/>
+        <PropertyValue Property="Value">
+         <Apply Function="odata.concat">
+          <Path>PostalCode</Path>
+          <String><![CDATA[ - ]]></String>
+          <Path>CityName</Path>
+          <String><![CDATA[ ]]> </String>
+          <Path>CountryName</Path>
+         </Apply>
+        </PropertyValue>
+       </Record>
+      </PropertyValue>
+     </Record>
+    </Annotation>
+    <Annotation Term="UI.Identification">
+     <Collection>
+      <Record Type="UI.DataFieldWithUrl">
+       <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+       <PropertyValue Property="Url">
+        <Apply Function="odata.fillUriTemplate">
+         <String><![CDATA[#Vendor-displayFactSheet?Vendor={ID0}]]></String>
+         <LabeledElement Name="ID0">
+          <Apply Function="odata.UriEncode">
+           <Path>Vendor</Path>
+          </Apply>
+         </LabeledElement>
+        </Apply>
+       </PropertyValue>
+       <PropertyValue Property="Value" Path="VendorName"/>
+      </Record>
+      <Record Type="UI.DataField">
+       <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+       <PropertyValue Property="Label" X-SAP-OTR="BSCBN_UI_ANF_MG/CITY" String="<%= otr(BSCBN_UI_ANF_MG/CITY)%>"/>
+       <PropertyValue Property="Value" Path="PostalCode"/>
+      </Record>
+      <Record Type="UI.DataField">
+       <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+       <PropertyValue Property="Value" Path="CityName"/>
+      </Record>
+      <Record Type="UI.DataField">
+       <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+       <PropertyValue Property="Value" Path="CountryName"/>
+      </Record>
+     </Collection>
+    </Annotation>
+    <Annotation Term="UI.LineItem">
+     <Collection>
+      <Record Type="UI.DataFieldWithUrl">
+       <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+       <PropertyValue Property="Url">
+        <Apply Function="odata.fillUriTemplate">
+         <String><![CDATA[#Vendor-displayFactSheet?Vendor={ID0}]]></String>
+         <LabeledElement Name="ID0">
+          <Apply Function="odata.UriEncode">
+           <Path>Vendor</Path>
+          </Apply>
+         </LabeledElement>
+        </Apply>
+       </PropertyValue>
+       <PropertyValue Property="Value" Path="VendorName"/>
+      </Record>
+      <Record Type="UI.DataField">
+       <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+       <PropertyValue Property="Label" X-SAP-OTR="BSCBN_UI_ANF_MG/CITY" String="<%= otr(BSCBN_UI_ANF_MG/CITY)%>"/>
+       <PropertyValue Property="Value">
+        <Apply Function="odata.concat">
+         <Path>PostalCode</Path>
+         <String><![CDATA[ - ]]></String>
+         <Path>CityName</Path>
+        </Apply>
+       </PropertyValue>
+      </Record>
+      <Record Type="UI.DataField">
+       <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+       <PropertyValue Property="Value" Path="CountryName"/>
+      </Record>
+      <Record Type="UI.DataField">
+       <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+       <PropertyValue Property="Value" Path="EmailAddress"/>
+      </Record>
+      <Record Type="UI.DataField">
+       <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/Medium"/>
+       <PropertyValue Property="Value" Path="TimeZone"/>
+      </Record>
+      <Record Type="UI.DataField">
+       <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/Medium"/>
+       <PropertyValue Property="Value" Path="InternationalLocationNumber1"/>
+      </Record>
+      <Record Type="UI.DataField">
+       <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/Medium"/>
+       <PropertyValue Property="Value" Path="TaxID1"/>
+      </Record>
+      <Record Type="UI.DataField">
+       <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/Medium"/>
+       <PropertyValue Property="Value" Path="VATRegistration"/>
+      </Record>
+     </Collection>
+    </Annotation>
+    <Annotation Term="UI.Facets">
+     <Collection>
+      <Record Type="UI.CollectionFacet">
+       <Annotation Term="UI.IsSummary"/>
+       <PropertyValue Property="Facets">
+        <Collection>
+         <Record Type="UI.ReferenceFacet">
+          <PropertyValue Property="Target" AnnotationPath="@UI.Identification"/>
+         </Record>
+        </Collection>
+       </PropertyValue>
+      </Record>
+     </Collection>
+    </Annotation>
+   </Annotations>
+  </Schema>
+ </edmx:DataServices>
+</edmx:Edmx>
+<!-- This is a Fact Sheet Annotation Spec Version V4 -->

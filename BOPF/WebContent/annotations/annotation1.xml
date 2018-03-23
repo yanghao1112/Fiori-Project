@@ -1,0 +1,258 @@
+<edmx:Edmx xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx"
+	Version="4.0">
+	<edmx:Reference xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx"
+		Uri="proxy/sap/opu/odata/sap/ZSALESORDER_CP_SRV/$metadata">
+		<edmx:Include xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx"
+			Namespace="ZSALESORDER_CP_SRV" Alias="ZSALESORDER_CP_SRV" />
+	</edmx:Reference>
+	<edmx:Reference
+		Uri="http://docs.oasis-open.org/odata/odata-data-aggregation-ext/v4.0/cs02/vocabularies/Org.OData.Aggregation.V1.xml">
+		<edmx:Include Alias="Aggregation" Namespace="Org.OData.Aggregation.V1" />
+	</edmx:Reference>
+	<edmx:Reference
+		Uri="http://docs.oasis-open.org/odata/odata/v4.0/errata03/os/complete/vocabularies/Org.OData.Capabilities.V1.xml">
+		<edmx:Include Alias="Capabilities" Namespace="Org.OData.Capabilities.V1" />
+	</edmx:Reference>
+	<edmx:Reference
+		Uri="https://wiki.scn.sap.com/wiki/download/attachments/448470974/Common.xml?api=v2">
+		<edmx:Include Alias="Common" Namespace="com.sap.vocabularies.Common.v1" />
+	</edmx:Reference>
+	<edmx:Reference
+		Uri="https://wiki.scn.sap.com/wiki/download/attachments/448470971/Communication.xml?api=v2">
+		<edmx:Include Alias="vCard"
+			Namespace="com.sap.vocabularies.Communication.v1" />
+	</edmx:Reference>
+	<edmx:Reference
+		Uri="http://docs.oasis-open.org/odata/odata/v4.0/errata03/os/complete/vocabularies/Org.OData.Core.V1.xml">
+		<edmx:Include Alias="Core" Namespace="Org.OData.Core.V1" />
+	</edmx:Reference>
+	<edmx:Reference
+		Uri="http://docs.oasis-open.org/odata/odata/v4.0/errata03/os/complete/vocabularies/Org.OData.Measures.V1.xml">
+		<edmx:Include Alias="CQP" Namespace="Org.OData.Measures.V1" />
+	</edmx:Reference>
+	<edmx:Reference
+		Uri="https://wiki.scn.sap.com/wiki/download/attachments/448470968/UI.xml?api=v2">
+		<edmx:Include Alias="UI" Namespace="com.sap.vocabularies.UI.v1" />
+	</edmx:Reference>
+	<edmx:DataServices>
+		<Schema xmlns="http://docs.oasis-open.org/odata/ns/edm">
+			<Annotations Target="ZSALESORDER_CP_SRV.Orders">
+			
+				<Annotation Term="UI.LineItem">
+					<Collection>
+						<Record Type="UI.DataField">
+							<PropertyValue Property="Value" Path="OrderNo" />
+						</Record>
+						<Record Type="UI.DataField">
+							<PropertyValue Property="Value" Path="ItemCount" />
+						</Record>
+					</Collection>
+				</Annotation>
+				<Annotation Term="UI.FilterFacets">
+					<Collection>
+						<Record Type="UI.ReferenceFacet" >
+							<PropertyValue Property="Target" AnnotationPath="@UI.SelectionFields"/>
+						</Record>
+					</Collection>
+				</Annotation>
+				<Annotation Term="UI.SelectionFields">
+					<Collection>
+						<PropertyPath>OrderNo</PropertyPath>
+					</Collection>
+				</Annotation>
+				
+				<Annotation Term="UI.HeaderInfo">
+					<Record Type="UI.HeaderInfoType">
+						<PropertyValue Property="TypeName" String="Order" />
+						<PropertyValue Property="TypeNamePlural" String="Orders" />
+						<PropertyValue Property="Title">
+							<Record Type="UI.DataField">
+								<PropertyValue Property="Value" Path="OrderNo" />
+							</Record>
+						</PropertyValue>
+						<PropertyValue Property="Description">
+							<Record Type="UI.DataField">
+								<PropertyValue Property="Value" Path="CustomerRef" />
+							</Record>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+				<Annotation Term="UI.HeaderFacets">
+					<Collection>
+						<Record Type="UI.ReferenceFacet">
+							<PropertyValue Property="Target" AnnotationPath="@UI.FieldGroup"/>
+							<PropertyValue Property="Label" String="Field Group Name" />
+						</Record>
+						<Record Type="UI.ReferenceFacet">
+							<PropertyValue Property="Target" AnnotationPath="@UI.DataPoint"/>
+							<PropertyValue Property="Label" String="Data Point" />
+						</Record>
+					</Collection>
+				</Annotation>
+				
+
+	
+				<Annotation Term="UI.DataPoint">
+				
+					<Record Type="UI.DataPointType">
+						<PropertyValue Property="Title" String="Net Value"/>
+						<PropertyValue Property="Value">
+							<Apply Function="odata.concat">
+								<Path>NetValue</Path>
+								<Path>Currency</Path>
+							</Apply>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+				
+				
+				<Annotation Term="UI.FieldGroup">
+					<Record>
+						<PropertyValue Property="Data">
+							<Collection>
+								<Record Type="UI.DataField">
+									<PropertyValue Property="Value"
+										Path="Createon" />
+									<Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/Low" />
+								</Record>
+								<Record Type="UI.DataField">
+									<PropertyValue Property="Value" Path="Createby" />
+									<Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High" />
+								</Record>
+								<Record Type="UI.DataFieldForAnnotation">
+									<PropertyValue Property="Label" String="Supplier" />
+									<PropertyValue Property="Target"
+										AnnotationPath="@vCard.Contact" />
+									<Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High" />
+								</Record>
+							</Collection>
+						</PropertyValue>
+						<PropertyValue Property="Label" String="Information" />
+					</Record>
+				</Annotation>
+				
+				<Annotation Term="vCard.Contact">
+					<Record>
+						<PropertyValue Property="fn" Path="OrderNo"/>
+						<PropertyValue Property="title" Path="OrderNo"/>
+						<PropertyValue Property="org" Path="OrderNo"/>
+						<PropertyValue Property="n" Path="OrderNo" />
+					</Record>
+				</Annotation>
+				<Annotation Term="UI.Facets">
+					<Collection>
+						<Record Type="UI.CollectionFacet">
+							<PropertyValue Property="Facets">
+								<Collection>
+									<Record Type="UI.ReferenceFacet">
+										<PropertyValue Property="Target" AnnotationPath="@UI.StatusInfo" />
+										<PropertyValue Property="Label" String="Name" />
+									</Record>
+								</Collection>
+							</PropertyValue>
+							<PropertyValue Property="Label" String="Tab1" />
+						</Record>
+						<Record Type="UI.ReferenceFacet">
+							<PropertyValue Property="Target" AnnotationPath="Items/@UI.LineItem" />
+							<PropertyValue Property="Label" String="Tab2" />
+						</Record>
+						<Record Type="UI.ReferenceFacet">
+							<PropertyValue Property="Target" AnnotationPath="Items/@UI.Chart" />
+							<PropertyValue Property="Label" String="Tab3" />
+						</Record>
+					</Collection>
+				</Annotation>
+				<Annotation Term="UI.StatusInfo">
+					<Collection>
+						<Record Type="UI.DataField">
+							<PropertyValue Property="Value" Path="CustomerRef" />
+						</Record>
+						<Record Type="UI.DataField">
+							<PropertyValue Property="Value" Path="NetValue" />
+						</Record>
+						<Record Type="UI.DataField">
+							<PropertyValue Property="Value" Path="Createon" />
+						</Record>
+					</Collection>
+				</Annotation>
+			</Annotations>
+			
+			
+			<Annotations Target="ZSALESORDER_CP_SRV.Items">
+				<Annotation Term="UI.HeaderInfo">
+					<Record Type="UI.HeaderInfoType">
+						<PropertyValue Property="TypeName" String="Items" />
+						<PropertyValue Property="TypeNamePlural" String="Items" />
+						<PropertyValue Property="Title">
+							<Record Type="UI.DataField">
+								<PropertyValue Property="Value" Path="OrderNo" />
+							</Record>
+						</PropertyValue>
+						<PropertyValue Property="Description">
+							<Record Type="UI.DataField">
+								<PropertyValue Property="Value" Path="Item" />
+							</Record>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+				<Annotation Term="UI.LineItem">
+					<Collection>
+						<Record Type="UI.DataField">
+							<PropertyValue Property="Value" Path="OrderNo" />
+						</Record>
+						<Record Type="UI.DataField">
+							<PropertyValue Property="Value" Path="Item" />
+						</Record>
+						<Record Type="UI.DataField">
+							<PropertyValue Property="Value" Path="Material" />
+						</Record>
+						<Record Type="UI.DataField">
+							<PropertyValue Property="Value" Path="Orderquantity" />
+						</Record>
+					</Collection>
+				</Annotation>
+				<Annotation Term="UI.Chart">
+					<Record Type="UI.ChartDefinitionType">
+						<PropertyValue Property="ChartType" EnumMember="UI.ChartType/Column"/>
+						<PropertyValue Property="Measures">
+							<Collection>
+								<PropertyPath>NetVa</PropertyPath>
+							</Collection>
+						</PropertyValue>
+						<PropertyValue Property="MeasureAttributes">
+							<Collection>
+								<Record Type="UI.ChartMeasureAttributeType">
+									<PropertyValue Property="Measure" PropertyPath="NetVa"/>
+									<PropertyValue Property="Role" EnumMember="UI.ChartMeasureRoleType/Axis1"/>
+								</Record>
+							</Collection>
+						</PropertyValue>
+						<PropertyValue Property="Dimensions">
+							<Collection>
+								<PropertyPath>Item</PropertyPath>
+							</Collection>
+						</PropertyValue>
+						<PropertyValue Property="DimensionAttributes">
+							<Collection>
+								<Record Type="UI.ChartDimensionAttributeType">
+									<PropertyValue Property="Dimension" PropertyPath="Item"/>
+									<PropertyValue Property="Role" EnumMember="UI.ChartDimensionRoleType/Category"/>
+								</Record>
+							</Collection>
+						</PropertyValue>
+						<PropertyValue Property="Actions">
+							<Collection>
+								<Record Type="UI.DataFieldForIntentBasedNavigation">
+									<PropertyValue Property="SemanticObject"/>
+								</Record>
+								<Record Type="UI.DataFieldForAction">
+									<PropertyValue Property="Action" String="ODataDemo.DemoService/GetProductsByRating"/>
+								</Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+		</Schema>
+	</edmx:DataServices>
+</edmx:Edmx>

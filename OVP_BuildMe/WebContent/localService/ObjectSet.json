@@ -1,0 +1,20 @@
+[
+	{
+		"data": 123,
+		"ID": "1",
+		"name": "name1",
+		"amount": 456,
+		"OVP-Donut_Value": 50,
+		"OVP-Donut_0_MeasureAttributes_0_Measure": 40,
+		"OVP-Donut_TrendCalculation_ReferenceValue": 50
+	},
+	{
+		"data": 321,
+		"ID": "2",
+		"name": "name2",
+		"amount": 654,
+		"OVP-Donut_Value": 50,
+		"OVP-Donut_0_MeasureAttributes_0_Measure": 40,
+		"OVP-Donut_TrendCalculation_ReferenceValue": 50
+	}
+]

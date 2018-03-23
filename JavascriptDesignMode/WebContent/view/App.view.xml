@@ -1,0 +1,21 @@
+<mvc:View controllerName="sap.ui.demo.wt.controller.App" xmlns="sap.m" xmlns:core="sap.ui.core"
+	xmlns:mvc="sap.ui.core.mvc" displayBlock="true">
+	<App>
+		<pages>
+			<Page title="Home Page">
+				<content>
+					<Panel headerText="UI5 Panel">
+						<content>
+<!-- 							<Button text="onShowHello" press="onShowHello" /> -->
+							<VBox height="90px" width="45px" class="zcenter">
+							<Image load="onLoad" binding="{/}"
+								src="image/loading.gif">
+							</Image>
+							</VBox>
+						</content>
+					</Panel>
+				</content>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>

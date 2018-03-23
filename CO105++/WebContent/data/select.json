@@ -1,0 +1,95 @@
+{	
+	"ThisWeek": 1,
+	"WeekNo": 4,
+	"Company": {
+		"values": [
+			{
+				"key": "all",
+				"name": "ABJP"
+			},
+			{
+				"key": "all",
+				"name": "ABJP1"
+			}
+		]
+	},
+	"Sector": {
+		"values": [
+			{
+				"key": "all",
+				"name": "Sector1"
+			},
+			{
+				"key": "all",
+				"name": "Sector2"
+			}
+		]
+	},
+	"BU": {
+		"name": "BU",
+		"values": [
+			{
+				"key": "1",
+				"name": "all bu"
+			},
+			{
+				"key": "2",
+				"name": "MFG&CB"
+			},
+			{
+				"key": "3",
+				"name": "FSI"
+			},
+			{
+				"key": "4",
+				"name": "Public"
+			},
+			{
+				"key": "5",
+				"name": "MFG&CB"
+			},
+			{
+				"key": "0",
+				"name": ""
+			}
+		]
+	},
+	"Currency": {
+		"values": [
+			{
+				"key": "0",
+				"name": "Currency1",
+				"vizType": "stacked_column"
+			},
+			{
+				"key": "1",
+				"name": "Currency2",
+				"vizType": "column"
+			}
+		]
+	},
+	"VS": {
+		"values": [
+			{
+				"key": "0",
+				"name": "vs Simulate"
+			},
+			{
+				"key": "1",
+				"name": "vs Plan"
+			},
+			{
+				"key": "2",
+				"name": "vs Backlog"
+			},
+			{
+				"key": "3",
+				"name": "vs Backlog + Forecast"
+			},
+			{
+				"key": "4",
+				"name": "vs Last Month"
+			}
+		]
+	}
+}

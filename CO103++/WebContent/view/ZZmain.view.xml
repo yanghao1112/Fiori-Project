@@ -1,0 +1,230 @@
+<mvc:View controllerName="zco103.controller.ZZmain" xmlns:core="sap.ui.core"
+	xmlns:layout="sap.ui.layout" xmlns="sap.m" xmlns:tnt="sap.tnt"
+	xmlns:commons="sap.suite.ui.commons" xmlns:viz="sap.viz.ui5.controls"
+	xmlns:viz.data="sap.viz.ui5.data" xmlns:viz.feeds="sap.viz.ui5.controls.common.feeds"
+	xmlns:table="sap.ui.table" xmlns:mvc="sap.ui.core.mvc" xmlns:f="sap.ui.layout.form"
+	height="100%">
+
+	<!--Below is the setting panel -->
+
+	<layout:Splitter orientation="Vertical" resize="onResize">
+		<layout:contentAreas>
+			<layout:Splitter width="100%">
+				<layout:layoutData>
+					<layout:SplitterLayoutData size="30%"
+						id="showchart" />
+				</layout:layoutData>
+				<layout:FixFlex>
+					<layout:fixContent>
+						<Title level="H2" text="Organization"
+							class="sapMIBar sapMListHdrTBar sapMTB sapMTB-Transparent-CTX sapMTBInactive sapMTBNewFlex" />
+					</layout:fixContent>
+					<layout:flexContent>
+						<ScrollContainer id="scrollerOrganization"
+							vertical="true" height="100%" focusable="true">
+							<content>
+								<VBox>
+									<ComboBox id="Company" selectedKey="0"
+										items="{ path: '/Select/Company/values'
+							}" class="sapUiTinyMargin">
+										<core:Item key="{key}" text="{name}" />
+									</ComboBox>
+									<ComboBox id="BU" selectedKey="1"
+										items="{ path: '/Select/BU/values'
+							}" class="sapUiTinyMargin">
+										<core:Item key="{key}" text="{name}" />
+									</ComboBox>
+
+									<ComboBox id="Sector" selectedKey="0"
+										items="{ path: '/Select/Sector/values'
+							}" class="sapUiTinyMargin">
+										<core:Item key="{key}" text="{name}" />
+									</ComboBox>
+								</VBox>
+							</content>
+						</ScrollContainer>
+					</layout:flexContent>
+					<layout:layoutData>
+						<layout:SplitterLayoutData size="150px" />
+					</layout:layoutData>
+				</layout:FixFlex>
+
+				<layout:FixFlex>
+					<layout:fixContent>
+						<Title level="H2" text="Year"
+							class="sapMIBar sapMListHdrTBar sapMTB sapMTB-Transparent-CTX sapMTBInactive sapMTBNewFlex" />
+					</layout:fixContent>
+					<layout:flexContent>
+						<ScrollContainer id="scrollerYear" vertical="true"
+							height="100%" focusable="true">
+							<content>
+								<List id="YearList" items="{path: '/Select/Year/values'}"
+									mode="SingleSelectLeft" includeItemInSelection="true">
+									<StandardListItem title="{name}" selected="{select}" />
+								</List>
+							</content>
+						</ScrollContainer>
+					</layout:flexContent>
+					<layout:layoutData>
+						<layout:SplitterLayoutData size="150px" />
+					</layout:layoutData>
+				</layout:FixFlex>
+
+				<layout:FixFlex>
+					<layout:fixContent>
+						<Title level="H2" text="Compare"
+							class="sapMIBar sapMListHdrTBar sapMTB sapMTB-Transparent-CTX sapMTBInactive sapMTBNewFlex" />
+					</layout:fixContent>
+					<layout:flexContent>
+						<ScrollContainer id="scrollerCompare" vertical="true"
+							height="100%" focusable="true">
+							<content>
+								<List id="CompareList" items="{path: '/Select/VS/values'}"
+									mode="MultiSelect" includeItemInSelection="true">
+									<StandardListItem title="{name}" />
+								</List>
+							</content>
+						</ScrollContainer>
+					</layout:flexContent>
+					<layout:layoutData>
+						<layout:SplitterLayoutData size="150px" />
+					</layout:layoutData>
+				</layout:FixFlex>
+
+				<layout:FixFlex>
+					<layout:fixContent>
+						<Title level="H2" text="Pattern"
+							class="sapMIBar sapMListHdrTBar sapMTB sapMTB-Transparent-CTX sapMTBInactive sapMTBNewFlex" />
+					</layout:fixContent>
+					<layout:flexContent>
+						<ScrollContainer id="scrollerPattern" vertical="true"
+							height="100%" focusable="true">
+							<content>
+								<List id="PatternList" items="{path: '/Select/Pattern/values'}"
+									mode="SingleSelectLeft" includeItemInSelection="true">
+									<StandardListItem title="{name}" />
+								</List>
+							</content>
+						</ScrollContainer>
+					</layout:flexContent>
+					<layout:layoutData>
+						<layout:SplitterLayoutData size="150px" />
+					</layout:layoutData>
+				</layout:FixFlex>
+
+				<layout:FixFlex>
+					<layout:fixContent>
+						<Title level="H2" text="Amount Type"
+							class="sapMIBar sapMListHdrTBar sapMTB sapMTB-Transparent-CTX sapMTBInactive sapMTBNewFlex" />
+					</layout:fixContent>
+					<layout:flexContent>
+						<ScrollContainer id="scrollerChange" vertical="true"
+							height="100%" focusable="true">
+							<content>
+								<List id="ChangeList" items="{path: '/Select/Change/values'}"
+									mode="SingleSelectLeft" includeItemInSelection="true">
+									<StandardListItem title="{name}" />
+								</List>
+							</content>
+						</ScrollContainer>
+					</layout:flexContent>
+					<layout:layoutData>
+						<layout:SplitterLayoutData size="220px" />
+					</layout:layoutData>
+				</layout:FixFlex>
+
+
+				<layout:FixFlex>
+					<layout:fixContent>
+						<Title level="H2" text="Currency"
+							class="sapMIBar sapMListHdrTBar sapMTB sapMTB-Transparent-CTX sapMTBInactive sapMTBNewFlex" />
+					</layout:fixContent>
+					<layout:flexContent>
+						<ScrollContainer id="scrollerCurrency" vertical="true"
+							height="100%" focusable="true">
+							<content>
+								<List id="CurrencyList" items="{path: '/Select/Currency/values'}"
+									mode="SingleSelectLeft" includeItemInSelection="true">
+									<StandardListItem title="{name}" />
+								</List>
+							</content>
+						</ScrollContainer>
+					</layout:flexContent>
+					<layout:layoutData>
+						<layout:SplitterLayoutData size="150px" />
+					</layout:layoutData>
+				</layout:FixFlex>
+
+				<layout:FixFlex>
+					<layout:fixContent>
+						<Title level="H2" text="Weighting"
+							class="sapMIBar sapMListHdrTBar sapMTB sapMTB-Transparent-CTX sapMTBInactive sapMTBNewFlex" />
+					</layout:fixContent>
+					<layout:flexContent>
+						<ScrollContainer id="scrollerWeighting" vertical="true"
+							height="100%" focusable="true">
+							<content>
+								<List id="WeightingList" items="{path: '/Select/Weighting/values'}"
+									mode="SingleSelectLeft" includeItemInSelection="true"
+									updateFinished="onupdateFinished">
+									<StandardListItem id="YearItem" title="{name}" />
+								</List>
+							</content>
+						</ScrollContainer>
+					</layout:flexContent>
+					<layout:layoutData>
+						<layout:SplitterLayoutData size="150px" />
+					</layout:layoutData>
+				</layout:FixFlex>
+
+
+				<VBox id="dummy">
+					<layoutData>
+						<layout:SplitterLayoutData size="auto" />
+
+					</layoutData>
+				</VBox>
+			</layout:Splitter>
+			<VBox height="100%">
+				<Toolbar level="H2" textDirection="RTL"
+					class="sapMIBar sapMListHdrTBar sapMTB sapMTB-Transparent-CTX sapMTBInactive sapMTBNewFlex ZToolBarOverflow">
+					<RangeSlider id="rangeSlider" width="20%" change="onLiveChange"
+						inputsAsTooltips="true" />
+					<FormattedText htmlText="Scale Range" id="scaleTitle" />
+					<ToolbarSpacer />
+					<Button level="H2" icon="sap-icon://initiative" tooltip="Go"
+						press="onPress" />
+					<Button level="H2" icon="sap-icon://download" tooltip="Download"
+						press="onDownload" />
+				</Toolbar>
+
+				<VBox id="ChartVBox" height="100%">
+					<viz:VizFrame id="idVizFrame" uiConfig="{applicationSet:'fiori'}"
+						width="100%" vizType='stacked_column' class="ZLabel">
+						<viz:dataset>
+							<viz.data:FlattenedDataset data="{null>/Data}">
+								<viz.data:dimensions>
+									<viz.data:DimensionDefinition
+										name="Period" value="{null>Period}" />
+									<!-- <viz.data:DimensionDefinition name="Shop" -->
+									<!-- value="{null>Shop}" /> -->
+								</viz.data:dimensions>
+								<viz.data:measures>
+									<viz.data:MeasureDefinition name="Target"
+										value="{null>Target}" />
+								</viz.data:measures>
+							</viz.data:FlattenedDataset>
+						</viz:dataset>
+						<viz:feeds>
+							<viz.feeds:FeedItem uid="valueAxis" type="Measure"
+								values="Target" />
+							<viz.feeds:FeedItem uid="categoryAxis" type="Dimension"
+								values="Period" />
+						</viz:feeds>
+					</viz:VizFrame>
+				</VBox>
+			</VBox>
+		</layout:contentAreas>
+	</layout:Splitter>
+
+</mvc:View>

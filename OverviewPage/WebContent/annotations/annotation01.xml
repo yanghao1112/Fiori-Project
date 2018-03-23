@@ -1,0 +1,139 @@
+<edmx:Edmx xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx"
+	Version="4.0">
+	<edmx:Reference xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx"
+		Uri="proxy/sap/opu/odata/sap/C_SALESANALYTICSQRY_CDS/$metadata">
+		<edmx:Include xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx"
+			Namespace="C_SALESANALYTICSQRY_CDS" Alias="C_SALESANALYTICSQRY_CDS" />
+	</edmx:Reference>
+	<edmx:Reference
+		Uri="http://docs.oasis-open.org/odata/odata-data-aggregation-ext/v4.0/cs02/vocabularies/Org.OData.Aggregation.V1.xml">
+		<edmx:Include Alias="Aggregation" Namespace="Org.OData.Aggregation.V1" />
+	</edmx:Reference>
+	<edmx:Reference
+		Uri="http://docs.oasis-open.org/odata/odata/v4.0/errata03/os/complete/vocabularies/Org.OData.Capabilities.V1.xml">
+		<edmx:Include Alias="Capabilities" Namespace="Org.OData.Capabilities.V1" />
+	</edmx:Reference>
+	<edmx:Reference
+		Uri="https://wiki.scn.sap.com/wiki/download/attachments/448470974/Common.xml?api=v2">
+		<edmx:Include Alias="Common" Namespace="com.sap.vocabularies.Common.v1" />
+	</edmx:Reference>
+	<edmx:Reference
+		Uri="https://wiki.scn.sap.com/wiki/download/attachments/448470971/Communication.xml?api=v2">
+		<edmx:Include Alias="vCard"
+			Namespace="com.sap.vocabularies.Communication.v1" />
+	</edmx:Reference>
+	<edmx:Reference
+		Uri="http://docs.oasis-open.org/odata/odata/v4.0/errata03/os/complete/vocabularies/Org.OData.Core.V1.xml">
+		<edmx:Include Alias="Core" Namespace="Org.OData.Core.V1" />
+	</edmx:Reference>
+	<edmx:Reference
+		Uri="http://docs.oasis-open.org/odata/odata/v4.0/errata03/os/complete/vocabularies/Org.OData.Measures.V1.xml">
+		<edmx:Include Alias="CQP" Namespace="Org.OData.Measures.V1" />
+	</edmx:Reference>
+	<edmx:Reference
+		Uri="https://wiki.scn.sap.com/wiki/download/attachments/448470968/UI.xml?api=v2">
+		<edmx:Include Alias="UI" Namespace="com.sap.vocabularies.UI.v1" />
+	</edmx:Reference>
+	<edmx:DataServices>
+		<Schema xmlns="http://docs.oasis-open.org/odata/ns/edm">
+			<!-- C_SALESANALYTICSQRY -->
+			<Annotations Target="C_SALESANALYTICSQRY_CDS.C_SALESANALYTICSQRY">
+				<Annotation Term="UI.SelectionVariant">
+					<Record Type="UI.SelectionVariantType">
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="UI.Parameter">
+									<PropertyValue Property="PropertyName" PropertyPath="P_DisplayCurrency"/>
+									<PropertyValue Property="PropertyValue" String="USD"/>
+								</Record>
+								<Record Type="UI.Parameter">
+									<PropertyValue Property="PropertyName" PropertyPath="P_ExchangeRateType"/>
+									<PropertyValue Property="PropertyValue" String="M"/>
+								</Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+				
+				<Annotation Term="UI.Identification" Qualifier="333">
+					<Collection>
+						<Record Type="UI.DataFieldForIntentBasedNavigation">
+							<PropertyValue Property="SemanticObject" String="SalesOrder" />
+							<PropertyValue Property="Action" String="zsmarttable" />
+							<PropertyValue Property="Label" String="DO Navigation" />
+						</Record>
+					</Collection>
+				</Annotation>
+			</Annotations>
+			<!-- Results -->
+			<Annotations Target="C_SALESANALYTICSQRY_CDS.C_SALESANALYTICSQRYResult">
+				<Annotation Term="UI.PresentationVariant" Qualifier="Top4">
+				    <Record>      
+				          <PropertyValue Property="MaxItems" Int="4" />
+						<PropertyValue Property="SortOrder">
+							<Collection>
+								<Record Type="Common.SortOrderType">
+									<PropertyValue Property="Property" PropertyPath="BillingDocDateYearWeek"/>
+									<PropertyValue Property="Descending" Bool="true"/>
+								</Record>
+							</Collection>
+						</PropertyValue>
+				    </Record>
+				</Annotation>
+				<Annotation Term="UI.Chart" Qualifier="Donut">
+					<Record Type="UI.ChartDefinitionType">
+						<PropertyValue Property="Title" String="ChartTitle1" />
+						<PropertyValue Property="ChartType" EnumMember="UI.ChartType/ColumnStacked" />
+						<PropertyValue Property="Dimensions">
+							<Collection>
+								<PropertyPath>BillingDocDateYearWeek</PropertyPath>
+<!-- 								<PropertyPath>CustomerRef</PropertyPath> -->
+							</Collection>
+						</PropertyValue>
+						<PropertyValue Property="DimensionAttributes">
+							<Collection>
+								<Record Type="UI.ChartDimensionAttributeType">
+									<PropertyValue Property="Dimension" PropertyPath="BillingDocDateYearWeek" />
+									<PropertyValue Property="Role"
+										EnumMember="UI.ChartDimensionRoleType/Category" />
+								</Record>
+<!-- 								<Record Type="UI.ChartDimensionAttributeType"> -->
+<!-- 									<PropertyValue Property="Dimension" PropertyPath="CustomerRef" /> -->
+<!-- 									<PropertyValue Property="Role" -->
+<!-- 										EnumMember="UI.ChartDimensionRoleType/Series" /> -->
+<!-- 								</Record> -->
+							</Collection>
+						</PropertyValue>
+						<PropertyValue Property="Measures">
+							<Collection>
+								<PropertyPath>OpnSlsOrdsForDelivAmtInDspCrcy</PropertyPath>
+								<PropertyPath>OpnOutbDelivForInvcAmtInDspC</PropertyPath>
+								<PropertyPath>SlsVolumeNetAmtInDspCrcy</PropertyPath>
+							</Collection>
+						</PropertyValue>
+						<PropertyValue Property="MeasureAttributes">
+							<Collection>
+								<Record Type="UI.ChartMeasureAttributeType">
+									<PropertyValue Property="Measure" PropertyPath="OpnSlsOrdsForDelivAmtInDspCrcy" />
+									<PropertyValue Property="Role"
+										EnumMember="UI.ChartMeasureRoleType/Axis1" />
+								</Record>
+								<Record Type="UI.ChartMeasureAttributeType">
+									<PropertyValue Property="Measure" PropertyPath="OpnOutbDelivForInvcAmtInDspC" />
+									<PropertyValue Property="Role"
+										EnumMember="UI.ChartMeasureRoleType/Axis1" />
+								</Record>
+								<Record Type="UI.ChartMeasureAttributeType">
+									<PropertyValue Property="Measure" PropertyPath="SlsVolumeNetAmtInDspCrcy" />
+									<PropertyValue Property="Role"
+										EnumMember="UI.ChartMeasureRoleType/Axis1" />
+								</Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+				
+			</Annotations>
+		</Schema>
+	</edmx:DataServices>
+</edmx:Edmx>

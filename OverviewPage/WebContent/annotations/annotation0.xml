@@ -1,0 +1,324 @@
+<edmx:Edmx xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx"
+	Version="4.0">
+	<edmx:Reference xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx"
+		Uri="proxy/sap/opu/odata/sap/ZOVERVIEWPAGE_SRV/$metadata">
+		<edmx:Include xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx"
+			Namespace="ZOVERVIEWPAGE_SRV" Alias="ZOVERVIEWPAGE_SRV" />
+	</edmx:Reference>
+	<edmx:Reference
+		Uri="http://docs.oasis-open.org/odata/odata-data-aggregation-ext/v4.0/cs02/vocabularies/Org.OData.Aggregation.V1.xml">
+		<edmx:Include Alias="Aggregation" Namespace="Org.OData.Aggregation.V1" />
+	</edmx:Reference>
+	<edmx:Reference
+		Uri="http://docs.oasis-open.org/odata/odata/v4.0/errata03/os/complete/vocabularies/Org.OData.Capabilities.V1.xml">
+		<edmx:Include Alias="Capabilities" Namespace="Org.OData.Capabilities.V1" />
+	</edmx:Reference>
+	<edmx:Reference
+		Uri="https://wiki.scn.sap.com/wiki/download/attachments/448470974/Common.xml?api=v2">
+		<edmx:Include Alias="Common" Namespace="com.sap.vocabularies.Common.v1" />
+	</edmx:Reference>
+	<edmx:Reference
+		Uri="https://wiki.scn.sap.com/wiki/download/attachments/448470971/Communication.xml?api=v2">
+		<edmx:Include Alias="vCard"
+			Namespace="com.sap.vocabularies.Communication.v1" />
+	</edmx:Reference>
+	<edmx:Reference
+		Uri="http://docs.oasis-open.org/odata/odata/v4.0/errata03/os/complete/vocabularies/Org.OData.Core.V1.xml">
+		<edmx:Include Alias="Core" Namespace="Org.OData.Core.V1" />
+	</edmx:Reference>
+	<edmx:Reference
+		Uri="http://docs.oasis-open.org/odata/odata/v4.0/errata03/os/complete/vocabularies/Org.OData.Measures.V1.xml">
+		<edmx:Include Alias="CQP" Namespace="Org.OData.Measures.V1" />
+	</edmx:Reference>
+	<edmx:Reference
+		Uri="https://wiki.scn.sap.com/wiki/download/attachments/448470968/UI.xml?api=v2">
+		<edmx:Include Alias="UI" Namespace="com.sap.vocabularies.UI.v1" />
+	</edmx:Reference>
+	<edmx:DataServices>
+		<Schema xmlns="http://docs.oasis-open.org/odata/ns/edm">
+			<!-- For Entity Orders -->
+			<Annotations Target="ZOVERVIEWPAGE_SRV.SalesOrder">
+				<!-- List in List Report Page -->
+				<Annotation Term="UI.LineItem" Qualifier="Card00">
+					<Collection>
+						<Record Type="UI.DataField">
+							<PropertyValue Property="Value" Path="Vbeln" />
+						</Record>
+						<Record Type="UI.DataField">
+							<PropertyValue Property="Value" Path="Kunnr" />
+						</Record>
+						<Record Type="UI.DataFieldForAnnotation">
+							<PropertyValue Property="Target" AnnotationPath="@UI.DataPoint#DayCount" />
+							<PropertyValue Property="Label" String="{@i18n>NetValueLabel}" />
+						</Record>
+						<Record Type="UI.DataFieldForAnnotation">
+							<PropertyValue Property="Target" AnnotationPath="@UI.DataPoint#ItemCount" />
+							<PropertyValue Property="Label" String="{@i18n>NetValueLabel}" />
+						</Record>
+						<Record Type="UI.DataFieldForAnnotation">
+							<PropertyValue Property="Target" AnnotationPath="@UI.DataPoint#NetValue" />
+							<PropertyValue Property="Label" String="{@i18n>NetValueLabel}" />
+						</Record>
+						<Record Type="UI.DataFieldForAnnotation">
+							<PropertyValue Property="Target" AnnotationPath="@UI.Identification#222" />
+							<PropertyValue Property="Label" String="{@i18n>NetValueLabel}" />
+						</Record>
+					</Collection>
+				</Annotation>
+				<Annotation Term="UI.DataPoint" Qualifier="DayCount">
+					<Record Type="UI.DataPointType">
+						<PropertyValue Property="TargetValue" Path="Zdays" />
+						<PropertyValue Property="ForecastValue" Path="Zdays" />
+						<PropertyValue Property="CriticalityCalculation">
+							<Record Type="UI.CriticalityCalculationType">
+								<PropertyValue Property="ImprovementDirection"
+									EnumMember="UI.ImprovementDirectionType/Maximize" />
+								<PropertyValue Property="ToleranceRangeLowValue"
+									Decimal="7" />
+								<PropertyValue Property="DeviationRangeLowValue"
+									Decimal="3" />
+							</Record>
+						</PropertyValue>
+						<PropertyValue Property="Value" Path="Zdays" />
+						<PropertyValue Property="Visualization"
+							EnumMember="UI.VisualizationType/Number" />
+					</Record>
+					<Annotation Term="Common.Heading" String="Title" />
+				</Annotation>
+				<Annotation Term="UI.DataPoint" Qualifier="ItemCount">
+					<Record Type="UI.DataPointType">
+						<PropertyValue Property="Title" String="{@i18n>ItemCountLabel}" />
+						<PropertyValue Property="Value">
+							<Apply Function="odata.concat">
+								<String>Items :</String>
+								<Path>Itcount</Path>
+							</Apply>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+				<Annotation Term="UI.DataPoint" Qualifier="NetValue">
+					<Record Type="UI.DataPointType">
+						<PropertyValue Property="Value" Path="Netwr" />
+					</Record>
+				</Annotation>
+				<Annotation Term="UI.LineItem" Qualifier="Card01">
+					<Collection>
+						<Record Type="UI.DataField">
+							<PropertyValue Property="Value" Path="Kunnr" />
+							<PropertyValue Property="Value">
+								<Apply Function="odata.concat">
+									<Path>Kunnr</Path>
+									<String>/</String>
+									<Path>Vbeln</Path>
+								</Apply>
+							</PropertyValue>
+						</Record>
+						<Record Type="UI.DataField">
+							<PropertyValue Property="Value" Path="Wadat" />
+						</Record>
+						<Record Type="UI.DataField">
+							<PropertyValue Property="Value" Path="Btgew" />
+						</Record>
+						<Record Type="UI.DataFieldForAnnotation">
+							<PropertyValue Property="Target" AnnotationPath="@UI.Identification#222" />
+							<PropertyValue Property="Label" String="{@i18n>NetValueLabel}" />
+						</Record>
+					</Collection>
+				</Annotation>
+				<Annotation Term="UI.Identification" Qualifier="222">
+					<Collection>
+						<Record Type="UI.DataFieldForIntentBasedNavigation">
+							<PropertyValue Property="SemanticObject" String="SalesOrder" />
+							<PropertyValue Property="Action" String="ysomd" />
+							<PropertyValue Property="Label" String="SO Navigation" />
+						</Record>
+					</Collection>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="ZOVERVIEWPAGE_SRV.Billing">
+				<Annotation Term="UI.Facets" Qualifier="Card02">
+					<Collection>
+						<Record Type="UI.ReferenceFacet">
+							<Annotation Term="UI.IsSummary" />
+							<PropertyValue Property="Label" String="test" />
+							<PropertyValue Property="Target"
+								AnnotationPath="@UI.FieldGroup#BillingData" />
+						</Record>
+						<Record Type="UI.ReferenceFacet">
+							<Annotation Term="UI.IsSummary" />
+							<PropertyValue Property="Target"
+								AnnotationPath="@UI.Identification#Actions" />
+						</Record>
+					</Collection>
+				</Annotation>
+				<Annotation Term="UI.FieldGroup" Qualifier="BillingData">
+					<Record Type="UI.FieldGroupType">
+						<PropertyValue Property="Label" String="Billing Document" />
+						<PropertyValue Property="Data">
+							<Collection>
+								<Record Type="UI.DataField">
+									<PropertyValue Property="Value" Path="Kunnr" />
+									<PropertyValue Property="Label" String="Bill-To" />
+								</Record>
+								<Record Type="UI.DataField">
+									<PropertyValue Property="Value" Path="Netwr" />
+									<PropertyValue Property="Label" String="Remaining Amount" />
+								</Record>
+								<Record Type="UI.DataField">
+									<PropertyValue Property="Value" Path="Kunrg" />
+									<PropertyValue Property="Label" String="PIC" />
+								</Record>
+								<Record Type="UI.DataField">
+									<PropertyValue Property="Value" Path="Telf1" />
+									<PropertyValue Property="Label" String="Tel Number" />
+								</Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+				<Annotation Term="UI.Identification" Qualifier="Actions">
+					<Collection>
+						<Record Type="UI.DataFieldForIntentBasedNavigation">
+							<PropertyValue Property="SemanticObject" String="SalesOrder" />
+							<PropertyValue Property="Action" String="zobjectpage" />
+							<PropertyValue Property="Label" String="GoTo" />
+							<Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High" />
+						</Record>
+					</Collection>
+				</Annotation>
+				<Annotation Term="UI.HeaderInfo">
+					<Record Type="UI.HeaderInfoType">
+						<PropertyValue Property="TypeName" String="Billing" />
+						<PropertyValue Property="TypeNamePlural" String="Billing" />
+						<PropertyValue Property="Title">
+							<Record Type="UI.DataField">
+								<PropertyValue Property="Value" Path="Vbeln" />
+							</Record>
+						</PropertyValue>
+						<PropertyValue Property="Description">
+							<Record Type="UI.DataField">
+								<PropertyValue Property="Value" Path="Name1" />
+							</Record>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="ZOVERVIEWPAGE_SRV.Shipment">
+				<Annotation Term="UI.Chart" Qualifier="Bubble">
+					<Record Type="UI.ChartDefinitionType">
+						<PropertyValue Property="ChartType" EnumMember="UI.ChartType/Bubble" />
+						<PropertyValue Property="MeasureAttributes">
+							<Collection>
+								<Record Type="UI.ChartMeasureAttributeType">
+									<PropertyValue Property="Measure" PropertyPath="Zdays" />
+									<PropertyValue Property="Role"
+										EnumMember="UI.ChartMeasureRoleType/Axis1" />
+								</Record>
+								<Record Type="UI.ChartMeasureAttributeType">
+									<PropertyValue Property="Measure" PropertyPath="Btgew" />
+									<PropertyValue Property="Role"
+										EnumMember="UI.ChartMeasureRoleType/Axis2" />
+								</Record>
+								<Record Type="UI.ChartMeasureAttributeType">
+									<PropertyValue Property="Measure" PropertyPath="Lfimg" />
+									<PropertyValue Property="Role"
+										EnumMember="UI.ChartMeasureRoleType/Axis3" />
+								</Record>
+							</Collection>
+						</PropertyValue>
+						<PropertyValue Property="DimensionAttributes">
+							<Collection>
+								<Record Type="UI.ChartDimensionAttributeType">
+									<PropertyValue Property="Dimension" PropertyPath="Wgbez" />
+									<PropertyValue Property="Role"
+										EnumMember="UI.ChartDimensionRoleType/Series" />
+								</Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+				<Annotation Term="UI.Chart" Qualifier="Combination">
+					<Record Type="UI.ChartDefinitionType">
+						<PropertyValue Property="ChartType" EnumMember="UI.ChartType/Combination" />
+						<PropertyValue Property="MeasureAttributes">
+							<Collection>
+								<Record Type="UI.ChartMeasureAttributeType">
+									<PropertyValue Property="Measure" PropertyPath="Lfimg" />
+									<PropertyValue Property="Role"
+										EnumMember="UI.ChartMeasureRoleType/Axis1" />
+								</Record>
+								<Record Type="UI.ChartMeasureAttributeType">
+									<PropertyValue Property="Measure" PropertyPath="Btgew" />
+									<PropertyValue Property="Role"
+										EnumMember="UI.ChartMeasureRoleType/Axis1" />
+								</Record>
+							</Collection>
+						</PropertyValue>
+						<PropertyValue Property="DimensionAttributes">
+							<Collection>
+								<Record Type="UI.ChartDimensionAttributeType">
+									<PropertyValue Property="Dimension" PropertyPath="Zdays" />
+									<PropertyValue Property="Role"
+										EnumMember="UI.ChartDimensionRoleType/Category" />
+								</Record>
+							</Collection>
+						</PropertyValue>
+						<!-- <PropertyValue Property="Title" String="Net Value by Order" /> -->
+					</Record>
+				</Annotation>
+				<Annotation Term="UI.DataPoint" Qualifier="NetValue">
+					<Record Type="UI.DataPointType">
+						<PropertyValue Property="Value" Path="Btgewt" />
+						<PropertyValue Property="ValueFormat">
+							<Record Type="UI.NumberFormat">
+								<PropertyValue Property="ScaleFactor" Int="1000" />
+								<PropertyValue Property="NumberOfFractionalDigits"
+									Int="2" />
+							</Record>
+						</PropertyValue>
+					</Record>
+					<!-- <Record Type="UI.DataPointType"> -->
+					<!-- <PropertyValue Property="TargetValue" Path="Btgew" /> -->
+					<!-- <PropertyValue Property="ForecastValue" Path="Btgew" /> -->
+					<!-- <PropertyValue Property="TrendCalculation"> -->
+					<!-- <Record Type="UI.TrendCalculationType"> -->
+					<!-- <PropertyValue Property="ReferenceValue" Path="Btgew" /> -->
+					<!-- <PropertyValue Property="UpDifference" Decimal="0" /> -->
+					<!-- <PropertyValue Property="StrongUpDifference" -->
+					<!-- Decimal="100" /> -->
+					<!-- <PropertyValue Property="DownDifference" Decimal="-1" /> -->
+					<!-- <PropertyValue Property="StrongDownDifference" -->
+					<!-- Decimal="-100" /> -->
+					<!-- </Record> -->
+					<!-- </PropertyValue> -->
+					<!-- <PropertyValue Property="Description" String="Description" /> -->
+					<!-- <PropertyValue Property="Criticality" EnumMember="UI.CriticalityType/Positive"/> -->
+					<!-- <PropertyValue Property="CriticalityCalculation"> -->
+					<!-- <Record Type="UI.CriticalityCalculationType"> -->
+					<!-- <PropertyValue Property="ImprovementDirection" -->
+					<!-- EnumMember="UI.ImprovementDirectionType/Maximize" /> -->
+					<!-- <PropertyValue Property="ToleranceRangeLowValue" -->
+					<!-- Decimal="180" /> -->
+					<!-- <PropertyValue Property="DeviationRangeLowValue" -->
+					<!-- Decimal="90" /> -->
+					<!-- </Record> -->
+					<!-- </PropertyValue> -->
+					<!-- <PropertyValue Property="Value" Path="Btgew" /> -->
+					<!-- <PropertyValue Property="Visualization" -->
+					<!-- EnumMember="UI.VisualizationType/Number" /> -->
+					<!-- </Record> -->
+					<!-- <Annotation Term="Common.Heading" String="Title" /> -->
+				</Annotation>
+				<Annotation Term="UI.Identification" Qualifier="333">
+					<Collection>
+						<Record Type="UI.DataFieldForIntentBasedNavigation">
+							<PropertyValue Property="SemanticObject" String="SalesOrder" />
+							<PropertyValue Property="Action" String="zsmarttable" />
+							<PropertyValue Property="Label" String="DO Navigation" />
+						</Record>
+					</Collection>
+				</Annotation>
+			</Annotations>
+		</Schema>
+	</edmx:DataServices>
+</edmx:Edmx>
