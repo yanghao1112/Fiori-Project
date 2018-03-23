@@ -1,0 +1,134 @@
+<mvc:View controllerName="sap.ui.demo.wt.controller.ProjectInfo"
+	xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:layout="sap.ui.layout"
+	xmlns:core="sap.ui.core" xmlns:uxap="sap.uxap" xmlns:viz="sap.viz.ui5.controls"
+	xmlns:viz.data="sap.viz.ui5.data" xmlns:viz.feeds="sap.viz.ui5.controls.common.feeds"
+	xmlns:g="sap.ab.graph" xmlns:t="sap.ab.projectCard">
+	<Page showNavButton="true" navButtonPress="onNavPress">
+		<content>
+			<layout:Grid defaultSpan="L12 M12 S12" defaultIndent="L0 M0 S0"
+				width="auto" height="auto" hSpacing="0" vSpacing="0">
+				<VBox class="sapUiTinyMargin">
+					<layoutData>
+						<layout:GridData span="L5 M12 S12" />
+					</layoutData>
+					<VBox class="ZBorder ZMarginBottom">
+						<VBox height="40px" class="sapUiTinyMarginTop">
+							<layout:Grid defaultSpan="L6 M6 S6" defaultIndent="L0 M0 S0">
+								<layout:content>
+									<Title text="{/cell2/title}" titleStyle="H4" class="ZTitle" />
+									<VBox class="ZCenter">
+										<layout:Grid defaultSpan="L6 M6 S6" defaultIndent="L0 M0 S0">
+											<Button text="Add" width="100%"></Button>
+											<Button text="Reset" width="100%"></Button>
+										</layout:Grid>
+									</VBox>
+								</layout:content>
+							</layout:Grid>
+						</VBox>
+						<HBox>
+							<layout:Grid defaultSpan="L2 M2 S2" defaultIndent="L0 M0 S0"
+								hSpacing="0.5" vSpacing="0.5" content="{/personInfo/info}"
+								class="sapUiSmallMargin ZMemberImageContainer">
+								<VBox class="ZCenter">
+									<t:MemberImage typeWidth="40px" typeHeight="40px"
+										type="{type}" src="{image}" densityAware="false" width="70px"
+										height="100px" templateShareable="false" click="onPopup">
+									</t:MemberImage>
+									<Link text="Remove" class="ZRemove ZTitle" visible="{removeable}"
+										press="onRemove"></Link>
+								</VBox>
+							</layout:Grid>
+						</HBox>
+					</VBox>
+					<VBox class="ZCenter ZBorder">
+						<Title text="{i18n>titleRadar1}" titleStyle="H4" class="ZTitle sapUiTinyMarginTop" />
+						<layout:Grid defaultSpan="L12 M12 S12" defaultIndent="L0 M0 S0"
+							hSpacing="0" vSpacing="0" class="ZRadarChart1">
+							<g:RadarChart data='{radarData2>/}' option='{radarOption2>/}' />
+						</layout:Grid>
+					</VBox>
+				</VBox>
+
+				<VBox class="sapUiTinyMargin">
+					<layoutData>
+						<layout:GridData span="L7 M12 S12" />
+					</layoutData>
+					<VBox class="ZInfoBorder ZMarginBottom">
+						<Title text="{i18n>projectInfo}" titleStyle="H4" class="ZTitle sapUiTinyMarginTop sapUiTinyMarginBegin sapUiTinyMarginEnd"/>
+						<Title text="{i18n>subTitle}" titleStyle="H5" class="ZTitle sapUiTinyMarginBegin sapUiTinyMarginEnd" />
+						<Table items="{/projectData}" >
+							<columns>
+								<Column>
+									<Text text="{i18n>EngCode}" class="ZTitle" />
+								</Column>
+								<Column minScreenWidth="Tablet" demandPopin="true">
+									<Text text="{i18n>Overview}" class="ZTitle" />
+								</Column>
+								<Column minScreenWidth="Tablet" demandPopin="true" width="4rem"
+									hAlign="Right">
+									<Text text="{i18n>Amount}" class="ZTitle" />
+								</Column>
+								<Column minScreenWidth="Tablet" demandPopin="true"
+									hAlign="Center">
+									<Text text="{i18n>RR}" class="ZTitle" />
+								</Column>
+								<Column minScreenWidth="Tablet" demandPopin="true"
+									hAlign="Center">
+									<Text text="{i18n>Period}" class="ZTitle" />
+								</Column>
+							</columns>
+							<items>
+								<ColumnListItem>
+									<cells>
+										<ObjectIdentifier text="{EngCode}" />
+										<Text text="{Overview}" />
+										<ObjectNumber number="{Amount}" />
+										<Text text="{RR}" />
+										<Text text="{Period}" />
+									</cells>
+								</ColumnListItem>
+							</items>
+						</Table>
+					</VBox>
+
+					<layout:Grid defaultSpan="L12 M12 S12" defaultIndent="L0 M0 S0"
+						width="auto" height="auto" hSpacing="0" vSpacing="0">
+						<VBox class="ZInfoBorder sapUiTinyMarginEnd">
+							<layoutData>
+								<layout:GridData span="L7 M12 S12" />
+							</layoutData>
+							<viz:VizFrame uiConfig="{applicationSet:'fiori'}"
+								width="380px" height="307px" id="idVizFrame" vizType='pie'>
+								<viz:dataset>
+									<viz.data:FlattenedDataset data="{/milk}">
+										<viz.data:dimensions>
+											<viz.data:DimensionDefinition
+												name="Store Name" value="{Store Name}" />
+										</viz.data:dimensions>
+										<viz.data:measures>
+											<viz.data:MeasureDefinition name="Revenue"
+												value="{Revenue}" />
+										</viz.data:measures>
+									</viz.data:FlattenedDataset>
+								</viz:dataset>
+
+								<viz:feeds>
+									<viz.feeds:FeedItem uid="size" type="Measure"
+										values="Revenue" />
+									<viz.feeds:FeedItem uid="color" type="Dimension"
+										values="Store Name" />
+								</viz:feeds>
+							</viz:VizFrame>
+						</VBox>
+						<VBox class="ZInfoBorder">
+							<layoutData>
+								<layout:GridData span="L5 M12 S12" />
+							</layoutData>
+							<g:RadarChart data='{radarData3>/}' option='{radarOption3>/}' />
+						</VBox>
+					</layout:Grid>
+				</VBox>
+			</layout:Grid>
+		</content>
+	</Page>
+</mvc:View>

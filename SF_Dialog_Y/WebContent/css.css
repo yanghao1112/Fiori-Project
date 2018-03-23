@@ -1,0 +1,136 @@
+.ZCARD .sapMDialogScroll {
+	height: 100% !important
+}
+
+.ZCARD .sapUiIcon:focus {
+    outline-width: 0px !important;
+    outline-style: dashed;
+    outline-offset: -0px !important;
+}
+
+.ZCARD {
+	height: 100% !important;
+	max-height: calc(100% - 40px) !important;
+}
+
+.ZHeader {
+	padding: 0.5rem !important;
+}
+
+.ZBorderBottomLine {
+    border-bottom-width: 1px;
+    border-bottom-color: #F5F5F4;
+    border-bottom-style: double;
+}
+
+.ZSummaryPanel .sapMPanelContent{
+    padding-bottom: 0rem !important;
+    background-color: #F9F9F8
+}
+
+.ZLineHeight {
+	line-height: 80px
+}
+.ZLineHeightB {
+	line-height: 40px
+}
+.ZBlockLayoutCell {
+    padding-left: 1.5rem !important;
+    border-bottom-width: 1px;
+    border-bottom-color: #F5F5F4;
+    border-bottom-style: double;
+}
+.ZOverflowHidden > div:nth-child(1) {
+	overflow: visible !important;
+	height: 100px !important;
+}
+.ZSummaryPanel > header > span:nth-child(1) {
+	right: 20px;
+	top: 14px;
+	width: 20px;
+    -webkit-transform:  rotate(90deg);
+	transform:  rotate(90deg);
+    transition: transform !important;
+}
+.ZSummaryPanel > header > span:nth-child(1):hover{
+    border-radius: 30px 0px 0px 30px;
+    background-color: #e8e8e8;
+}
+.ZSummaryPanel .sapMPanelExpandableIconExpanded {
+    display: inline-block;
+    -webkit-transform: rotate(270deg) !important;
+    transform: rotate(270deg) !important;
+    transition: transform !important;
+}
+
+
+.ZSummaryPanel .sapMPanelExpandableIconExpanded:hover {
+	
+     border-radius: 0px 30px 30px 0px !important; 
+
+}
+.ZDrag {
+	cursor: move !important;
+}
+.ZNoSelect span {
+	-webkit-user-select:none;
+    -moz-user-select:none;
+    -ms-user-select:none;
+    user-select:none;
+}
+.ZPointer {
+	cursor: pointer !important;
+	
+}
+
+.ZSummaryPanel header span:focus {
+    outline-width: 0px !important;
+    outline-style: dashed;
+    outline-offset: -0px !important;
+}
+.ZSummaryPanel header .sapUiIcon::after {
+    border: 0px dotted #000000 !important;
+}
+.ZBorder {
+    border: 2px solid #e8e8e8;
+    box-shadow: 5px 5px 5px #888888;
+}
+.ZLeftTransition {
+    transition: left 0.5s;
+}
+.ZCenter {
+	text-align: center;
+}
+
+.ZBackground {
+	background-color: #FFFFFF;
+}
+.ZTitle {
+	font-weight:600 !important;
+}
+.ZTextCenter .sapMFlexItemAlignAuto{
+	align-self : center;
+	padding-top: 40px;
+    padding-bottom: 40px;
+}
+.ZMemberImageContainer > div {
+	overflow:visible !important;
+	position:relative;
+}
+.ZRemove {
+	text-decoration:underline !important;
+	color:#a6a6a6 !important;
+}
+.ZMarginBottom{
+	margin-bottom: 10px !important;
+}
+.ZTitleHeight{
+	height : 50px;
+}
+.ZAddGroupText{
+	font-weight:600 !important;
+	margin-top: 70px !important;
+}
+.ZAddGroup{
+	border-style: dashed !important;
+}

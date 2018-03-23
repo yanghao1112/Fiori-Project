@@ -1,0 +1,107 @@
+<mvc:View controllerName="sap.ui.demo.wt.controller.ZZmain"
+	xmlns="sap.m" xmlns:layout="sap.ui.layout" xmlns:core="sap.ui.core"
+	xmlns:mvc="sap.ui.core.mvc" xmlns:g="sap.ab.graph" xmlns:t="sap.ab.projectCard">
+	<Page showHeader="false" showFooter="false" class="">
+		<content>
+			<layout:FixFlex>
+				<layout:fixContent height="40px">
+					<VBox class="sapUiSmallMarginBegin sapUiSmallMarginEnd">
+						<Title text="{i18n>CompanyName}" titleStyle="H1"
+							class="ZProjectInfoTitle ZTitleHeight"></Title>
+						<HBox height="110px">
+							<VBox width="90%">
+								<Title text="{i18n>TotleRevenue}" titleStyle="H4"></Title>
+								<Title text="{i18n>AverageRR}" titleStyle="H4"></Title>
+								<Title text="{i18n>ActualWork}" titleStyle="H4"></Title>
+							</VBox>
+							<VBox class="sapUiTinyMarginBottom">
+								<Image src="{/LCPImage}" densityAware="false" height="100px"></Image>
+							</VBox>
+						</HBox>
+					</VBox>
+				</layout:fixContent>
+				<layout:flexContent>
+					<TabContainer id="myTabContainer" showAddNewButton="true"
+						addNewButtonPress="addNewButtonPressHandler" itemClose="itemCloseHandler">
+						<items>
+							<TabContainerItem name="{i18n>NasaLastest}" key="Tab1">
+							</TabContainerItem>
+							<TabContainerItem name="{i18n>Normal}" key="Tab2"
+								id="idTab2">
+								<content>
+									<ScrollContainer horizontal="true" height="100%"
+										width="100%" vertical="true">
+										<content>
+											<layout:Grid defaultSpan="L6 M12 S12"
+												defaultIndent="L0 M0 S0" hSpacing="0" vSpacing="0"
+												class="sapUiSmallMargin">
+												<VBox>
+													<layout:Grid defaultSpan="L6 M6 S12"
+														defaultIndent="L0 M0 S0" hSpacing="0" vSpacing="0" class=""
+														content="{path:'/Project'}">
+														<VBox renderType="Bare">
+															<t:ProjectCard click="handleClick" visible="{= !${New} }"
+																binding="{}">
+																<VBox height="170px"
+																	class="ZProjectBorder sapUiTinyMargin ZPointer">
+																	<Title text="{ProjectName}" titleStyle="H4"
+																		width="100%"
+																		class="sapUiTinyMarginTop ZProjectTitle ZNoSelect ZPointer"
+																		textAlign="Center" templateShareable="true">
+																	</Title>
+																	<layout:Grid defaultSpan="L4 M4 S4"
+																		defaultIndent="L0 M0 S0" hSpacing="0.5" vSpacing="0"
+																		class="sapUiTinyMargin ZMemberImageContainer" content="{path:'Members',  templateShareable:false}">
+
+																		<t:MemberImage typeWidth="40px"
+																			typeHeight="40px" type="{Type}" src="{Image}"
+																			densityAware="false" height="90px" templateShareable="false">
+																		</t:MemberImage>
+																	</layout:Grid>
+																</VBox>
+															</t:ProjectCard>
+															<t:ProjectCard click="handleClickNew"
+																visible="{= ${New} }" binding="{}">
+																<VBox height="170px"
+																	class="ZNewBorder ZNewCenter sapUiTinyMargin ZPointer"
+																	renderType="Bare">
+																	<Title text="New Group" titleStyle="H4" width="100%"
+																		height="100%"
+																		class="sapUiTinyMarginTop ZProjectTitle ZNoSelect ZPointer"
+																		textAlign="Center" templateShareable="true">
+																	</Title>
+																</VBox>
+															</t:ProjectCard>
+														</VBox>
+													</layout:Grid>
+												</VBox>
+												<VBox class="sapUiSmallMarginBegin">
+													<layout:BlockLayout id="BlockLayout">
+														<layout:BlockLayoutRow>
+															<layout:BlockLayoutCell title="{i18n>ChartTitle}"
+																class="sapUiSmallMarginBegin">
+																<layout:Grid defaultSpan="L12 M12 S12"
+																	defaultIndent="L0 M0 S0" hSpacing="0" vSpacing="0"
+																	class="ZCenter">
+
+																	<g:RadarChart data='{radarData>/}' option='{radarOption>/}' />
+																</layout:Grid>
+															</layout:BlockLayoutCell>
+														</layout:BlockLayoutRow>
+													</layout:BlockLayout>
+												</VBox>
+											</layout:Grid>
+										</content>
+									</ScrollContainer>
+								</content>
+							</TabContainerItem>
+							<TabContainerItem name="{i18n>Abeamtarou}" key="Tab3">
+							</TabContainerItem>
+						</items>
+					</TabContainer>
+				</layout:flexContent>
+			</layout:FixFlex>
+		</content>
+	</Page>
+</mvc:View>							
+							

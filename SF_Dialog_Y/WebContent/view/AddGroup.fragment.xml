@@ -1,0 +1,12 @@
+<core:FragmentDefinition xmlns="sap.m"
+	xmlns:layout="sap.ui.layout" xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc"
+	xmlns:g="sap.ab.graph" xmlns:t="sap.ab.projectCard">
+	<!-- <layout:Grid defaultSpan="L6 M12 S12" defaultIndent="L0 M0 S0"
+		hSpacing="0" vSpacing="0"> -->
+		<VBox class="sapUiSmallMargin ZProjectBorder ZCenter ZAddGroup"
+			height="173px">
+			<Title text="{i18n>AddGroup}" textAlign="Center" titleStyle="H4"
+				class="ZAddGroupText ZPointer"></Title>
+		</VBox>
+	<!-- </layout:Grid> -->
+</core:FragmentDefinition>

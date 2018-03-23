@@ -1,0 +1,19 @@
+<core:FragmentDefinition xmlns="sap.m"
+	xmlns:layout="sap.ui.layout" xmlns:core="sap.ui.core">
+	<Dialog title="{title}" >
+		<content>
+			<layout:Grid defaultSpan="L12 M12 S12" defaultIndent="L0 M0 S0"
+				width="500px" height="auto" hSpacing="0" vSpacing="0" content="{path:'label'}">
+				<HBox class="">
+					<Label text="{text}" width="100px" class="sapUiTinyMarginTop sapUiLargeMarginBegin">
+					</Label>
+					<Input width="100%"></Input>
+				</HBox>
+			</layout:Grid>
+		</content>
+		<buttons>
+			<Button	text="Cancel" press="onCancel"/>
+			<Button	text="Save" press="onSave"/>
+		</buttons>
+	</Dialog>
+</core:FragmentDefinition>
