@@ -1,0 +1,44 @@
+[
+	{
+		"RankCode": "1",
+		"RankName": "SM/SXP",
+		"Counts": 1,
+		"Target": 1
+	},
+	{
+		"RankCode": "2",
+		"RankName": "PD",
+		"Counts": 1,
+		"Target": 2
+	},
+	{
+		"RankCode": "3",
+		"RankName": "M/XP",
+		"Counts": 3,
+		"Target": 5
+	},
+	{
+		"RankCode": "4",
+		"RankName": "SC/SSP",
+		"Counts": 7,
+		"Target": 8
+	},
+	{
+		"RankCode": "5",
+		"RankName": "C/SP/JSP",
+		"Counts": 20,
+		"Target": 10
+	},
+	{
+		"RankCode": "6",
+		"RankName": "A",
+		"Counts": 10,
+		"Target": 15
+	},
+	{
+		"RankCode": "7",
+		"RankName": "Subcon",
+		"Counts": 15,
+		"Target": 25
+	}
+]

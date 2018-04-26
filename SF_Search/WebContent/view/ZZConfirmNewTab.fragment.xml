@@ -1,0 +1,27 @@
+<core:FragmentDefinition xmlns="sap.m"
+	xmlns:layout="sap.ui.layout" xmlns:core="sap.ui.core">
+	<Dialog title="{i18n>ZFNewTabTitle}">
+		<content>
+			<layout:Grid defaultSpan="L12 M12 S12" defaultIndent="L0 M0 S0"
+				width="500px" height="auto" hSpacing="0" vSpacing="0">
+				<HBox>
+					<Label text="{i18n>ZFNewTabName}" width="100px"
+						class="sapUiTinyMarginTop sapUiLargeMarginBegin">
+					</Label>
+					<Input width="100%"
+						value="{
+									path: 'TabModel>/TabName',
+									type: 'sap.ui.model.odata.type.String',
+									constraints : {
+										maxLength : 10
+									}
+								}"></Input>
+				</HBox>
+			</layout:Grid>
+		</content>
+		<buttons>
+			<Button text="{i18n>ZFSave}" press="onNewTabSave" type="Accept"/>
+			<Button text="{i18n>ZFCancel}" press="onCancel" type="Reject"/>
+		</buttons>
+	</Dialog>
+</core:FragmentDefinition>

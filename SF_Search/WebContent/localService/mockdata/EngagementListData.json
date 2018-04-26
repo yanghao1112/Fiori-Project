@@ -1,0 +1,46 @@
+[
+	{
+		"LEP": "アビーム太郎",
+		"LEM": "アビーム次郎",
+		"EngCode": "XXXXXXXX",
+		"Overview": "XXXXXXXX",
+		"Amount": 99999,
+		"RR": 0.999,
+		"Period": "XX/XX - XX/XX"
+	},
+	{
+		"EngCode": "XXXXXXXX",
+		"Overview": "XXXXXXXX",
+		"Amount": 99999,
+		"RR": 0.888,
+		"Period": "XX/XX - XX/XX"
+	},
+	{
+		"EngCode": "XXXXXXXX",
+		"Overview": "XXXXXXXX",
+		"Amount": 99999,
+		"RR": 0.777,
+		"Period": "XX/XX - XX/XX"
+	},
+	{
+		"EngCode": "XXXXXXXX",
+		"Overview": "XXXXXXXX",
+		"Amount": 99999,
+		"RR": 0.777,
+		"Period": "XX/XX - XX/XX"
+	},
+	{
+		"EngCode": "XXXXXXXX",
+		"Overview": "XXXXXXXX",
+		"Amount": 99999,
+		"RR": 0.777,
+		"Period": "XX/XX - XX/XX"
+	},
+	{
+		"EngCode": "XXXXXXXX",
+		"Overview": "XXXXXXXX",
+		"Amount": 99999,
+		"RR": 0.777,
+		"Period": "XX/XX - XX/XX"
+	}
+]

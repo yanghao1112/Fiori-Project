@@ -1,0 +1,128 @@
+<core:FragmentDefinition xmlns="sap.m"
+	xmlns:custom="sap.ab.p13Panel" xmlns:core="sap.ui.core" xmlns:layout="sap.ui.layout">
+
+	<Dialog title="{i18n>ZFNewGroupTitle}">
+		<content>
+			<UploadCollection
+				id="UploadCollection"
+				maximumFilenameLength="55"
+				maximumFileSize="10"
+				multiple="true"
+				showSeparators="All"
+				change="onChange"
+				fileDeleted="onFileDeleted"
+				filenameLengthExceed="onFilenameLengthExceed"
+				fileRenamed="onFileRenamed"
+				fileSizeExceed="onFileSizeExceed"
+				selectionChange="onSelectionChange"
+				typeMissmatch="onTypeMissmatch"
+				uploadComplete="onUploadComplete"
+				beforeUploadStarts="onBeforeUploadStarts"
+				uploadTerminated="onUploadTerminated"
+				items="{path : '/items', templateShareable : 'true'}"
+				mode="SingleSelectMaster">
+				<items>
+					<UploadCollectionItem
+						fileName="{fileName}"
+						enableEdit="false"
+						enableDelete="true">
+						<attributes>
+							<ObjectAttribute
+								title="title1"
+								text="text1"/>
+						</attributes>
+						<statuses>
+							<ObjectStatus
+								title="\title}"
+								text="\text}"
+								state="state}"/>
+						</statuses>
+					</UploadCollectionItem>
+				</items>
+			</UploadCollection>
+		</content>
+		<buttons>
+			<Button text="{i18n>ZFSave}" press="onNewTalentSave" type="Accept" />
+			<Button text="{i18n>ZFCancel}" press="onCancel" type="Reject" />
+		</buttons>
+	</Dialog>
+
+
+	<!-- <P13nDialog ok="handleOK" cancel="handleCancel" showReset="true" -->
+	<!-- reset="handleReset" initialVisiblePanelType="custom1"> -->
+	<!-- <panels> -->
+	<!-- <custom:CustomPanel title="Columns Setting (Custom Panel)" -->
+	<!-- visible="true" type="custom1"> -->
+	<!-- <custom:content> -->
+	<!-- <VBox -->
+	<!-- class="ZBorder sapUiTinyMarginTop sapUiSmallMarginBegin sapUiSmallMarginEnd"> -->
+
+	<!-- <layout:Grid defaultSpan="L6 M6 S12" defaultIndent="L0 M0 S0" -->
+	<!-- vSpacing="0"> -->
+	<!-- <VBox> -->
+	<!-- <Title text="{i18n>RadioButtonTitle}" -->
+	<!-- class="sapUiTinyMarginTop sapUiTinyMarginBegin ZTitle"></Title> -->
+	<!-- <RadioButtonGroup columns="1" width="500px" -->
+	<!-- id="AnalysisOption" class="sapUiTinyMarginBegin"> -->
+	<!-- <buttons> -->
+	<!-- <RadioButton text="{i18n>Option2}"> -->
+	<!-- <customData> -->
+	<!-- <core:CustomData key="T1" value="T1"> -->
+	<!-- </core:CustomData> -->
+	<!-- </customData> -->
+	<!-- </RadioButton> -->
+	<!-- <RadioButton text="{i18n>Option3}"> -->
+	<!-- <customData> -->
+	<!-- <core:CustomData key="T2" value="T2"> -->
+	<!-- </core:CustomData> -->
+	<!-- </customData> -->
+	<!-- </RadioButton> -->
+	<!-- <RadioButton text="{i18n>Option4}"> -->
+	<!-- <customData> -->
+	<!-- <core:CustomData key="T3" value="T3"> -->
+	<!-- </core:CustomData> -->
+	<!-- </customData> -->
+	<!-- </RadioButton> -->
+	<!-- </buttons> -->
+	<!-- </RadioButtonGroup> -->
+	<!-- </VBox> -->
+	<!-- <VBox> -->
+	<!-- <Title text="{i18n>RadioButtonTitle}" -->
+	<!-- class="sapUiTinyMarginTop sapUiTinyMarginBegin ZTitle"></Title> -->
+	<!-- <RadioButtonGroup columns="1" width="500px" -->
+	<!-- id="ProjectType" class="sapUiTinyMarginBegin"> -->
+	<!-- <buttons> -->
+	<!-- <RadioButton text="{i18n>Option2}"> -->
+	<!-- <customData> -->
+	<!-- <core:CustomData key="T1" value="T1"> -->
+	<!-- </core:CustomData> -->
+	<!-- </customData> -->
+	<!-- </RadioButton> -->
+	<!-- <RadioButton text="{i18n>Option3}"> -->
+	<!-- <customData> -->
+	<!-- <core:CustomData key="T2" value="T2"> -->
+	<!-- </core:CustomData> -->
+	<!-- </customData> -->
+	<!-- </RadioButton> -->
+	<!-- <RadioButton text="{i18n>Option4}"> -->
+	<!-- <customData> -->
+	<!-- <core:CustomData key="T3" value="T3"> -->
+	<!-- </core:CustomData> -->
+	<!-- </customData> -->
+	<!-- </RadioButton> -->
+	<!-- <RadioButton text="{i18n>Option4}"> -->
+	<!-- <customData> -->
+	<!-- <core:CustomData key="T3" value="T3"> -->
+	<!-- </core:CustomData> -->
+	<!-- </customData> -->
+	<!-- </RadioButton> -->
+	<!-- </buttons> -->
+	<!-- </RadioButtonGroup> -->
+	<!-- </VBox> -->
+	<!-- </layout:Grid> -->
+	<!-- </VBox> -->
+	<!-- </custom:content> -->
+	<!-- </custom:CustomPanel> -->
+	<!-- </panels> -->
+	<!-- </P13nDialog> -->
+</core:FragmentDefinition>

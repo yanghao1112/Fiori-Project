@@ -1,0 +1,30 @@
+{
+	"w": 350,
+	"h": 210,
+	"factor": 0.7,
+	"factorLegend": 0.9,
+	"levels": 5,
+	"levelText": true,
+	"maxValue": 5,
+	"minValue": 0,
+	"axisLine": false,
+	"axisText": true,
+	"circles": true,
+	"radius": 5,
+	"backgroundColor": "transparent",
+	"lengendOptionCount": 0,
+	"axes": [
+		{
+			"axis": "L対クライアント能力"
+		},
+		{
+			"axis": "L統合的スギル"
+		},
+		{
+			"axis": "L基本的な能力"
+		},
+		{
+			"axis": "L行動特性"
+		}
+	]
+}

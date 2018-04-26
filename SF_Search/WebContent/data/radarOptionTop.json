@@ -1,0 +1,36 @@
+{
+	"w": 550,
+	"h": 310,
+	"factor": 0.8,
+	"factorLegend": 0.9,
+	"levels": 5,
+	"levelText": true,
+	"maxValue": 5,
+	"minValue": 0,
+	"axisLine": false,
+	"axisText": true,
+	"circles": true,
+	"radius": 5,
+	"backgroundColor": "transparent",
+	"lengendOptionCount": 2,
+	"axes": [
+		{
+			"axis": "L統合的スギル"
+		},
+		{
+			"axis": "QRMリスク評価"
+		},
+		{
+			"axis": "アサインバランス"
+		},
+		{
+			"axis": "L対クライアント能力"
+		},
+		{
+			"axis": "L行動特性"
+		},
+		{
+			"axis": "L基本的な能力"
+		}
+	]
+}

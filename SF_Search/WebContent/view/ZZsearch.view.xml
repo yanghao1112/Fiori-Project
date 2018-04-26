@@ -1,0 +1,392 @@
+<mvc:View controllerName="sap.ui.demo.wt.controller.ZZsearch"
+	xmlns="sap.m" xmlns:layout="sap.ui.layout" xmlns:core="sap.ui.core"
+	xmlns:f="sap.ui.layout.form" xmlns:mvc="sap.ui.core.mvc">
+	<Page showFooter="false" title="{i18n>ZFClientSearchTitle}">
+		<content>
+			<layout:FixFlex>
+				<layout:fixContent height="auto">
+					<!-- <layout:Grid defaultSpan="L7 M6 S6" defaultIndent="L0 M0 S0" -->
+					<!-- vSpacing="0"> -->
+
+					<VBox
+						class="ZBorder sapUiTinyMarginTop sapUiSmallMarginBegin sapUiSmallMarginEnd">
+						<layout:Grid defaultSpan="L6 M6 S12" defaultIndent="L0 M0 S0"
+							vSpacing="0">
+							<VBox>
+								<Title text="{i18n>RadioButtonTitle}"
+									class="sapUiTinyMarginTop sapUiTinyMarginBegin ZTitle"></Title>
+								<RadioButtonGroup columns="1" width="500px"
+									id="AnalysisOption" class="sapUiTinyMarginBegin">
+									<buttons>
+										<RadioButton text="{i18n>Option2}">
+											<customData>
+												<core:CustomData key="T1" value="T1">
+												</core:CustomData>
+											</customData>
+										</RadioButton>
+										<RadioButton text="{i18n>Option3}">
+											<customData>
+												<core:CustomData key="T2" value="T2">
+												</core:CustomData>
+											</customData>
+										</RadioButton>
+										<RadioButton text="{i18n>Option4}">
+											<customData>
+												<core:CustomData key="T3" value="T3">
+												</core:CustomData>
+											</customData>
+										</RadioButton>
+									</buttons>
+								</RadioButtonGroup>
+							</VBox>
+							<VBox>
+								<Title text="{i18n>RadioButtonTitle}"
+									class="sapUiTinyMarginTop sapUiTinyMarginBegin ZTitle"></Title>
+								<RadioButtonGroup columns="1" width="500px"
+									id="ProjectType" class="sapUiTinyMarginBegin">
+									<buttons>
+										<RadioButton text="{i18n>Option2}">
+											<customData>
+												<core:CustomData key="T1" value="T1">
+												</core:CustomData>
+											</customData>
+										</RadioButton>
+										<RadioButton text="{i18n>Option3}">
+											<customData>
+												<core:CustomData key="T2" value="T2">
+												</core:CustomData>
+											</customData>
+										</RadioButton>
+										<RadioButton text="{i18n>Option4}">
+											<customData>
+												<core:CustomData key="T3" value="T3">
+												</core:CustomData>
+											</customData>
+										</RadioButton>
+										<RadioButton text="{i18n>Option4}">
+											<customData>
+												<core:CustomData key="T3" value="T3">
+												</core:CustomData>
+											</customData>
+										</RadioButton>
+									</buttons>
+								</RadioButtonGroup>
+							</VBox>
+						</layout:Grid>
+					</VBox>
+					<VBox>
+						<layout:Grid defaultSpan="L7 M6 S6" defaultIndent="L0 M0 S0"
+							vSpacing="0">
+							<f:Form editable="true">
+								<f:layout>
+									<f:ResponsiveGridLayout labelSpanL="3"
+										labelSpanM="3" labelSpanS="12" emptySpanL="1" emptySpanM="1"
+										emptySpanS="5" columnsL="1" columnsM="1" columnsS="12" />
+								</f:layout>
+								<f:formContainers>
+									<f:FormContainer>
+										<f:formElements>
+											<f:FormElement>
+												<f:fields>
+													<Label text="{i18n>ClientCode}" class="ZLineHeight32">
+														<layoutData>
+															<layout:GridData span="L2 M2 S12"
+																linebreak="true" />
+														</layoutData>
+													</Label>
+													<MultiInput id="ClientCodeInput" change="changewwww"
+														showSuggestion="true" maxTokens="1" tokenUpdate="tokenUpdate"
+														showTableSuggestionValueHelp="false" suggestionRows="{Client>/ClientList}"
+														valueHelpRequest="onClientValueHelp"
+														suggestionItemSelected="suggestionItemSelected">
+														<suggestionColumns>
+															<Column hAlign="Begin" popinDisplay="Inline"
+																demandPopin="true">
+																<Label text="{i18n>ZFImage}" />
+															</Column>
+															<Column hAlign="Begin" popinDisplay="Inline"
+																demandPopin="true">
+																<Label text="{i18n>ZFName}" />
+															</Column>
+															<Column hAlign="Begin" popinDisplay="Inline"
+																demandPopin="true">
+																<Label text="{i18n>ZFCode}" />
+															</Column>
+														</suggestionColumns>
+
+														<suggestionRows>
+															<ColumnListItem>
+																<cells>
+																	<Image src="{Client>Image}" densityAware="false"
+																		height="60px" templateShareable="false">
+																	</Image>
+																	<Label text="{Client>Name}" />
+																	<Label text="{Client>Code}" />
+																</cells>
+																<customData>
+																	<core:CustomData key="data" value="{Client>}"></core:CustomData>
+																</customData>
+															</ColumnListItem>
+
+														</suggestionRows>
+														<layoutData>
+															<layout:GridData span="L5 M5 S12" />
+														</layoutData>
+													</MultiInput>
+												</f:fields>
+											</f:FormElement>
+											<f:FormElement>
+												<f:fields>
+													<Label text="{i18n>ClientName}" class="ZLineHeight32">
+														<layoutData>
+															<layout:GridData span="L2 M2 S12"
+																linebreak="true" />
+														</layoutData>
+													</Label>
+													<MultiInput id="ClientNameInput" change="changewwww"
+														showSuggestion="true" maxTokens="1" tokenUpdate="tokenUpdate"
+														showTableSuggestionValueHelp="false" suggestionRows="{Client>/ClientList}"
+
+														suggestionItemSelected="suggestionItemSelected">
+														<suggestionColumns>
+															<Column hAlign="Begin" popinDisplay="Inline"
+																demandPopin="true">
+																<Label text="Image" />
+															</Column>
+															<Column hAlign="Begin" popinDisplay="Inline"
+																demandPopin="true">
+																<Label text="Name" />
+															</Column>
+															<Column hAlign="Begin" popinDisplay="Inline"
+																demandPopin="true">
+																<Label text="Code" />
+															</Column>
+														</suggestionColumns>
+
+														<suggestionRows>
+															<ColumnListItem>
+																<cells>
+																	<Image src="{Client>Image}" densityAware="false"
+																		height="90px" templateShareable="false">
+																	</Image>
+																	<Label text="{Client>Name}" />
+																	<Label text="{Client>Code}" />
+																</cells>
+																<customData>
+																	<core:CustomData key="data" value="{Client>}"></core:CustomData>
+																</customData>
+															</ColumnListItem>
+
+														</suggestionRows>
+														<layoutData>
+															<layout:GridData span="L5 M5 S12" />
+														</layoutData>
+													</MultiInput>
+												</f:fields>
+											</f:FormElement>
+											<f:FormElement>
+												<f:fields>
+													<Label text="{i18n>LCP}" class="ZLineHeight32">
+														<layoutData>
+															<layout:GridData span="L2 M2 S12"
+																linebreak="true" />
+														</layoutData>
+													</Label>
+													<MultiInput id="LCPInput" change="changewwww"
+														showSuggestion="true" maxTokens="1" tokenUpdate="tokenUpdate"
+														showTableSuggestionValueHelp="false" suggestionRows="{Client>/ClientList}"
+
+														suggestionItemSelected="suggestionItemSelected">
+														<suggestionColumns>
+															<Column hAlign="Begin" popinDisplay="Inline"
+																demandPopin="true">
+																<Label text="Image" />
+															</Column>
+															<Column hAlign="Begin" popinDisplay="Inline"
+																demandPopin="true">
+																<Label text="Name" />
+															</Column>
+															<Column hAlign="Begin" popinDisplay="Inline"
+																demandPopin="true">
+																<Label text="Code" />
+															</Column>
+														</suggestionColumns>
+
+														<suggestionRows>
+															<ColumnListItem>
+																<cells>
+																	<Image src="{Client>Image}" densityAware="false"
+																		height="90px" templateShareable="false">
+																	</Image>
+																	<Label text="{Client>Name}" />
+																	<Label text="{Client>Code}" />
+																</cells>
+																<customData>
+																	<core:CustomData key="data" value="{Client>}"></core:CustomData>
+																</customData>
+															</ColumnListItem>
+
+														</suggestionRows>
+														<layoutData>
+															<layout:GridData span="L5 M5 S12" />
+														</layoutData>
+													</MultiInput>
+												</f:fields>
+											</f:FormElement>
+											<!-- <f:FormElement> -->
+											<!-- <f:fields> -->
+											<!-- <Label text="{i18n>Company}" class="ZTextRed ZLineHeight32"></Label> -->
+											<!-- <MultiInput id="CompanyInput" change="changewwww" -->
+											<!-- showSuggestion="true" maxTokens="1" tokenUpdate="tokenUpdate" -->
+											<!-- showTableSuggestionValueHelp="false" suggestionRows="{Client>/ClientList}" -->
+
+											<!-- suggestionItemSelected="suggestionItemSelected"> -->
+											<!-- <suggestionColumns> -->
+											<!-- <Column hAlign="Begin" popinDisplay="Inline" -->
+											<!-- demandPopin="true"> -->
+											<!-- <Label text="Image" /> -->
+											<!-- </Column> -->
+											<!-- <Column hAlign="Begin" popinDisplay="Inline" -->
+											<!-- demandPopin="true"> -->
+											<!-- <Label text="Name" /> -->
+											<!-- </Column> -->
+											<!-- <Column hAlign="Begin" popinDisplay="Inline" -->
+											<!-- demandPopin="true"> -->
+											<!-- <Label text="Code" /> -->
+											<!-- </Column> -->
+											<!-- </suggestionColumns> -->
+
+											<!-- <suggestionRows> -->
+											<!-- <ColumnListItem> -->
+											<!-- <cells> -->
+											<!-- <Image src="{Client>Image}" densityAware="false" -->
+											<!-- height="90px" templateShareable="false"> -->
+											<!-- </Image> -->
+											<!-- <Label text="{Client>Name}" /> -->
+											<!-- <Label text="{Client>Code}" /> -->
+											<!-- </cells> -->
+											<!-- <customData> -->
+											<!-- <core:CustomData key="data" value="{Client>}"></core:CustomData> -->
+											<!-- </customData> -->
+											<!-- </ColumnListItem> -->
+
+											<!-- </suggestionRows> -->
+											<!-- </MultiInput> -->
+											<!-- </f:fields> -->
+											<!-- </f:FormElement> -->
+											<!-- <f:FormElement> -->
+											<!-- <f:fields> -->
+											<!-- <Label text="{i18n>BU}" class="ZTextRed ZLineHeight32" /> -->
+											<!-- <MultiInput id="BUInput" change="changewwww" -->
+											<!-- showSuggestion="true" maxTokens="1" tokenUpdate="tokenUpdate" -->
+											<!-- showTableSuggestionValueHelp="false" suggestionRows="{Client>/ClientList}" -->
+
+											<!-- suggestionItemSelected="suggestionItemSelected"> -->
+											<!-- <suggestionColumns> -->
+											<!-- <Column hAlign="Begin" popinDisplay="Inline" -->
+											<!-- demandPopin="true"> -->
+											<!-- <Label text="Image" /> -->
+											<!-- </Column> -->
+											<!-- <Column hAlign="Begin" popinDisplay="Inline" -->
+											<!-- demandPopin="true"> -->
+											<!-- <Label text="Name" /> -->
+											<!-- </Column> -->
+											<!-- <Column hAlign="Begin" popinDisplay="Inline" -->
+											<!-- demandPopin="true"> -->
+											<!-- <Label text="Code" /> -->
+											<!-- </Column> -->
+											<!-- </suggestionColumns> -->
+
+											<!-- <suggestionRows> -->
+											<!-- <ColumnListItem> -->
+											<!-- <cells> -->
+											<!-- <Image src="{Client>Image}" densityAware="false" -->
+											<!-- height="90px" templateShareable="false"> -->
+											<!-- </Image> -->
+											<!-- <Label text="{Client>Name}" /> -->
+											<!-- <Label text="{Client>Code}" /> -->
+											<!-- </cells> -->
+											<!-- <customData> -->
+											<!-- <core:CustomData key="data" value="{Client>}"></core:CustomData> -->
+											<!-- </customData> -->
+											<!-- </ColumnListItem> -->
+
+											<!-- </suggestionRows> -->
+											<!-- </MultiInput> -->
+											<!-- </f:fields> -->
+											<!-- </f:FormElement> -->
+										</f:formElements>
+									</f:FormContainer>
+								</f:formContainers>
+							</f:Form>
+						</layout:Grid>
+					</VBox>
+					<!-- </layout:Grid> -->
+
+					<layout:Grid defaultSpan="L1 M2 S6" defaultIndent="L0 M0 S0"
+						class="sapUiSmallMarginBegin">
+						<Button text="{i18n>ZFSearch}" width="100%" press="onSearch"
+							type="Emphasized">
+						</Button>
+						<Button text="{i18n>ZFReset}" width="100%" press="onReset">
+						</Button>
+					</layout:Grid>
+				</layout:fixContent>
+
+				<layout:flexContent>
+					<ScrollContainer id="scroller" vertical="true"
+						height="100%" focusable="true">
+						<VBox
+							class="sapUiSmallMarginBegin sapUiSmallMarginEnd sapUiSmallMarginBottom">
+							<Table items="{ClientInfoList>/List}">
+								<columns>
+									<Column width="20%">
+										<Text text="{i18n>ClientCode}" class="ZTitle" />
+									</Column>
+									<Column width="20%" minScreenWidth="Tablet" demandPopin="true">
+										<Text text="{i18n>ClientName}" class="ZTitle" />
+									</Column>
+									<Column minScreenWidth="Tablet" demandPopin="true"
+										hAlign="Right" width="20%">
+										<Text text="{i18n>LCP}" class="ZTitle" />
+									</Column>
+									<Column minScreenWidth="Tablet" demandPopin="true"
+										hAlign="Center" width="20%">
+										<Text text="{i18n>LEP}" class="ZTitle" />
+									</Column>
+									<Column minScreenWidth="Tablet" demandPopin="true"
+										hAlign="Center" width="20%">
+										<Text text="{i18n>LEM}" class="ZTitle" />
+									</Column>
+								</columns>
+								<items>
+									<ColumnListItem>
+										<cells>
+											<ObjectIdentifier text="{ClientInfoList>ClientCode}" />
+											<Text text="{ClientInfoList>ClientName}" />
+											<Text text="{ClientInfoList>LCP}" />
+											<Link text="{ClientInfoList>LEP}" press="onNavDetail"
+												emphasized="true">
+												<customData>
+													<core:CustomData key="data" value="{ClientInfoList>}"></core:CustomData>
+													<core:CustomData key="type" value="LEP"></core:CustomData>
+												</customData>
+											</Link>
+											<Link text="{ClientInfoList>LEM}" press="onNavDetail"
+												emphasized="true">
+												<customData>
+													<core:CustomData key="data" value="{ClientInfoList>}"></core:CustomData>
+													<core:CustomData key="type" value="LEM"></core:CustomData>
+												</customData>
+											</Link>
+										</cells>
+									</ColumnListItem>
+								</items>
+							</Table>
+						</VBox>
+					</ScrollContainer>
+				</layout:flexContent>
+			</layout:FixFlex>
+		</content>
+	</Page>
+</mvc:View>

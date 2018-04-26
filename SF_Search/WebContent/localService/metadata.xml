@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<edmx:Edmx Version="1.0"
+    xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx">
+    <edmx:DataServices
+        xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" m:DataServiceVersion="1.0">
+        <Schema Namespace="NerdMeetup.Models"
+            xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices"
+            xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
+            xmlns="http://schemas.microsoft.com/ado/2006/04/edm">
+            <EntityType Name="ZClient">
+                <Key>
+                    <PropertyRef Name="Code" />
+                </Key>
+                <Property Name="Image" Type="Edm.String" Nullable="false" />
+                <Property Name="Type" Type="Edm.String" Nullable="false" />
+                <Property Name="Name" Type="Edm.String" Nullable="false" />
+                <Property Name="Code" Type="Edm.String" Nullable="false" />
+            </EntityType>
+            <EntityType Name="ZClient111">
+                <Key>
+                    <PropertyRef Name="Code1" />
+                </Key>
+                <Property Name="Code1" Type="Edm.String" Nullable="false" />
+            </EntityType>
+            <EntityType Name="ZGroup">
+                <Key>
+                    <PropertyRef Name="Code1" />
+                </Key>
+                <Property Name="Code1" Type="Edm.String" Nullable="false" />
+            </EntityType>
+            <EntityType Name="ZClient222">
+                <Key>
+                    <PropertyRef Name="CompanyName" />
+                </Key>
+                <Property Name="CompanyName" Type="Edm.String" Nullable="false" />
+                <Property Name="LCPName" Type="Edm.String" Nullable="false" />
+                <Property Name="LCPImage" Type="Edm.String" Nullable="false" />
+                <Property Name="TotalRevenue" Type="Edm.Int32" Nullable="false" />
+                <Property Name="AveRR" Type="Edm.Double" Nullable="false" />
+                <Property Name="Operation_CS" Type="Edm.Double" Nullable="false" />
+                <Property Name="Operation_OJT" Type="Edm.Double" Nullable="false" />
+                <Property Name="Operation_PUR" Type="Edm.Double" Nullable="false" />
+            </EntityType>
+            <EntityType Name="ZUser">
+                <Key>
+                    <PropertyRef Name="Code1" />
+                </Key>
+                <Property Name="Code1" Type="Edm.String" Nullable="false" />
+            </EntityType>
+            <EntityType Name="Z1">
+                <Key>
+                    <PropertyRef Name="Code1" />
+                </Key>
+                <Property Name="Code1" Type="Edm.String" Nullable="false" />
+            </EntityType>
+            <EntityType Name="ZE">
+                <Key>
+                    <PropertyRef Name="Code1" />
+                </Key>
+                <Property Name="Code1" Type="Edm.String" Nullable="false" />
+            </EntityType>
+            <EntityType Name="ZA">
+                <Key>
+                    <PropertyRef Name="Code1" />
+                </Key>
+                <Property Name="Code1" Type="Edm.String" Nullable="false" />
+            </EntityType>
+            <EntityType Name="ZB">
+                <Key>
+                    <PropertyRef Name="Code1" />
+                </Key>
+                <Property Name="Code1" Type="Edm.String" Nullable="false" />
+            </EntityType>
+            <EntityType Name="ZC">
+                <Key>
+                    <PropertyRef Name="Code1" />
+                </Key>
+                <Property Name="Code1" Type="Edm.String" Nullable="false" />
+            </EntityType>
+            <EntityContainer Name="NerdMeetups" m:IsDefaultEntityContainer="true">
+                <EntitySet Name="ZClientList" EntityType="NerdMeetup.Models.ZClient" />
+                <EntitySet Name="ClientInfoList" EntityType="NerdMeetup.Models.ZClient111" />
+                <EntitySet Name="GroupList" EntityType="NerdMeetup.Models.ZGroup" />
+                <EntitySet Name="ClientSummary" EntityType="NerdMeetup.Models.ZClient222" />
+                <EntitySet Name="UserList" EntityType="NerdMeetup.Models.ZUser" />
+                <EntitySet Name="Group" EntityType="NerdMeetup.Models.Z1" />
+                <EntitySet Name="EngagementListData" EntityType="NerdMeetup.Models.ZE" />
+                <EntitySet Name="AssignList" EntityType="NerdMeetup.Models.ZA" />
+                <EntitySet Name="QRM" EntityType="NerdMeetup.Models.ZB" />
+                <EntitySet Name="TalentInfo" EntityType="NerdMeetup.Models.ZC" />
+                
+                <FunctionImport Name="FindUpcomingMeetups" EntitySet="Meetups" ReturnType="Collection(NerdMeetup.Models.Meetup)" m:HttpMethod="GET" />
+            </EntityContainer>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>

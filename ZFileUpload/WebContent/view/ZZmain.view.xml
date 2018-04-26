@@ -1,12 +1,14 @@
 
 <mvc:View controllerName="sap.ZZZ01.ZFILEUPLOAD.controller.ZZmain"
-	xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m"
+	xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:layout="sap.ui.layout"
 	xmlns:unified="sap.ui.unified" xmlns:fb="sap.ui.comp.smartfilterbar"
 	xmlns:table="sap.ui.table"
 	xmlns:customData="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1"
 	xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form" height="100%">
 	<Page title="{i18n>appTitle}" class="sapUiContentPadding">
 
+			<layout:FixFlex>
+				<layout:fixContent height="auto">
 		<fb:SmartFilterBar id="smartFilterBar" useToolbar="false"
 			search="onUpload" persistencyKey="SmartFilterPKey"
 			entitySet="DeliverySet" customData:dateFormatSettings='\{"UTC":true\}'>
@@ -165,11 +167,17 @@
 			showIcon="true" type="Warning" visible="{ViewModel>/confirmElementVisible}"
 			class="sapUiTinyMarginTop">
 		</MessageStrip>
-		<IconTabBar id="idIconTabBar">
+				</layout:fixContent>
+				<layout:flexContent>
+		<IconTabBar id="idIconTabBar" 
+		stretchContentHeight="true"
+		applyContentPadding="false">
 			<items>
 				<IconTabFilter text="{i18n>ZFSUMMARY}" icon="sap-icon://newspaper"
-					class="sapUiNoContentPadding">
+					class="sapUiNoContentPadding" >
 					<content>
+									<ScrollContainer horizontal="true" height="100%"
+										width="100%" vertical="true">
 						<VBox>
 							<f:SimpleForm id="SimpleFormDisplay354" layout="ResponsiveGridLayout"
 								labelSpanL="2" labelSpanM="2" emptySpanL="0" emptySpanM="0"
@@ -212,6 +220,7 @@
 								</f:content>
 							</f:SimpleForm>
 						</VBox>
+									</ScrollContainer>
 					</content>
 				</IconTabFilter>
 				<IconTabFilter icon="sap-icon://detail-view" text="{i18n>ZFMESSAGES}">
@@ -283,6 +292,8 @@
 			</items>
 		</IconTabBar>
 
+				</layout:flexContent>
+			</layout:FixFlex>
 		<footer>
 			<Toolbar>
 				<ToolbarSpacer />

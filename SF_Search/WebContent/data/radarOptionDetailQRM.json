@@ -1,0 +1,42 @@
+{
+	"w": "350",
+	"h": "250",
+	"factor": 0.6,
+	"factorLegend": 0.8,
+	"levels": 5,
+	"levelText": true,
+	"maxValue": 5,
+	"minValue": 0,
+	"axisLine": true,
+	"axisText": true,
+	"circles": true,
+	"radius": 3,
+	"backgroundColor": "transparent",
+	"lengendOptionCount": 0,
+	"axes": [
+		{
+			"axis": "顧客"
+		},
+		{
+			"axis": "契約/請求"
+		},
+		{
+			"axis": "環境"
+		},
+		{
+			"axis": "要員"
+		},
+		{
+			"axis": "工数見積/予算"
+		},
+		{
+			"axis": "スケジュール"
+		},
+		{
+			"axis": "品質要求"
+		},
+		{
+			"axis": "スコープ"
+		}
+	]
+}

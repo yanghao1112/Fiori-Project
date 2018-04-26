@@ -1,0 +1,147 @@
+[
+	{
+		"GroupName": "アビーム次郎グループ",
+		"Members": [
+			{
+				"Image": "../image/M1.jpg",
+				"Name": "ABC",
+				"Code": "123456789",
+				"Type": "LEP",
+				"SkillData": {
+					"classText": "ABeam Taro",
+					"classColor": "orange",
+					"axes": [
+						{
+							"axis": "L統合的スギル",
+							"value": 4
+						},
+						{
+							"axis": "L対クライアント能力",
+							"value": 2
+						},
+						{
+							"axis": "L行動特性",
+							"value": 3
+						},
+						{
+							"axis": "L基本的な能力",
+							"value": 3
+						}
+					]
+				}
+			},
+			{
+				"Image": "../image/M2.jpg",
+				"Name": "ABC",
+				"Code": "123456789",
+				"Type": "LEM",
+				"SkillData": {
+					"classText": "ABeam Jiro",
+					"classColor": "Purple",
+					"axes": [
+						{
+							"axis": "L統合的スギル",
+							"value": 3
+						},
+						{
+							"axis": "L対クライアント能力",
+							"value": 2
+						},
+						{
+							"axis": "L行動特性",
+							"value": 2
+						},
+						{
+							"axis": "L基本的な能力",
+							"value": 4
+						}
+					]
+				}
+			},
+			{
+				"Image": "../image/M3.jpg",
+				"Name": "ABC",
+				"Code": "123456789",
+				"Type": null,
+				"SkillData": {
+					"classText": "ABeam Jeff",
+					"classColor": "Pink",
+					"axes": [
+						{
+							"axis": "L統合的スギル",
+							"value": 2
+						},
+						{
+							"axis": "L対クライアント能力",
+							"value": 3
+						},
+						{
+							"axis": "L行動特性",
+							"value": 4
+						},
+						{
+							"axis": "L基本的な能力",
+							"value": 1
+						}
+					]
+				}
+			},
+			{
+				"Image": "../image/M4.jpg",
+				"Name": "ABC",
+				"Code": "123456789",
+				"Type": null,
+				"SkillData": {
+					"classText": "ABeam Mike",
+					"classColor": "Red",
+					"axes": [
+						{
+							"axis": "L統合的スギル",
+							"value": 2
+						},
+						{
+							"axis": "L対クライアント能力",
+							"value": 2
+						},
+						{
+							"axis": "L行動特性",
+							"value": 2
+						},
+						{
+							"axis": "L基本的な能力",
+							"value": 4
+						}
+					]
+				}
+			},
+			{
+				"Image": "../image/M5.jpg",
+				"Name": "ABC",
+				"Code": "123456789",
+				"Type": null,
+				"SkillData": {
+					"classText": "ABeam Ricky",
+					"classColor": "#ABC951",
+					"axes": [
+						{
+							"axis": "L統合的スギル",
+							"value": 1
+						},
+						{
+							"axis": "L対クライアント能力",
+							"value": 2
+						},
+						{
+							"axis": "L行動特性",
+							"value": 3
+						},
+						{
+							"axis": "L基本的な能力",
+							"value": 4
+						}
+					]
+				}
+			}
+		]
+	}
+]

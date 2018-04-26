@@ -1,0 +1,52 @@
+<core:FragmentDefinition xmlns="sap.m"
+	xmlns:layout="sap.ui.layout" xmlns:core="sap.ui.core">
+	<Dialog title="{i18n>ZFNewGroupTitle}">
+		<content>
+			<layout:Grid defaultSpan="L12 M12 S12" defaultIndent="L0 M0 S0"
+				width="500px" height="auto" hSpacing="0" vSpacing="0">
+				<HBox>
+					<Label text="{i18n>ZFTalent}" width="100px"
+						class="sapUiTinyMarginTop sapUiLargeMarginBegin">
+					</Label>
+					<MultiInput id="TalentInput" change="changewwww" width="200px"
+						showSuggestion="true" maxTokens="1" tokenUpdate="tokenUpdate" showValueHelp="false"
+						showTableSuggestionValueHelp="false" suggestionRows="{UserList>/}"
+						suggestionItemSelected="suggestionItemSelected">
+						<suggestionColumns>
+							<Column hAlign="Begin" popinDisplay="Inline" demandPopin="true">
+								<Label text="{i18n>ZFImage}" />
+							</Column>
+							<Column hAlign="Begin" popinDisplay="Inline" demandPopin="true">
+								<Label text="{i18n>ZFName}" />
+							</Column>
+							<Column hAlign="Begin" popinDisplay="Inline" demandPopin="true">
+								<Label text="{i18n>ZFCode}" />
+							</Column>
+						</suggestionColumns>
+
+						<suggestionRows>
+							<ColumnListItem>
+								<cells>
+									<Image src="{UserList>Image}" densityAware="false" height="60px"
+										templateShareable="false">
+									</Image>
+									<Label text="{UserList>Name}" />
+									<Label text="{UserList>Code}" />
+								</cells>
+								<customData>
+									<core:CustomData key="data" value="{UserList>}"></core:CustomData>
+								</customData>
+							</ColumnListItem>
+
+						</suggestionRows>
+					</MultiInput>
+					<Link text="{i18n>ZFAdvanceSearch}" class="sapUiSmallMarginBegin ZLineHeight32"></Link>
+				</HBox>
+			</layout:Grid>
+		</content>
+		<buttons>
+			<Button text="{i18n>ZFSave}" press="onNewTalentSave" type="Accept" />
+			<Button text="{i18n>ZFCancel}" press="onCancel" type="Reject" />
+		</buttons>
+	</Dialog>
+</core:FragmentDefinition>

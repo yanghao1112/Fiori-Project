@@ -10,12 +10,12 @@ function(Controller, MessageToast, JSONModel, IconPool, Popup, formatter) {
 	return Controller.extend("sap.ui.demo.wt.controller.ProjectInfo", {
 		formatter: formatter,
 		onInit : function() {
-
+			"use strict";
 			var oModel = new sap.ui.model.json.JSONModel(jQuery.sap
 					.getModulePath("sap.ui.demo.wt.data",
 							"/data3.json"));
 			
-			this.oBundle = this.getOwnerComponent().getModel("i18n").getResourceBundle();
+			/*this.oBundle = this.getOwnerComponent().getModel("i18n").getResourceBundle();*/
 			
 			this.getView().setModel(oModel);
 			this.getView().setModel(this.getOwnerComponent().getModel("list"),"list");
@@ -50,11 +50,21 @@ function(Controller, MessageToast, JSONModel, IconPool, Popup, formatter) {
 			oVizFrame.setModel(oPieChartModel);
 			this._oPopup = [];
 		},
+		
+		/* Event handling for clicking 'Back' on navigator */
 		onNavPress : function(aControlEvent){
+			"use strict";
 			window.history.go(-1);
 		},
-		onPopup: function(aControlEvent){
+		
+		onRemove : function(aControlEvent){
+			"use strict";
 			
+		},
+		
+		/* Event handling for clicking image */
+		onPopup: function(aControlEvent){
+			"use strict";
 			var oModel = new sap.ui.model.json.JSONModel(jQuery.sap
 					.getModulePath("sap.ui.demo.wt.data",
 							"/data1.json"));
@@ -69,7 +79,6 @@ function(Controller, MessageToast, JSONModel, IconPool, Popup, formatter) {
 				return;
 			}
 			
-			
 //			if (!this._oDialogPop) {
 			_oDialogPop.setModel(oModel);
 			_oDialogPop.setModel(this.getView().getModel("list"),"list");
@@ -77,7 +86,6 @@ function(Controller, MessageToast, JSONModel, IconPool, Popup, formatter) {
 			_oDialogPop.setModel(this.getView().getModel("radarOption4"),"radarOption4");
 			oPopup.setContent(_oDialogPop);
 			
-
 			oPopup.attachEventOnce("opened", function(){
 				var oHeaderGrid = _oDialogPop.getAggregation("items")[0].getAggregation("fixContent")[0].getAggregation("content")[1].getAggregation("content")[0];
 				var oHeaderGridDom = oHeaderGrid.getDomRef();
@@ -118,7 +126,10 @@ function(Controller, MessageToast, JSONModel, IconPool, Popup, formatter) {
 				}.bind(this));
 			}
 		},
+		
+		/* Event handling for clicking 'Close' on Popup Dialog */
 		onDecline: function(aControlEvent) {
+			"use strict";
 			var oIcon = aControlEvent.getSource();
 			var oDialog = oIcon.getParent().getParent().getParent();
 			var sDialogId = oDialog.getId();
@@ -136,7 +147,7 @@ function(Controller, MessageToast, JSONModel, IconPool, Popup, formatter) {
 			oClose[0].destroy();
 		},
 		reMovePopup: function(aStart) {
-			
+			"use strict";
 			this._oPopup.forEach(function(value,index) {
 				this.leftTransition(this._oPopup[index].getContent());
 				this._oPopup[index].getContent().getDomRef().style.left = aStart + index * 400 + "px"

@@ -1,0 +1,13 @@
+eclipse.preferences.version=1
+encoding//WebContent/data/dual_lineOptionPersonCard.json=UTF-8
+encoding//WebContent/data/radarOptionDetailQRM.json=UTF-8
+encoding//WebContent/data/radarOptionDetailSkill.json=UTF-8
+encoding//WebContent/data/radarOptionPersonCard.json=UTF-8
+encoding//WebContent/data/radarOptionTop.json=UTF-8
+encoding//WebContent/localService/mockdata/AssignList.json=UTF-8
+encoding//WebContent/localService/mockdata/ClientSummary.json=UTF-8
+encoding//WebContent/localService/mockdata/EngagementListData.json=UTF-8
+encoding//WebContent/localService/mockdata/Group.json=UTF-8
+encoding//WebContent/localService/mockdata/GroupList.json=UTF-8
+encoding//WebContent/localService/mockdata/QRM.json=UTF-8
+encoding//WebContent/localService/mockdata/TalentInfo.json=UTF-8

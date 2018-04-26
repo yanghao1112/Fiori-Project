@@ -1,0 +1,199 @@
+/* .ZCARD .sapMDialogScroll { */
+/* 	height: 100% !important */
+/* } */
+
+/* .ZCARD .sapUiIcon:focus { */
+/*     outline-width: 0px !important; */
+/*     outline-style: dashed; */
+/*     outline-offset: -0px !important; */
+/* } */
+
+/* .ZCARD { */
+/* 	height: 100% !important; */
+/* 	max-height: calc(100% - 40px) !important; */
+/* } */
+
+/* .ZHeader { */
+/* 	padding: 0.5rem !important; */
+/* } */
+
+
+
+
+
+.ZCenter {
+	text-align: center;
+}
+
+/* .ZBackground { */
+/* 	background-color: #FFFFFF; */
+/* } */
+/* .ZTextCenter .sapMFlexItemAlignAuto{ */
+/* 	align-self : center; */
+/* 	padding-top: 40px; */
+/*     padding-bottom: 40px; */
+/* } */
+/* .ZRemove { */
+/* 	text-decoration:underline !important; */
+/* 	color:#a6a6a6 !important; */
+/* } */
+/* .ZMarginBottom{ */
+/* 	margin-bottom: 10px !important; */
+/* } */
+/* .ZTitleHeight{ */
+/* 	height : 50px; */
+/* } */
+/* .ZAddGroupText{ */
+/* 	font-weight:600 !important; */
+/* 	margin-top: 70px !important; */
+/* } */
+/* .ZAddGroup{ */
+/* 	border-style: dashed !important; */
+/* } */
+
+/* Search */
+.ZTextRed {
+	color : red !important;
+}
+
+.ZTextAlignLeft input{
+	text-align: left !important;
+}
+.ZLineHeight32 {
+	line-height: 32px
+}
+
+
+/* Top */
+.ZNoSelect span {
+	-webkit-user-select:none;
+    -moz-user-select:none;
+    -ms-user-select:none;
+}
+.ZPointer {
+	cursor: pointer !important;
+	
+}
+.ZTitle {
+	font-weight:600 !important;
+}
+.ZMemberImageContainer > div {
+	overflow:visible !important;
+	position:relative;
+}
+.ZBorder {
+    border: 2px solid #e8e8e8;
+}
+.ZFontWeight700 {
+	
+	font-weight:700 !important;
+}
+.ZSummaryText {
+	line-height: 24px;
+}
+
+.ZProjectBorder {
+	border-radius: 20px 20px 20px 20px;
+    border: 3px #CCCCFF solid;
+    box-shadow: 3px 3px 3px #888888;
+}
+
+.ZGroupTitle {
+	font-weight:600 !important;
+	text-decoration: underline ;
+	line-height: 30px ;
+}
+
+.ZGroupTitle > span{
+    white-space: normal;
+	word-break: break-all;
+}
+
+.ZNewBorder {
+    border-radius: 20px 20px 20px 20px;
+    border: 3px #CCCCFF dashed;
+    box-shadow: 3px 3px 3px #888888;
+}
+
+.ZNewCenter {
+     line-height: 150px;
+     
+}
+.ZShadow {
+    box-shadow: 3px 3px 3px #888888;
+}
+
+.ZTitleUnderline {
+	text-decoration:underline;
+}
+
+
+/* Employee Popup */
+.ZOverflowHidden > div:nth-child(1) {
+	overflow: visible !important;
+	height: 100px !important;
+}
+.ZBorderBottomLine {
+    border-bottom-width: 1px;
+    border-bottom-color: #F5F5F4;
+    border-bottom-style: double;
+}
+.ZDrag {
+	cursor: move !important;
+}
+.ZSummaryPanel .sapMPanelExpandableIconExpanded:hover {
+     border-radius: 0px 30px 30px 0px !important; 
+}
+.ZSummaryPanel .sapMPanelContent{
+    padding-bottom: 0rem !important;
+    background-color: #F9F9F8
+}
+.ZSummaryPanel > header > span:nth-child(1) {
+	right: 20px;
+	top: 14px;
+	width: 20px;
+    -webkit-transform:  rotate(90deg);
+	transform:  rotate(90deg);
+    transition: transform !important;
+}
+.ZSummaryPanel > header > span:nth-child(1):hover{
+    border-radius: 30px 0px 0px 30px;
+    background-color: #e8e8e8;
+}
+.ZSummaryPanel .sapMPanelExpandableIconExpanded {
+    display: inline-block;
+    -webkit-transform: rotate(270deg) !important;
+    transform: rotate(270deg) !important;
+    transition: transform !important;
+}
+.ZSummaryPanel header span:focus {
+    outline-width: 0px !important;
+    outline-style: dashed;
+    outline-offset: -0px !important;
+}
+.ZSummaryPanel header .sapUiIcon::after {
+    border: 0px dotted #000000 !important;
+}
+.ZLeftTransition {
+    transition: left 0.5s;
+}
+
+.ZLineHeight {
+	line-height: 80px
+}
+
+.ZBlockLayoutCell {
+    padding-left: 1.5rem !important;
+    border-bottom-width: 1px;
+    border-bottom-color: #F5F5F4;
+    border-bottom-style: double;
+}
+.ZOverflowHidden > div:nth-child(1) {
+	overflow: visible !important;
+	height: 100px !important;
+}
+
+
+.ZLineHeightB {
+	line-height: 40px
+}

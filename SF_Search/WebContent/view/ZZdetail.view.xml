@@ -1,0 +1,177 @@
+<mvc:View controllerName="sap.ui.demo.wt.controller.ZZdetail"
+	xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:layout="sap.ui.layout"
+	xmlns:core="sap.ui.core" xmlns:uxap="sap.uxap" xmlns:viz="sap.viz.ui5.controls"
+	xmlns:viz.data="sap.viz.ui5.data" xmlns:viz.feeds="sap.viz.ui5.controls.common.feeds"
+	xmlns:g="sap.ab.graph" xmlns:t="sap.ab.projectCard">
+	<Page showNavButton="true" navButtonPress="onNavPress" title="{i18n>ZFDetailTitle}">
+		<content>
+		
+			<layout:Grid defaultSpan="L7 M7 S12" defaultIndent="L0 M0 S0"
+				width="auto" height="auto" hSpacing="0" vSpacing="0" class="sapUiTinyMargin">
+
+				<layout:Grid defaultSpan="L7 M7 S12" defaultIndent="L0 M0 S0"
+					width="auto" height="auto" hSpacing="0" vSpacing="0">
+					<layout:layoutData>
+						<layout:GridData span="L12 M12 S12" />
+					</layout:layoutData>
+					<Title text="{Group>/group/GroupName}" titleStyle="H3"
+						class="ZTitle ZTitleUnderline sapUiTinyMarginTop sapUiMediumMarginBegin ZLineHeight32">
+
+						<layoutData>
+							<layout:GridData span="L5 M12 S12" />
+						</layoutData>
+					</Title>
+					<Text text="{i18n>ZFProjectComments}" titleStyle="H6"
+						maxLines="2" class="sapUiTinyMarginTop" />
+				</layout:Grid>
+				<VBox class="sapUiTinyMargin">
+					<layoutData>
+						<layout:GridData span="L5 M12 S12" />
+					</layoutData>
+					<VBox class="ZBorder ZShadow sapUiTinyMarginBottom">
+						<VBox height="30px" class="sapUiTinyMarginTop">
+							<layout:Grid defaultSpan="L6 M6 S6" defaultIndent="L0 M0 S0">
+								<layout:content>
+									<Title text="" titleStyle="H4" class="ZTitle" />
+									<VBox class="ZCenter">
+										<layout:Grid defaultSpan="L6 M6 S6" defaultIndent="L0 M0 S0">
+											<Button text="{i18n>ZFAddButton}" type="Emphasized"
+												width="100%" press="onAddNewTalent"></Button>
+											<Button text="{i18n>ZFResetButton}" width="100%"
+												press="onReset"></Button>
+										</layout:Grid>
+									</VBox>
+								</layout:content>
+							</layout:Grid>
+						</VBox>
+						<layout:Grid defaultSpan="L2 M2 S2" defaultIndent="L0 M0 S0"
+							hSpacing="0.5" vSpacing="0" content="{Group>/group/Members}"
+							class="sapUiSmallMargin ZMemberImageContainer" width="550px">
+							<VBox width="70px" height="110px" binding="{Group>}"
+								renderType="Bare">
+
+								<t:MemberImage typeWidth="40px" typeHeight="40px"
+									type="{Group>Type}" src="{Group>Image}" densityAware="false"
+									width="70px" height="90px" templateShareable="false" press="onPressImage">
+								</t:MemberImage>
+								<Link text="Remove" class="ZRemove ZTitle"
+									visible="{= ${Group>Type} === null ? true : false }" press="onRemove"
+									width="100%" textAlign="Center">
+									<customData>
+										<core:CustomData key="id" value="{Group>Code}" />
+									</customData>
+								</Link>
+							</VBox>
+						</layout:Grid>
+					</VBox>
+					<VBox class="ZBorder ZShadow sapUiTinyMarginBottom">
+						<Title text="{Group>/group/GroupName}" titleStyle="H4"
+							class="ZTitle sapUiTinyMarginTop" width="100%" textAlign="Center" />
+						<g:RadarChart data='{Group>/groupRadar}' option='{radarOptionDetailSkill>/}' />
+					</VBox>
+				</VBox>
+
+				<VBox class="sapUiTinyMarginTop sapUiTinyMarginBottom">
+					<VBox class="ZBorder ZShadow sapUiTinyMarginBottom sapUiTinyMarginEnd">
+						<Title text="{i18n>ZFProjectInfo}" titleStyle="H4"
+							class="ZTitle sapUiTinyMarginTop sapUiTinyMarginBegin sapUiTinyMarginEnd" />
+						<HBox>
+							<Title text="{i18n>ZFLEP}{i18n>ZFColon}{Engage>/0/LEP}"
+								titleStyle="H5" class="sapUiTinyMarginBegin" />
+
+							<Title text="{i18n>ZFLEM}{i18n>ZFColon}{Engage>/0/LEM}"
+								titleStyle="H5" class="sapUiSmallMarginBegin" />
+
+						</HBox>
+
+						<Table items="{Engage>/}">
+							<columns>
+								<Column>
+									<Text text="{i18n>EngCode}" class="ZTitle" />
+								</Column>
+								<Column minScreenWidth="Tablet" demandPopin="true">
+									<Text text="{i18n>Overview}" class="ZTitle" />
+								</Column>
+								<Column minScreenWidth="Tablet" demandPopin="true" width="4rem"
+									hAlign="Right">
+									<Text text="{i18n>Amount}" class="ZTitle" />
+								</Column>
+								<Column minScreenWidth="Tablet" demandPopin="true"
+									hAlign="Center">
+									<Text text="{i18n>RR}" class="ZTitle" />
+								</Column>
+								<Column minScreenWidth="Tablet" demandPopin="true"
+									hAlign="Center">
+									<Text text="{i18n>Period}" class="ZTitle" />
+								</Column>
+							</columns>
+							<items>
+								<ColumnListItem>
+									<cells>
+										<ObjectIdentifier text="{Engage>EngCode}" />
+										<Text text="{Engage>Overview}" />
+										<ObjectNumber
+											number="{path: 'Engage>Amount',
+										formatter: '.formatter.numberText'}" />
+										<Text
+											text="{path: 'Engage>RR',
+										formatter: '.formatter.percentText'}" />
+										<Text text="{Engage>Period}" />
+									</cells>
+								</ColumnListItem>
+							</items>
+						</Table>
+					</VBox>
+
+					<layout:Grid defaultSpan="L12 M12 S12" defaultIndent="L0 M0 S0"
+						width="auto" height="auto" hSpacing="0" vSpacing="0">
+						<VBox class="ZBorder ZShadow sapUiTinyMarginBottom sapUiTinyMarginEnd">
+							<layoutData>
+								<layout:GridData span="L6 M12 S12" />
+							</layoutData>
+							<Title text="{i18n>ZFAssignBalance}" titleStyle="H4"
+								class="ZTitle sapUiTinyMarginTop sapUiTinyMarginBegin"></Title>
+							<Title text="{i18n>ZFTotal}" titleStyle="H5"
+								class="sapUiSmallMarginBegin"></Title>
+							<viz:VizFrame uiConfig="{applicationSet:'fiori'}"
+								width="350px" height="270px" id="idVizFrame" vizType='pie'>
+								<viz:dataset>
+									<viz.data:FlattenedDataset data="{AssignList>/}">
+										<viz.data:dimensions>
+											<viz.data:DimensionDefinition
+												name="Rank" value="{AssignList>RankName}" />
+										</viz.data:dimensions>
+										<viz.data:measures>
+											<viz.data:MeasureDefinition name="People"
+												value="{AssignList>Counts}" />
+										</viz.data:measures>
+									</viz.data:FlattenedDataset>
+								</viz:dataset>
+
+								<viz:feeds>
+									<viz.feeds:FeedItem uid="size" type="Measure"
+										values="People" />
+									<viz.feeds:FeedItem uid="color" type="Dimension"
+										values="Rank" />
+								</viz:feeds>
+							</viz:VizFrame>
+						</VBox>
+						<VBox class="ZBorder ZShadow sapUiTinyMarginBottom sapUiTinyMarginEnd">
+
+							<Title text="{i18n>ZFQRMRisk}" titleStyle="H4"
+								class="ZTitle sapUiTinyMarginTop sapUiTinyMarginBegin"></Title>
+							<Title text="{i18n>ZFTotal}" titleStyle="H5"
+								class="sapUiSmallMarginBegin"></Title>
+							<layoutData>
+								<layout:GridData span="L6 M12 S12" />
+							</layoutData>
+							<VBox height="270px">
+								<g:RadarChart data='{QRM>/}' option='{radarOptionDetailQRM>/}' />
+							</VBox>
+						</VBox>
+					</layout:Grid>
+				</VBox>
+			</layout:Grid>
+		</content>
+	</Page>
+</mvc:View>

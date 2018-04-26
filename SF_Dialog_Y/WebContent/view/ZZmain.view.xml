@@ -1,18 +1,47 @@
 <mvc:View controllerName="sap.ui.demo.wt.controller.ZZmain"
 	xmlns="sap.m" xmlns:layout="sap.ui.layout" xmlns:core="sap.ui.core"
-	xmlns:mvc="sap.ui.core.mvc" xmlns:g="sap.ab.graph" xmlns:t="sap.ab.projectCard">
+	xmlns:f="sap.ui.layout.form" xmlns:mvc="sap.ui.core.mvc" xmlns:g="sap.ab.graph"
+	xmlns:t="sap.ab.projectCard">
 	<Page showHeader="false" showFooter="false" class="">
 		<content>
 			<layout:FixFlex>
-				<layout:fixContent height="40px">
+				<layout:fixContent height="auto">
 					<VBox class="sapUiSmallMarginBegin sapUiSmallMarginEnd">
-						<Title text="{i18n>CompanyName}" titleStyle="H1"
+						<Title text="{i18n>CompanyName}" titleStyle="H2"
 							class="ZProjectInfoTitle ZTitleHeight"></Title>
-						<HBox height="110px">
+						<HBox height="auto">
 							<VBox width="90%">
-								<Title text="{i18n>TotleRevenue}" titleStyle="H4"></Title>
-								<Title text="{i18n>AverageRR}" titleStyle="H4"></Title>
-								<Title text="{i18n>ActualWork}" titleStyle="H4"></Title>
+								<f:Form>
+									<f:layout>
+										<f:ResponsiveGridLayout labelSpanL="1"
+											labelSpanM="2" emptySpanL="2" emptySpanM="2" columnsL="2"
+											columnsM="1" />
+									</f:layout>
+									<f:formContainers>
+										<f:FormContainer>
+											<f:formElements>
+												<f:FormElement>
+													<f:fields>
+														<Title text="{i18n>TotalRevenue}"></Title>
+														<Text />
+													</f:fields>
+												</f:FormElement>
+												<f:FormElement>
+													<f:fields>
+														<Title text="{i18n>AverageRR}"></Title>
+														<Text />
+													</f:fields>
+												</f:FormElement>
+												<f:FormElement>
+													<f:fields>
+														<Title text="{i18n>ActualWork}"></Title>
+														<Text />
+													</f:fields>
+												</f:FormElement>
+											</f:formElements>
+										</f:FormContainer>
+									</f:formContainers>
+								</f:Form>
 							</VBox>
 							<VBox class="sapUiTinyMarginBottom">
 								<Image src="{/LCPImage}" densityAware="false" height="100px"></Image>
@@ -22,7 +51,7 @@
 				</layout:fixContent>
 				<layout:flexContent>
 					<TabContainer id="myTabContainer" showAddNewButton="true"
-						addNewButtonPress="addNewButtonPressHandler" itemClose="itemCloseHandler">
+						addNewButtonPress="onAddNewTab" itemClose="itemCloseHandler">
 						<items>
 							<TabContainerItem name="{i18n>NasaLastest}" key="Tab1">
 							</TabContainerItem>
@@ -40,8 +69,8 @@
 														defaultIndent="L0 M0 S0" hSpacing="0" vSpacing="0" class=""
 														content="{path:'/Project'}">
 														<VBox renderType="Bare">
-															<t:ProjectCard click="handleClick" visible="{= !${New} }"
-																binding="{}">
+															<t:ProjectCard click="onPressProject"
+																visible="{= !${New} }" binding="{}">
 																<VBox height="170px"
 																	class="ZProjectBorder sapUiTinyMargin ZPointer">
 																	<Title text="{ProjectName}" titleStyle="H4"
@@ -52,7 +81,6 @@
 																	<layout:Grid defaultSpan="L4 M4 S4"
 																		defaultIndent="L0 M0 S0" hSpacing="0.5" vSpacing="0"
 																		class="sapUiTinyMargin ZMemberImageContainer" content="{path:'Members',  templateShareable:false}">
-
 																		<t:MemberImage typeWidth="40px"
 																			typeHeight="40px" type="{Type}" src="{Image}"
 																			densityAware="false" height="90px" templateShareable="false">
@@ -60,7 +88,7 @@
 																	</layout:Grid>
 																</VBox>
 															</t:ProjectCard>
-															<t:ProjectCard click="handleClickNew"
+															<t:ProjectCard click="onAddNewGroup"
 																visible="{= ${New} }" binding="{}">
 																<VBox height="170px"
 																	class="ZNewBorder ZNewCenter sapUiTinyMargin ZPointer"
@@ -81,9 +109,7 @@
 															<layout:BlockLayoutCell title="{i18n>ChartTitle}"
 																class="sapUiSmallMarginBegin">
 																<layout:Grid defaultSpan="L12 M12 S12"
-																	defaultIndent="L0 M0 S0" hSpacing="0" vSpacing="0"
-																	class="ZCenter">
-
+																	defaultIndent="L0 M0 S0" hSpacing="0" vSpacing="0">
 																	<g:RadarChart data='{radarData>/}' option='{radarOption>/}' />
 																</layout:Grid>
 															</layout:BlockLayoutCell>

@@ -1,0 +1,128 @@
+[
+	{
+		"personInfo": {
+			"image": "../image/M1.jpg",
+			"name": "Tanaka Makoto",
+			"level": "生産本部長"
+		},
+		"title": [
+			{
+				"icon": "sap-icon://accelerated",
+				"bu": "部門HQ",
+				"pernr": "50000000"
+			}
+		],
+		"summary": [
+			{
+				"icon": "sap-icon://history",
+				"title": "勤続年数",
+				"value": "5年、3カ月"
+			},
+			{
+				"icon": "sap-icon://appointment",
+				"title": "開始済",
+				"value": "2017/10/15"
+			},
+			{
+				"icon": "sap-icon://tree",
+				"title": "退職時の影響",
+				"value": "高　　　　　　"
+			},
+			{
+				"icon": "",
+				"title": "退職時リスク",
+				"value": "低　　　　　　"
+			}
+		],
+		"cell1": {
+			"title": "人材情報",
+			"content": [
+				{
+					"icon": "sap-icon://flag",
+					"iconColor": "#FE1B09",
+					"title": "退職時の影響"
+				},
+				{
+					"icon": "sap-icon://alert",
+					"iconColor": "#2B9518",
+					"title": "退職時リスク"
+				}
+			]
+		},
+		"cell2": {
+			"title": "パフォーマンストと潜在力",
+			"content": [
+				{
+					"Period": "2015/12",
+					"contribution": 2,
+					"development": 1
+				},
+				{
+					"Period": "2016/12",
+					"contribution": 2,
+					"development": 1
+				},
+				{
+					"Period": "2017/12",
+					"contribution": 3,
+					"development": 2
+				}
+			]
+		},
+		"cell3": {
+			"title": "学歴",
+			"content": [
+				{
+					"icon": "sap-icon://learning-assistant",
+					"qualifications": "学士",
+					"subject": "法律",
+					"period": "1998/03/31",
+					"college": "慶應義塾大学"
+				},
+				{
+					"icon": "sap-icon://learning-assistant",
+					"qualifications": "学士",
+					"subject": "法律",
+					"period": "1998/03/31",
+					"college": "慶應義塾大学"
+				}
+			]
+		},
+		"cell4": {
+			"title": "社内勤務経験",
+			"content": [
+				{
+					"icon": "sap-icon://employee-pane",
+					"level": "生産本部長",
+					"period": "2015/04-"
+				},
+				{
+					"icon": "sap-icon://employee-pane",
+					"level": "社長, TME",
+					"period": "2009/06-2015/03"
+				},
+				{
+					"icon": "sap-icon://employee-pane",
+					"level": "工場長, 三重工場",
+					"period": "2004/04-2009/05"
+				}
+			]
+		},
+		"cell5": {
+			"title": "言語:日本語,会話能力:上級",
+			"content": [
+				{
+					"classText": "Project1",
+					"classColor": "rgb(0, 80, 180)",
+					"axes": [
+						{"axis": "L統合的スギル", "value": 3},
+						{"axis": "L対クライアント能力", "value": 4},
+						{"axis": "L行動特性", "value": 2},
+						{"axis": "L基本的な能力", "value": 4}
+	
+					]
+				}
+			]
+		}
+	}
+]

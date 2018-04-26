@@ -1,0 +1,248 @@
+[
+	{
+		"GroupName": "アビーム 太郎 Gr.",
+		"Members": [
+			{
+				"Image": "../image/M1.jpg",
+				"Name": "ABC",
+				"Code": "123456789",
+				"Type": "LEP"
+			},
+			{
+				"Image": "../image/M2.jpg",
+				"Name": "ABC",
+				"Code": "123456789",
+				"Type": "LEM"
+			}
+		],
+		"AnalysisData": {
+			"classText": "アビーム 太郎 Gr.",
+			"classColor": "orange",
+			"axes": [
+				{
+					"axis": "L統合的スギル",
+					"value": 4
+				},
+				{
+					"axis": "QRMリスク評価",
+					"value": 3
+				},
+				{
+					"axis": "アサインバランス",
+					"value": 4
+				},
+				{
+					"axis": "L対クライアント能力",
+					"value": 2
+				},
+				{
+					"axis": "L行動特性",
+					"value": 3
+				},
+				{
+					"axis": "L基本的な能力",
+					"value": 3
+				}
+			]
+		},
+		"NASAFlag": true
+	},
+	{
+		"GroupName": "アビーム 次郎 Gr.",
+		"Members": [
+			{
+				"Image": "../image/M3.jpg",
+				"Name": "ABC",
+				"Code": "123456789",
+				"Type": "All"
+			},
+			{
+				"Image": "../image/M2.jpg",
+				"Name": "ABC",
+				"Code": "123456789",
+				"Type": null
+			}
+		],
+		"AnalysisData": {
+			"classText": "アビーム 次郎 Gr.",
+			"classColor": "purple",
+			"axes": [
+				{
+					"axis": "L統合的スギル",
+					"value": 3
+				},
+				{
+					"axis": "QRMリスク評価",
+					"value": 4
+				},
+				{
+					"axis": "アサインバランス",
+					"value": 3
+				},
+				{
+					"axis": "L対クライアント能力",
+					"value": 2
+				},
+				{
+					"axis": "L行動特性",
+					"value": 2
+				},
+				{
+					"axis": "L基本的な能力",
+					"value": 4
+				}
+			]
+		},
+		"NASAFlag": true
+	},
+	{
+		"GroupName": "AB Jeff Gr.",
+		"Members": [
+			{
+				"Image": "../image/M4.jpg",
+				"Name": "ABC",
+				"Code": "123456789",
+				"Type": "LEP"
+			},
+			{
+				"Image": "../image/M5.jpg",
+				"Name": "ABC",
+				"Code": "123456789",
+				"Type": "LEM"
+			},
+			{
+				"Image": "../image/M6.jpg",
+				"Name": "ABC",
+				"Code": "123456789",
+				"Type": null
+			}
+		],
+		"AnalysisData": {
+			"classText": "AB Jeff Gr.",
+			"classColor": "pink",
+			"axes": [
+				{
+					"axis": "L統合的スギル",
+					"value": 2
+				},
+				{
+					"axis": "QRMリスク評価",
+					"value": 4
+				},
+				{
+					"axis": "アサインバランス",
+					"value": 4
+				},
+				{
+					"axis": "L対クライアント能力",
+					"value": 4
+				},
+				{
+					"axis": "L行動特性",
+					"value": 2
+				},
+				{
+					"axis": "L基本的な能力",
+					"value": 1
+				}
+			]
+		},
+		"NASAFlag": true
+	},
+	{
+		"GroupName": "AB Mike Gr.",
+		"Members": [
+			{
+				"Image": "../image/M6.jpg",
+				"Name": "ABC",
+				"Code": "123456789",
+				"Type": "LEP"
+			},
+			{
+				"Image": "../image/M7.jpg",
+				"Name": "ABC",
+				"Code": "123456789",
+				"Type": "LEM"
+			}
+		],
+		"AnalysisData": {
+			"classText": "AB Mike Gr.",
+			"classColor": "red",
+			"axes": [
+				{
+					"axis": "L統合的スギル",
+					"value": 2
+				},
+				{
+					"axis": "QRMリスク評価",
+					"value": 3
+				},
+				{
+					"axis": "アサインバランス",
+					"value": 4
+				},
+				{
+					"axis": "L対クライアント能力",
+					"value": 3
+				},
+				{
+					"axis": "L行動特性",
+					"value": 2
+				},
+				{
+					"axis": "L基本的な能力",
+					"value": 4
+				}
+			]
+		},
+		"NASAFlag": true
+	},
+	{
+		"GroupName": "AB Mike Gr. 2222",
+		"Members": [
+			{
+				"Image": "../image/M3.jpg",
+				"Name": "ABC",
+				"Code": "123456789",
+				"Type": "LEP"
+			},
+			{
+				"Image": "../image/M2.jpg",
+				"Name": "ABC",
+				"Code": "123456789",
+				"Type": "LEM"
+			}
+		],
+		"AnalysisData": {
+			"classText": "AB Mike Gr.",
+			"classColor": "#CCCCCC",
+			"axes": [
+				{
+					"axis": "L統合的スギル",
+					"value": 3
+				},
+				{
+					"axis": "QRMリスク評価",
+					"value": 4
+				},
+				{
+					"axis": "アサインバランス",
+					"value": 5
+				},
+				{
+					"axis": "L対クライアント能力",
+					"value": 1
+				},
+				{
+					"axis": "L行動特性",
+					"value": 2
+				},
+				{
+					"axis": "L基本的な能力",
+					"value": 3
+				}
+			]
+		},
+		"NASAFlag": false
+	}
+]

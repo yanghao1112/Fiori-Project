@@ -1,0 +1,221 @@
+<mvc:View controllerName="sap.ui.demo.wt.controller.ZZtop"
+	xmlns="sap.m" xmlns:layout="sap.ui.layout" xmlns:core="sap.ui.core"
+	xmlns:f="sap.ui.layout.form" xmlns:mvc="sap.ui.core.mvc" xmlns:g="sap.ab.graph"
+	xmlns:t="sap.ab.projectCard">
+	<Page title="{i18n>ZFTopTitle}" showFooter="false" class="" showNavButton="true" navButtonPress="onNavPress" >
+		<headerContent>
+			<Button icon="sap-icon://upload" tooltip="Filter" press="onPressUpload"/>
+			<Button icon="sap-icon://filter" tooltip="Upload" press="onPressFilter"/>
+		</headerContent>
+		<content>
+			<layout:FixFlex>
+				<layout:fixContent height="auto">
+				
+					<HBox class="sapUiSmallMarginBegin sapUiSmallMarginEnd sapUiTinyMarginTop">
+						<VBox width="90%">
+							<layout:Grid defaultSpan="L6 M12 S12" defaultIndent="L0 M0 S0"
+								hSpacing="0" vSpacing="0">
+
+								<Title text="{Client>/CompanyName}" titleStyle="H2"
+									class="ZFontWeight700">
+									<layoutData>
+										<layout:GridData span="L2 M4 S12" linebreak="true" />
+									</layoutData>
+								</Title>
+								<Title text="{i18n>ZFLCP}{i18n>ZFColon}{Client>/LCPName}" titleStyle="H2"
+									class="ZFontWeight700">
+									<layoutData>
+										<layout:GridData span="L7 M7 S12" />
+									</layoutData>
+								</Title>
+								<Label text="{i18n>ZFTotalRevenue}" class="ZSummaryText">
+									<layoutData>
+										<layout:GridData span="L2 M4 S12" linebreak="true" />
+									</layoutData>
+								</Label>
+								<Label
+									text="{path: 'Client>/TotalRevenue',
+										formatter: '.formatter.numberText'}"
+									class="ZSummaryText ZFontWeight700">
+									<layoutData>
+										<layout:GridData span="L7 M7 S12" />
+									</layoutData>
+								</Label>
+								<Label text="{i18n>ZFAverageRR}" class="ZSummaryText">
+									<layoutData>
+										<layout:GridData span="L2 M4 S12" linebreak="true" />
+									</layoutData>
+								</Label>
+								<Label
+									text="{path: 'Client>/AveRR',
+										formatter: '.formatter.percentText'}"
+									class="ZSummaryText ZFontWeight700">
+									<layoutData>
+										<layout:GridData span="L7 M7 S12" />
+									</layoutData>
+								</Label>
+								<Label text="{i18n>ZFActualWork}" class="ZSummaryText">
+									<layoutData>
+										<layout:GridData span="L2 M4 S12" linebreak="true" />
+									</layoutData>
+								</Label>
+								<FormattedText
+									htmlText="&lt;span&gt;{i18n>ZFCS} &lt;strong&gt;{path: 'Client>/Operation_CS',
+										formatter: '.formatter.numberText'}&lt;/strong&gt;{i18n>ZFPeopleMonth}{i18n>ZFSPACE}
+										{i18n>ZFOJT} &lt;strong&gt;{path: 'Client>/Operation_OJT',
+										formatter: '.formatter.numberText'}&lt;/strong&gt;{i18n>ZFPeopleMonth}{i18n>ZFSPACE} 
+										{i18n>ZFPursuit} &lt;strong&gt;{path: 'Client>/Operation_PUR',
+										formatter: '.formatter.numberText'}&lt;/strong&gt;{i18n>ZFPeopleMonth}&lt;/span&gt;"
+									class="ZSummaryText sapMLabel">
+									<layoutData>
+										<layout:GridData span="L7 M7 S12" />
+									</layoutData>
+								</FormattedText>
+							</layout:Grid>
+						</VBox>
+							<Image src="{Client>/LCPImage}" densityAware="false"
+								height="100px" class="sapUiTinyMarginTop"></Image>
+					</HBox>
+				</layout:fixContent>
+				<layout:flexContent>
+					<TabContainer id="GroupTabContainer" showAddNewButton="true"
+						addNewButtonPress="onAddNewTab" itemClose="itemCloseHandler" class="ZTabContainerItemNoClose12">
+						<items>
+							<TabContainerItem name="{i18n>ZFNasaLastest}" id="idTab1"
+								key="Tab1">
+								<content>
+									<ScrollContainer horizontal="true" height="100%"
+										width="100%" vertical="true">
+										<content>
+											<layout:Grid defaultSpan="L6 M12 S12"
+												defaultIndent="L0 M0 S0" hSpacing="0" vSpacing="0"
+												class="sapUiSmallMarginBegin sapUiSmallMarginEnd">
+												<VBox>
+													<layout:Grid defaultSpan="L6 M6 S12"
+														defaultIndent="L0 M0 S0" hSpacing="0" vSpacing="0"
+														content="{path:'TabModel>/group'}">
+														<VBox renderType="Bare">
+															<t:ProjectCard click="onPressGroup"
+																visible="{= ${TabModel>NASAFlag} }" binding="{TabModel>}">
+																<VBox height="170px" class="ZProjectBorder sapUiTinyMargin ZPointer">
+																	<Title text="{TabModel>GroupName}" titleStyle="H4"
+																		width="100%"
+																		class="sapUiTinyMarginTop ZGroupTitle ZNoSelect ZPointer"
+																		textAlign="Center" templateShareable="true">
+																	</Title>
+																	<layout:Grid defaultSpan="L4 M4 S4"
+																		defaultIndent="L0 M0 S0" hSpacing="0.5" vSpacing="0"
+																		class="sapUiTinyMargin ZMemberImageContainer"
+																		content="{path:'TabModel>Members',  templateShareable:false}">
+																		<t:MemberImage typeWidth="40px"
+																			typeHeight="40px" type="{TabModel>Type}" src="{TabModel>Image}"
+																			densityAware="false" height="90px" templateShareable="false">
+																		</t:MemberImage>
+																	</layout:Grid>
+																</VBox>
+															</t:ProjectCard>
+														</VBox>
+													</layout:Grid>
+												</VBox>
+												<VBox class="sapUiSmallMarginBegin">
+													<layout:BlockLayout>
+														<layout:BlockLayoutRow>
+															<layout:BlockLayoutCell title="{i18n>ZFChartTitle}"
+																class="sapUiSmallMarginBegin">
+																<layout:Grid defaultSpan="L12 M12 S12"
+																	defaultIndent="L0 M0 S0" hSpacing="0" vSpacing="0"
+																	class="ZCenter">
+
+																	<g:RadarChart data="{TabModel>/groupRadar}"
+																		option="{radarOption>/}" />
+																</layout:Grid>
+															</layout:BlockLayoutCell>
+														</layout:BlockLayoutRow>
+													</layout:BlockLayout>
+												</VBox>
+											</layout:Grid>
+										</content>
+									</ScrollContainer>
+								</content>
+							</TabContainerItem>
+							<TabContainerItem name="{i18n>ZFFormal}" key="Tab2"
+								id="idTab2">
+								<content>
+									<ScrollContainer horizontal="true" height="100%"
+										width="100%" vertical="true">
+										<content>
+											<layout:Grid defaultSpan="L6 M12 S12"
+												defaultIndent="L0 M0 S0" hSpacing="0" vSpacing="0"
+												class="sapUiSmallMarginBegin sapUiSmallMarginEnd">
+												<VBox>
+													<layout:Grid defaultSpan="L6 M6 S12"
+														defaultIndent="L0 M0 S0" hSpacing="0" vSpacing="0" class=""
+														content="{path:'TabModel>/group'}">
+														<VBox renderType="Bare">
+															<t:ProjectCard click="onPressGroup"
+																visible="{= !${TabModel>NewCreate} }" binding="{TabModel>}">
+																<VBox height="170px"
+																	class="ZProjectBorder sapUiTinyMargin ZPointer">
+																	<Title text="{TabModel>GroupName}" titleStyle="H4"
+																		width="100%"
+																		class="sapUiTinyMarginTop ZGroupTitle ZNoSelect ZPointer"
+																		textAlign="Center" templateShareable="true">
+																	</Title>
+																	<layout:Grid defaultSpan="L4 M4 S4"
+																		defaultIndent="L0 M0 S0" hSpacing="0.5" vSpacing="0"
+																		class="sapUiTinyMargin ZMemberImageContainer"
+																		content="{path:'TabModel>Members',  templateShareable:false}">
+																		<t:MemberImage typeWidth="40px"
+																			typeHeight="40px" type="{TabModel>Type}" src="{TabModel>Image}"
+																			densityAware="false" height="90px" templateShareable="false">
+																		</t:MemberImage>
+																	</layout:Grid>
+																</VBox>
+															</t:ProjectCard>
+															<t:ProjectCard click="onAddNewGroup"
+																visible="{= ${TabModel>NewCreate} }" binding="{TabModel>}">
+																<VBox height="170px"
+																	class="ZNewBorder ZNewCenter sapUiTinyMargin ZPointer"
+																	renderType="Bare">
+																	<Title text="New Group" titleStyle="H4" width="100%"
+																		height="100%"
+																		class="sapUiTinyMarginTop ZProjectTitle ZNoSelect ZPointer"
+																		textAlign="Center" templateShareable="true">
+																	</Title>
+																</VBox>
+															</t:ProjectCard>
+														</VBox>
+													</layout:Grid>
+												</VBox>
+												<VBox class="sapUiSmallMarginBegin">
+													<layout:BlockLayout>
+														<layout:BlockLayoutRow>
+															<layout:BlockLayoutCell title="{i18n>ZFChartTitle}"
+																class="sapUiSmallMarginBegin">
+																<layout:Grid defaultSpan="L12 M12 S12"
+																	defaultIndent="L0 M0 S0" hSpacing="0" vSpacing="0"
+																	class="ZCenter">
+
+																	<g:RadarChart data="{TabModel>/groupRadar}"
+																		option="{radarOption>/}" />
+																</layout:Grid>
+															</layout:BlockLayoutCell>
+														</layout:BlockLayoutRow>
+													</layout:BlockLayout>
+												</VBox>
+											</layout:Grid>
+										</content>
+									</ScrollContainer>
+								</content>
+							</TabContainerItem>
+<!-- 							<TabContainerItem name="{i18n>ZFAbeamtarou}" -->
+<!-- 								key="Tab3"> -->
+<!-- 							</TabContainerItem> -->
+						</items>
+					</TabContainer>
+				</layout:flexContent>
+			</layout:FixFlex>
+		</content>
+	</Page>
+</mvc:View>							
+							

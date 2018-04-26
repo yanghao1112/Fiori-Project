@@ -3,7 +3,67 @@ sap.ui.define([ "sap/ui/core/mvc/Controller", "sap/m/MessageToast",
 		"sap/m/Image"], function(Controller, MessageToast,
 		JSONModel, IconPool, Popup, Image) {
 	return Controller.extend("sap.ui.demo.wt.controller.App", {
+//		sortArray: function(array, keys) {
+//			var keysAry = keys.split(',');
+//			array.sort(function(a,b) {
+////				var aAry = keysAry.map(function(item, index) {
+////					return a[item] ? a[item] : "";
+////				})
+////				var bAry = keysAry.map(function(item, index) {
+////					return b[item] ? b[item] : "";
+////				})
+//				for (var i = 0; i < keysAry.length; i++) {
+//					if (this.compare(a[keysAry[i]],b[keysAry[i]])) {
+//						return false;
+//					}
+//				}
+//				return true;
+//			}.bind(this))
+//			return array;
+//		},
+//		compare: function(a,b) {
+//			if (a < b) {
+//				return true;
+//			} else if (a === b) {
+//				return false;
+//			}
+//		},
 		onInit : function() {
+			var array = [1,2,3,4,5,6,7];
+			
+//			var array2 = [...array];
+			
+//			var x = new Date("2018-01-01");
+//			var xx = {x:x};
+//			var yy = $.extend(true,{},xx)
+//			jQuery.sap.equal(yy, xx)
+//			x.setFullYear(2100,0,14);
+//			
+//			function getFullName({ firstName, lastName }) {
+//			    return '${firstName} ${lastName}';
+//			}
+//			var zz = getFullName({firstName:123, lastName:324});
+//			console.log(zz);
+			
+//			var array = [{
+//				x1:1,
+//				x2:"abc",
+//				x3:265
+//			},{
+//				x1:10,
+//				x2:"abc",
+//				x3:265
+//			},{
+//				x1:2,
+//				x2:"abc",
+//				x3:265
+//			},{
+//				x1:1,
+//				x2:"abcd",
+//				x3:265
+//			}]
+//			this.sortArray(array,"x1,x2")
+			
 //			Function.prototype.before = function( beforefn ) {
 //				var __self = this;
 //				return function() {
@@ -119,7 +179,7 @@ sap.ui.define([ "sap/ui/core/mvc/Controller", "sap/m/MessageToast",
 						}
 					},
 					isMobile: function( value, errorMsg) {
-						if (!/(^1[3|5|8][0-9]{9}$)/.test(value)){
+						if (!/(^1[3|5|8][0-9]{9}$)/.test(value)){ 
 							return errorMsg;
 						}
 					}
@@ -202,6 +262,8 @@ sap.ui.define([ "sap/ui/core/mvc/Controller", "sap/m/MessageToast",
 				Image.setSrc(this.src);
 			}
 		}
+		
+		
 
 	});
 });

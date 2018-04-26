@@ -25,25 +25,24 @@
 								</layout:content>
 							</layout:Grid>
 						</VBox>
-						<HBox>
-							<layout:Grid defaultSpan="L2 M2 S2" defaultIndent="L0 M0 S0"
-								hSpacing="0.5" vSpacing="0.5" content="{/personInfo/info}"
-								class="sapUiSmallMargin ZMemberImageContainer">
-								<VBox class="ZCenter">
-									<t:MemberImage typeWidth="40px" typeHeight="40px"
-										type="{type}" src="{image}" densityAware="false" width="70px"
-										height="100px" templateShareable="false" click="onPopup">
-									</t:MemberImage>
-									<Link text="Remove" class="ZRemove ZTitle" visible="{removeable}"
-										press="onRemove"></Link>
-								</VBox>
-							</layout:Grid>
-						</HBox>
+						<layout:Grid defaultSpan="L2 M2 S2" defaultIndent="L0 M0 S0"
+							hSpacing="0.5" vSpacing="0.5" content="{/personInfo/info}"
+							class="sapUiSmallMargin ZMemberImageContainer">
+							<VBox class="ZCenter">
+								<t:MemberImage typeWidth="40px" typeHeight="40px"
+									type="{type}" src="{image}" densityAware="false" width="70px"
+									height="90px" templateShareable="false" click="onPopup">
+								</t:MemberImage>
+								<Link text="Remove" class="ZRemove ZTitle" visible="{removeable}"
+									press="onRemove"></Link>
+							</VBox>
+						</layout:Grid>
 					</VBox>
 					<VBox class="ZCenter ZBorder">
-						<Title text="{i18n>titleRadar1}" titleStyle="H4" class="ZTitle sapUiTinyMarginTop" />
+						<Title text="{i18n>titleRadar1}" titleStyle="H4"
+							class="ZTitle sapUiTinyMarginTop" />
 						<layout:Grid defaultSpan="L12 M12 S12" defaultIndent="L0 M0 S0"
-							hSpacing="0" vSpacing="0" class="ZRadarChart1">
+							hSpacing="0" vSpacing="0">
 							<g:RadarChart data='{radarData2>/}' option='{radarOption2>/}' />
 						</layout:Grid>
 					</VBox>
@@ -54,9 +53,11 @@
 						<layout:GridData span="L7 M12 S12" />
 					</layoutData>
 					<VBox class="ZInfoBorder ZMarginBottom">
-						<Title text="{i18n>projectInfo}" titleStyle="H4" class="ZTitle sapUiTinyMarginTop sapUiTinyMarginBegin sapUiTinyMarginEnd"/>
-						<Title text="{i18n>subTitle}" titleStyle="H5" class="ZTitle sapUiTinyMarginBegin sapUiTinyMarginEnd" />
-						<Table items="{/projectData}" >
+						<Title text="{i18n>projectInfo}" titleStyle="H4"
+							class="ZTitle sapUiTinyMarginTop sapUiTinyMarginBegin sapUiTinyMarginEnd" />
+						<Title text="{i18n>subTitle}" titleStyle="H5"
+							class="ZTitle sapUiTinyMarginBegin sapUiTinyMarginEnd" />
+						<Table items="{/projectData}">
 							<columns>
 								<Column>
 									<Text text="{i18n>EngCode}" class="ZTitle" />
@@ -97,6 +98,10 @@
 							<layoutData>
 								<layout:GridData span="L7 M12 S12" />
 							</layoutData>
+							<Title text="{i18n>AssignBalance}" titleStyle="H4"
+								class="ZTitle sapUiTinyMarginTop sapUiTinyMarginBegin"></Title>
+							<Title text="{i18n>Total}" titleStyle="H5"
+								class="sapUiSmallMarginBegin"></Title>
 							<viz:VizFrame uiConfig="{applicationSet:'fiori'}"
 								width="380px" height="307px" id="idVizFrame" vizType='pie'>
 								<viz:dataset>
@@ -120,7 +125,7 @@
 								</viz:feeds>
 							</viz:VizFrame>
 						</VBox>
-						<VBox class="ZInfoBorder">
+						<VBox class="ZInfoBorder" height="378px">
 							<layoutData>
 								<layout:GridData span="L5 M12 S12" />
 							</layoutData>
