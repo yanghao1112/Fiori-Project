@@ -1,0 +1,319 @@
+<mvc:View controllerName="sap.pwaa.controller.Z001S002"
+	xmlns="sap.m" xmlns:layout="sap.ui.layout" xmlns:core="sap.ui.core"
+	xmlns:f="sap.ui.layout.form" xmlns:mvc="sap.ui.core.mvc">
+	<Page showFooter="false" title="{i18n>ZFClientSearchTitle}">
+		<content>
+			<layout:FixFlex>
+				<layout:fixContent height="auto">
+					<VBox
+						class="sapUiSmallMarginTop sapUiSmallMarginBegin sapUiSmallMarginEnd">
+						<core:Fragment fragmentName="sap.pwaa.util.PeriodBar"
+							type="JS" />
+					</VBox>
+
+					<layout:Grid defaultSpan="L7 M7 S7" defaultIndent="L0 M0 S0"
+						vSpacing="0">
+						<VBox>
+							<f:Form editable="true">
+								<f:layout>
+									<f:ResponsiveGridLayout labelSpanL="3"
+										labelSpanM="3" labelSpanS="12" emptySpanL="1" emptySpanM="1"
+										emptySpanS="5" columnsL="1" columnsM="1" columnsS="12" />
+								</f:layout>
+								<f:formContainers>
+									<f:FormContainer>
+										<f:toolbar>
+											<Toolbar>
+												<Title id="Title2" text="{i18n>ZFSearchOptionTitle}"
+													level="H5" titleStyle="H5" />
+												<core:Icon src="sap-icon://sys-help-2" color="#BABABA"
+													tooltip="{i18n>ZFSearchOptionTooltip}" press="onShowHelpContent">
+
+													<core:customData>
+														<core:CustomData key="tooltip"
+															value="{i18n>ZFSearchOptionTooltip}"></core:CustomData>
+													</core:customData>
+												</core:Icon>
+											</Toolbar>
+										</f:toolbar>
+										<f:formElements>
+											<f:FormElement>
+												<f:fields>
+													<Label text="{i18n>ZFOwnerCompanyLabel}" class="ZLineHeight32">
+														<layoutData>
+															<layout:GridData span="L2 M2 S12" indent="L1 M1 S0"
+																linebreak="true" />
+														</layoutData>
+													</Label>
+
+													<MultiInput id="OwnerCompany" change="onInputChange"
+														showSuggestion="true" maxTokens="1" tokenUpdate="onTokenUpdate"
+														showTableSuggestionValueHelp="false"
+														suggestionRows="{SearchHelp>/OwnerCompanyInformation}"
+														valueHelpRequest="onCompanyValueHelp"
+														suggestionItemSelected="onSuggestionSelected"
+														suggest="onSuggest" filterSuggests="false">
+														<suggestionColumns>
+															<Column hAlign="Begin" popinDisplay="Inline"
+																demandPopin="true">
+																<Label text="{i18n>ZFCode}" />
+															</Column>
+															<Column hAlign="Begin" popinDisplay="Inline"
+																demandPopin="true">
+																<Label text="{i18n>ZFName}" />
+															</Column>
+														</suggestionColumns>
+
+														<suggestionRows>
+															<ColumnListItem>
+																<cells>
+																	<Label class="ZLableWordWrap" text="{SearchHelp>ownerCompanyCode}" />
+																	<Label class="ZLableWordWrap" text="{SearchHelp>ownerCompanyName}" />
+																</cells>
+																<customData>
+																	<core:CustomData key="data" value="{SearchHelp>}"></core:CustomData>
+																</customData>
+															</ColumnListItem>
+
+														</suggestionRows>
+														<layoutData>
+															<layout:GridData span="L5 M5 S12" />
+														</layoutData>
+														<customData>
+															<core:CustomData key="code" value="ownerCompanyCode">
+															</core:CustomData>
+															<core:CustomData key="name" value="ownerCompanyName">
+															</core:CustomData>
+														</customData>
+													</MultiInput>
+												</f:fields>
+											</f:FormElement>
+											<f:FormElement>
+												<f:fields>
+													<Label text="{i18n>ZFClientIndustryLabel}" class="ZLineHeight32">
+														<layoutData>
+															<layout:GridData span="L2 M2 S12" indent="L1 M1 S0"
+																linebreak="true" />
+														</layoutData>
+													</Label>
+													<MultiInput id="ClientIndustry" change="onInputChange"
+														showSuggestion="true" maxTokens="1" tokenUpdate="onTokenUpdate"
+														showTableSuggestionValueHelp="false" suggestionRows="{SearchHelp>/ClientIndustryInformation}"
+														valueHelpRequest="onIndustryValueHelp"
+														suggestionItemSelected="onSuggestionSelected"
+														suggest="onSuggest" filterSuggests="false">
+														<suggestionColumns>
+															<Column hAlign="Begin" popinDisplay="Inline"
+																demandPopin="true">
+																<Label text="{i18n>ZFCode}" />
+															</Column>
+															<Column hAlign="Begin" popinDisplay="Inline"
+																demandPopin="true">
+																<Label text="{i18n>ZFName}" />
+															</Column>
+														</suggestionColumns>
+
+														<suggestionRows>
+															<ColumnListItem>
+																<cells>
+																	<Label class="ZLableWordWrap" text="{SearchHelp>clientIndustryCode}" />
+																	<Label class="ZLableWordWrap" text="{SearchHelp>clientIndustryName}" />
+																</cells>
+																<customData>
+																	<core:CustomData key="data" value="{SearchHelp>}"></core:CustomData>
+																</customData>
+															</ColumnListItem>
+
+														</suggestionRows>
+														<layoutData>
+															<layout:GridData span="L5 M5 S12" />
+														</layoutData>
+														<tokens>
+															<Token key="1019" text="(1019)XXXX	">
+															</Token>
+														</tokens>
+														<customData>
+															<core:CustomData key="code" value="clientIndustryCode">
+															</core:CustomData>
+															<core:CustomData key="name" value="clientIndustryName">
+															</core:CustomData>
+														</customData>
+													</MultiInput>
+												</f:fields>
+											</f:FormElement>
+											<f:FormElement>
+												<f:fields>
+													<Label text="{i18n>ZFLCPLable}" class="ZLineHeight32">
+														<layoutData>
+															<layout:GridData span="L2 M2 S12" indent="L1 M1 S0"
+																linebreak="true" />
+														</layoutData>
+													</Label>
+													<MultiInput id="LCPInput" change="onInputChange"
+														showSuggestion="true" maxTokens="1" tokenUpdate="onTokenUpdate"
+														showTableSuggestionValueHelp="false" suggestionRows="{SearchHelp>/LCPInformation}"
+														valueHelpRequest="onLCPValueHelp"
+														suggestionItemSelected="onSuggestionSelected"
+														suggest="onSuggest" filterSuggests="false">
+														<suggestionColumns>
+															<Column hAlign="Begin" popinDisplay="Inline"
+																demandPopin="true">
+																<Label text="{i18n>ZFCode}" />
+															</Column>
+															<Column hAlign="Begin" popinDisplay="Inline"
+																demandPopin="true">
+																<Label text="{i18n>ZFName}" />
+															</Column>
+														</suggestionColumns>
+
+														<suggestionRows>
+															<ColumnListItem>
+																<cells>
+																	<Label class="ZLableWordWrap" text="{SearchHelp>lcpcode}" />
+																	<Label class="ZLableWordWrap" text="{SearchHelp>lcpname}" />
+																</cells>
+																<customData>
+																	<core:CustomData key="data" value="{SearchHelp>}"></core:CustomData>
+																</customData>
+															</ColumnListItem>
+
+														</suggestionRows>
+														<layoutData>
+															<layout:GridData span="L5 M5 S12" />
+														</layoutData>
+														<customData>
+															<core:CustomData key="code" value="lcpcode">
+															</core:CustomData>
+															<core:CustomData key="name" value="lcpname">
+															</core:CustomData>
+														</customData>
+													</MultiInput>
+												</f:fields>
+											</f:FormElement>
+
+											<f:FormElement>
+												<f:fields>
+													<Label text="{i18n>ZFClientLabel}" class="ZLineHeight32">
+														<layoutData>
+															<layout:GridData span="L2 M2 S12" indent="L1 M1 S0"
+																linebreak="true" />
+														</layoutData>
+													</Label>
+													<MultiInput id="ClientInput" change="onInputChange"
+														showSuggestion="true" maxTokens="1" tokenUpdate="onTokenUpdate"
+														showTableSuggestionValueHelp="false" suggestionRows="{SearchHelp>/ClientInformation}"
+														valueHelpRequest="onClientValueHelp"
+														suggestionItemSelected="onSuggestionSelected"
+														suggest="onSuggest" filterSuggests="false">
+														<suggestionColumns>
+															<Column hAlign="Begin" popinDisplay="Inline"
+																demandPopin="true">
+																<Label text="{i18n>ZFCode}" />
+															</Column>
+															<Column hAlign="Begin" popinDisplay="Inline"
+																demandPopin="true">
+																<Label text="{i18n>ZFName}" />
+															</Column>
+														</suggestionColumns>
+
+														<suggestionRows>
+															<ColumnListItem>
+																<cells>
+																	<Label class="ZLableWordWrap" text="{SearchHelp>clientCode}" />
+																	<Label class="ZLableWordWrap" text="{SearchHelp>clientName}" />
+																</cells>
+																<customData>
+																	<core:CustomData key="data" value="{SearchHelp>}"></core:CustomData>
+																</customData>
+															</ColumnListItem>
+
+														</suggestionRows>
+														<layoutData>
+															<layout:GridData span="L5 M5 S12" />
+														</layoutData>
+														<customData>
+															<core:CustomData key="code" value="clientCode">
+															</core:CustomData>
+															<core:CustomData key="name" value="clientName">
+															</core:CustomData>
+														</customData>
+													</MultiInput>
+												</f:fields>
+											</f:FormElement>
+										</f:formElements>
+									</f:FormContainer>
+								</f:formContainers>
+							</f:Form>
+						</VBox>
+					</layout:Grid>
+
+					<layout:Grid defaultSpan="L1 M2 S2" defaultIndent="L0 M0 S0"
+						class="sapUiSmallMarginBegin sapUiSmallMarginEnd">
+						<Button text="{i18n>ZFSearchButton}" width="100%" press="onSearch"
+							type="Emphasized">
+						</Button>
+						<Button text="{i18n>ZFResetButton}" width="100%" press="onReset">
+						</Button>
+					</layout:Grid>
+				</layout:fixContent>
+
+				<layout:flexContent>
+					<ScrollContainer vertical="true" height="100%"
+						focusable="true">
+						<VBox class="sapUiSmallMarginBegin sapUiSmallMarginEnd">
+							<Table items="{ClientInfoList>/List}" id="ClientList">
+								<columns>
+									<Column width="25%">
+										<Text text="{i18n>ZFClientLabel}" class="ZTitle" />
+									</Column>
+									<Column minScreenWidth="Tablet" demandPopin="true"
+										hAlign="Left" width="25%">
+										<Text text="{i18n>ZFLCPLable}" class="ZTitle" />
+									</Column>
+									<Column minScreenWidth="Tablet" demandPopin="true"
+										hAlign="Left" width="25%">
+										<Text text="{i18n>ZFClientIndustryLabel}" class="ZTitle" />
+									</Column>
+									<Column minScreenWidth="Tablet" demandPopin="true"
+										hAlign="Left" width="25%">
+										<Text text="{i18n>ZFOwnerCompanyLabel}" class="ZTitle" />
+									</Column>
+								</columns>
+								<items>
+									<ColumnListItem type="Navigation" press="onNavToTop">
+<!-- 										<customData> -->
+<!-- 											<core:CustomData key="data" value="{ClientInfoList>}"></core:CustomData> -->
+<!-- 											<core:CustomData key="type" value="LEP"></core:CustomData> -->
+<!-- 										</customData> -->
+										<cells>
+											<VBox class="sapUiTinyMarginBottom">
+												<ObjectIdentifier title="{ClientInfoList>clientCode}"
+													titleActive="false">
+												</ObjectIdentifier>
+												<Text text="{ClientInfoList>clientName}" />
+											</VBox>
+
+											<VBox class="sapUiTinyMarginBottom">
+												<ObjectIdentifier title="{ClientInfoList>lcpcode}"
+													titleActive="false" />
+												<Text text="{ClientInfoList>lcpname}" />
+											</VBox>
+											<VBox class="sapUiTinyMarginBottom">
+												<ObjectIdentifier title="{ClientInfoList>clientIndustryCode}" />
+												<Text text="{ClientInfoList>clientIndustryName}" />
+											</VBox>
+											<VBox class="sapUiTinyMarginBottom">
+												<ObjectIdentifier title="{ClientInfoList>ownerCompanyCode}" />
+												<Text text="{ClientInfoList>ownerCompanyName}" />
+											</VBox>
+										</cells>
+									</ColumnListItem>
+								</items>
+							</Table>
+						</VBox>
+					</ScrollContainer>
+				</layout:flexContent>
+			</layout:FixFlex>
+		</content>
+	</Page>
+</mvc:View>

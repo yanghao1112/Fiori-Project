@@ -1,299 +1,298 @@
 
 <mvc:View controllerName="sap.ZZZ01.ZFILEUPLOAD.controller.ZZmain"
-	xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:layout="sap.ui.layout"
-	xmlns:unified="sap.ui.unified" xmlns:fb="sap.ui.comp.smartfilterbar"
+	xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m"
+	xmlns:layout="sap.ui.layout" xmlns:unified="sap.ui.unified" xmlns:fb="sap.ui.comp.smartfilterbar"
 	xmlns:table="sap.ui.table"
 	xmlns:customData="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1"
 	xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form" height="100%">
 	<Page title="{i18n>appTitle}" class="sapUiContentPadding">
 
-			<layout:FixFlex>
-				<layout:fixContent height="auto">
-		<fb:SmartFilterBar id="smartFilterBar" useToolbar="false"
-			search="onUpload" persistencyKey="SmartFilterPKey"
-			entitySet="DeliverySet" customData:dateFormatSettings='\{"UTC":true\}'>
-			<fb:controlConfiguration>
-				<fb:ControlConfiguration key="MyOwnFilterField"
-					index="1" label="Custom Filter Field" groupId="_BASIC"
-					visibleInAdvancedArea="true">
-					<fb:customControl>
-						<Select id="foo11" customData:hasValue="true">
-							<core:Item key="1" text="ONE" />
-							<core:Item key="2" text="TWO" />
-							<core:Item key="3" text="THREE" />
-						</Select>
-					</fb:customControl>
-				</fb:ControlConfiguration>
-				<fb:ControlConfiguration key="MyOwnFilterField2"
-					index="2" label="File Address" groupId="_BASIC2" mandatory="mandatory"
-					visibleInAdvancedArea="true">
-					<fb:customControl>
-						<unified:FileUploader id="fileup11"
-							uploadUrl="proxy/sap/opu/odata/sap/ZFILEUPLOAD_SRV/UploadSet"
-							uploadStart="onStart" uploadComplete="onComplete" sendXHR="true"
-							useMultipart="false">
-							<unified:headerParameters>
-								<unified:FileUploaderParameter id="slug11"
-									name="slug">
+		<layout:FixFlex>
+			<layout:fixContent height="auto">
+<!-- 				<fb:SmartFilterBar id="smartFilterBar" useToolbar="false" -->
+<!-- 					search="onUpload" persistencyKey="SmartFilterPKey" entitySet="DeliverySet" -->
+<!-- 					customData:dateFormatSettings='\{"UTC":true\}'> -->
+<!-- 					<fb:controlConfiguration> -->
+<!-- 						<fb:ControlConfiguration key="MyOwnFilterField" -->
+<!-- 							index="1" label="Custom Filter Field" groupId="_BASIC" -->
+<!-- 							visibleInAdvancedArea="true"> -->
+<!-- 							<fb:customControl> -->
+<!-- 								<Select id="foo11" customData:hasValue="true"> -->
+<!-- 									<core:Item key="1" text="ONE" /> -->
+<!-- 									<core:Item key="2" text="TWO" /> -->
+<!-- 									<core:Item key="3" text="THREE" /> -->
+<!-- 								</Select> -->
+<!-- 							</fb:customControl> -->
+<!-- 						</fb:ControlConfiguration> -->
+<!-- 						<fb:ControlConfiguration key="MyOwnFilterField2" -->
+<!-- 							index="2" label="File Address" groupId="_BASIC2" mandatory="mandatory" -->
+<!-- 							visibleInAdvancedArea="true"> -->
+<!-- 							<fb:customControl> -->
+<!-- 								<unified:FileUploader id="fileup11" -->
+<!-- 									uploadUrl="proxy/sap/opu/odata/sap/ZFILEUPLOAD_SRV/UploadSet" -->
+<!-- 									uploadStart="onStart" uploadComplete="onComplete" sendXHR="true" -->
+<!-- 									useMultipart="false"> -->
+<!-- 									<unified:headerParameters> -->
+<!-- 										<unified:FileUploaderParameter -->
+<!-- 											id="slug11" name="slug"> -->
 
-								</unified:FileUploaderParameter>
-								<unified:FileUploaderParameter
-									name="Accept" value="application/json">
+<!-- 										</unified:FileUploaderParameter> -->
+<!-- 										<unified:FileUploaderParameter -->
+<!-- 											name="Accept" value="application/json"> -->
 
-								</unified:FileUploaderParameter>
-							</unified:headerParameters>
-						</unified:FileUploader>
-					</fb:customControl>
-				</fb:ControlConfiguration>
-			</fb:controlConfiguration>
-		</fb:SmartFilterBar>
+<!-- 										</unified:FileUploaderParameter> -->
+<!-- 									</unified:headerParameters> -->
+<!-- 								</unified:FileUploader> -->
+<!-- 							</fb:customControl> -->
+<!-- 						</fb:ControlConfiguration> -->
+<!-- 					</fb:controlConfiguration> -->
+<!-- 				</fb:SmartFilterBar> -->
 
-		<Panel width="auto" expandable="true" headerText="Select Option"
-			expanded="true" expand="onExpand">
-			<l:Grid hSpacing="0" defaultSpan="L3 M3 S12">
-				<l:HorizontalLayout>
+				<Panel width="auto" expandable="true" headerText="Select Option"
+					expanded="true" expand="onExpand">
+					<l:Grid hSpacing="0" defaultSpan="L3 M3 S12">
+						<l:HorizontalLayout>
+							<l:VerticalLayout class="sapUiSmallMarginBegin"
+								width="100%">
+								<l:content>
+
+									<Label text="Company" />
+
+									<Select id="CompanyCode" customData:hasValue="true"
+										width="200px" enabled="{ViewModel>/elementEnabled}">
+										<core:Item key="MFGCB" text="Quality Problem" />
+										<core:Item key="FSI" text="FSI" />
+										<core:Item key="PUBLIC" text="PUBLIC" />
+									</Select>
+									<!-- <MaskInput mask = "CCCC-CC-CC" placeholderSymbol = "_" placeholder 
+										= "Enter Date"> -->
+									<!-- <rules> -->
+									<!-- <MaskInputRule maskFormatSymbol = "C" regex = "[0-9]"/> -->
+									<!-- </rules> -->
+									<!-- </MaskInput> -->
+								</l:content>
+							</l:VerticalLayout>
+						</l:HorizontalLayout>
+
+						<l:HorizontalLayout>
+							<l:VerticalLayout width="100%">
+								<l:content>
+
+									<Label text="BU" />
+									<Select id="BUCode" customData:hasValue="true" width="200px"
+										enabled="{ViewModel>/elementEnabled}">
+										<core:Item key="MFGCB" text="Quality Problem" />
+										<core:Item key="FSI" text="FSI" />
+										<core:Item key="PUBLIC" text="PUBLIC" />
+									</Select>
+								</l:content>
+							</l:VerticalLayout>
+						</l:HorizontalLayout>
+
+
+						<l:HorizontalLayout>
+							<l:VerticalLayout width="100%">
+								<l:content>
+
+									<Label text="Revenue Type" />
+									<l:HorizontalLayout>
+										<l:content>
+											<Select id="RevType" customData:hasValue="true" width="200px"
+												enabled="{ViewModel>/elementEnabled}">
+												<core:Item key="NSR" text="NSR" />
+												<core:Item key="TOTAL" text="NSR + Subcon" />
+												<core:Item key="PUBLIC" text="Public" />
+											</Select>
+										</l:content>
+									</l:HorizontalLayout>
+								</l:content>
+							</l:VerticalLayout>
+						</l:HorizontalLayout>
+
+						<l:VerticalLayout width="100%">
+							<l:content>
+
+								<Label text="Period" />
+								<l:HorizontalLayout>
+									<l:content>
+										<RadioButtonGroup columns="4" id="Period"
+											enabled="{ViewModel>/elementEnabled}">
+											<buttons>
+												<RadioButton id="RB1-1" text="Q1" />
+												<RadioButton id="RB1-2" text="Q2" />
+												<RadioButton id="RB1-3" text="Q3" />
+												<RadioButton id="RB1-4" text="Q4" />
+											</buttons>
+										</RadioButtonGroup>
+									</l:content>
+								</l:HorizontalLayout>
+							</l:content>
+						</l:VerticalLayout>
+					</l:Grid>
 					<l:VerticalLayout class="sapUiSmallMarginBegin"
 						width="100%">
 						<l:content>
 
-							<Label text="Company" />
+							<Label text="{i18n>ZFFILEADDRESS}" />
 
-							<Select id="CompanyCode" customData:hasValue="true" width="200px"
-								enabled="{ViewModel>/elementEnabled}">
-								<core:Item key="MFGCB" text="Quality Problem" />
-								<core:Item key="FSI" text="FSI" />
-								<core:Item key="PUBLIC" text="PUBLIC" />
-							</Select>
-							<!-- <MaskInput mask = "CCCC-CC-CC" placeholderSymbol = "_" placeholder 
-								= "Enter Date"> -->
-							<!-- <rules> -->
-							<!-- <MaskInputRule maskFormatSymbol = "C" regex = "[0-9]"/> -->
-							<!-- </rules> -->
-							<!-- </MaskInput> -->
-						</l:content>
-					</l:VerticalLayout>
-				</l:HorizontalLayout>
-
-				<l:HorizontalLayout>
-					<l:VerticalLayout width="100%">
-						<l:content>
-
-							<Label text="BU" />
-							<Select id="BUCode" customData:hasValue="true" width="200px"
-								enabled="{ViewModel>/elementEnabled}">
-								<core:Item key="MFGCB" text="Quality Problem" />
-								<core:Item key="FSI" text="FSI" />
-								<core:Item key="PUBLIC" text="PUBLIC" />
-							</Select>
-						</l:content>
-					</l:VerticalLayout>
-				</l:HorizontalLayout>
-
-
-				<l:HorizontalLayout>
-					<l:VerticalLayout width="100%">
-						<l:content>
-
-							<Label text="Revenue Type" />
 							<l:HorizontalLayout>
-								<l:content>
-									<Select id="RevType" customData:hasValue="true" width="200px"
-										enabled="{ViewModel>/elementEnabled}">
-										<core:Item key="NSR" text="NSR" />
-										<core:Item key="TOTAL" text="NSR + Subcon" />
-										<core:Item key="PUBLIC" text="Public" />
-									</Select>
-								</l:content>
+								<unified:FileUploader id="FileUploader"
+									enabled="{ViewModel>/elementEnabled}" uploadUrl="proxy/sap/opu/odata/sap/ZFILEUPLOAD_SRV/UploadSet"
+									uploadStart="onStart" uploadComplete="onComplete" sendXHR="true"
+									useMultipart="false" uploadAborted="onCancel">
+									<unified:headerParameters>
+										<unified:FileUploaderParameter
+											id="slug" name="slug">
+										</unified:FileUploaderParameter>
+
+										<unified:FileUploaderParameter
+											name="Accept" value="application/json">
+										</unified:FileUploaderParameter>
+
+										<unified:FileUploaderParameter
+											id="csrfToken" name="x-csrf-token">
+										</unified:FileUploaderParameter>
+
+									</unified:headerParameters>
+								</unified:FileUploader>
+								<CheckBox text="Save upload data without confirm"
+									selected="false" class="sapUiSmallMarginBegin" enabled="{ViewModel>/elementEnabled}" />
 							</l:HorizontalLayout>
 						</l:content>
 					</l:VerticalLayout>
-				</l:HorizontalLayout>
 
-				<l:VerticalLayout width="100%">
-					<l:content>
+				</Panel>
 
-						<Label text="Period" />
-						<l:HorizontalLayout>
-							<l:content>
-								<RadioButtonGroup columns="4" id="Period"
-									enabled="{ViewModel>/elementEnabled}">
-									<buttons>
-										<RadioButton id="RB1-1" text="Q1" />
-										<RadioButton id="RB1-2" text="Q2" />
-										<RadioButton id="RB1-3" text="Q3" />
-										<RadioButton id="RB1-4" text="Q4" />
-									</buttons>
-								</RadioButtonGroup>
-							</l:content>
-						</l:HorizontalLayout>
-					</l:content>
-				</l:VerticalLayout>
-			</l:Grid>
-			<l:VerticalLayout class="sapUiSmallMarginBegin"
-				width="100%">
-				<l:content>
+				<MessageStrip id="ZConfirmMsgStrip" text="{i18n>ZFUPLOADCONFIRM}"
+					showIcon="true" type="Warning" visible="{ViewModel>/confirmElementVisible}"
+					class="sapUiTinyMarginTop">
+				</MessageStrip>
+			</layout:fixContent>
+			<layout:flexContent>
+				<IconTabBar id="idIconTabBar" stretchContentHeight="true"
+					applyContentPadding="false">
+					<items>
+						<IconTabFilter text="{i18n>ZFSUMMARY}" icon="sap-icon://newspaper"
+							class="sapUiNoContentPadding">
+							<content>
+								<ScrollContainer horizontal="true" height="100%"
+									width="100%" vertical="true">
+									<VBox>
+										<f:SimpleForm id="SimpleFormDisplay354" layout="ResponsiveGridLayout"
+											labelSpanL="2" labelSpanM="2" emptySpanL="0" emptySpanM="0"
+											columnsL="1" columnsM="1">
+											<f:content>
 
-					<Label text="{i18n>ZFFILEADDRESS}" />
-
-					<l:HorizontalLayout>
-						<unified:FileUploader id="FileUploader"
-							enabled="{ViewModel>/elementEnabled}" uploadUrl="proxy/sap/opu/odata/sap/ZFILEUPLOAD_SRV/UploadSet"
-							uploadStart="onStart" uploadComplete="onComplete" sendXHR="true"
-							useMultipart="false" uploadAborted="onCancel">
-							<unified:headerParameters>
-								<unified:FileUploaderParameter id="slug"
-									name="slug">
-								</unified:FileUploaderParameter>
-
-								<unified:FileUploaderParameter
-									name="Accept" value="application/json">
-								</unified:FileUploaderParameter>
-
-								<unified:FileUploaderParameter id="csrfToken"
-									name="x-csrf-token">
-								</unified:FileUploaderParameter>
-
-							</unified:headerParameters>
-						</unified:FileUploader>
-						<CheckBox text="Save upload data without confirm"
-							selected="false" class="sapUiSmallMarginBegin" enabled="{ViewModel>/elementEnabled}" />
-					</l:HorizontalLayout>
-				</l:content>
-			</l:VerticalLayout>
-
-		</Panel>
-
-		<MessageStrip id="ZConfirmMsgStrip" text="{i18n>ZFUPLOADCONFIRM}"
-			showIcon="true" type="Warning" visible="{ViewModel>/confirmElementVisible}"
-			class="sapUiTinyMarginTop">
-		</MessageStrip>
-				</layout:fixContent>
-				<layout:flexContent>
-		<IconTabBar id="idIconTabBar" 
-		stretchContentHeight="true"
-		applyContentPadding="false">
-			<items>
-				<IconTabFilter text="{i18n>ZFSUMMARY}" icon="sap-icon://newspaper"
-					class="sapUiNoContentPadding" >
-					<content>
-									<ScrollContainer horizontal="true" height="100%"
-										width="100%" vertical="true">
-						<VBox>
-							<f:SimpleForm id="SimpleFormDisplay354" layout="ResponsiveGridLayout"
-								labelSpanL="2" labelSpanM="2" emptySpanL="0" emptySpanM="0"
-								columnsL="1" columnsM="1">
-								<f:content>
-
-									<Toolbar>
-										<Title text="{i18n>ZFSUMMARY}" />
-										<ToolbarSpacer />
-									</Toolbar>
-									<Label text="{i18n>ZFFILEADDRESS}" />
-									<Text text="{Summary>/FileAddress}" />
-									<Label text="{i18n>ZFDATE}" />
-									<Text
-										text="{path:'Summary>/Uploaddate', 
+												<Toolbar>
+													<Title text="{i18n>ZFSUMMARY}" />
+													<ToolbarSpacer />
+												</Toolbar>
+												<Label text="{i18n>ZFFILEADDRESS}" />
+												<Text text="{Summary>/FileAddress}" />
+												<Label text="{i18n>ZFDATE}" />
+												<Text
+													text="{path:'Summary>/Uploaddate', 
 												formatter:'.ZFormatDateUTCOutput'} 
 												{path: 'Summary>/Uploadtime', formatter:'.ZFormatTimeOutput' }" />
-									<Toolbar>
-										<Title text="{i18n>ZFRESULT}" />
-										<ToolbarSpacer />
-									</Toolbar>
-									<Label text="{i18n>ZFTOTAL}" />
-									<Text
-										text="{
+												<Toolbar>
+													<Title text="{i18n>ZFRESULT}" />
+													<ToolbarSpacer />
+												</Toolbar>
+												<Label text="{i18n>ZFTOTAL}" />
+												<Text
+													text="{
 													path: 'Summary>/CountAll',
 													formatter: '.ZFormatResultCounts'
 												}" />
-									<Label text="{i18n>ZFSUCCESS}" />
-									<Text
-										text="{
+												<Label text="{i18n>ZFSUCCESS}" />
+												<Text
+													text="{
 													path: 'Summary>/CountSucc',
 													formatter: '.ZFormatResultCounts'
 												}" />
-									<Label text="{i18n>ZFFAILED}" />
-									<Text
-										text="{
+												<Label text="{i18n>ZFFAILED}" />
+												<Text
+													text="{
 													path: 'Summary>/CountFail',
 													formatter: '.ZFormatResultCounts'
 												}" />
-								</f:content>
-							</f:SimpleForm>
-						</VBox>
-									</ScrollContainer>
-					</content>
-				</IconTabFilter>
-				<IconTabFilter icon="sap-icon://detail-view" text="{i18n>ZFMESSAGES}">
-					<content>
-						<table:Table rows="{Message>/}" selectionMode="None"
-							visibleRowCount="5" id="MessageTable">
-							<table:toolbar>
-								<Toolbar>
-									<Title id="title" text="{i18n>ZFMESSAGES}"></Title>
-									<ToolbarSpacer />
-									<Select id="messageTablefilter" customData:hasValue="false"
-										change="onFilterMessage">
-										<core:Item key="T" text="{i18n>ZFMSGALL}" />
-										<core:Item key="S" text="{i18n>ZFMSGSUCCESS}" />
-										<core:Item key="W" text="{i18n>ZFMSGWARNING}" />
-										<core:Item key="E" text="{i18n>ZFMSGERROR}" />
-									</Select>
-								</Toolbar>
-							</table:toolbar>
+											</f:content>
+										</f:SimpleForm>
+									</VBox>
+								</ScrollContainer>
+							</content>
+						</IconTabFilter>
+						<IconTabFilter icon="sap-icon://detail-view" text="{i18n>ZFMESSAGES}">
+							<content>
+								<table:Table rows="{Message>/}" selectionMode="None"
+									visibleRowCount="5" id="MessageTable">
+									<table:toolbar>
+										<Toolbar>
+											<Title id="title" text="{i18n>ZFMESSAGES}"></Title>
+											<ToolbarSpacer />
+											<Select id="messageTablefilter" customData:hasValue="false"
+												change="onFilterMessage">
+												<core:Item key="T" text="{i18n>ZFMSGALL}" />
+												<core:Item key="S" text="{i18n>ZFMSGSUCCESS}" />
+												<core:Item key="W" text="{i18n>ZFMSGWARNING}" />
+												<core:Item key="E" text="{i18n>ZFMSGERROR}" />
+											</Select>
+										</Toolbar>
+									</table:toolbar>
 
-							<table:columns>
-								<table:Column width="6rem">
-									<Label text="{i18n>ZFNO}" />
-									<table:template>
-										<Text text="{Message>NO}" />
-									</table:template>
-								</table:Column>
-								<table:Column width="6rem">
-									<Label text="{i18n>ZFINDEX}" />
-									<table:template>
-										<Text text="{Message>INDEX}" />
-									</table:template>
-								</table:Column>
-								<table:Column width="8rem" hAlign="Begin">
-									<Label text="{i18n>ZFSTATUS}" />
-									<table:template>
+									<table:columns>
+										<table:Column width="6rem">
+											<Label text="{i18n>ZFNO}" />
+											<table:template>
+												<Text text="{Message>NO}" />
+											</table:template>
+										</table:Column>
+										<table:Column width="6rem">
+											<Label text="{i18n>ZFINDEX}" />
+											<table:template>
+												<Text text="{Message>INDEX}" />
+											</table:template>
+										</table:Column>
+										<table:Column width="8rem" hAlign="Begin">
+											<Label text="{i18n>ZFSTATUS}" />
+											<table:template>
 
-										<ObjectStatus
-											text="{
+												<ObjectStatus
+													text="{
 														path: 'Message>TYPE',
 														formatter: '.ZFormatMessageText'
 													}"
-											state="{
+													state="{
 														path: 'Message>TYPE',
 														formatter: '.ZFormatMessageStatus'
 													}"
-											icon="{
+													icon="{
 														path: 'Message>TYPE',
 														formatter: '.ZFormatMessageIcon'
 													}" />
-									</table:template>
-								</table:Column>
-								<table:Column width="9rem">
-									<Label text="{i18n>ZFMSGINFO}" hAlign="Center" />
-									<table:template>
-										<Label text="{Message>ID} / {Message>NUMBER}" />
-									</table:template>
-								</table:Column>
-								<table:Column hAlign="Begin">
-									<Label text="{i18n>ZFMSGTXT}" />
-									<table:template>
-										<Label text="{Message>TEXT}" />
-									</table:template>
-								</table:Column>
-							</table:columns>
-						</table:Table>
-					</content>
-				</IconTabFilter>
-			</items>
-		</IconTabBar>
+											</table:template>
+										</table:Column>
+										<table:Column width="9rem">
+											<Label text="{i18n>ZFMSGINFO}" hAlign="Center" />
+											<table:template>
+												<Label text="{Message>ID} / {Message>NUMBER}" />
+											</table:template>
+										</table:Column>
+										<table:Column hAlign="Begin">
+											<Label text="{i18n>ZFMSGTXT}" />
+											<table:template>
+												<Label text="{Message>TEXT}" />
+											</table:template>
+										</table:Column>
+									</table:columns>
+								</table:Table>
+							</content>
+						</IconTabFilter>
+					</items>
+				</IconTabBar>
 
-				</layout:flexContent>
-			</layout:FixFlex>
+			</layout:flexContent>
+		</layout:FixFlex>
 		<footer>
 			<Toolbar>
 				<ToolbarSpacer />

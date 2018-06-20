@@ -3,7 +3,8 @@ sap.ui.define([
 	"sap/ui/model/json/JSONModel",
 	"sap/ZZZ01/ZFILEUPLOAD/js/sheet",
 	"sap/ZZZ01/ZFILEUPLOAD/js/FileSaver",
-], function(Controller, JSONModel, sheet, FileSaver) {
+	"sap/ZZZ01/ZFILEUPLOAD/js/csv"
+], function(Controller, JSONModel, sheet, FileSaver, CSV222) {
 	"use strict";
 	
 	return Controller.extend("sap.ZZZ01.ZFILEUPLOAD.controller.ZZmain", {
@@ -253,22 +254,36 @@ sap.ui.define([
 				var oDataModel = this.getView().getModel();
 				this.getView().byId("csrfToken").setValue(oDataModel.getSecurityToken());
 				var oController = this.getView().byId("FileUploader");
-				var reader = new FileReader();
-				reader.readAsBinaryString(oController.oFileUpload.files[0]);  
-                reader.onload = function(e){  
-                	    var data = e.target.result;
-                	    //if(!rABS) data = new Uint8Array(data);
-                	    var workbook = sheet.read(data, {type:'binary'});
-                	    var xxx = sheet.utils.sheet_to_csv(workbook.Sheets[workbook.SheetNames[1]])
-                	    /* DO SOMETHING WITH workbook HERE */
-                }
-//				var value = oController.getValue();
-//				if (value) {
-//
-//					oController.upload();
-//					var oDialog = this.getView().byId("BusyDialog");
-//					oDialog.open();
-//				}
+//				var reader = new FileReader();
+//				reader.readAsBinaryString(oController.oFileUpload.files[0]);  
+//                reader.onload = function(e){  
+//                	    var data = e.target.result;
+//                	    //if(!rABS) data = new Uint8Array(data);
+//                	    var workbook = sheet.read(data, {type:'binary'});
+//                	    var sheet1 = workbook.Sheets[workbook.SheetNames[0]];
+//                	    var xxx = sheet.utils.sheet_to_csv(sheet1);
+//                	    var xxx = sheet.utils.sheet_to_csv(sheet1,{raw:true,header:1});
+//                	    
+//                	    /* DO SOMETHING WITH workbook HERE */
+//                }  
+				var value = oController.getValue();
+				if (value) {
+
+					oController.upload();
+					var oDialog = this.getView().byId("BusyDialog");
+					oDialog.open();
+				}
+//			    var files = oController.oFileUpload.files[0];
+//			    if( typeof(FileReader) !== 'undefined' ){    //H5
+//			        var reader = new FileReader();
+//			        reader.readAsText( files );            //以文本格式读取
+//			        reader.onload = function(evt){
+//			            var data = evt.target.result;        //读到的数据
+//			            var x = CSV.parse(data)
+//                console.log(data);
+//                
+//			        }
+//			    }
 			}.bind(this));
 		},
 		

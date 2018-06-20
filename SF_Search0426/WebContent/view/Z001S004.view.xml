@@ -1,0 +1,557 @@
+<mvc:View controllerName="sap.pwaa.controller.Z001S004" xmlns="sap.m"
+	xmlns:mvc="sap.ui.core.mvc" xmlns:layout="sap.ui.layout" xmlns:core="sap.ui.core"
+	xmlns:viz="sap.viz.ui5.controls" xmlns:viz.data="sap.viz.ui5.data"
+	xmlns:viz.feeds="sap.viz.ui5.controls.common.feeds" xmlns:g="sap.ab.graph"
+	xmlns:t="sap.ab.projectCard" xmlns:f="sap.ui.layout.form">
+	<Page showNavButton="true" navButtonPress="onNavPress" title="{i18n>ZFDetailTitle}"
+		width="1280px">
+		<content>
+
+			<VBox
+				class="sapUiSmallMarginTop sapUiTinyMarginBottom sapUiTinyMarginBegin sapUiTinyMarginEnd">
+				<core:Fragment fragmentName="sap.pwaa.util.PeriodBar"
+					type="JS" />
+			</VBox>
+
+			<VBox class="ZBorder ZShadow sapUiTinyMargin">
+				<f:Form editable="false">
+					<f:layout>
+						<f:ResponsiveGridLayout />
+					</f:layout>
+					<f:formContainers>
+						<f:FormContainer>
+							<f:toolbar>
+								<Toolbar>
+									<Title text="{i18n>ZFAnalysisFilterTitle}" />
+									<ToolbarSpacer />
+								</Toolbar>
+							</f:toolbar>
+							<f:formElements>
+								<f:FormElement>
+									<f:fields>
+										<Label text="{i18n>ZFAssignmentMemberLabel}" class="ZLineHeight24">
+											<layoutData>
+												<layout:GridData span="L2 M2 S12" />
+											</layoutData>
+										</Label>
+
+										<Text text="{Parameter>/AssignMemberTypeText}" class="ZFontWeight700 ZLineHeight24">
+
+											<layoutData>
+												<layout:GridData span="L4 M4 S12" linebreak="false" />
+											</layoutData>
+										</Text>
+										<Label text="{i18n>ZFAnalysisGroupUnitLabel}" class="ZLineHeight24">
+											<layoutData>
+												<layout:GridData span="L2 M2 S12" />
+											</layoutData>
+										</Label>
+										<Text text="{Parameter>/AnalysisGroupUnitText}" class="ZFontWeight700 ZLineHeight24">
+
+											<layoutData>
+												<layout:GridData span="L4 M4 S12" linebreak="false" />
+											</layoutData>
+										</Text>
+									</f:fields>
+								</f:FormElement>
+							</f:formElements>
+						</f:FormContainer>
+					</f:formContainers>
+				</f:Form>
+			</VBox>
+
+			<HBox class="sapUiTinyMarginBegin">
+				<Title
+					text="{
+							parts: [
+								'GroupDetail>/groupSummary/groupName',
+								'GroupDetail>/groupSummary/groupCode'
+							],
+							formatter: '._formatGroupDescription'
+						}"
+					titleStyle="H2" class="ZFontWeight700">
+				</Title>
+			</HBox>
+
+			<VBox
+				class="ZBorder ZShadow sapUiTinyMarginBottom sapUiTinyMarginBegin sapUiTinyMarginEnd">
+				<Panel expandable="true" expanded="true" headerText="NASA2 Information"
+					class="sapUiNoContentPadding">
+					<content>
+						<HBox renderType="Bare"
+							class="sapUiSmallMarginBottom sapUiMediumMarginBegin sapUiTinyMarginEnd">
+							<VBox renderType="Bare" width="400px">
+								<HBox renderType="Bare">
+									<Title text="{i18n>ZFConsultingFeeTitle}" titleStyle="H6"
+										class="ZLineHeight24" width="200px">
+									</Title>
+									<Title
+										text="{path: 'GroupDetail>/groupSummary/consultingFee',
+										formatter: '.oFormatter.numberText'}"
+										titleStyle="H6"
+										class="ZLineHeight24 ZFontWeight700 sapUiSmallMarginBegin">
+									</Title>
+								</HBox>
+								<HBox renderType="Bare">
+									<Title text="{i18n>ZFRRTitle}" titleStyle="H6" class="ZLineHeight24"
+										width="150px">
+									</Title>
+									<core:Icon src="sap-icon://sys-help-2" color="#BABABA"
+										tooltip="{i18n>ZFSearchOptionTooltip}" press="onShowHelpContent"
+										class="ZLineHeight24" width="50px">
+										<core:customData>
+											<core:CustomData key="tooltip"
+												value="{i18n>ZFSearchOptionTooltip}"></core:CustomData>
+											<core:CustomData key="Placement" value="Top"></core:CustomData>
+										</core:customData>
+									</core:Icon>
+									<Title
+										text="{path: 'GroupDetail>/groupSummary/rr',
+										formatter: '.oFormatter.percentText'}"
+										titleStyle="H6"
+										class="ZLineHeight24 ZFontWeight700 sapUiSmallMarginBegin">
+									</Title>
+								</HBox>
+								<HBox renderType="Bare">
+									<Title text="{i18n>ZFEstRRTitle}" titleStyle="H6"
+										class="ZLineHeight24" width="150px">
+									</Title>
+									<core:Icon src="sap-icon://sys-help-2" color="#BABABA"
+										tooltip="{i18n>ZFEstRRTooltip}" press="onShowHelpContent"
+										class="ZLineHeight24" width="50px">
+										<core:customData>
+											<core:CustomData key="tooltip" value="{i18n>ZFEstRRTooltip}"></core:CustomData>
+											<core:CustomData key="Placement" value="Bottom"></core:CustomData>
+										</core:customData>
+									</core:Icon>
+									<Title
+										text="{path: 'GroupDetail>/groupSummary/estrr',
+										formatter: '.oFormatter.percentText'}"
+										titleStyle="H6"
+										class="ZLineHeight24 ZFontWeight700 sapUiSmallMarginBegin">
+									</Title>
+								</HBox>
+							</VBox>
+							<VBox renderType="Bare">
+
+								<HBox renderType="Bare">
+									<Title text="{i18n>ZFYTDTitle}" titleStyle="H6"
+										class="ZFontWeight700 ZLineHeight24">
+									</Title>
+								</HBox>
+								<HBox renderType="Bare" class="sapUiSmallMarginBegin">
+									<Title text="{i18n>ZFTotalRevenueTitle}" titleStyle="H6"
+										class="ZLineHeight24" width="150px">
+									</Title>
+									<Title
+										text="{path: 'GroupDetail>/groupSummary/ytdtotalRevenue',
+										formatter: '.oFormatter.numberText'}"
+										titleStyle="H6"
+										class="ZLineHeight24 ZFontWeight700 sapUiMediumMarginBegin"
+										width="200px">
+									</Title>
+
+									<Title text="{i18n>ZFWOWUFeeTitle}" titleStyle="H6"
+										class="ZLineHeight24 " width="150px">
+									</Title>
+									<Title
+										text="{path: 'GroupDetail>/groupSummary/ytdwuwofee',
+										formatter: '.oFormatter.numberText'}"
+										titleStyle="H6"
+										class="ZLineHeight24 ZFontWeight700 sapUiMediumMarginBegin"
+										width="200px">
+									</Title>
+								</HBox>
+								<HBox renderType="Bare" class="sapUiSmallMarginBegin">
+									<Title text="{i18n>ZFProjectMarginTitle}" titleStyle="H6"
+										class="ZLineHeight24" width="150px">
+									</Title>
+									<Title
+										text="{path: 'GroupDetail>/groupSummary/ytdprojectMargin',
+										formatter: '.oFormatter.numberText'}"
+										titleStyle="H6"
+										class="ZLineHeight24 ZFontWeight700 sapUiMediumMarginBegin"
+										width="200px">
+									</Title>
+
+									<Title text="{i18n>ZFWOWUExpTitle}" titleStyle="H6"
+										class="ZLineHeight24 " width="150px">
+									</Title>
+									<Title
+										text="{path: 'GroupDetail>/groupSummary/ytdwuwoexp',
+										formatter: '.oFormatter.numberText'}"
+										titleStyle="H6"
+										class="ZLineHeight24 ZFontWeight700 sapUiMediumMarginBegin"
+										width="200px">
+									</Title>
+								</HBox>
+
+								<HBox renderType="Bare">
+									<Title text="{i18n>ZFLTDTitle}" titleStyle="H6"
+										class="ZFontWeight700 ZLineHeight24">
+									</Title>
+								</HBox>
+								<HBox renderType="Bare" class="sapUiSmallMarginBegin">
+									<Title text="{i18n>ZFTotalRevenueTitle}" titleStyle="H6"
+										class="ZLineHeight24" width="150px">
+									</Title>
+									<Title
+										text="{path: 'GroupDetail>/groupSummary/ltdtotalRevenue',
+										formatter: '.oFormatter.numberText'}"
+										titleStyle="H6"
+										class="ZLineHeight24 ZFontWeight700 sapUiMediumMarginBegin"
+										width="200px">
+									</Title>
+
+									<Title text="{i18n>ZFWOWUFeeTitle}" titleStyle="H6"
+										class="ZLineHeight24 " width="150px">
+									</Title>
+									<Title
+										text="{path: 'GroupDetail>/groupSummary/ltdwuwofee',
+										formatter: '.oFormatter.numberText'}"
+										titleStyle="H6"
+										class="ZLineHeight24 ZFontWeight700 sapUiMediumMarginBegin"
+										width="200px">
+									</Title>
+								</HBox>
+								<HBox renderType="Bare" class="sapUiSmallMarginBegin">
+									<Title text="{i18n>ZFProjectMarginTitle}" titleStyle="H6"
+										class="ZLineHeight24" width="150px">
+									</Title>
+									<Title
+										text="{path: 'GroupDetail>/groupSummary/ltdprojectMargin',
+										formatter: '.oFormatter.numberText'}"
+										titleStyle="H6"
+										class="ZLineHeight24 ZFontWeight700 sapUiMediumMarginBegin"
+										width="200px">
+									</Title>
+
+									<Title text="{i18n>ZFWOWUExpTitle}" titleStyle="H6"
+										class="ZLineHeight24 " width="150px">
+									</Title>
+									<Title
+										text="{path: 'GroupDetail>/groupSummary/ltdwuwoexp',
+										formatter: '.oFormatter.numberText'}"
+										titleStyle="H6"
+										class="ZLineHeight24 ZFontWeight700 sapUiMediumMarginBegin"
+										width="200px">
+									</Title>
+								</HBox>
+							</VBox>
+						</HBox>
+					</content>
+				</Panel>
+			</VBox>
+
+			<VBox>
+				<layout:Grid defaultSpan="L6 M6 S6" defaultIndent="L0 M0 S0"
+					hSpacing="0" vSpacing="0">
+					<VBox renderType="Bare"
+						class="sapUiTinyMarginBottom sapUiTinyMarginBegin sapUiTinyMarginEnd">
+						<HBox width="100%" class="ZBackgroudColorF2F2F2" renderType="Bare">
+							<Title text="{i18n>ZFLeaderInfoTitle}" titleStyle="H5"
+								class="ZFontWeight700 sapUiTinyMarginBegin ZLineHeight24">
+							</Title>
+						</HBox>
+						<VBox class="ZBorder ZShadow sapUiTinyMarginTop " renderType="Bare"
+							height="200px">
+							<HBox class="sapUiSmallMarginBegin sapUiTinyMarginTop">
+								<Title text="{i18n>ZFLeadersTitle}" titleStyle="H5"
+									class="ZFontWeight700 ZLineHeight24">
+								</Title>
+
+								<core:Icon src="sap-icon://sys-help-2" color="#BABABA"
+									tooltip="{i18n>ZFLeadersTooltip}" press="onShowHelpContent"
+									class="sapUiTinyMarginBegin ZLineHeight24">
+
+									<core:customData>
+										<core:CustomData key="tooltip" value="{i18n>ZFLeadersTooltip}"></core:CustomData>
+									</core:customData>
+								</core:Icon>
+							</HBox>
+							<Carousel loop="true" class="ZMinWidth ZMCrsl"
+								pages="{path:'GroupDetail>/MemberPages', templateShareable:false}">
+								<pages>
+									<layout:Grid defaultSpan="L2 M2 S2" defaultIndent="L0 M0 S0"
+										hSpacing="0.5" vSpacing="0"
+										content="{path:'GroupDetail>Member6', templateShareable:false}"
+										class="sapUiSmallMargin ZMemberImageContainer">
+										<VBox width="70px" height="110px" binding="{GroupDetail>}"
+											renderType="Bare">
+
+											<t:MemberImage LEP="{GroupDetail>lep}" LEM="{GroupDetail>lem}"
+												src="{GroupDetail>image}" tooltip="{GroupDetail>name}"
+												densityAware="false" width="70px" height="90px"
+												templateShareable="false" press="onPressImage">
+											</t:MemberImage>
+										</VBox>
+									</layout:Grid>
+								</pages>
+							</Carousel>
+						</VBox>
+						<VBox class="ZBorder ZShadow sapUiTinyMarginBottom sapUiTinyMarginTop">
+							<HBox width="100%" class="sapUiSmallMarginBegin sapUiSmallMarginTop ">
+								<Title text="{i18n>ZFLeaderSkillTitle}" titleStyle="H5"
+									class="ZFontWeight700 ZLineHeight24">
+								</Title>
+
+								<core:Icon src="sap-icon://sys-help-2" color="#BABABA"
+									tooltip="{i18n>ZFDetailLeaderSkillTooltip}" press="onShowHelpContent"
+									class="sapUiTinyMarginBegin ZLineHeight24">
+
+									<core:customData>
+										<core:CustomData key="tooltip"
+											value="{i18n>ZFDetailLeaderSkillTooltip}"></core:CustomData>
+									</core:customData>
+								</core:Icon>
+							</HBox>
+							<HBox width="100%" class="sapUiMediumMarginBegin">
+								<Title text="{i18n>ZFScoreTitle}" titleStyle="H5"
+									class="ZFontWeight700 ZLineHeight24">
+								</Title>
+								<Title text="999" titleStyle="H5"
+									class="ZFontWeight700 ZLineHeight24 sapUiMediumMarginBegin">
+								</Title>
+
+							</HBox>
+							<layout:Grid defaultSpan="L12 M12 S12" defaultIndent="L0 M0 S0"
+								hSpacing="0" vSpacing="0" class="ZCenter">
+
+								<HBox height="250px" renderType="Bare">
+									<g:RadarChart data="{GroupDetail>/leaderSkill/memberSkills}"
+										option="{chartConfiguration>/DetailLeaderSkill}" />
+								</HBox>
+							</layout:Grid>
+						</VBox>
+					</VBox>
+					<VBox class="sapUiTinyMarginBottom sapUiTinyMarginEnd">
+						<HBox width="100%" class="ZBackgroudColorF2F2F2" renderType="Bare">
+							<Title text="{i18n>ZFGroupDetailTitle}" titleStyle="H5"
+								class="ZFontWeight700 sapUiTinyMarginBegin ZLineHeight24">
+							</Title>
+						</HBox>
+						<VBox class="sapUiTinyMarginTop " renderType="Bare" height="200px">
+							<ScrollContainer vertical="true" height="100%"
+								focusable="true">
+								<Table items="{GroupDetail>/engageList}">
+									<columns>
+										<Column>
+											<Text text="{i18n>ZFEngTitle}" class="ZTitle" />
+										</Column>
+										<Column width="90px" minScreenWidth="Tablet"
+											demandPopin="true">
+											<Text text="{i18n>ZFLEPTitle}" class="ZTitle" />
+										</Column>
+										<Column width="90px" minScreenWidth="Tablet"
+											demandPopin="true">
+											<Text text="{i18n>ZFLEMTitle}" class="ZTitle" />
+										</Column>
+										<Column width="120px" minScreenWidth="Tablet"
+											demandPopin="true">
+											<Text text="{i18n>ZFTermTitle}" class="ZTitle" />
+										</Column>
+										<Column minScreenWidth="Tablet" demandPopin="true"
+											width="20px">
+										</Column>
+									</columns>
+									<items>
+										<ColumnListItem class="sapUiTinyMarginBottom">
+											<cells>
+												<VBox class="ZTableText12" renderType="Bare">
+
+													<Title text="{GroupDetail>engCode}" class="ZFontWeight700">
+													</Title>
+													<Text text="{GroupDetail>engName}" />
+												</VBox>
+												<VBox class="ZTableText12" renderType="Bare">
+													<Title text="{GroupDetail>lepCode}" class="ZFontWeight700">
+													</Title>
+													<Text text="{GroupDetail>lep}" />
+												</VBox>
+												<VBox class="ZTableText12" renderType="Bare">
+													<Title text="{GroupDetail>lemCode}" class="ZFontWeight700">
+													</Title>
+													<Text text="{GroupDetail>lem}" />
+												</VBox>
+												<VBox class="ZTableText12" renderType="Bare">
+													<Text text="{GroupDetail>period}" />
+												</VBox>
+												<VBox class="ZTableText12" renderType="Bare">
+													<Button icon="sap-icon://document-text" press="onDisplayEngagementDetail">
+														<customData>
+															<core:CustomData key="data" value="{GroupDetail>}"></core:CustomData>
+														</customData>
+													</Button>
+												</VBox>
+											</cells>
+										</ColumnListItem>
+									</items>
+								</Table>
+							</ScrollContainer>
+						</VBox>
+						<VBox class="ZBorder ZShadow sapUiTinyMarginBottom sapUiTinyMarginTop"
+							renderType="Bare">
+							<HBox width="100%" class="sapUiSmallMarginBegin sapUiSmallMarginTop ">
+								<Title text="{i18n>ZFAssignmentClassTitle}" titleStyle="H5"
+									class="ZFontWeight700 ZLineHeight24">
+								</Title>
+
+								<core:Icon src="sap-icon://sys-help-2" color="#BABABA"
+									tooltip="{i18n>ZFAssignmentClassTooltip}" press="onShowHelpContent"
+									class="sapUiTinyMarginBegin ZLineHeight24">
+
+									<core:customData>
+										<core:CustomData key="tooltip"
+											value="{i18n>ZFAssignmentClassTooltip}"></core:CustomData>
+									</core:customData>
+								</core:Icon>
+							</HBox>
+							<HBox width="100%" class="sapUiMediumMarginBegin ">
+								<Title text="{i18n>ZFScoreTitle}" titleStyle="H5"
+									class="ZFontWeight700 ZLineHeight24">
+								</Title>
+								<Title text="{GroupDetail>/AssignBalance/score}"
+									titleStyle="H5"
+									class="ZFontWeight700 ZLineHeight24 sapUiMediumMarginBegin">
+								</Title>
+
+							</HBox>
+							<VBox class="ZBorder sapUiMediumMarginBegin sapUiMediumMarginEnd">
+								<viz:VizFrame uiConfig="{applicationSet:'fiori'}"
+									width="100%" height="240px" id="idVizFrame" vizType='stacked_bar'
+									vizProperties="{chartConfiguration>/DetailAssignment}">
+									<viz:dataset>
+										<viz.data:FlattenedDataset
+											data="{GroupDetail>/assignBalance/assignmentChart}">
+											<viz.data:dimensions>
+												<viz.data:DimensionDefinition
+													name="Rank" value="{GroupDetail>rankName}" />
+												<viz.data:DimensionDefinition
+													name="RankTy" value="{ClientDetail>rankType}" />
+											</viz.data:dimensions>
+											<viz.data:measures>
+												<viz.data:MeasureDefinition name="E"
+													value="{GroupDetail>e}" />
+												<viz.data:MeasureDefinition name="P"
+													value="{GroupDetail>p}" />
+												<viz.data:MeasureDefinition name="T"
+													value="{GroupDetail>t}" />
+												<viz.data:MeasureDefinition name="R"
+													value="{GroupDetail>r}" />
+												<viz.data:MeasureDefinition name="S"
+													value="{GroupDetail>s}" />
+												<viz.data:MeasureDefinition name="Standard"
+													value="{GroupDetail>standard}" />
+											</viz.data:measures>
+										</viz.data:FlattenedDataset>
+									</viz:dataset>
+
+									<viz:feeds>
+										<viz.feeds:FeedItem uid="valueAxis" type="Measure"
+											values="E" />
+										<viz.feeds:FeedItem id="P" uid="valueAxis"
+											type="Measure" values="P" />
+										<viz.feeds:FeedItem id="T" uid="valueAxis"
+											type="Measure" values="T" />
+										<viz.feeds:FeedItem id="R" uid="valueAxis"
+											type="Measure" values="R" />
+										<viz.feeds:FeedItem uid="valueAxis" type="Measure"
+											values="Standard" />
+										<viz.feeds:FeedItem uid="categoryAxis"
+											type="Dimension" values="Rank" />
+										<viz.feeds:FeedItem uid="categoryAxis"
+											type="Dimension" values="RankTy" />
+									</viz:feeds>
+								</viz:VizFrame>
+							</VBox>
+							<HBox width="100%" class="sapUiMediumMarginBegin sapUiTinyMarginTop ">
+								<Title text="{i18n>ZFTotalHeadCountTitle}" titleStyle="H6"
+									class="ZLineHeight24" width="150px">
+								</Title>
+								<Title text="{GroupDetail>/assignBalance/headCount}"
+									titleStyle="H6" class="ZLineHeight24 sapUiMediumMarginBegin">
+								</Title>
+
+							</HBox>
+							<HBox width="100%" class="sapUiMediumMarginBegin">
+								<Title text="{i18n>ZFSubTotRevenueTitle}" titleStyle="H6"
+									class="ZLineHeight24" width="150px">
+								</Title>
+								<Title
+									text="{path: 'GroupDetail>/assignBalance/subTotRevenue',
+										formatter: '.oFormatter.percentText'}"
+									titleStyle="H6" class="ZLineHeight24 sapUiMediumMarginBegin">
+								</Title>
+
+							</HBox>
+						</VBox>
+						<!-- QRM Risk Part -->
+						<VBox class="ZBorder ZShadow sapUiTinyMarginBottom" id="QRM"
+							binding="{GroupDetail>/qrmData/progress}">
+							<HBox class="sapUiSmallMarginBegin sapUiSmallMarginTop "
+								renderType="Bare">
+								<Title text="{i18n>ZFQRMRiskTitle}" titleStyle="H5"
+									class="ZFontWeight700 ZLineHeight24">
+								</Title>
+
+								<core:Icon src="sap-icon://sys-help-2" color="#BABABA"
+									tooltip="{i18n>ZFQRMTooltip}" press="onShowHelpContent"
+									class="sapUiTinyMarginBegin ZLineHeight24">
+
+									<core:customData>
+										<core:CustomData key="tooltip" value="{i18n>ZFQRMTooltip}"></core:CustomData>
+									</core:customData>
+								</core:Icon>
+								<HBox justifyContent="End" width="450px">
+									<Select change="onQRMTypeChange">
+										<core:Item key="progress" text="{i18n>ZFProgressSelectItem}" />
+										<core:Item key="proposal" text="{i18n>ZFProposalSelectItem}" />
+									</Select>
+								</HBox>
+							</HBox>
+							<HBox width="100%" class="sapUiMediumMarginBegin">
+								<Title text="{i18n>ZFScoreTitle}" titleStyle="H5"
+									class="ZFontWeight700 ZLineHeight24">
+								</Title>
+								<Title text="{GroupDetail>score}" titleStyle="H5"
+									class="ZFontWeight700 ZLineHeight24 sapUiMediumMarginBegin">
+								</Title>
+							</HBox>
+							<VBox class="sapUiMediumMarginBegin sapUiMediumMarginEnd"
+								renderType="Bare">
+								<layout:Grid defaultSpan="L6 M6 S6" defaultIndent="L0 M0 S0"
+									hSpacing="0.5" vSpacing="0" width="100%">
+									<VBox renderType="Bare">
+										<VBox class="ZBorder" height="24px" renderType="Bare">
+											<Title text="{i18n>ZFProjectTitle}" titleStyle="H6"
+												textAlign="Center" class="ZFontWeight700 ZLineHeight24">
+											</Title>
+										</VBox>
+										<VBox class="ZMinHeight200" renderType="Bare">
+											<g:RadarChart data="{GroupDetail>project}"
+												option="{GroupDetail>Option}" />
+										</VBox>
+									</VBox>
+									<VBox renderType="Bare">
+										<VBox class="ZBorder" height="24px" renderType="Bare">
+											<Title text="{i18n>ZFQAPTitle}" titleStyle="H6"
+												textAlign="Center" class="ZFontWeight700 ZLineHeight24">
+											</Title>
+										</VBox>
+										<VBox class="ZMinHeight200" renderType="Bare">
+											<g:RadarChart data="{GroupDetail>qap}" option="{GroupDetail>Option}" />
+										</VBox>
+									</VBox>
+								</layout:Grid>
+							</VBox>
+						</VBox>
+
+					</VBox>
+
+				</layout:Grid>
+			</VBox>
+
+
+		</content>
+	</Page>
+</mvc:View>

@@ -1,0 +1,895 @@
+[
+	{
+		"GroupName": "アビーム次郎グループ",
+		"GroupDesc": "グループ名 12345 (グループコードABCDE)",
+		"ConsultingFee": 999999999999,
+		"RR": 0.999,
+		"YTDTotalRevenue": 999999999999,
+		"YTDProjectMargin": 999999999999,
+		"YTDWUWOFee": 999999999999,
+		"YTDWUWOExp": 999999999999,
+		"LTDTotalRevenue": 999999999999,
+		"LTDProjectMargin": 999999999999,
+		"LTDWUWOFee": 999999999999,
+		"LTDWUWOExp": 999999999999,
+		"Pages": [
+			{
+				"Members": [
+					{
+						"Image": "../image/M1.jpg",
+						"Name": "ABC",
+						"Code": "123456789",
+						"Type": "LEP",
+						"SkillData": {
+							"classText": "ABeam Taro",
+							"classColor": "orange",
+							"classId": "1",
+							"axes": [
+								{
+									"axis": "案件開拓力",
+									"value": 4
+								},
+								{
+									"axis": "プロジェクトマネジメント",
+									"value": 2
+								},
+								{
+									"axis": "クライアント関係構築力",
+									"value": 3
+								},
+								{
+									"axis": "専門性（プロセス）",
+									"value": 1
+								},
+								{
+									"axis": "専門性（システム）",
+									"value": 2
+								},
+								{
+									"axis": "アプローチ構築",
+									"value": 4
+								},
+								{
+									"axis": "メンバー育成力",
+									"value": 3
+								},
+								{
+									"axis": "実行力",
+									"value": 1
+								},
+								{
+									"axis": "洞察力",
+									"value": 3
+								}
+							]
+						}
+					},
+					{
+						"Image": "../image/M2.jpg",
+						"Name": "ABC",
+						"Code": "123456789",
+						"Type": "LEM",
+						"SkillData": {
+							"classText": "ABeam Jiro",
+							"classColor": "Purple",
+							"classId": "2",
+							"axes": [
+								{
+									"axis": "案件開拓力",
+									"value": 2
+								},
+								{
+									"axis": "プロジェクトマネジメント",
+									"value": 1
+								},
+								{
+									"axis": "クライアント関係構築力",
+									"value": 4
+								},
+								{
+									"axis": "専門性（プロセス）",
+									"value": 0
+								},
+								{
+									"axis": "専門性（システム）",
+									"value": 4
+								},
+								{
+									"axis": "アプローチ構築",
+									"value": 1
+								},
+								{
+									"axis": "メンバー育成力",
+									"value": 4
+								},
+								{
+									"axis": "実行力",
+									"value": 4
+								},
+								{
+									"axis": "洞察力",
+									"value": 1
+								}
+							]
+						}
+					},
+					{
+						"Image": "../image/M3.jpg",
+						"Name": "ABC",
+						"Code": "123456789",
+						"Type": null,
+						"SkillData": {
+							"classText": "ABeam Jeff",
+							"classColor": "Pink",
+							"classId": "3",
+							"axes": [
+								{
+									"axis": "案件開拓力",
+									"value": 2
+								},
+								{
+									"axis": "プロジェクトマネジメント",
+									"value": 2
+								},
+								{
+									"axis": "クライアント関係構築力",
+									"value": 2
+								},
+								{
+									"axis": "専門性（プロセス）",
+									"value": 2
+								},
+								{
+									"axis": "専門性（システム）",
+									"value": 1
+								},
+								{
+									"axis": "アプローチ構築",
+									"value": 4
+								},
+								{
+									"axis": "メンバー育成力",
+									"value": 4
+								},
+								{
+									"axis": "実行力",
+									"value": 4
+								},
+								{
+									"axis": "洞察力",
+									"value": 3
+								}
+							]
+						}
+					},
+					{
+						"Image": "../image/M4.jpg",
+						"Name": "ABC",
+						"Code": "123456789",
+						"Type": null,
+						"SkillData": {
+							"classText": "ABeam Mike",
+							"classColor": "Red",
+							"classId": "4",
+							"axes": [
+								{
+									"axis": "案件開拓力",
+									"value": 4
+								},
+								{
+									"axis": "プロジェクトマネジメント",
+									"value": 1
+								},
+								{
+									"axis": "クライアント関係構築力",
+									"value": 1
+								},
+								{
+									"axis": "専門性（プロセス）",
+									"value": 1
+								},
+								{
+									"axis": "専門性（システム）",
+									"value": 1
+								},
+								{
+									"axis": "アプローチ構築",
+									"value": 1
+								},
+								{
+									"axis": "メンバー育成力",
+									"value": 1
+								},
+								{
+									"axis": "実行力",
+									"value": 1
+								},
+								{
+									"axis": "洞察力",
+									"value": 2
+								}
+							]
+						}
+					},
+					{
+						"Image": "../image/M5.jpg",
+						"Name": "ABC",
+						"Code": "123456789",
+						"Type": null,
+						"SkillData": {
+							"classText": "ABeam Ricky",
+							"classColor": "#ABC951",
+							"classId": "5",
+							"axes": [
+								{
+									"axis": "案件開拓力",
+									"value": 3
+								},
+								{
+									"axis": "プロジェクトマネジメント",
+									"value": 1
+								},
+								{
+									"axis": "クライアント関係構築力",
+									"value": 3
+								},
+								{
+									"axis": "専門性（プロセス）",
+									"value": 1
+								},
+								{
+									"axis": "専門性（システム）",
+									"value": 3
+								},
+								{
+									"axis": "アプローチ構築",
+									"value": 1
+								},
+								{
+									"axis": "メンバー育成力",
+									"value": 3
+								},
+								{
+									"axis": "実行力",
+									"value": 1
+								},
+								{
+									"axis": "洞察力",
+									"value": 3
+								}
+							]
+						}
+					},
+					{
+						"Image": "../image/M5.jpg",
+						"Name": "ABC",
+						"Code": "123456789",
+						"Type": null,
+						"SkillData": {
+							"classText": "ABeam Ricky",
+							"classColor": "#ABC951",
+							"classId": "6",
+							"axes": [
+								{
+									"axis": "案件開拓力",
+									"value": 4
+								},
+								{
+									"axis": "プロジェクトマネジメント",
+									"value": 4
+								},
+								{
+									"axis": "クライアント関係構築力",
+									"value": 4
+								},
+								{
+									"axis": "専門性（プロセス）",
+									"value": 4
+								},
+								{
+									"axis": "専門性（システム）",
+									"value": 4
+								},
+								{
+									"axis": "アプローチ構築",
+									"value": 4
+								},
+								{
+									"axis": "メンバー育成力",
+									"value": 4
+								},
+								{
+									"axis": "実行力",
+									"value": 4
+								},
+								{
+									"axis": "洞察力",
+									"value": 3
+								}
+							]
+						}
+					}
+				]
+			},
+			{
+				"Members": [
+					{
+						"Image": "../image/M1.jpg",
+						"Name": "ABC",
+						"Code": "123456789",
+						"Type": "LEP",
+						"SkillData": {
+							"classText": "ABeam Taro",
+							"classColor": "orange",
+							"classId": "7",
+							"axes": [
+								{
+									"axis": "案件開拓力",
+									"value": 3
+								},
+								{
+									"axis": "プロジェクトマネジメント",
+									"value": 3
+								},
+								{
+									"axis": "クライアント関係構築力",
+									"value": 3
+								},
+								{
+									"axis": "専門性（プロセス）",
+									"value": 1
+								},
+								{
+									"axis": "専門性（システム）",
+									"value": 3
+								},
+								{
+									"axis": "アプローチ構築",
+									"value": 3
+								},
+								{
+									"axis": "メンバー育成力",
+									"value": 3
+								},
+								{
+									"axis": "実行力",
+									"value": 1
+								},
+								{
+									"axis": "洞察力",
+									"value": 3
+								}
+							]
+						}
+					},
+					{
+						"Image": "../image/M2.jpg",
+						"Name": "ABC",
+						"Code": "123456789",
+						"Type": "LEM",
+						"SkillData": {
+							"classText": "ABeam Jiro",
+							"classColor": "Purple",
+							"classId": "8",
+							"axes": [
+								{
+									"axis": "案件開拓力",
+									"value": 2
+								},
+								{
+									"axis": "プロジェクトマネジメント",
+									"value": 2
+								},
+								{
+									"axis": "クライアント関係構築力",
+									"value": 2
+								},
+								{
+									"axis": "専門性（プロセス）",
+									"value": 1
+								},
+								{
+									"axis": "専門性（システム）",
+									"value": 2
+								},
+								{
+									"axis": "アプローチ構築",
+									"value": 2
+								},
+								{
+									"axis": "メンバー育成力",
+									"value": 3
+								},
+								{
+									"axis": "実行力",
+									"value": 1
+								},
+								{
+									"axis": "洞察力",
+									"value": 3
+								}
+							]
+						}
+					},
+					{
+						"Image": "../image/M3.jpg",
+						"Name": "ABC",
+						"Code": "123456789",
+						"Type": null,
+						"SkillData": {
+							"classText": "ABeam Jeff",
+							"classColor": "Pink",
+							"classId": "9",
+							"axes": [
+								{
+									"axis": "案件開拓力",
+									"value": 1
+								},
+								{
+									"axis": "プロジェクトマネジメント",
+									"value": 2
+								},
+								{
+									"axis": "クライアント関係構築力",
+									"value": 1
+								},
+								{
+									"axis": "専門性（プロセス）",
+									"value": 1
+								},
+								{
+									"axis": "専門性（システム）",
+									"value": 2
+								},
+								{
+									"axis": "アプローチ構築",
+									"value": 1
+								},
+								{
+									"axis": "メンバー育成力",
+									"value": 1
+								},
+								{
+									"axis": "実行力",
+									"value": 1
+								},
+								{
+									"axis": "洞察力",
+									"value": 1
+								}
+							]
+						}
+					},
+					{
+						"Image": "../image/M4.jpg",
+						"Name": "ABC",
+						"Code": "123456789",
+						"Type": null,
+						"SkillData": {
+							"classText": "ABeam Mike",
+							"classColor": "Red",
+							"classId": "10",
+							"axes": [
+								{
+									"axis": "案件開拓力",
+									"value": 4
+								},
+								{
+									"axis": "プロジェクトマネジメント",
+									"value": 1
+								},
+								{
+									"axis": "クライアント関係構築力",
+									"value": 1
+								},
+								{
+									"axis": "専門性（プロセス）",
+									"value": 1
+								},
+								{
+									"axis": "専門性（システム）",
+									"value": 4
+								},
+								{
+									"axis": "アプローチ構築",
+									"value": 4
+								},
+								{
+									"axis": "メンバー育成力",
+									"value": 4
+								},
+								{
+									"axis": "実行力",
+									"value": 4
+								},
+								{
+									"axis": "洞察力",
+									"value": 4
+								}
+							]
+						}
+					},
+					{
+						"Image": "../image/M5.jpg",
+						"Name": "ABC",
+						"Code": "123456789",
+						"Type": null,
+						"SkillData": {
+							"classText": "ABeam Ricky",
+							"classColor": "#ABC951",
+							"classId": "11",
+							"axes": [
+								{
+									"axis": "案件開拓力",
+									"value": 2
+								},
+								{
+									"axis": "プロジェクトマネジメント",
+									"value": 2
+								},
+								{
+									"axis": "クライアント関係構築力",
+									"value": 2
+								},
+								{
+									"axis": "専門性（プロセス）",
+									"value": 4
+								},
+								{
+									"axis": "専門性（システム）",
+									"value": 4
+								},
+								{
+									"axis": "アプローチ構築",
+									"value": 4
+								},
+								{
+									"axis": "メンバー育成力",
+									"value": 4
+								},
+								{
+									"axis": "実行力",
+									"value": 4
+								},
+								{
+									"axis": "洞察力",
+									"value": 3
+								}
+							]
+						}
+					},
+					{
+						"Image": "../image/M5.jpg",
+						"Name": "ABC",
+						"Code": "123456789",
+						"Type": null,
+						"SkillData": {
+							"classText": "ABeam Ricky",
+							"classColor": "#ABC951",
+							"classId": "12",
+							"axes": [
+								{
+									"axis": "案件開拓力",
+									"value": 2
+								},
+								{
+									"axis": "プロジェクトマネジメント",
+									"value": 4
+								},
+								{
+									"axis": "クライアント関係構築力",
+									"value": 3
+								},
+								{
+									"axis": "専門性（プロセス）",
+									"value": 3
+								},
+								{
+									"axis": "専門性（システム）",
+									"value": 3
+								},
+								{
+									"axis": "アプローチ構築",
+									"value": 4
+								},
+								{
+									"axis": "メンバー育成力",
+									"value": 3
+								},
+								{
+									"axis": "実行力",
+									"value": 2
+								},
+								{
+									"axis": "洞察力",
+									"value": 3
+								}
+							]
+						}
+					}
+				]
+			}
+		],
+		"QRM": [
+			{
+				"Progress": {
+					"Project": {
+						"classText": "Project.1(18/1/30)",
+						"classColor": "orange",
+						"classId": "1",
+						"axes": [
+							{"axes":"Contract","value":"3"},
+							{"axes":"Technique","value":"5"},
+							{"axes":"Scope","value":"3"},
+							{"axes":"Schedule","value":"5"},
+							{"axes":"Role Assignment","value":"1"},
+							{"axes":"Resource","value":"3"},
+							{"axes":"Quality","value":"5"},
+							{"axes":"Project Management","value":"4"},
+							{"axes":"Profit Forecast","value":"2"},
+							{"axes":"Environment","value":"1"},
+							{"axes":"Customer","value":"5"}
+						]
+					},
+					"QAP": {
+						"classText": "Project.1(18/1/30)",
+						"classColor": "orange",
+						"classId": "1",
+						"axes": [
+							{"axes":"Contract","value":"5"},
+							{"axes":"Technique","value":"4"},
+							{"axes":"Scope","value":"2"},
+							{"axes":"Schedule","value":"4"},
+							{"axes":"Role Assignment","value":"3"},
+							{"axes":"Resource","value":"1"},
+							{"axes":"Quality","value":"1"},
+							{"axes":"Project Management","value":"4"},
+							{"axes":"Profit Forecast","value":"5"},
+							{"axes":"Environment","value":"4"},
+							{"axes":"Customer","value":"1"}
+						]
+					}
+				},
+				"Proposal": {
+					"Project": {
+						"classText": "Project.1(18/1/30)",
+						"classColor": "orange",
+						"classId": "1",
+						"axes": [
+							{"axes":"Customer","value":"3"},
+							{"axes":"Scope","value":"1"},
+							{"axes":"Quality","value":"5"},
+							{"axes":"Schedule","value":"2"},
+							{"axes":"Budget","value":"4"},
+							{"axes":"Resource","value":"3"},
+							{"axes":"Environment","value":"5"},
+							{"axes":"Contract","value":"5"}
+						]
+					},
+					"QAP": {
+						"classText": "Project.1(18/1/30)",
+						"classColor": "orange",
+						"classId": "1",
+						"axes": [
+							{"axes":"Customer","value":"1"},
+							{"axes":"Scope","value":"2"},
+							{"axes":"Quality","value":"4"},
+							{"axes":"Schedule","value":"4"},
+							{"axes":"Budget","value":"5"},
+							{"axes":"Resource","value":"4"},
+							{"axes":"Environment","value":"4"},
+							{"axes":"Contract","value":"2"}
+						]
+					}
+				}
+			},
+			{
+				"Progress": {
+					"Project": {
+						"classText": "Project.2(18/2/28)",
+						"classColor": "#CCCCCC",
+						"classId": "5",
+						"axes": [
+							{"axes":"Contract","value":"5"},
+							{"axes":"Technique","value":"2"},
+							{"axes":"Scope","value":"1"},
+							{"axes":"Schedule","value":"4"},
+							{"axes":"Role Assignment","value":"4"},
+							{"axes":"Resource","value":"1"},
+							{"axes":"Quality","value":"5"},
+							{"axes":"Project Management","value":"2"},
+							{"axes":"Profit Forecast","value":"5"},
+							{"axes":"Environment","value":"2"},
+							{"axes":"Customer","value":"4"}
+						]
+					},
+					"QAP": {
+						"classText": "Project.2(18/2/28)",
+						"classColor": "#CCCCCC",
+						"classId": "5",
+						"axes": [
+							{"axes":"Contract","value":"3"},
+							{"axes":"Technique","value":"2"},
+							{"axes":"Scope","value":"2"},
+							{"axes":"Schedule","value":"3"},
+							{"axes":"Role Assignment","value":"1"},
+							{"axes":"Resource","value":"1"},
+							{"axes":"Quality","value":"3"},
+							{"axes":"Project Management","value":"1"},
+							{"axes":"Profit Forecast","value":"2"},
+							{"axes":"Environment","value":"2"},
+							{"axes":"Customer","value":"5"}
+						]
+					}
+				},
+				"Proposal": {
+					"Project": {
+						"classText": "Project.2(18/2/28)",
+						"classColor": "#CCCCCC",
+						"classId": "5",
+						"axes": [
+							{"axes":"Customer","value":"1"},
+							{"axes":"Scope","value":"1"},
+							{"axes":"Quality","value":"1"},
+							{"axes":"Schedule","value":"2"},
+							{"axes":"Budget","value":"4"},
+							{"axes":"Resource","value":"2"},
+							{"axes":"Environment","value":"4"},
+							{"axes":"Contract","value":"4"}
+						]
+					},
+					"QAP": {
+						"classText": "Project.2(18/2/28)",
+						"classColor": "#CCCCCC",
+						"classId": "5",
+						"axes": [
+							{"axes":"Customer","value":"1"},
+							{"axes":"Scope","value":"1"},
+							{"axes":"Quality","value":"1"},
+							{"axes":"Schedule","value":"2"},
+							{"axes":"Budget","value":"2"},
+							{"axes":"Resource","value":"3"},
+							{"axes":"Environment","value":"3"},
+							{"axes":"Contract","value":"4"}
+						]
+					}
+				}
+			}
+		],
+		"EngageList": [
+			{
+				"LEP": "アビーム太郎",
+				"LEPCode": "JP00000001",
+				"LEM": "アビーム次郎",
+				"LEMCode": "JP00000002",
+				"EngCode": "ENGAGE001E",
+				"EngName": "アビームEngagement",
+				"Period": "XX/XX - XX/XX"
+			},
+			{
+				"LEP": "アビーム太郎",
+				"LEPCode": "JP00000001",
+				"LEM": "アビーム次郎",
+				"LEMCode": "JP00000002",
+				"EngCode": "ENGAGE002E",
+				"EngName": "アビームEngagement",
+				"Period": "XX/XX - XX/XX"
+			},
+			{
+				"LEP": "アビーム太郎",
+				"LEPCode": "JP00000001",
+				"LEM": "アビーム次郎",
+				"LEMCode": "JP00000002",
+				"EngCode": "ENGAGE003E",
+				"EngName": "アビームEngagement",
+				"Period": "XX/XX - XX/XX"
+			},
+			{
+				"LEP": "アビーム太郎",
+				"LEPCode": "JP00000001",
+				"LEM": "アビーム次郎",
+				"LEMCode": "JP00000002",
+				"EngCode": "ENGAGE004E",
+				"EngName": "アビームEngagement",
+				"Period": "XX/XX - XX/XX"
+			},
+			{
+				"LEP": "アビーム太郎",
+				"LEPCode": "JP00000001",
+				"LEM": "アビーム次郎",
+				"LEMCode": "JP00000002",
+				"EngCode": "ENGAGE005E",
+				"EngName": "アビームEngagement",
+				"Period": "XX/XX - XX/XX"
+			},
+			{
+				"LEP": "アビーム太郎",
+				"LEPCode": "JP00000001",
+				"LEM": "アビーム次郎",
+				"LEMCode": "JP00000002",
+				"EngCode": "ENGAGE006E",
+				"EngName": "アビームEngagement",
+				"Period": "XX/XX - XX/XX"
+			},
+			{
+				"LEP": "アビーム太郎",
+				"LEPCode": "JP00000001",
+				"LEM": "アビーム次郎",
+				"LEMCode": "JP00000002",
+				"EngCode": "ENGAGE007E",
+				"EngName": "アビームEngagement",
+				"Period": "XX/XX - XX/XX"
+			}
+		],
+		"Assignment": {
+			"HeadCount": 109,
+			"Score": 999,
+			"SubTotRevenue": 0.999,
+			"AssignList":[
+				{
+					"RankCode": "1",
+					"RankName": "P/D",
+					"E": 0.05,
+					"P": 0.04,
+					"T": 0,
+					"R": 0,
+					"Standard": 0.03
+				},
+				{
+					"RankCode": "2",
+					"RankName": "SM/SXP",
+					"E": 0,
+					"P": 0.02,
+					"T": 0,
+					"R": 0,
+					"Standard": 0.05
+				},
+				{
+					"RankCode": "3",
+					"RankName": "M/XP",
+					"E": 0.05,
+					"P": 0.04,
+					"T": 0,
+					"R": 0,
+					"Standard": 0.07
+				},
+				{
+					"RankCode": "4",
+					"RankName": "SC/SSP",
+					"E": 0.12,
+					"P": 0.05,
+					"T": 0,
+					"R": 0,
+					"Standard": 0.09
+				},
+				{
+					"RankCode": "5",
+					"RankName": "C/SP",
+					"E": 0.24,
+					"P": 0.02,
+					"T": 0,
+					"R": 0,
+					"Standard": 0.05
+				},
+				{
+					"RankCode": "6",
+					"RankName": "BA/JSP",
+					"E": 0.19,
+					"P": 0.02,
+					"T": 0.03,
+					"R": 0,
+					"Standard": 0.02
+				},
+				{
+					"RankCode": "7",
+					"RankName": "Subcon",
+					"E": 0.07,
+					"P": 0,
+					"T": 0,
+					"R": 0,
+					"Standard": 0.01
+				}
+			]
+		}
+	}
+]

@@ -1,0 +1,50 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:layout="sap.ui.layout">
+
+	<Dialog title="{i18n>ZFDialogTitle}" afterClose="onAfterFilterClose">
+		<content>
+			<VBox class="sapUiSmallMarginBegin sapUiSmallMarginEnd">
+				<layout:Grid defaultSpan="L6 M6 S12" defaultIndent="L0 M0 S0"
+					vSpacing="0">
+					<VBox width="500px">
+						<Title text="{i18n>ZFAssignMemberTitle}" class="sapUiTinyMarginTop sapUiTinyMarginBegin ZTitle"></Title>
+						<RadioButtonGroup columns="1" width="200px"
+							id="AssignMemberType" class="sapUiTinyMarginBegin"
+							selectedIndex="{Parameter>/AssignMemberTypeIndex}"
+							buttons="{FilterOption>/MemberAssigned}">
+							<buttons>
+								<RadioButton text="{FilterOption>text}">
+									<customData>
+										<core:CustomData key="key" value="{FilterOption>key}" />
+										<core:CustomData key="text" value="{FilterOption>text}" />
+										<core:CustomData key="index" value="{FilterOption>index}" />
+									</customData>
+								</RadioButton>
+							</buttons>
+						</RadioButtonGroup>
+					</VBox>
+					<VBox width="500px">
+						<Title text="{i18n>ZFAnalysisGroupUnitTitle}" class="sapUiTinyMarginTop sapUiTinyMarginBegin ZTitle"></Title>
+						<RadioButtonGroup columns="1" width="200px" id="AnalysisGroupUnit"
+							class="sapUiTinyMarginBegin"
+							selectedIndex="{Parameter>/AnalysisGroupUnitIndex}"
+							buttons="{FilterOption>/AnalysisGroup}">
+							<buttons>
+								<RadioButton text="{FilterOption>text}">
+									<customData>
+										<core:CustomData key="key" value="{FilterOption>key}" />
+										<core:CustomData key="text" value="{FilterOption>text}" />
+										<core:CustomData key="index" value="{FilterOption>index}" />
+									</customData>
+								</RadioButton>
+							</buttons>
+						</RadioButtonGroup>
+					</VBox>
+				</layout:Grid>
+			</VBox>
+		</content>
+		<buttons>
+			<Button id="ZFilterOk" text="{i18n>ZFFilterSaveButton}" type="Emphasized" press="onFilterOk"/>
+			<Button id="ZFilterCancel" text="{i18n>ZFFilterCancelButton}" press="onFilterCancel"/>
+		</buttons>
+	</Dialog>
+</core:FragmentDefinition>

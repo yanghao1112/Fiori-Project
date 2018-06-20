@@ -1,0 +1,69 @@
+{
+	"Scales": [
+		{
+			"feed": "valueAxis",
+			"max": 3,
+			"min": 0
+		},
+		{
+			"feed": "valueAxis2",
+			"max": 3,
+			"min": 0
+		}
+	],
+	"vizProperties": {
+		"valueAxis": {
+			"title": {
+				"visible": false
+			},
+			"label": {
+				"visible": true,
+				"formatString" : "formatLabelLeft"
+			},
+			"axisLine": {
+				"visible": false
+			}
+		},
+		"legend": {
+			"isScrollable": false
+		},
+		"legendGroup": {
+			"layout": {
+				"alignment": "center",
+				"position": "bottom"
+			}
+		},
+		"valueAxis2": {
+			"title": {
+				"visible": false
+			},
+			"label": {
+				"visible": true,
+				"formatString" : "formatLabelRight"
+			},
+			"axisLine": {
+				"visible": false
+			}
+		},
+		"categoryAxis": {
+			"title": {
+				"visible": false
+			},
+			"axisTick": {
+				"visible": false
+			} 
+		},
+		"title": {
+			"visible": false
+		},
+		"plotArea": {
+			"line": {
+				"visible": true
+			},
+			"lineVisible": true,
+			"dataShape": {
+				"primaryAxis": []
+			}
+		}
+	}
+}

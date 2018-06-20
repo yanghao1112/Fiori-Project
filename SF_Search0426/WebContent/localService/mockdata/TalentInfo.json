@@ -1,0 +1,162 @@
+[
+	{
+		"TalentInfoData": {
+			"TalentId": "123456",
+			"TalentName": "Tanaka Makoto",
+			"TalentImage": "image/M1.jpg",
+			"TalentRank": "生産本部長",
+			"TalentSector": "MFG",
+			"CounselorImage": "image/M2.jpg",
+			"CounselorName": "Kusaka Taro",
+			"CounselorRank": "社長",
+			"CounselorSector": "MFG",
+			"Company": "ABeam Consulting",
+			"BU": "MFG BU",
+			"Sector": "MFG",
+			"Office": "丸内",
+			"HireDate": "2010/04/01"
+		},
+		"LeaderSkillData": [
+			{
+				"classText": "ABeam Jeff",
+				"classColor": "Red",
+				"classId": "9",
+				"axes": [
+					{
+						"axis": "案件開拓力",
+						"value": 1
+					},
+					{
+						"axis": "プロジェクトマネジメント",
+						"value": 2
+					},
+					{
+						"axis": "クライアント関係構築力",
+						"value": 1
+					},
+					{
+						"axis": "専門性（プロセス）",
+						"value": 1
+					},
+					{
+						"axis": "専門性（システム）",
+						"value": 2
+					},
+					{
+						"axis": "アプローチ構築",
+						"value": 1
+					},
+					{
+						"axis": "メンバー育成力",
+						"value": 1
+					},
+					{
+						"axis": "実行力",
+						"value": 1
+					},
+					{
+						"axis": "洞察力",
+						"value": 1
+					}
+				]
+			}
+		],
+		"PerMotivaData": [
+			{
+				"Period": "15W",
+				"Performance": 2,
+				"Motivation": 1
+			},
+			{
+				"Period": "16S",
+				"Performance": 3,
+				"Motivation": 2
+			},
+			{
+				"Period": "16W",
+				"Performance": 1,
+				"Motivation": 1
+			},
+			{
+				"Period": "17S",
+				"Performance": 2,
+				"Motivation": 1
+			},
+			{
+				"Period": "17W",
+				"Performance": 1,
+				"Motivation": 0
+			}
+		],
+		"RPRData": [
+			{
+				"TermofEvaluationRPR": "17S (2016.10.1~2017.3.31)",
+				"FinalRPR": "B",
+				"Class": "Senior Manager",
+				"Rank": "5X"
+			},
+			{
+				"TermofEvaluationRPR": "16W (2016.4.1~2016.9.30)",
+				"FinalRPR": "L",
+				"Class": "Senior Manager",
+				"Rank": "5X"
+			},
+			{
+				"TermofEvaluationRPR": "16S (2015.10.1~2016.3.31)",
+				"FinalRPR": "L",
+				"Class": "Manager",
+				"Rank": "4D"
+			}
+		],
+		"CertData": [
+			{
+				"Name": "TOEIC",
+				"Date": "Mar 18, 2012",
+				"Category": "English",
+				"Score": "999"
+			},
+			{
+				"Name": "N2",
+				"Date": "Mar 18, 2014",
+				"Category": "Janpanese",
+				"Score": "102"
+			}
+		],
+		"LanguData": [
+			{
+				"Language": "English",
+				"Level": "A2",
+				"Description": "ABCDEFG"
+			},
+			{
+				"Language": "Japanese",
+				"Level": "N2",
+				"Description": "aiueo"
+			}
+		],
+		"AssignData": [
+			{
+				"EntryDate": "Apr 13",
+				"Preference": "XXXXXXXXXXXXXXXXXXXXX"
+			},
+			{
+				"EntryDate": "Apr 16",
+				"Preference": "XXXXXXXXXXXXXXXXXXXXX"
+			}
+		],
+		"WorkData": [
+			{
+				"Type": "短時間勤務",
+				"Reason": "育児（短時間）",
+				"StartDate": "Jun 19, 2016",
+				"EndDateFixed": "Jun 19, 2017"
+			},
+			{
+				"Type": "休業",
+				"Reason": "私傷病（欠勤）",
+				"StartDate": "Jun 22, 2017",
+				"EndDateFixed": "Jun 19, 2018"
+			}
+		]
+	}
+]

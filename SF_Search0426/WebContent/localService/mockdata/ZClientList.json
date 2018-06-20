@@ -1,0 +1,72 @@
+[
+	{
+		"ClientCode": "ABC000109X",
+		"ClientName": "AAA Company, Co LTD",
+		"LCPCode": "50015115",
+		"LCPName": "Taro Yamada",
+		"ClientIndustryCode": "15110",
+		"ClientIndustryName": "MFG",
+		"OwnerCompanyCode": "0150",
+		"OwnerCompanyName": "ABeam Consulting"
+	},
+	{
+		"ClientCode": "ABC000115X",
+		"ClientName": "BBB Company, Co LTD",
+		"LCPCode": "50015110",
+		"LCPName": "Ichiro Sato",
+		"ClientIndustryCode": "15112",
+		"ClientIndustryName": "FSI",
+		"OwnerCompanyCode": "0720",
+		"OwnerCompanyName": "ABeam GDC"
+	},
+	{
+		"ClientCode": "BBC000001X",
+		"ClientName": "bbb",
+		"LCPCode": "50015111",
+		"LCPName": "ABCEMD Sato",
+		"ClientIndustryCode": "9999",
+		"ClientIndustryName": "XXXXXXX",
+		"OwnerCompanyCode": "0720",
+		"OwnerCompanyName": "ABeam GDC"
+	},
+	{
+		"ClientCode": "HCC1001848",
+		"ClientName": "HITACHI CAPITAL CORPORATION",
+		"LCPCode": "50015112",
+		"LCPName": "EDFEGA Sato",
+		"ClientIndustryCode": "9999",
+		"ClientIndustryName": "XXXXXXX",
+		"OwnerCompanyCode": "0720",
+		"OwnerCompanyName": "ABeam GDC"
+	},
+	{
+		"ClientCode": "MSI0060103",
+		"ClientName": "Mitsui Sumitomo Insurance Company, Limited",
+		"LCPCode": "50015112",
+		"LCPName": "EDFEGA Sato",
+		"ClientIndustryCode": "9999",
+		"ClientIndustryName": "XXXXXXX",
+		"OwnerCompanyCode": "0720",
+		"OwnerCompanyName": "ABeam GDC"
+	},
+	{
+		"ClientCode": "MSI0060103",
+		"ClientName": "Mitsui Sumitomo Insurance Company, Limited",
+		"LCPCode": "50015112",
+		"LCPName": "EDFEGA Sato",
+		"ClientIndustryCode": "9999",
+		"ClientIndustryName": "XXXXXXX",
+		"OwnerCompanyCode": "0720",
+		"OwnerCompanyName": "ABeam GDC"
+	},
+	{
+		"ClientCode": "MSI0060103",
+		"ClientName": "Mitsui Sumitomo Insurance Company, Limited",
+		"LCPCode": "50015112",
+		"LCPName": "EDFEGA Sato",
+		"ClientIndustryCode": "9999",
+		"ClientIndustryName": "XXXXXXX",
+		"OwnerCompanyCode": "0720",
+		"OwnerCompanyName": "ABeam GDC"
+	}
+]

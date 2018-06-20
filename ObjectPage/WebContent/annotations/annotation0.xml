@@ -155,13 +155,17 @@
 						<Record Type="UI.ReferenceFacet">
 							<PropertyValue Property="Target" AnnotationPath="@UI.FieldGroup#PricStat" />
 							<PropertyValue Property="Label" String="{@i18n>PricStatLabel}" />
+								<Annotation Term="UI.Hidden" Bool="true">
+											<Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+										</Annotation>
+								<Annotation Term="Common.FieldControl" EnumMember="Common.FieldControlType/Hidden"/>
 						</Record>
 						<Record Type="UI.ReferenceFacet">
 							<PropertyValue Property="Target" AnnotationPath="@UI.DataPoint#NetValue" />
 						</Record>
-						<Record Type="UI.ReferenceFacet">
-							<PropertyValue Property="Target" AnnotationPath="@UI.Chart#BillingChart" />
-						</Record>
+<!-- 						<Record Type="UI.ReferenceFacet"> -->
+<!-- 							<PropertyValue Property="Target" AnnotationPath="@UI.Chart#BillingChart" /> -->
+<!-- 						</Record> -->
 					</Collection>
 				</Annotation>
 				
@@ -256,19 +260,32 @@
 									<Record Type="UI.ReferenceFacet">
 										<PropertyValue Property="Target" AnnotationPath="@UI.StatusInfo#Partners1" />
 										<PropertyValue Property="Label" Path="Partners/Partner1Funct" />
-									</Record>
-									<Record Type="UI.ReferenceFacet">
-										<PropertyValue Property="Target" AnnotationPath="@UI.StatusInfo#Partners2" />
-										<PropertyValue Property="Label" Path="Partners/Partner2Funct" />
-									</Record>
-									<Record Type="UI.ReferenceFacet">
-										<PropertyValue Property="Target" AnnotationPath="@UI.StatusInfo#Partners3" />
-										<PropertyValue Property="Label" Path="Partners/Partner3Funct" />
-									</Record>
-									<Record Type="UI.ReferenceFacet">
-										<PropertyValue Property="Target" AnnotationPath="@UI.StatusInfo#Partners4" />
-										<PropertyValue Property="Label" Path="Partners/Partner4Funct" />
-									</Record>
+										</Record>
+							
+<!-- 						<Record Type="UI.ReferenceFacet"> -->
+<!-- 							<PropertyValue Property="Target" AnnotationPath="Items/@UI.LineItem" /> -->
+<!-- 							<PropertyValue Property="Label" String="{@i18n>ItemsLabel}" /> -->
+<!-- 						</Record> -->
+									
+<!-- 						<Record Type="UI.ReferenceFacet"> -->
+<!-- 							<PropertyValue Property="Target" AnnotationPath="@UI.Chart#BillingChart" /> -->
+<!-- 						</Record> -->
+						
+<!-- 									<Record Type="UI.ReferenceFacet"> -->
+<!-- 										<PropertyValue Property="Target" AnnotationPath="@UI.StatusInfo#Partners2" /> -->
+<!-- 										<PropertyValue Property="Label" Path="Partners/Partner2Funct" /> -->
+										
+<!-- 							<Annotation Term="UI.Hidden" Bool="true"/> -->
+<!-- 								<Annotation Term="Common.FieldControl" EnumMember="Common.FieldControlType/Hidden"/> -->
+<!-- 									</Record> -->
+<!-- 									<Record Type="UI.ReferenceFacet"> -->
+<!-- 										<PropertyValue Property="Target" AnnotationPath="@UI.StatusInfo#Partners3" /> -->
+<!-- 										<PropertyValue Property="Label" Path="Partners/Partner3Funct" /> -->
+<!-- 									</Record> -->
+<!-- 									<Record Type="UI.ReferenceFacet"> -->
+<!-- 										<PropertyValue Property="Target" AnnotationPath="@UI.StatusInfo#Partners4" /> -->
+<!-- 										<PropertyValue Property="Label" Path="Partners/Partner4Funct" /> -->
+<!-- 									</Record> -->
 								</Collection>
 							</PropertyValue>
 							<PropertyValue Property="Label" String="{@i18n>PartnersLabel}" />
@@ -305,9 +322,10 @@
 							<PropertyValue Property="Value" Path="Partners/Partner1Street" />
 							<PropertyValue Property="Label" String="{@i18n>PartnerStreetLabel}" />
 						</Record>
-						<Record Type="UI.DataField">
+						<Record Type="UI.DataFieldWithUrl">
 							<PropertyValue Property="Value" Path="Partners/Partner1City" />
 							<PropertyValue Property="Label" String="{@i18n>PartnerCityLabel}" />
+							<PropertyValue Property="Url" String="http://www.baidu.com"/>
 						</Record>
 					</Collection>
 				</Annotation>

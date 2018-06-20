@@ -1,0 +1,18 @@
+[
+	{
+		"IndCode": "15110",
+		"IndName": "MFG"
+	},
+	{
+		"IndCode": "15112",
+		"IndName": "FSI"
+	},
+	{
+		"IndCode": "15114",
+		"IndName": "Others"
+	},
+	{
+		"IndCode": "9999",
+		"IndName": "XXXXX"
+	}
+]

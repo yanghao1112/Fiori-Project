@@ -1,0 +1,137 @@
+{
+	"_version": "1.1.0",
+	"sap.app": {
+		"_version": "1.1.0",
+		"id": "sap.pwaa",
+		"type": "application",
+		"i18n": "i18n/i18n.properties",
+		"applicationVersion": {
+			"version": "1.0.0"
+		},
+		"title": "{{appTitle}}",
+		"description": "{{appDescription}}",
+		"dataSources": {
+			"mainService": {
+				"uri": "/",
+				"type": "OData",
+				"settings": {
+					"odataVersion": "2.0",
+					"localUri": "localService/metadata.xml"
+				}
+			}
+		}
+	},
+	"sap.ui": {
+		"_version": "1.1.0",
+		"technology": "UI5",
+		"icons": {
+			"icon": "",
+			"favIcon": "",
+			"phone": "",
+			"phone@2": "",
+			"tablet": "",
+			"tablet@2": ""
+		},
+		"deviceTypes": {
+			"desktop": true,
+			"tablet": true,
+			"phone": true
+		},
+		"supportedThemes": [
+			"sap_hcb",
+			"sap_bluecrystal"
+		],
+		"fullWidth": true
+	},
+	"sap.ui5": {
+		"_version": "1.1.0",
+		"config": {
+			"fullWidth": true
+		},
+		"rootView": {
+			"viewName": "sap.pwaa.view.Z001S001",
+			"type": "XML"
+		},
+		"routing": {
+			"config": {
+				"routerClass": "sap.m.routing.Router",
+				"viewType": "XML",
+				"viewPath": "sap.pwaa.view",
+				"controlId": "AppControl",
+				"targetAggregation": "pages",
+				"async": true
+			},
+			"routes": [
+				{
+					"pattern": "",
+					"name": "search",
+					"target": "search"
+				}
+			],
+			"targets": {
+				"home": {
+					"viewName": "Z001S001",
+					"controlAggregation": "pages"
+				},
+				"search": {
+					"viewName": "Z001S002",
+					"controlAggregation": "pages"
+				},
+				"top": {
+					"viewName": "Z001S003",
+					"controlAggregation": "pages"
+				},
+				"detail": {
+					"viewName": "Z001S004",
+					"controlAggregation": "pages"
+				}
+			}
+		},
+		"dependencies": {
+			"minUI5Version": "1.30.0",
+			"libs": {
+				"sap.ui.core": {
+					
+				},
+				"sap.m": {
+					
+				},
+				"sap.ui.layout": {
+					
+				},
+				"sap.viz": {
+					
+				},
+				"sap.ui.unified": {
+					
+				},
+				"sap.ui.commons": {
+					
+				}
+				
+			}
+		},
+		"models": {
+			"i18n": {
+				"type": "sap.ui.model.resource.ResourceModel",
+				"settings": {
+					"bundleName": "sap.pwaa.i18n.i18n"
+				}
+			},
+			"chartConfiguration": {
+				"type": "sap.ui.model.json.JSONModel",
+				"uri": "model/chartConfiguration.json"
+			},
+			"": {
+				"dataSource": "mainService"
+			}
+		},
+		"resources": {
+			"css": [
+				{
+					"uri": "css.css"
+				}
+			]
+		}
+	}
+}

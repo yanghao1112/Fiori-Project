@@ -1,0 +1,205 @@
+<core:FragmentDefinition xmlns="sap.m"
+	xmlns:core="sap.ui.core" xmlns:g="sap.ab.graph" xmlns:layout="sap.ui.layout"
+	xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form">
+	<Dialog title="" contentWidth="700px" horizontalScrolling="false">
+<!-- 		<_header> -->
+<!-- 			<contentRight> -->
+				
+<!-- 						<Button icon="sap-icon://decline" press="onHistoryCommentClose"/> -->
+<!-- 			</contentRight> -->
+<!-- 		</_header> -->
+		<content>
+			<VBox renderType="Bare" backgroundDesign="Solid" class="sapUiTinyMargin">
+
+				<!-- <layout:FixFlex> -->
+				<!-- <layout:fixContent> -->
+				<!-- <HBox class="sapUiSmallMarginBegin sapUiSmallMarginTop" -->
+				<!-- renderType="Bare"> -->
+				<!-- <Title text="Engagement Name（Emgagement Code）" titleStyle="H5" -->
+				<!-- class="ZFontWeight700 ZLineHeight24" width="350px"> -->
+				<!-- </Title> -->
+				<!-- <HBox justifyContent="End" width="300px"> -->
+				<!-- <core:Icon src="sap-icon://decline" width="20px" height="20px" -->
+				<!-- class="sapUiTinyMarginBegin" size="20px" press="onClose" -->
+				<!-- hoverBackgroundColor="#F5F5F4" decorative="false"> -->
+				<!-- </core:Icon> -->
+				<!-- </HBox> -->
+				<!-- </HBox> -->
+				<!-- </layout:fixContent> -->
+				<!-- <layout:flexContent> -->
+				<!-- <ScrollContainer vertical="true" horizontal="false" -->
+				<!-- height="100%"> -->
+				<VBox class="ZBorder">
+					<VBox renderType="Bare" binding="{EngageDetail>/QRMData/Progress}"
+						id="QRMEngage">
+						<HBox class="sapUiSmallMarginBegin sapUiSmallMarginTop "
+							renderType="Bare">
+							<Title text="{i18n>ZFEngageQRMRiskTitle}" titleStyle="H5"
+								class="ZFontWeight700 ZLineHeight24">
+							</Title>
+
+							<core:Icon src="sap-icon://sys-help-2" color="#BABABA"
+								tooltip="{i18n>ZFQRMTooltip}" press="onShowHelpContent"
+								class="sapUiTinyMarginBegin ZLineHeight24">
+
+								<core:customData>
+									<core:CustomData key="tooltip" value="{i18n>ZFQRMTooltip}"></core:CustomData>
+								</core:customData>
+							</core:Icon>
+							<HBox justifyContent="End" width="500px">
+								<Select change="onQRMTypeChangeEngage">
+									<core:Item key="Progress" text="{i18n>ZFEngageProgressSelectItem}" />
+									<core:Item key="Proposal" text="{i18n>ZFEngageProposalSelectItem}" />
+								</Select>
+							</HBox>
+						</HBox>
+						<HBox width="100%" class="sapUiMediumMarginBegin">
+							<Title text="{i18n>ZFEngageScoreTitle}" titleStyle="H6"
+								class="ZFontWeight700 ZLineHeight24">
+							</Title>
+							<Title text="{EngageDetail>Score}" titleStyle="H6"
+								class="ZFontWeight700 ZLineHeight24 sapUiMediumMarginBegin">
+							</Title>
+						</HBox>
+						<VBox class="sapUiMediumMarginBegin sapUiMediumMarginEnd"
+							renderType="Bare">
+							<layout:Grid defaultSpan="L6 M6 S6" defaultIndent="L0 M0 S0"
+								hSpacing="0.5" vSpacing="0" width="100%">
+								<VBox renderType="Bare">
+									<VBox class="ZBorder" height="24px" renderType="Bare">
+										<Title text="{i18n>ZFEngageProjectTitle}" titleStyle="H6"
+											textAlign="Center" class="ZFontWeight700 ZLineHeight24">
+										</Title>
+									</VBox>
+									<g:RadarChart data="{EngageDetail>Project}"
+										option="{EngageDetail>Option}" />
+								</VBox>
+								<VBox renderType="Bare">
+									<VBox class="ZBorder" height="24px" renderType="Bare">
+										<Title text="{i18n>ZFEngageQAPTitle}" titleStyle="H6"
+											textAlign="Center" class="ZFontWeight700 ZLineHeight24">
+										</Title>
+									</VBox>
+									<g:RadarChart data="{EngageDetail>QAP}" option="{EngageDetail>Option}" />
+								</VBox>
+							</layout:Grid>
+						</VBox>
+
+					</VBox>
+				</VBox>
+				<VBox class="ZBorder sapUiTinyMarginTop" height="150px">
+					<VBox class="sapUiTinyMargin" height="100%">
+						<ScrollContainer horizontal="true" height="100%"
+							width="100%" vertical="true">
+							<UploadCollection id="UploadCollection" class="ZUploadCollection"
+								maximumFilenameLength="55" maximumFileSize="10" multiple="true"
+								showSeparators="None" change="onChange" fileDeleted="onFileDeleted"
+								filenameLengthExceed="onFilenameLengthExceed" fileRenamed="onFileRenamed"
+								fileSizeExceed="onFileSizeExceed" selectionChange="onSelectionChange"
+								typeMissmatch="onTypeMissmatch" uploadComplete="onUploadComplete"
+								beforeUploadStarts="onBeforeUploadStarts" uploadTerminated="onUploadTerminated"
+								mode="SingleSelectMaster" items="{EngageDetail>/AttachedFiles}">
+								<items>
+									<UploadCollectionItem fileName="{EngageDetail>fileName}" url="{EngageDetail>fileName}"
+										enableEdit="false" enableDelete="true" visibleEdit="false">
+									</UploadCollectionItem>
+								</items>
+							</UploadCollection>
+						</ScrollContainer>
+					</VBox>
+				</VBox>
+				<VBox class="sapUiTinyMarginTop">
+					<HBox class="" renderType="Bare">
+						<Toolbar>
+							<Title text="{i18n>ZFCommentTitle}" titleStyle="H5"
+								class="ZFontWeight700 ZLineHeight24">
+							</Title>
+							<ToolbarSpacer />
+							<Button icon="sap-icon://edit" press="onEditComment" />
+							<Button icon="sap-icon://history" press="onShowHistoryComment" />
+						</Toolbar>
+
+					</HBox>
+					<VBox class="" renderType="Bare">
+						<layout:Grid defaultSpan="L12 M12 S12" defaultIndent="L0 M0 S0"
+							hSpacing="0" vSpacing="0" content="{path:'EngageDetail>/Comment'}">
+							<f:Form editable="false">
+								<f:layout>
+									<f:ResponsiveGridLayout labelSpanL="3"
+										labelSpanM="3" labelSpanS="12" emptySpanL="0" emptySpanM="0"
+										emptySpanS="0" columnsL="1" columnsM="1" columnsS="12" />
+								</f:layout>
+								<f:formContainers>
+									<f:FormContainer visible="{EngageDetail>CommentVisible}">
+										<f:formElements>
+											<f:FormElement>
+												<f:fields>
+													<Label text="{i18n>ZFEffectDisplayLabel}" class="">
+														<layoutData>
+															<layout:GridData span="L2 M2 S12" indent="L0 M0 S0"
+																linebreak="true" />
+														</layoutData>
+													</Label>
+
+
+													<Text text="{EngageDetail>EffectiveDate}">
+														<layoutData>
+															<l:GridData span="L4 M4 S4" />
+														</layoutData>
+													</Text>
+												</f:fields>
+											</f:FormElement>
+											<f:FormElement>
+												<f:fields>
+													<Label text="{i18n>ZFCommentByLabel}" class="">
+														<layoutData>
+															<layout:GridData span="L2 M2 S12" indent="L0 M0 S0"
+																linebreak="true" />
+														</layoutData>
+													</Label>
+
+													<Text text="{EngageDetail>CommentBy}">
+														<layoutData>
+															<l:GridData span="L6 M6 S6" />
+														</layoutData>
+													</Text>
+												</f:fields>
+											</f:FormElement>
+											<f:FormElement>
+												<f:fields>
+													<Label text="{i18n>ZFCommentLabel}" class="">
+														<layoutData>
+															<layout:GridData span="L2 M2 S12" indent="L0 M0 S0"
+																linebreak="true" />
+														</layoutData>
+													</Label>
+													<Text text="{EngageDetail>Comment}" maxLines="3"
+														growing="true" growingMaxLines="3" width="100%">
+														<layoutData>
+															<l:GridData span="L6 M6 S6" />
+														</layoutData>
+													</Text>
+												</f:fields>
+											</f:FormElement>
+										</f:formElements>
+									</f:FormContainer>
+								</f:formContainers>
+							</f:Form>
+						</layout:Grid>
+						<HBox justifyContent="End" width="540px">
+							<Button text="{i18n>ZFShowMoreButton}" type="Transparent"
+								press="showMore" visible="{EngageDetail>/ShowMoreVisible}" />
+							<Button text="{i18n>ZFShowLessButton}" type="Transparent"
+								press="showLess" visible="{EngageDetail>/ShowLessVisible}" />
+						</HBox>
+					</VBox>
+				</VBox>
+			</VBox>
+		</content>
+<!-- 		<buttons> -->
+<!-- 			<Button text="{i18n>ZFCloseButton}" class="sapUiSmallMarginBegin" -->
+<!-- 				press="onClose" type="Transparent"> -->
+<!-- 			</Button> -->
+<!-- 		</buttons> -->
+	</Dialog>
+</core:FragmentDefinition>

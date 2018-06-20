@@ -121,7 +121,8 @@
 											"id": "PRINT_BUTTON",
 											"text": "{{PrintButtonText}}",
 											"press": "onPrintAction",
-											"determining": false
+											"determining": false,
+											"applicablePath":false
 										}
 									}
 								}

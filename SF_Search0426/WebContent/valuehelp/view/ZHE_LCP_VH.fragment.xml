@@ -1,0 +1,30 @@
+<core:FragmentDefinition xmlns="sap.m"
+	xmlns:core="sap.ui.core"
+ 	xmlns:vh="sap.ui.comp.valuehelpdialog"
+	xmlns:fb="sap.ui.comp.filterbar"
+	>
+	<vh:ValueHelpDialog title="Search Help" supportMultiselect="false" supportRanges="false" supportRangesOnly="false"
+		stretch="{device>isPhone}" contentHeight="70%" class="ZFlexShrink">
+		<vh:customData>
+      		<core:CustomData key="sap-ui-fastnavgroup" value="false" writeToDom="false" />
+    	</vh:customData>
+		<vh:filterBar>
+			<fb:FilterBar id="ZHE_LCP_FB" advancedMode="true" filterBarExpanded="true" showClearOnFB="true" showGoButton="true" showGoOnFB="true" >
+				<fb:filterGroupItems>
+					<fb:FilterGroupItem groupTitle="" groupName="gn1" name="n1" label="{i18n>ZF_LABEL_LCPCd}">
+						<fb:control>
+							<Input value="{search>/lcpcode}"></Input>
+						</fb:control>
+					</fb:FilterGroupItem>
+					<fb:FilterGroupItem groupTitle="" groupName="gn1" name="n2" label="{i18n>ZF_LABEL_LCPNm}">
+						<fb:control>
+							<Input value="{search>/lcpname}"></Input>
+						</fb:control>
+					</fb:FilterGroupItem>
+				</fb:filterGroupItems>
+
+			</fb:FilterBar>
+		</vh:filterBar>
+	</vh:ValueHelpDialog>
+
+</core:FragmentDefinition>
