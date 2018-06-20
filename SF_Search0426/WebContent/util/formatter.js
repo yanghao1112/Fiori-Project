@@ -3,15 +3,21 @@ sap.ui.define([
 ], function (NumberFormat) {
 	"use strict";
 	let oNumberFormat = NumberFormat.getFloatInstance();
-    let oPercentFormat = NumberFormat.getPercentInstance({
+    let oPercentFormat4 = NumberFormat.getPercentInstance({
     	decimals: 4
+    });
+    let oPercentFormat0 = NumberFormat.getPercentInstance({
+    	decimals: 0
     });
 	return {
 		numberText: function (aNumber) {
 			return aNumber ? oNumberFormat.format(aNumber) : aNumber;
 		},
 		percentText: function (aNumber) {
-			return aNumber ? oPercentFormat.format(aNumber) : aNumber;
+			return aNumber ? oPercentFormat4.format(aNumber) : aNumber;
+		},
+		percentText0: function (aNumber) {
+			return aNumber ? oPercentFormat0.format(aNumber) : aNumber;
 		}
 	};
 });

@@ -11,7 +11,7 @@
 					class="sapUiTinyMargin ZBorderBottomLine ZOverflowHidden">
 					<layout:content>
 						<Image src="{/talentInfoData/talentImage}" densityAware="false"
-							height="145px">
+							height="145px" press="onNavProfile">
 							<layoutData>
 								<layout:GridData span="L4 M4 S4" />
 							</layoutData>

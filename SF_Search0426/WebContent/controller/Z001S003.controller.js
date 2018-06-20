@@ -199,7 +199,7 @@ function(ZZBaseController, MessageToast, JSONModel, IconPool, Popup, TabContaine
 					aLeaderSkill["className"] = "ZAverageOpacity";
 					return true;
 				}
-				aLeaderSkill["classText"] = aLeaderSkill["groupName"] + "126会うエアdfadfasfaxWAFSF";
+				aLeaderSkill["classText"] = aLeaderSkill["groupName"];
 				aLeaderSkill["classColor"] = oColorArray[(aIdxLeaderSkill - iHasAverage) % oColorArray.length];
 				aLeaderSkill["classId"] = aIdxLeaderSkill;
 				
@@ -214,7 +214,7 @@ function(ZZBaseController, MessageToast, JSONModel, IconPool, Popup, TabContaine
 			iHasAverage = 0;
 			$.each([oQRMProgressProject,oQRMProgressQAP,oQRMProposalProject,oQRMProposalQAP], function(aIdxType, aType){
 				$.each(aType, function(aIdxQRM, aQRM){
-				aQRM["classText"] = aQRM["text"] + "126会うエアdfadfasfaxWAFSF";
+				aQRM["classText"] = aQRM["text"];
 				aQRM["classColor"] = oColorArray[(aIdxQRM - iHasAverage) % oColorArray.length];
 				aQRM["classId"] = aIdxQRM;
 				}.bind(this));
@@ -337,24 +337,38 @@ function(ZZBaseController, MessageToast, JSONModel, IconPool, Popup, TabContaine
 		},
 		
 		onChange : function(oEvent) {
-			let oUploadCollection = oEvent.getSource();
-			// Header Token
-			let oCustomerHeaderToken = new UploadCollectionParameter({
-				name : "x-csrf-token",
-				value : "securityTokenFromModel"
-			});
-			oUploadCollection.addParameter(oCustomerHeaderToken);
+//			let oUploadCollection = oEvent.getSource();
+//			// Header Token
+//			let oCustomerHeaderToken = new UploadCollectionParameter({
+//				name : "x-csrf-token",
+//				value : "securityTokenFromModel"
+//			});
+//			oUploadCollection.addParameter(oCustomerHeaderToken);
 			oEvent.getSource().getParent().getParent().getParent().setBusy(true);
 			MessageToast.show("Event change triggered");
 		},
  
 		onFileDeleted : function(aControlEvent) {
 
-			let oFileData = aControlEvent.getParameter("item").getBindingContext("ClientDetail").getObject();
-			let oDeletePromise = this._oDataManager.deleteFilebyID(oFileData.documentId);
+			let oDeletedFileData = aControlEvent.getParameter("item").getBindingContext("ClientDetail").getObject();
+			let oDeletePromise = this._oDataManager.deleteFilebyID(oDeletedFileData["documentId"]);
 			oDeletePromise.then(function() {
+
+				let oClientDetailModel = this.getView().getModel("ClientDetail");
+				let oFileArray = oClientDetailModel.getProperty("/attachFiles");
+				let iDeleteIndex = -1;
+				$.each(oFileArray, function(aIdxFile, aFile){
+
+					if (aFile["documentId"] === oDeletedFileData["documentId"]) {
+						iDeleteIndex = aIdxFile;
+					};
+				});
+				if (iDeleteIndex >= 0) {
+					oFileArray.splice(iDeleteIndex, 1);
+					oClientDetailModel.setProperty("/attachFiles",oFileArray);
+				}
 				MessageToast.show("Event fileDeleted triggered");
-			}).catch(function() {
+			}.bind(this)).catch(function() {
 				MessageToast.show("Event fileDeleted triggered Field");
 			})
 		},
@@ -377,12 +391,12 @@ function(ZZBaseController, MessageToast, JSONModel, IconPool, Popup, TabContaine
 			let Client = oModel.getProperty("/clientSummary/clientCode")
 			
 			// Header Slug
-			let oCustomerHeaderSlug = new sap.m.UploadCollectionParameter({
+			let oCustomerHeaderFileName = new sap.m.UploadCollectionParameter({
 				name : "X-FileName",
 				value : oEvent.getParameter("fileName")
 			});
 			// Header Slug
-			let oCustomerHeaderx = new sap.m.UploadCollectionParameter({
+			let oCustomerHeaderClientCd = new sap.m.UploadCollectionParameter({
 				name : "X-ClientCd",
 				value : Client
 			});
@@ -391,16 +405,30 @@ function(ZZBaseController, MessageToast, JSONModel, IconPool, Popup, TabContaine
 				name : "X-EngageCd",
 				value : Client
 			});
-			oEvent.getParameters().addHeaderParameter(oCustomerHeaderSlug);
-			oEvent.getParameters().addHeaderParameter(oCustomerHeaderx);
-			oEvent.getParameters().addHeaderParameter(oCustomerHeaderY);
+			oEvent.getParameters().addHeaderParameter(oCustomerHeaderFileName);
+			oEvent.getParameters().addHeaderParameter(oCustomerHeaderClientCd);
+//			oEvent.getParameters().addHeaderParameter(oCustomerHeaderY);
 			setTimeout(function() {
 				MessageToast.show("Event beforeUploadStarts triggered");
 			}, 4000);
 			
 		},
 		onUploadComplete : function(oEvent) {
-
+			
+			let oFileUpload = oEvent.getParameter("files")[0];
+			let sResponse = oFileUpload["responseRaw"];
+			if (sResponse) {
+				
+				let oClientDetailModel = this.getView().getModel("ClientDetail");
+				let oFileArray = oClientDetailModel.getProperty("/attachFiles");
+				
+				let oResponse = JSON.parse(sResponse);
+				oFileArray.push(oResponse["results"][0]["attachFile"]);
+				oClientDetailModel.setProperty("/attachFiles",oFileArray);
+				
+			} else {
+				
+			}
 			oEvent.getSource().getParent().getParent().getParent().setBusy(false);
 			setTimeout(function() {
 				MessageToast.show("Event UploadComplete triggered");

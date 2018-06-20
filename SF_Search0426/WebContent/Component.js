@@ -161,7 +161,8 @@ sap.ui.define([
 				period : oResult["initData"]["period"],
 				fy : oResult["initData"]["fy"],
 				companyCode : oResult["initData"]["companyCode"],
-				companyName : oResult["initData"]["companyName"],
+//				companyName : oResult["initData"]["companyName"],
+				companyName : "ABeam Consulting",
 			}
 			this._oInitialData = oInitialData;
 			this._initPeriod(oInitialData.period);

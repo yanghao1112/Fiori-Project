@@ -17,37 +17,37 @@
 	"axes": [
 		{
 			"axisText": "Customer",
-			"axis": "01"
+			"axe": "2"
 		},
 		{
 			"axisText": "Scope",
-			"axis": "02"
+			"axe": "3"
 		},
 		{
 			"axisText": "Quality",
 			"length": 35,
-			"axis": "03"
+			"axe": "4"
 		},
 		{
 			"axisText": "Schedule",
-			"axis": "04"
+			"axe": "5"
 		},
 		{
 			"axisText": "Budget",
-			"axis": "05"
+			"axe": "9"
 		},
 		{
 			"axisText": "Resource",
-			"axis": "06"
+			"axe": "6"
 		},
 		{
 			"axisText": "Environment",
 			"length": 60,
-			"axis": "07"
+			"axe": "7"
 		},
 		{
 			"axisText": "Contract",
-			"axis": "08"
+			"axe": "8"
 		}
 	]
 }

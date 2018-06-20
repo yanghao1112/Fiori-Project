@@ -639,8 +639,8 @@ sap.ui.define(
 							
 						}
 						
-						oRm.addStyle('overflow-y', 'initial');
-						oRm.addStyle('overflow-x', 'visible');
+						oRm.addStyle('overflow-y', 'auto');
+						oRm.addStyle('overflow-x', 'hidden');
 						oRm.addStyle('max-height', sMaxHeight);
 						oRm.writeStyles();
 						oRm.addClass('sapUiTinyMarginBottom');
@@ -650,16 +650,16 @@ sap.ui.define(
 						oRm.write('>');
 						oRm.write('<svg ');
 						oRm.writeAttribute('width', sWidth);
-						oRm.writeAttribute('height', oDataPair * 17);
+						oRm.writeAttribute('height', oDataPair * 20);
 						oRm.writeAttribute('display', 'flex');
-						oRm.addStyle('overflow', 'visible');
+//						oRm.addStyle('overflow', 'visible');
 						oRm.writeStyles();
 						oRm.write('>');
 						
 						//write legend
 						for(var iIndex = 0; iIndex < oData.length; iIndex++) {
 							var iXOffset = iIndex % iLengendOptionCounts
-							var iYOffset = Math.floor(iIndex / iLengendOptionCounts) * 17
+							var iYOffset = Math.floor(iIndex / iLengendOptionCounts) * 20
 							
 							var iGOffsetX = iXOffset * oControl.getOption().w / iLengendOptionCounts
 							
@@ -721,13 +721,15 @@ sap.ui.define(
 							oRm.write('<text');
 							oRm.writeAttribute('transform', 'translate( 25, 12.5)');
 							oRm.addStyle('font-size', '12px');
-							oRm.addStyle('text-overflow', 'ellipsis');
 							oRm.writeStyles();
-							oRm.writeAttribute('inline-size', '50');
 //							oRm.writeAttribute('textLength', '70');
 							oRm.write('>');
-//							oRm.write('<tspan');
+//							oRm.write('<tspan>');
 							oRm.write(oData[iIndex].classText);
+//							oRm.write('</tspan>');
+//							oRm.write('<title>');
+//							oRm.write(oData[iIndex].classText);
+//							oRm.write('</title>');
 							oRm.write('</text>');
 
 							oRm.write('</g>');
@@ -737,46 +739,7 @@ sap.ui.define(
 					}
 				}
 				function rerender(){
-
-					
 					onAfterRendering.apply(this);
-				}
-				function setLegendTooltip(tooltip, msg, iLengendX){
-					if(msg === false || msg == undefined){
-						tooltip.classed("visible", 0);
-						tooltip.select("rect").classed("visible", 0);
-					}else{
-						tooltip.classed("visible", 1);
-		
-						var container = tooltip.node().parentNode;
-						var coords = d3.mouse(container);
-						
-						tooltip.select("text").classed('visible', 1).style("fill", "white");
-						var padding=5;
-						var bbox = tooltip.select("text").text(msg).node().getBBox();
-						
-
-						let iTooltipX = 0;
-						if (iLengendX === 0) {
-							iTooltipX = 0;
-						} else {
-							iTooltipX = 0 - bbox.width - padding;
-						}
-						
-						let x = bbox.x - bbox.width;
-//						oRm.writeAttribute('transform', 'translate(' + x + , 12.5)');
-						tooltip.select("text").attr("x", 0).attr("x", iTooltipX);
-						
-						tooltip.select("rect")
-						.classed('visible', 1).attr("x", 0)
-						.attr("x", bbox.x - padding)
-						.attr("y", bbox.y - padding)
-						.attr("width", bbox.width + (padding*2))
-						.attr("height", bbox.height + (padding*2))
-						.attr("rx","5").attr("ry","5")
-						.style("fill", "#555").style("opacity", "1");
-						tooltip.attr("transform", "translate(" + (coords[0]+10) + "," + (coords[1]-10) + ")")
-					}
 				}
 				function onAfterRendering(){
 					
@@ -793,21 +756,7 @@ sap.ui.define(
 						}
 					});
 					
-					/////////////////////////////
-					var oChartLegend = d3.select('#' + this.getId() + "ChartLegend").select('svg');
-					var tooltip = oChartLegend.selectAll('g.tooltip').data([this.getData()[0]]);
-	
-					var tt = tooltip.enter()
-					.append('g')
-					.classed('tooltip', true);
-	
-					tt.append('rect').classed("tooltip", true);
-					tt.append('text').classed("tooltip", true);
 
-					tooltip = tt.merge(tooltip);
-					///////////////////////////////////
-
-//					d3.select('#' + this.getId()).selectAll(".chartlegend")
 					d3.select('#' + this.getId()).selectAll(".chartlegend").data(this.getData())
 					.on('mouseover', function (dd){
 						d3.event.stopPropagation();
@@ -820,9 +769,6 @@ sap.ui.define(
 								oChartPolygon._groups[0][i].classList.add('focused');
 							}
 						}
-//						oChartPolygon.classed('focused', 1);
-						let iLengendX = d3.select(this).node().getCTM().e;
-						setLegendTooltip(tooltip, dd.classText, iLengendX);
 					})
 					.on('mouseout', function(dd){
 						d3.event.stopPropagation();
@@ -834,7 +780,6 @@ sap.ui.define(
 								oChartPolygon._groups[0][i].classList.remove('focused');
 							}
 						}
-						setLegendTooltip(tooltip, false);
 					})
 					.on('click', function(dd){
 						d3.event.stopPropagation();
@@ -849,7 +794,6 @@ sap.ui.define(
 							}
 						}
 						
-						setLegendTooltip(tooltip, false);
 					}).each(function(aData,aIndex) {
 						let iRectWidth = d3.select(this).select("rect").node().getBBox().width;
 						let oTextSVG = d3.select(this).select("text").node();
@@ -858,7 +802,9 @@ sap.ui.define(
 						let iPrecent = iTextProWidth / iTextWidth;
 						if (iPrecent <= 1) {
 							let iTextNumber = parseInt(iPrecent * aData.classText.length);
-							d3.select(this).select("text").text(aData.classText.substr(0,iTextNumber) + "...");
+							let oText = d3.select(this).select("text").text("");
+							oText.append('tspan').text(aData.classText.substr(0,iTextNumber) + "...");
+							oText.append('title').text(aData.classText);
 						}
 						
 					});

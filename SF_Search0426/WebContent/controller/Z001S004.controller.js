@@ -83,10 +83,12 @@ function(ZZBaseController, JSONModel) {
 		onDisplayEngagementDetail: function(aControlEvent) {
 			let oEngagementData = aControlEvent.getSource().getBindingContext("GroupDetail").getObject();
 			
-			this.getEngageDetailGot = this._oDataManager.getEngageDetailData(oEngagementData.EngCode);
+			this.getEngageDetailGot = this._oDataManager.getEngageDetailData(oEngagementData["engCode"]);
 			this.getEngageDetailGot.then(function(aData) {
-				this._handleEngageData(aData);
-				this.getOwnerComponent().ZPO_ENGAGE.open(aData);
+				this._handleEngageData(aData[0]);
+				aData[0]["engCode"] = oEngagementData["engCode"]
+				aData[0]["engName"] = oEngagementData["engName"]
+				this.getOwnerComponent().ZPO_ENGAGE.open(aData[0]);
 			}.bind(this));
 		},
 
@@ -256,16 +258,16 @@ function(ZZBaseController, JSONModel) {
 		 */
 		_handleEngageData: function(aData) {
 			// 3. For QRMData: Add classText (display as legend text), add classColor (color of the group), classId(unique Id for group)
-			let oQRMProgressProject = aData.QRMData.Progress.Project;
-			let oQRMProgressQAP		= aData.QRMData.Progress.QAP;
-			let oQRMProposalProject = aData.QRMData.Proposal.Project;
-			let oQRMProposalQAP		= aData.QRMData.Proposal.QAP;
+			let oQRMProgressProject = aData["qrmData"]["progress"]["project"];
+			let oQRMProgressQAP		= aData["qrmData"]["progress"]["qap"];
+			let oQRMProposalProject = aData["qrmData"]["proposal"]["project"];
+			let oQRMProposalQAP		= aData["qrmData"]["proposal"]["qap"];
 			let oColorArray = this.getOwnerComponent().oColorArray;
 			let iHasAverage = 0;
 			$.each([oQRMProgressProject,oQRMProgressQAP,oQRMProposalProject,oQRMProposalQAP], function(aIdxType, aType){
 				$.each(aType, function(aIdxQRM, aQRM){
-				aQRM["classText"] = aQRM["EvaDate"];
-				aQRM["classColor"] = oColorArray[(aIdxQRM - iHasAverage) % 10];
+				aQRM["classText"] = aQRM["text"];
+				aQRM["classColor"] = oColorArray[(aIdxQRM - iHasAverage) % oColorArray.length];
 				aQRM["classId"] = aIdxQRM;
 				}.bind(this));
 			}.bind(this))

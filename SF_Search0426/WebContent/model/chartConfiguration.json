@@ -140,6 +140,10 @@
 		"valueAxis": {
 			"title": {
 				"visible": false
+			},
+			"label": {
+				"visible": true,
+				"formatString" : "formatPrecentAxis"
 			}
 		},
 		"categoryAxis": {
@@ -425,6 +429,10 @@
 		"valueAxis": {
 			"title": {
 				"visible": false
+			},
+			"label": {
+				"visible": true,
+				"formatString" : "formatPrecentAxis"
 			}
 		},
 		"categoryAxis": {

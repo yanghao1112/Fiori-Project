@@ -71,8 +71,8 @@ sap.ui.define([
 		 */	
 		open : function(aEngageData) {
 			"use strict";
-			aEngageData.QRMData.Progress["Option"] = oQRMProgressModel.getData();
-			aEngageData.QRMData.Proposal["Option"] = oQRMProposalModel.getData();
+			aEngageData["qrmData"]["progress"]["Option"] = oQRMProgressModel.getData();
+			aEngageData["qrmData"]["proposal"]["Option"] = oQRMProposalModel.getData();
 
 			if (aEngageData["Comment"]) {
 				$.each(aEngageData["Comment"], function(aIdxComment, aComment){
@@ -84,15 +84,15 @@ sap.ui.define([
 					aComment["CommentVisible"] = true;
 					aComment["OriginComment"] = oCommentData["OriginComment"];
 				});
+				this._handleCommentData(aEngageData);
 			}
 			
-			this._handleCommentData(aEngageData);
 			
 			let oEngageModel = new JSONModel(aEngageData)
 			oEngagementDialog.setModel(oEngageModel, "EngageDetail");
 
 			let oI18n = oEngagementDialog.getModel("i18n");
-			let sTitle = oI18n.getResourceBundle().getText("ZFTitle",[aEngageData.EngageName, aEngageData.EngageCode])
+			let sTitle = oI18n.getResourceBundle().getText("ZFTitle",[aEngageData.engName, aEngageData.engCode])
 			
 			
 			oEngagementDialog.setTitle( sTitle );
@@ -146,7 +146,7 @@ sap.ui.define([
 			let sSelectedKey = aControlEvent.getSource().getSelectedItem().getKey();
 			let oQRMPart = sap.ui.getCore().byId("QRMEngage");
 			oQRMPart.bindElement({
-				path: "/QRMData/" + sSelectedKey,
+				path: "/qrmData/" + sSelectedKey,
 				model: "EngageDetail"
 			});
 		},
@@ -508,6 +508,100 @@ sap.ui.define([
 			aPromise.reject();
 		},
 
+		
+		onChange : function(oEvent) {
+//			let oUploadCollection = oEvent.getSource();
+//			// Header Token
+//			let oCustomerHeaderToken = new UploadCollectionParameter({
+//				name : "x-csrf-token",
+//				value : "securityTokenFromModel"
+//			});
+//			oUploadCollection.addParameter(oCustomerHeaderToken);
+			oEvent.getSource().getParent().getParent().getParent().setBusy(true);
+			MessageToast.show("Event change triggered");
+		},
+ 
+		onFileDeleted : function(aControlEvent) {
+
+			let oDeletedFileData = aControlEvent.getParameter("item").getBindingContext("EngageDetail").getObject();
+			let oDeletePromise = oDataManager.deleteFilebyID(oDeletedFileData["documentId"]);
+			oDeletePromise.then(function() {
+
+				let oClientDetailModel = oEngagementDialog.getModel("EngageDetail");
+				let oFileArray = oClientDetailModel.getProperty("/attachFiles");
+				let iDeleteIndex = -1;
+				$.each(oFileArray, function(aIdxFile, aFile){
+
+					if (aFile["documentId"] === oDeletedFileData["documentId"]) {
+						iDeleteIndex = aIdxFile;
+					};
+				});
+				if (iDeleteIndex >= 0) {
+					oFileArray.splice(iDeleteIndex, 1);
+					oClientDetailModel.setProperty("/attachFiles",oFileArray);
+				}
+				MessageToast.show("Event fileDeleted triggered");
+			}.bind(this)).catch(function() {
+				MessageToast.show("Event fileDeleted triggered Field");
+			})
+		},
+ 
+		onFilenameLengthExceed : function(oEvent) {
+			MessageToast.show("Event filenameLengthExceed triggered");
+		},
+ 
+		onFileSizeExceed : function(oEvent) {
+			MessageToast.show("Event fileSizeExceed triggered");
+		},
+ 
+		onTypeMissmatch : function(oEvent) {
+			MessageToast.show("Event typeMissmatch triggered");
+		},
+ 
+		onBeforeUploadStarts : function(oEvent) {
+//			
+			let oModel = oEngagementDialog.getModel("EngageDetail");
+			let sEngCode = oModel.getProperty("/engCode")
+			
+			// Header Slug
+			let oCustomerHeaderFileName = new sap.m.UploadCollectionParameter({
+				name : "X-FileName",
+				value : oEvent.getParameter("fileName")
+			});
+			// Header Slug
+			let oCustomerHeaderEngageCd = new sap.m.UploadCollectionParameter({
+				name : "X-EngageCd",
+				value : sEngCode
+			});
+			oEvent.getParameters().addHeaderParameter(oCustomerHeaderFileName);
+			oEvent.getParameters().addHeaderParameter(oCustomerHeaderEngageCd);
+			setTimeout(function() {
+				MessageToast.show("Event beforeUploadStarts triggered");
+			}, 4000);
+			
+		},
+		onUploadComplete : function(oEvent) {
+			
+			let oFileUpload = oEvent.getParameter("files")[0];
+			let sResponse = oFileUpload["responseRaw"];
+			if (sResponse) {
+				
+				let oEngageDetailModel = oEngagementDialog.getModel("EngageDetail");
+				let oFileArray = oEngageDetailModel.getProperty("/attachFiles");
+				
+				let oResponse = JSON.parse(sResponse);
+				oFileArray.push(oResponse["results"][0]["attachFile"]);
+				oEngageDetailModel.setProperty("/attachFiles",oFileArray);
+				
+			} else {
+				
+			}
+			oEvent.getSource().getParent().getParent().getParent().setBusy(false);
+			setTimeout(function() {
+				MessageToast.show("Event UploadComplete triggered");
+			}, 4000);
+		},
+		
 		/* =========================================================== */
 		/* internal methods											   */
 		/* =========================================================== */
@@ -519,7 +613,9 @@ sap.ui.define([
 		 * @private
 		 */
 		_handleCommentData: function(aEngageData) {
+
 			let iLength = aEngageData["Comment"].length ? aEngageData["Comment"].length : 0 ;
+			
 			if (aEngageData["Comment"]) {
 
 				$.each(aEngageData["Comment"], function(aIdxComment, aComment){

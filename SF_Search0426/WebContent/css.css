@@ -253,3 +253,20 @@
 .ZGridOverflow>div:nth-child(2) {
 	z-index: -999;
 }
+
+
+/* .zscrolltable table { */
+/*       border-spacing: 0; */
+/*       border-collapse: collapse; */
+/*       text-align: center; */
+/*   } */
+.ZScrollMTablePWS006  table tbody {    
+	display: inline-block;
+    height: 167px;
+    overflow-y: scroll;
+    width: 630px;
+  }
+  
+.ZScrollMTablePWS006 table thead {
+         display: table-header-group;
+  }

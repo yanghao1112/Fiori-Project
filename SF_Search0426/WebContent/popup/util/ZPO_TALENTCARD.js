@@ -170,7 +170,13 @@ function(BaseObject, JSONModel, ChartFormatter, Format, Popup, MessageBox) {
 		 */
 		onDecline: _closePopup,
 		
-		
+		onNavProfile: function() {
+
+			let oTalentData = aControlEvent.getParameter("item").getBindingContext("").getObject();
+			let sUrlTemplate = "https://performancemanager10.successfactors.com/sf/personalinfo?company=$1&selecteduser=$2";
+			sUrlTemplate.replace("$1",oTalentData[talentId])
+			sap.m.URLHelper.redirect(sURL, true);
+		},
 		/* =========================================================== */
 		/* format handlers                                              */
 		/* =========================================================== */

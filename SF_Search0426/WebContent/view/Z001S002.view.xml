@@ -260,7 +260,7 @@
 				<layout:flexContent>
 					<ScrollContainer vertical="true" height="100%"
 						focusable="true">
-						<VBox class="sapUiSmallMarginBegin sapUiSmallMarginEnd">
+						<VBox class="">
 							<Table items="{ClientInfoList>/List}" id="ClientList">
 								<columns>
 									<Column width="25%">

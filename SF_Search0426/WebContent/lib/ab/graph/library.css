@@ -119,8 +119,8 @@ svg .legendCells {
     font-family: sans-serif;
     font-size: 0.75rem;
     transition: opacity 200ms;
-    opacity: 0;
+    display: none;
 }
 .ChartLegendDiv .tooltip.visible {
-    opacity: 1;
+    display: unset;
 }

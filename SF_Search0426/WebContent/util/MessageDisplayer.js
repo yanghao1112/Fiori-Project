@@ -29,6 +29,11 @@ sap.ui.define([ "sap/ui/base/Object", "sap/m/MessageBox" ], function(
 				});
 			}
 		},
+		showSingleError: function(aError) {
+			MessageBox.error(
+					aError
+			);
+		},
 		showError : function(aError) {
 			switch (aError["ErrorType"]) {
 			case "0":

@@ -1,10 +1,15 @@
 sap.ui.define([
-	"sap/ui/core/mvc/Controller",
-	"sap/ui/model/json/JSONModel"
-], function(Controller, JSONModel) {
+	"sap/pwaa/controller/ZZBaseController",
+	"sap/ui/model/json/JSONModel",
+	"sap/viz/ui5/format/ChartFormatter"
+], function(Controller, JSONModel, ChartFormatter) {
 	"use strict";
 	return Controller.extend("sap.pwaa.controller.Z001S001", {
 		onInit: function() {
+
+			let oChartFormatter = ChartFormatter.getInstance();
+			oChartFormatter.registerCustomFormatter("formatPrecentAxis",this.formatPrecentAxis.bind(this));
+			
 			var oApp = this.getView().byId("AppControl");
 			oApp.attachAfterNavigate(function(oControlEvent) {
 				/* 

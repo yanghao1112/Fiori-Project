@@ -17,53 +17,53 @@
 	"axes": [
 		{
 			"axisText": "Contract",
-			"axis": "01"
+			"axe": "8"
 		},
 		{
 			"axisText": "Technique",
 			"length": 50,
-			"axis": "02"
+			"axe": "12"
 		},
 		{
 			"axisText": "Scope",
 			"length": 25,
-			"axis": "03"
+			"axe": "3"
 		},
 		{
 			"axisText": "Schedule",
 			"length": 40,
-			"axis": "04"
+			"axe": "5"
 		},
 		{
 			"axisText": "Role Assignment",
-			"axis": "05"
+			"axe": "10"
 		},
 		{
 			"axisText": "Resource",
-			"axis": "06"
+			"axe": "6"
 		},
 		{
 			"axisText": "Quality",
-			"axis": "07"
+			"axe": "4"
 		},
 		{
 			"axisText": "Project Management",
 			"length": 100,
-			"axis": "08"
+			"axe": "11"
 		},
 		{
 			"axisText": "Profit Forecast",
 			"length": 65,
-			"axis": "09"
+			"axe": "13"
 		},
 		{
 			"axisText": "Environment",
 			"length": 55,
-			"axis": "10"
+			"axe": "7"
 		},
 		{
 			"axisText": "Customer",
-			"axis": "11"
+			"axe": "2"
 		}
 	]
 }

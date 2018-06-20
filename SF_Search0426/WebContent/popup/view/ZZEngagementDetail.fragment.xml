@@ -10,27 +10,8 @@
 <!-- 		</_header> -->
 		<content>
 			<VBox renderType="Bare" backgroundDesign="Solid" class="sapUiTinyMargin">
-
-				<!-- <layout:FixFlex> -->
-				<!-- <layout:fixContent> -->
-				<!-- <HBox class="sapUiSmallMarginBegin sapUiSmallMarginTop" -->
-				<!-- renderType="Bare"> -->
-				<!-- <Title text="Engagement Name（Emgagement Code）" titleStyle="H5" -->
-				<!-- class="ZFontWeight700 ZLineHeight24" width="350px"> -->
-				<!-- </Title> -->
-				<!-- <HBox justifyContent="End" width="300px"> -->
-				<!-- <core:Icon src="sap-icon://decline" width="20px" height="20px" -->
-				<!-- class="sapUiTinyMarginBegin" size="20px" press="onClose" -->
-				<!-- hoverBackgroundColor="#F5F5F4" decorative="false"> -->
-				<!-- </core:Icon> -->
-				<!-- </HBox> -->
-				<!-- </HBox> -->
-				<!-- </layout:fixContent> -->
-				<!-- <layout:flexContent> -->
-				<!-- <ScrollContainer vertical="true" horizontal="false" -->
-				<!-- height="100%"> -->
 				<VBox class="ZBorder">
-					<VBox renderType="Bare" binding="{EngageDetail>/QRMData/Progress}"
+					<VBox renderType="Bare" binding="{EngageDetail>/qrmData/progress}"
 						id="QRMEngage">
 						<HBox class="sapUiSmallMarginBegin sapUiSmallMarginTop "
 							renderType="Bare">
@@ -48,8 +29,8 @@
 							</core:Icon>
 							<HBox justifyContent="End" width="500px">
 								<Select change="onQRMTypeChangeEngage">
-									<core:Item key="Progress" text="{i18n>ZFEngageProgressSelectItem}" />
-									<core:Item key="Proposal" text="{i18n>ZFEngageProposalSelectItem}" />
+									<core:Item key="progress" text="{i18n>ZFEngageProgressSelectItem}" />
+									<core:Item key="proposal" text="{i18n>ZFEngageProposalSelectItem}" />
 								</Select>
 							</HBox>
 						</HBox>
@@ -57,21 +38,21 @@
 							<Title text="{i18n>ZFEngageScoreTitle}" titleStyle="H6"
 								class="ZFontWeight700 ZLineHeight24">
 							</Title>
-							<Title text="{EngageDetail>Score}" titleStyle="H6"
+							<Title text="{EngageDetail>score}" titleStyle="H6"
 								class="ZFontWeight700 ZLineHeight24 sapUiMediumMarginBegin">
 							</Title>
 						</HBox>
-						<VBox class="sapUiMediumMarginBegin sapUiMediumMarginEnd"
+						<VBox class="sapUiMediumMarginBegin sapUiMediumMarginEnd sapUiTinyMarginBottom"
 							renderType="Bare">
 							<layout:Grid defaultSpan="L6 M6 S6" defaultIndent="L0 M0 S0"
-								hSpacing="0.5" vSpacing="0" width="100%">
+								hSpacing="0.5" vSpacing="0" width="100%" class="ZGridOverflow">
 								<VBox renderType="Bare">
 									<VBox class="ZBorder" height="24px" renderType="Bare">
 										<Title text="{i18n>ZFEngageProjectTitle}" titleStyle="H6"
 											textAlign="Center" class="ZFontWeight700 ZLineHeight24">
 										</Title>
 									</VBox>
-									<g:RadarChart data="{EngageDetail>Project}"
+									<g:RadarChart data="{EngageDetail>project}"
 										option="{EngageDetail>Option}" />
 								</VBox>
 								<VBox renderType="Bare">
@@ -80,7 +61,7 @@
 											textAlign="Center" class="ZFontWeight700 ZLineHeight24">
 										</Title>
 									</VBox>
-									<g:RadarChart data="{EngageDetail>QAP}" option="{EngageDetail>Option}" />
+									<g:RadarChart data="{EngageDetail>qap}" option="{EngageDetail>Option}" />
 								</VBox>
 							</layout:Grid>
 						</VBox>
@@ -93,14 +74,16 @@
 							width="100%" vertical="true">
 							<UploadCollection id="UploadCollection" class="ZUploadCollection"
 								maximumFilenameLength="55" maximumFileSize="10" multiple="true"
-								showSeparators="None" change="onChange" fileDeleted="onFileDeleted"
+								uploadUrl="proxy/pwaa/PWS006/upload" showSeparators="None" change="onChange" fileDeleted="onFileDeleted"
 								filenameLengthExceed="onFilenameLengthExceed" fileRenamed="onFileRenamed"
 								fileSizeExceed="onFileSizeExceed" selectionChange="onSelectionChange"
 								typeMissmatch="onTypeMissmatch" uploadComplete="onUploadComplete"
 								beforeUploadStarts="onBeforeUploadStarts" uploadTerminated="onUploadTerminated"
-								mode="SingleSelectMaster" items="{EngageDetail>/AttachedFiles}">
+								mode="SingleSelectMaster" items="{EngageDetail>/attachFiles}">
 								<items>
-									<UploadCollectionItem fileName="{EngageDetail>fileName}" url="{EngageDetail>fileName}"
+									<UploadCollectionItem fileName="{EngageDetail>fileName}"
+										documentId="{EngageDetail>documentId}"
+										url="{EngageDetail>url}"
 										enableEdit="false" enableDelete="true" visibleEdit="false">
 									</UploadCollectionItem>
 								</items>

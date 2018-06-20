@@ -275,8 +275,8 @@
 									<layout:Grid defaultSpan="L2 M2 S2" defaultIndent="L0 M0 S0"
 										hSpacing="0.5" vSpacing="0"
 										content="{path:'GroupDetail>Member6', templateShareable:false}"
-										class="sapUiSmallMargin ZMemberImageContainer">
-										<VBox width="70px" height="110px" binding="{GroupDetail>}"
+										class="sapUiLargeMarginBegin sapUiLargeMarginEnd sapUiSmallMarginTop ZMemberImageContainer">
+										<VBox width="70px" height="90px" binding="{GroupDetail>}"
 											renderType="Bare">
 
 											<t:MemberImage LEP="{GroupDetail>lep}" LEM="{GroupDetail>lem}"
@@ -331,11 +331,11 @@
 							</Title>
 						</HBox>
 						<VBox class="sapUiTinyMarginTop " renderType="Bare" height="200px">
-							<ScrollContainer vertical="true" height="100%"
-								focusable="true">
-								<Table items="{GroupDetail>/engageList}">
+<!-- 							<ScrollContainer vertical="true" height="100%" -->
+<!-- 								focusable="true"> -->
+								<Table items="{GroupDetail>/engageList}" class="ZScrollMTablePWS006">
 									<columns>
-										<Column>
+										<Column width="200px" >
 											<Text text="{i18n>ZFEngTitle}" class="ZTitle" />
 										</Column>
 										<Column width="90px" minScreenWidth="Tablet"
@@ -351,32 +351,32 @@
 											<Text text="{i18n>ZFTermTitle}" class="ZTitle" />
 										</Column>
 										<Column minScreenWidth="Tablet" demandPopin="true"
-											width="20px">
+											width="30px">
 										</Column>
 									</columns>
 									<items>
 										<ColumnListItem class="sapUiTinyMarginBottom">
 											<cells>
-												<VBox class="ZTableText12" renderType="Bare">
+												<VBox class="ZTableText12" renderType="Bare" width="200px" >
 
 													<Title text="{GroupDetail>engCode}" class="ZFontWeight700">
 													</Title>
 													<Text text="{GroupDetail>engName}" />
 												</VBox>
-												<VBox class="ZTableText12" renderType="Bare">
+												<VBox class="ZTableText12" renderType="Bare" width="90px" >
 													<Title text="{GroupDetail>lepCode}" class="ZFontWeight700">
 													</Title>
 													<Text text="{GroupDetail>lep}" />
 												</VBox>
-												<VBox class="ZTableText12" renderType="Bare">
+												<VBox class="ZTableText12" renderType="Bare" width="90px" >
 													<Title text="{GroupDetail>lemCode}" class="ZFontWeight700">
 													</Title>
 													<Text text="{GroupDetail>lem}" />
 												</VBox>
-												<VBox class="ZTableText12" renderType="Bare">
+												<VBox class="ZTableText12" renderType="Bare" width="120px" >
 													<Text text="{GroupDetail>period}" />
 												</VBox>
-												<VBox class="ZTableText12" renderType="Bare">
+												<VBox class="ZTableText12" renderType="Bare" width="20px">
 													<Button icon="sap-icon://document-text" press="onDisplayEngagementDetail">
 														<customData>
 															<core:CustomData key="data" value="{GroupDetail>}"></core:CustomData>
@@ -387,7 +387,7 @@
 										</ColumnListItem>
 									</items>
 								</Table>
-							</ScrollContainer>
+<!-- 							</ScrollContainer> -->
 						</VBox>
 						<VBox class="ZBorder ZShadow sapUiTinyMarginBottom sapUiTinyMarginTop"
 							renderType="Bare">
@@ -517,10 +517,10 @@
 									class="ZFontWeight700 ZLineHeight24 sapUiMediumMarginBegin">
 								</Title>
 							</HBox>
-							<VBox class="sapUiMediumMarginBegin sapUiMediumMarginEnd"
+							<VBox class="sapUiMediumMarginBegin sapUiMediumMarginEnd sapUiTinyMarginBottom"
 								renderType="Bare">
 								<layout:Grid defaultSpan="L6 M6 S6" defaultIndent="L0 M0 S0"
-									hSpacing="0.5" vSpacing="0" width="100%">
+									hSpacing="0.5" vSpacing="0" width="100%" class="ZGridOverflow">
 									<VBox renderType="Bare">
 										<VBox class="ZBorder" height="24px" renderType="Bare">
 											<Title text="{i18n>ZFProjectTitle}" titleStyle="H6"

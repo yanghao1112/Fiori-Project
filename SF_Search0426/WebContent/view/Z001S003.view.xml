@@ -114,17 +114,18 @@
 							width="100%" vertical="true">
 							<UploadCollection id="UploadCollection" class="ZUploadCollection"
 								maximumFilenameLength="55" maximumFileSize="10" multiple="true"
-								uploadUrl="proxy/pwaa/file/upload" showSeparators="None" change="onChange"
+								uploadUrl="proxy/pwaa/PWS002/upload" showSeparators="None" change="onChange"
 								fileDeleted="onFileDeleted" filenameLengthExceed="onFilenameLengthExceed"
 								fileRenamed="onFileRenamed" fileSizeExceed="onFileSizeExceed"
 								selectionChange="onSelectionChange" typeMissmatch="onTypeMissmatch"
 								uploadComplete="onUploadComplete" beforeUploadStarts="onBeforeUploadStarts"
 								uploadTerminated="onUploadTerminated" mode="SingleSelectMaster"
-								items="{ClientDetail>/attachedFiles}" uploadEnabled="{Parameter>/Changeable}"
+								items="{ClientDetail>/attachFiles}" uploadEnabled="{Parameter>/Changeable}"
 								uploadButtonInvisible="{= ${Parameter>/Changeable} === false ? true : false }">
 								<items>
 									<UploadCollectionItem fileName="{ClientDetail>fileName}"
-										url="{ClientDetail>fileName}" enableEdit="false"
+										documentId="{ClientDetail>documentId}"
+										url="{ClientDetail>url}" enableEdit="false"
 										enableDelete="{Parameter>/Changeable}" visibleDelete="{Parameter>/Changeable}"
 										visibleEdit="false">
 									</UploadCollectionItem>
@@ -340,7 +341,7 @@
 									<pages>
 										<layout:Grid defaultSpan="L2 M2 S2" defaultIndent="L0 M0 S0"
 											hSpacing="0.5" vSpacing="0"
-											class="sapUiTinyMarginBegin sapUiTinyMarginBottom ZMemberImageContainer"
+											class="sapUiLargeMarginBegin sapUiLargeMarginEnd sapUiTinyMarginBottom ZMemberImageContainer"
 											content="{path:'ClientDetail>Member6',  templateShareable:false}">
 
 											<t:MemberImage LEP="{ClientDetail>lep}" LEM="{ClientDetail>lem}"
@@ -527,7 +528,7 @@
 								class="ZFontWeight700 ZLineHeight24 sapUiMediumMarginBegin">
 							</Title>
 						</HBox>
-						<VBox class="sapUiMediumMarginBegin sapUiMediumMarginEnd"
+						<VBox class="sapUiMediumMarginBegin sapUiMediumMarginEnd sapUiTinyMarginBottom"
 							renderType="Bare">
 							<layout:Grid defaultSpan="L6 M6 S6" defaultIndent="L0 M0 S0"
 								hSpacing="0.5" vSpacing="0" width="100%" class="ZGridOverflow">

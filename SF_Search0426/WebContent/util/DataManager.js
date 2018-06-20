@@ -64,8 +64,8 @@ function(BaseObject, Filter, FilterOperator, Sorter) {
 		
 
 		/**
-		 * get Data by Request
-		 * 'Get' Type
+		 * Post Data by Request
+		 * 'Post' Type
 		 * @private
 		 */
 		postRequestByAjax: function(aUrl, aOptionData, aData) {
@@ -73,6 +73,38 @@ function(BaseObject, Filter, FilterOperator, Sorter) {
 				this._showBusy();
 				$.ajax({
 					type: "POST",
+					url: "proxy" + aUrl,
+					data: aData,
+					dataType: "json",
+					success: function(aData){
+						if (aData["returnCode"] === "0") {
+
+							fnResolve(aData["results"]);
+						} else {
+
+							fnReject(aData);
+						}
+						this._hideBusy(true);
+					}.bind(this),
+					error: function(aError){
+						fnReject(aError);
+						this._hideBusy(true);
+					}.bind(this)
+				});
+			}.bind(this));
+			return oDataGot;
+		},
+
+		/**
+		 * Delete Data by Request
+		 * 'Delete' Type
+		 * @private
+		 */
+		deleteRequestByAjax: function(aUrl, aOptionData) {
+			let oDataGot = new Promise(function(fnResolve, fnReject) {
+				this._showBusy();
+				$.ajax({
+					type: "Delete",
 					url: "proxy" + aUrl,
 					data: aOptionData,
 					dataType: "json",
@@ -165,18 +197,14 @@ function(BaseObject, Filter, FilterOperator, Sorter) {
 		 * @private
 		 */
 		deleteFilebyID: function(aFileID) {
-
-			let sRequestUrl = "/pwaa/SABM001/search";
-			let oOptionData = {};
-			[
-				{key:"P001",	value:aFileID}
-			].forEach(function(aCurrentValue, aIndex, aArr) {
-				if (aCurrentValue.value) {
-					oOptionData[aCurrentValue.key] = aCurrentValue.value
-				}
-			});
-			let oGotPromise = this.getRequestByAjax(sRequestUrl, oOptionData)
-			return oGotPromise;
+			
+			if (aFileID) {
+				let sRequestUrl = "/pwaa/PWS002/delete?FILE_ID=" + aFileID;
+				let oGotPromise = this.deleteRequestByAjax(sRequestUrl, null)
+				return oGotPromise;
+			} else {
+				return Promise.reject();
+			}
 		},
 		
 		saveCommentData: function(aData) {
@@ -199,27 +227,11 @@ function(BaseObject, Filter, FilterOperator, Sorter) {
 		 * @private
 		 */
 		getEngageDetailData: function(aEngageCode) {
-
-			var oDataGot = new Promise(function(fnResolve, fnReject) {
-				this._showBusy();
-				this.oDataModel.read("/EngageDetail", {
-					success: function(aData) {
-						this._hideBusy(true);
-						fnResolve(aData.results[0]);
-					}.bind(this),
-					error: function(aError) {
-						this._hideBusy(true);
-						fnReject(aError);
-					}.bind(this)
-				});
-			}.bind(this));
-			return oDataGot;
 			
-
-			let sRequestUrl = "/pwaa/SABM001/engagesearch";
+			let sRequestUrl = "/pwaa/PWS006/engageInfo";
 			let oOptionData = {};
 			[
-				{key:"P001",	value:aEngageCode}
+				{key:"Z_P009",	value:aEngageCode}
 			].forEach(function(aCurrentValue, aIndex, aArr) {
 				if (aCurrentValue.value) {
 					oOptionData[aCurrentValue.key] = aCurrentValue.value
