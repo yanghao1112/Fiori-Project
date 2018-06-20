@@ -1,0 +1,18 @@
+[{
+	"ClientDesc": "アストモスエネルギー株式会社 (ABC000109X)",
+	"OwnerCompanyName": "ABeam Consulting",
+	"IndustryBU": "MFG",
+	"CompanyName": "ABeam Consulting",
+	"LCPName": "アビーム太郎",
+	"LCPImage": "../image/LCP.png",
+	"ConsultingFee": 999999999999,
+	"RR": 0.999,
+	"YTDTotalRevenue": 999999999999,
+	"YTDProjectMargin": 999999999999,
+	"YTDWUWOFee": 999999999999,
+	"YTDWUWOExp": 999999999999,
+	"LTDTotalRevenue": 999999999999,
+	"LTDProjectMargin": 999999999999,
+	"LTDWUWOFee": 999999999999,
+	"LTDWUWOExp": 999999999999
+}]

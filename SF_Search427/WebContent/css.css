@@ -1,0 +1,255 @@
+/* Search */
+.ZTextRed {
+	color: red !important;
+}
+
+.ZTextAlignLeft input {
+	text-align: left !important;
+}
+
+.ZLineHeight32 {
+	line-height: 32px
+}
+
+.ZLineHeight24 {
+	line-height: 24px
+}
+
+/* Top */
+.ZNoSelect span {
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+.ZPointer {
+	cursor: pointer !important;
+}
+
+.ZTitle {
+	font-weight: 600 !important;
+}
+
+.ZMemberImageContainer>div {
+	overflow: visible !important;
+	position: relative;
+}
+
+.ZBorder {
+	border: 1px solid #9e9e9e;
+}
+
+.ZFontWeight700 {
+	font-weight: 700 !important;
+}
+
+.ZSummaryText {
+	line-height: 24px;
+}
+
+.ZProjectBorder {
+	border-radius: 15px 15px 15px 15px;
+	border: 1px #9e9e9e solid;
+	box-shadow: 1px 1px 1px #9e9e9e;
+}
+
+.ZGroupTitle {
+	font-weight: 600 !important;
+	text-decoration: underline;
+	line-height: 30px;
+}
+.ZGroupTitle .sapMObjectIdentifierTitle {
+	width: 100%;
+    text-align: center;
+}
+.ZGroupTitle>span {
+	white-space: normal;
+	word-break: break-all;
+}
+
+.ZNewBorder {
+	border-radius: 20px 20px 20px 20px;
+	border: 3px #CCCCFF dashed;
+	box-shadow: 3px 3px 3px #888888;
+}
+
+.ZNewCenter {
+	line-height: 150px;
+}
+
+.ZShadow {
+	box-shadow: 1px 1px 1px #9e9e9e;
+}
+
+.ZTitleUnderline {
+	text-decoration: underline;
+}
+
+.ButtonComment {
+	
+}
+
+.ZBackgroudColorF2F2F2 {
+	background-color: #F2F2F2;
+}
+
+.ZMinWidth {
+	min-width: 15rem !important;
+}
+
+.ZMCrsl .sapMCrslControlsBottom {
+	BACKGROUND-COLOR: TRANSPARENT;
+}
+.ZHelpPopoverColor .sapMPopoverCont,.sapMPopoverArr::after {
+	BACKGROUND-COLOR: #FFFFC3;
+}
+
+
+/* Employee Popup */
+.ZOverflowHidden > div:nth-child(1) {
+	overflow: visible !important;
+	height: 100px !important;
+}
+.ZBorderBottomLine {
+    border-bottom-width: 1px;
+    border-bottom-color: #F5F5F4;
+    border-bottom-style: double;
+}
+.ZDrag {
+	cursor: move !important;
+}
+.ZSummaryPanel .sapMPanelExpandableIconExpanded:hover {
+     border-radius: 0px 30px 30px 0px !important; 
+}
+.ZSummaryPanel .sapMPanelContent{
+    padding-bottom: 0rem !important;
+    background-color: #F9F9F8
+}
+.ZSummaryPanel > header > span:nth-child(1) {
+	right: 20px;
+	top: 14px;
+/* 	top: 20px; */
+/* line-height: 2.25rem; */
+	width: 20px;
+    -webkit-transform:  rotate(90deg);
+	transform:  rotate(90deg);
+    transition: transform !important;
+}
+.ZSummaryPanel > header > span:nth-child(1):hover{
+    border-radius: 30px 0px 0px 30px;
+    background-color: #e8e8e8;
+}
+.ZSummaryPanel .sapMPanelExpandableIconExpanded {
+    display: inline-block;
+    -webkit-transform: rotate(270deg) !important;
+    transform: rotate(270deg) !important;
+    transition: transform !important;
+}
+.ZSummaryPanel header span:focus {
+    outline-width: 0px !important;
+    outline-style: dashed;
+    outline-offset: -0px !important;
+}
+.ZSummaryPanel header .sapUiIcon::after {
+    border: 0px dotted #000000 !important;
+}
+.ZLeftTransition {
+    transition: left 0.5s;
+}
+
+.ZLineHeight {
+	line-height: 80px
+}
+
+.ZBlockLayoutCell {
+    border-bottom-width: 1px;
+    border-bottom-color: #F5F5F4;
+    border-bottom-style: double;
+}
+.ZOverflowHidden > div:nth-child(1) {
+	overflow: visible !important;
+	height: 100px !important;
+}
+
+
+.ZLineHeightB {
+	line-height: 40px
+}
+
+.ZCenterBox {
+	left: calc((100% - 700px)/2) !important;
+/*     top: calc((100% - 750px)/2) !important; */
+}
+
+.ZLableWordWrap {
+	word-break: break-word;
+    white-space: pre-wrap;
+}
+
+.ZUploadCollection .sapMLIB.sapMUCItem.sapMUCListSingleItem, .sapMLIB.sapMUCItem.sapMUCListFirstItem, .sapMLIB.sapMUCItem.sapMUCListLastItem, .sapMLIB.sapMUCItem.sapMUCListItem {
+	padding-top: 0rem !important;
+    padding-bottom: 0rem !important;
+}
+.ZUploadCollection .sapMLIBContent .sapMUCItemIconInactive, .sapMUCItemIcon, .sapMUCItemImage {
+	display: none !important;
+}
+.ZUploadCollection .sapMUCNoDataPage .sapUiIcon.sapUiIconMirrorInRTL {
+	display: none !important;
+}
+
+.ZUploadCollection>.sapMList>.sapMTB {
+	height: 2rem !important;
+}
+.ZUploadCollection>.sapMList>ul>li {
+	background: transparent;
+}
+.ZUploadCollection>.sapMList>ul>li .sapMLnk {
+	font-size: 14px;
+}
+ 
+
+.ZPeriodBorderNormal {
+	border-top: 1px solid #9e9e9e;
+	border-bottom: 1px solid #9e9e9e;
+	border-left: 1px solid #9e9e9e;
+}
+.ZPeriodBorderEnd {
+	border: 1px solid #9e9e9e;
+}
+.ZCurrentPeriod {
+	background-color: #fce4d6;
+}
+.ZMTextWrap span{
+	white-space: normal !important; 
+}
+.ZMTextGreen span{
+	color: green !important;
+}
+.ZMTextLineThrough span{
+	text-decoration: line-through !important;
+}
+
+.ZTableText12 span {
+	font-size : 12px !important;
+}
+.ZFlexShrink section>.sapMDialogScroll>.sapMDialogScrollCont>.sapMFlexBox>div:nth-child(2) {
+	flex-shrink: 1 !important;
+}
+.ZMinHeight200 {
+	min-height: 200px;
+}
+
+.ZGridOverflow {
+/* 	position: relative !important; */
+}
+.ZGridOverflow>div {
+	overflow: visible !important;
+}
+
+.ZGridOverflow>div:nth-child(1) {
+	z-index: 1;
+}
+.ZGridOverflow>div:nth-child(2) {
+	z-index: -999;
+}

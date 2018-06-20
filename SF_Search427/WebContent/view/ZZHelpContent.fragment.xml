@@ -1,0 +1,8 @@
+<core:FragmentDefinition xmlns="sap.m"
+	xmlns:core="sap.ui.core">
+	<Popover placement="Right" showHeader="false" class="ZHelpPopoverColor">
+		<VBox class="sapUiSmallMargin">
+			<Text text="{/helpContent}" />
+		</VBox>
+	</Popover>
+</core:FragmentDefinition>

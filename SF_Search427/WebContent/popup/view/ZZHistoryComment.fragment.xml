@@ -1,0 +1,105 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core"
+	xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:semantic="sap.m.semantic"
+	xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form">
+
+	<Dialog showHeader="false" contentWidth="1000px">
+		<SplitApp initialDetail="detail" initialMaster="master"
+			orientationChange="onOrientationChange">
+
+			<masterPages>
+				<Page id="master" title="{i18n>ZFChangeHistoryTitle}">
+					<content>
+						<List id="ZCommentList" mode="SingleSelectMaster" select="onCommentListSelect"
+							items="{EngageDetail>/Comment}" updateFinished="onCommentListUpdateFinished">
+							<items>
+								<ObjectListItem title="{EngageDetail>EffectiveDate}"
+									type="Active" press="">
+									<attributes>
+										<ObjectAttribute text="{EngageDetail>Comment}"
+											class="ZMTextWrap ZMTextGreen" />
+										<ObjectAttribute text="{EngageDetail>CommentHistory}"
+											class="ZMTextWrap ZMTextLineThrough" />
+									</attributes>
+								</ObjectListItem>
+							</items>
+						</List>
+					</content>
+					<footer>
+						<Toolbar>
+							<Button text="{i18n>ZFNewRecordButton}" press="onNewComment"></Button>
+						</Toolbar>
+					</footer>
+				</Page>
+			</masterPages>
+			<detailPages>
+				<Page id="detail" title="{i18n>ZFCommentChangeTitle}">
+					<headerContent>
+						<Button icon="sap-icon://decline" press="onHistoryCommentClose"/>
+					</headerContent>
+					<content>
+						<f:Form maxContainerCols="2" editable="true">
+							<f:layout>
+								<f:ResponsiveGridLayout labelSpanL="4"
+									labelSpanM="4" labelSpanS="4" emptySpanL="4" emptySpanM="4"
+									columnsL="8" columnsM="8" />
+							</f:layout>
+							<f:formContainers>
+								<f:FormContainer>
+									<f:formElements>
+										<f:FormElement>
+											<f:label>
+												<Label text="{i18n>ZFEffectDisplayLabel}"></Label>
+											</f:label>
+											<f:fields>
+												<Text text="{DetailComment>/EffectiveDate}">
+													<layoutData>
+														<l:GridData span="L4 M4 S4" />
+													</layoutData>
+												</Text>
+											</f:fields>
+										</f:FormElement>
+										<f:FormElement>
+											<f:label>
+												<Label text="{i18n>ZFCommentByLabel}"></Label>
+											</f:label>
+											<f:fields>
+												<Text text="{DetailComment>/CommentBy}">
+													<layoutData>
+														<l:GridData span="L6 M6 S6" />
+													</layoutData>
+												</Text>
+											</f:fields>
+										</f:FormElement>
+										<f:FormElement>
+											<f:label>
+												<Label text="{i18n>ZFCommentLabel}"></Label>
+											</f:label>
+											<f:fields>
+
+												<Text text="{DetailComment>/Comment}" maxLines="3"
+													growing="true" growingMaxLines="3" width="100%">
+													<layoutData>
+														<l:GridData span="L6 M6 S6" />
+													</layoutData>
+												</Text>
+											</f:fields>
+										</f:FormElement>
+									</f:formElements>
+								</f:FormContainer>
+							</f:formContainers>
+						</f:Form>
+					</content>
+					<footer>
+						<Toolbar>
+							<ToolbarSpacer />
+							<Button text="{i18n>ZFDeleteRecordButton}" press="onDeleteComment"
+								binding="{DetailComment>/}"></Button>
+							<Button text="{i18n>ZFEditRecordButton}" press="onEditHistoryComment"
+								type="Emphasized"></Button>
+						</Toolbar>
+					</footer>
+				</Page>
+			</detailPages>
+		</SplitApp>
+	</Dialog>
+</core:FragmentDefinition>

@@ -1,0 +1,65 @@
+[
+	{
+		"RankCode": "1",
+		"RankName": "P/D",
+		"E": 0.05,
+		"P": 0.04,
+		"T": 0,
+		"R": 0,
+		"Standard": 0.03
+	},
+	{
+		"RankCode": "2",
+		"RankName": "SM/SXP",
+		"E": 0,
+		"P": 0.02,
+		"T": 0,
+		"R": 0,
+		"Standard": 0.05
+	},
+	{
+		"RankCode": "3",
+		"RankName": "M/XP",
+		"E": 0.05,
+		"P": 0.04,
+		"T": 0,
+		"R": 0,
+		"Standard": 0.07
+	},
+	{
+		"RankCode": "4",
+		"RankName": "SC/SSP",
+		"E": 0.12,
+		"P": 0.05,
+		"T": 0,
+		"R": 0,
+		"Standard": 0.09
+	},
+	{
+		"RankCode": "5",
+		"RankName": "C/SP",
+		"E": 0.24,
+		"P": 0.02,
+		"T": 0,
+		"R": 0,
+		"Standard": 0.05
+	},
+	{
+		"RankCode": "6",
+		"RankName": "BA/JSP",
+		"E": 0.19,
+		"P": 0.02,
+		"T": 0.03,
+		"R": 0,
+		"Standard": 0.02
+	},
+	{
+		"RankCode": "7",
+		"RankName": "Subcon",
+		"E": 0.07,
+		"P": 0,
+		"T": 0,
+		"R": 0,
+		"Standard": 0.01
+	}
+]

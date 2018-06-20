@@ -1,0 +1,19 @@
+.ZMemberImageTypeFirst {
+	position: absolute;
+    left: -14px;
+    top: 72px;
+}
+.ZMemberImageTypeSecond {
+	position: absolute;
+    left: 8px;
+    top: 72px;
+}
+.ZTabContainerItemNoClose12 .sapMTSTabs div:nth-child(1) .sapMTSItemCloseBtnCnt {
+	    visibility: hidden;
+}
+.ZTabContainerItemNoClose12 .sapMTSTabs div:nth-child(2) .sapMTSItemCloseBtnCnt {
+	    visibility: hidden;
+}
+.ZLeaderBorder {
+	border: 2px solid #002060;
+}

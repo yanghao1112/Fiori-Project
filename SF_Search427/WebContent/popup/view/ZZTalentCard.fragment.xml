@@ -1,0 +1,328 @@
+<core:FragmentDefinition xmlns="sap.m"
+	xmlns:layout="sap.ui.layout" xmlns:core="sap.ui.core" xmlns:uxap="sap.uxap"
+	xmlns:viz="sap.viz.ui5.controls" xmlns:viz.data="sap.viz.ui5.data"
+	xmlns:viz.feeds="sap.viz.ui5.controls.common.feeds" xmlns:g="sap.ab.graph">
+	<VBox height="100%" renderType="Bare" backgroundDesign="Solid"
+		width="400px" class="ZBorder" templateShareable="true">
+		<layout:FixFlex>
+			<layout:fixContent>
+				<layout:Grid defaultSpan="L7 M7 S7" defaultIndent="L0 M0 S0"
+					width="auto" vSpacing="0" hSpacing="0" height="100px"
+					class="sapUiTinyMargin ZBorderBottomLine ZOverflowHidden">
+					<layout:content>
+						<Image src="{/talentInfoData/talentImage}" densityAware="false"
+							height="145px">
+							<layoutData>
+								<layout:GridData span="L4 M4 S4" />
+							</layoutData>
+						</Image>
+						<layout:Grid defaultSpan="L12 M12 S12" defaultIndent="L0 M0 S0"
+							width="auto" hSpacing="0" vSpacing="0">
+							<VBox class="ZDrag">
+								<Title text="{/talentInfoData/talentName}" titleStyle="H2"
+									class="ZNoSelect ZDrag">
+								</Title>
+								<Title text="{/talentInfoData/talentRank}" titleStyle="H5"
+									class="ZNoSelect ZDrag sapUiTinyMarginTop">
+								</Title>
+								<Title text="{/talentInfoData/talentSector}" titleStyle="H5"
+									class="ZNoSelect ZPointer sapUiTinyMarginTop">
+								</Title>
+							</VBox>
+						</layout:Grid>
+
+						<core:Icon src="sap-icon://decline" width="20px" height="20px"
+							class="sapUiTinyMarginBegin" size="20px" press="onDecline"
+							hoverBackgroundColor="#F5F5F4" decorative="false">
+							<core:layoutData>
+								<layout:GridData span="L1 M1 S1" />
+							</core:layoutData>
+						</core:Icon>
+						<Panel expandable="true" expanded="false" class="ZSummaryPanel">
+							<layoutData>
+								<layout:GridData span="L12 M12 S12" />
+							</layoutData>
+							<HBox>
+								<VBox class="sapUiMediumMarginTop">
+									<Text text="{i18n>ZFCounselorText}"></Text>
+								</VBox>
+
+								<Image src="{/talentInfoData/counselorImage}"
+									densityAware="false" height="100px" class="sapUiSmallMarginBegin">
+									<layoutData>
+										<layout:GridData span="L4 M4 S4" />
+									</layoutData>
+								</Image>
+								<VBox class="sapUiSmallMarginBegin">
+
+									<Title text="{/talentInfoData/counselorName}" titleStyle="H6"
+										class="ZLineHeight24 ZFontWeight700">
+									</Title>
+
+									<Title text="{/talentInfoData/counselorRank}" titleStyle="H6"
+										class="ZLineHeight24 ZFontWeight700">
+									</Title>
+
+									<Title text="{/talentInfoData/counselorSector}"
+										titleStyle="H6" class="ZLineHeight24 ZFontWeight700">
+									</Title>
+								</VBox>
+							</HBox>
+						</Panel>
+					</layout:content>
+				</layout:Grid>
+			</layout:fixContent>
+			<layout:flexContent>
+				<ScrollContainer vertical="true" horizontal="false"
+					height="100%">
+					<content>
+						<layout:BlockLayout>
+							<layout:BlockLayoutRow>
+								<layout:BlockLayoutCell title="{i18n>ZFTalentInfoTitle}"
+									class="ZBlockLayoutCell">
+									<layout:Grid defaultSpan="L6 M6 S6" defaultIndent="L0 M0 S0"
+										hSpacing="0" vSpacing="0">
+										<Title class="sapUiSmallMarginBegin ZLineHeight24" text="{i18n>ZFCompanyTitle}"
+											titleStyle="H6">
+										</Title>
+										<Title text="{/talentInfoData/company}" class="ZLineHeight24"
+											titleStyle="H6">
+										</Title>
+									</layout:Grid>
+									<layout:Grid defaultSpan="L6 M6 S6" defaultIndent="L0 M0 S0"
+										hSpacing="0" vSpacing="0">
+										<Title class="sapUiSmallMarginBegin ZLineHeight24" text="{i18n>ZFBUTitle}"
+											titleStyle="H6">
+										</Title>
+										<Title text="{/talentInfoData/bu}" class="ZLineHeight24"
+											titleStyle="H6">
+										</Title>
+									</layout:Grid>
+									<layout:Grid defaultSpan="L6 M6 S6" defaultIndent="L0 M0 S0"
+										hSpacing="0" vSpacing="0">
+										<Title class="sapUiSmallMarginBegin ZLineHeight24" text="{i18n>ZFSectorTitle}"
+											titleStyle="H6">
+										</Title>
+										<Title text="{/talentInfoData/sector}" class="ZLineHeight24"
+											titleStyle="H6">
+										</Title>
+									</layout:Grid>
+									<layout:Grid defaultSpan="L6 M6 S6" defaultIndent="L0 M0 S0"
+										hSpacing="0" vSpacing="0">
+										<Title class="sapUiSmallMarginBegin ZLineHeight24" text="{i18n>ZFOfficeTitle}"
+											titleStyle="H6">
+										</Title>
+										<Title text="{/talentInfoData/office}" class="ZLineHeight24"
+											titleStyle="H6">
+										</Title>
+									</layout:Grid>
+									<layout:Grid defaultSpan="L6 M6 S6" defaultIndent="L0 M0 S0"
+										hSpacing="0" vSpacing="0">
+										<Title class="sapUiSmallMarginBegin ZLineHeight24" text="{i18n>ZFHireDateTitle}"
+											titleStyle="H6">
+										</Title>
+										<Title text="{/talentInfoData/hireDate}" class="ZLineHeight24"
+											titleStyle="H6">
+										</Title>
+									</layout:Grid>
+								</layout:BlockLayoutCell>
+
+								<layout:BlockLayoutCell title="{i18n>ZFTalentLeaderSkillTitle}"
+									class="ZBlockLayoutCell">
+									<layout:Grid defaultSpan="L12 M12 S12"
+										defaultIndent="L0 M0 S0" hSpacing="0" vSpacing="0" class="">
+
+										<g:RadarChart data="{/LeaderSkillData}" option="{/radarOptionPersonCard}" />
+									</layout:Grid>
+								</layout:BlockLayoutCell>
+
+								<layout:BlockLayoutCell title="{i18n>ZFPerfMotiTitle}"
+									class="ZBlockLayoutCell">
+
+									<layout:Grid defaultSpan="L12 M12 S12"
+										defaultIndent="L0 M0 S0" hSpacing="0" vSpacing="0" class="">
+										<viz:VizFrame uiConfig="{applicationSet:'fiori'}"
+											height="250px" width="100%"
+											vizProperties="{/dual_lineOptionPersonCard/vizProperties}"
+											vizType="dual_line" vizScales="{/dual_lineOptionPersonCard/Scales}">
+											<viz:dataset>
+												<viz.data:FlattenedDataset data="{/perMotivaData}">
+													<viz.data:dimensions>
+														<viz.data:DimensionDefinition
+															name="Period" value="{period}" />
+													</viz.data:dimensions>
+													<viz.data:measures>
+														<viz.data:MeasureDefinition
+															name="Performance" value="{performance}" />
+														<viz.data:MeasureDefinition
+															name="Motivation" value="{motivation}" />
+													</viz.data:measures>
+												</viz.data:FlattenedDataset>
+											</viz:dataset>
+											<viz:feeds>
+												<viz.feeds:FeedItem uid="valueAxis" type="Measure"
+													values="Performance" min="0" max="3" />
+												<viz.feeds:FeedItem uid="valueAxis2"
+													type="Measure" values="Motivation" min="0" max="3" />
+												<viz.feeds:FeedItem uid="categoryAxis"
+													type="Dimension" values="Period" />
+											</viz:feeds>
+										</viz:VizFrame>
+									</layout:Grid>
+								</layout:BlockLayoutCell>
+
+								<layout:BlockLayoutCell title="{i18n>ZFRPRTitle}"
+									class="ZBlockLayoutCell">
+
+									<layout:Grid defaultSpan="L12 M12 S12"
+										defaultIndent="L0 M0 S0" hSpacing="0" vSpacing="0" class=""
+										content="{/rprData}">
+										<HBox class="sapUiTinyMarginTop">
+											<VBox class="sapUiSmallMarginBegin">
+												<Title
+													text="{
+														parts: [
+															'termOfEvaluation',
+															'finalRPR'
+														],
+														formatter: '.formatRPREvalRPR'
+													}"
+													titleStyle="H6" class="ZFontWeight700">
+												</Title>
+												<Text
+													text="{
+														parts: [
+															'empClass',
+															'rank'
+														],
+														formatter: '.formatRPRClassRank'
+													}">
+												</Text>
+											</VBox>
+										</HBox>
+									</layout:Grid>
+								</layout:BlockLayoutCell>
+
+								<layout:BlockLayoutCell title="{i18n>ZFCertInfoTitle}"
+									class="ZBlockLayoutCell">
+									<layout:Grid defaultSpan="L12 M12 S12"
+										defaultIndent="L0 M0 S0" hSpacing="0" vSpacing="0" class=""
+										content="{/certData}">
+										<HBox class="sapUiTinyMarginTop">
+											<VBox class="sapUiSmallMarginBegin">
+												<Title
+													text="{
+														parts: [
+															'name',
+															'date'
+														],
+														formatter: '.formatCertNameDate'
+													}"
+													titleStyle="H6" class="ZFontWeight700">
+												</Title>
+												<Text
+													text="{
+														parts: [
+															'category',
+															'score'
+														],
+														formatter: '.formatCertCateScore'
+													}">
+												</Text>
+											</VBox>
+										</HBox>
+									</layout:Grid>
+								</layout:BlockLayoutCell>
+
+								<layout:BlockLayoutCell title="{i18n>ZFLanguageInfoTitle}"
+									class="ZBlockLayoutCell">
+									<layout:Grid defaultSpan="L12 M12 S12"
+										defaultIndent="L0 M0 S0" hSpacing="0" vSpacing="0" class=""
+										content="{/languData}">
+										<HBox class="sapUiTinyMarginTop">
+											<VBox class="sapUiSmallMarginBegin">
+												<Title
+													text="{
+														parts: [
+															'language',
+															'level'
+														],
+														formatter: '.formatLanguage'
+													}"
+													titleStyle="H6" class="ZFontWeight700">
+												</Title>
+												<Text
+													text="{
+														parts: [
+															'description'
+														],
+														formatter: '.formatLanguDesc'
+													}">
+												</Text>
+											</VBox>
+										</HBox>
+									</layout:Grid>
+								</layout:BlockLayoutCell>
+
+								<layout:BlockLayoutCell title="{i18n>ZFAssignmentPerfTitle}"
+									class="ZBlockLayoutCell">
+									<layout:Grid defaultSpan="L12 M12 S12"
+										defaultIndent="L0 M0 S0" hSpacing="0" vSpacing="0" class=""
+										content="{/assignData}">
+										<HBox class="sapUiTinyMarginTop">
+											<VBox class="sapUiSmallMarginBegin">
+												<Title
+													text="{
+														parts: [
+															'entryDate'
+														],
+														formatter: '.formatAssignmentPerEntryDate'
+													}"
+													titleStyle="H6" class="ZFontWeight700">
+												</Title>
+												<Text text="{preference}">
+												</Text>
+											</VBox>
+										</HBox>
+									</layout:Grid>
+								</layout:BlockLayoutCell>
+
+								<layout:BlockLayoutCell title="{i18n>ZFWorkLimitationTitle}"
+									class="ZBlockLayoutCell">
+									<layout:Grid defaultSpan="L12 M12 S12"
+										defaultIndent="L0 M0 S0" hSpacing="0" vSpacing="0" class=""
+										content="{/workData}">
+										<HBox class="sapUiTinyMarginTop">
+											<VBox class="sapUiSmallMarginBegin">
+												<Title
+													text="{
+														parts: [
+															'type',
+															'reason'
+														],
+														formatter: '.formatWorkLimitTypeReason'
+													}"
+													titleStyle="H6" class="ZFontWeight700">
+												</Title>
+												<Text
+													text="{
+														parts: [
+															'startDate',
+															'endDateFixed'
+														],
+														formatter: '.formatWorkLimitStartEndDate'
+													}">
+												</Text>
+											</VBox>
+										</HBox>
+									</layout:Grid>
+								</layout:BlockLayoutCell>
+
+							</layout:BlockLayoutRow>
+						</layout:BlockLayout>
+					</content>
+				</ScrollContainer>
+			</layout:flexContent>
+		</layout:FixFlex>
+	</VBox>
+</core:FragmentDefinition>

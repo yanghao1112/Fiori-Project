@@ -1,0 +1,54 @@
+{
+	"w": 350,
+	"h": 200,
+	"factor": 0.7,
+	"factorLegend": 0.9,
+	"levels": 5,
+	"levelText": true,
+	"maxValue": 5,
+	"minValue": 0,
+	"axisLine": false,
+	"axisText": true,
+	"circles": true,
+	"radius": 3,
+	"backgroundColor": "transparent",
+	"lengendOptionCount": 0,
+	"axes": [
+		{
+			"axisText": "案件開拓力",
+			"axis": "01"
+		},
+		{
+			"axisText": "洞察力",
+			"axis": "02"
+		},
+		{
+			"axisText": "実行力",
+			"axis": "03"
+		},
+		{
+			"axisText": "メンバー育成力",
+			"axis": "04"
+		},
+		{
+			"axisText": "アプローチ構築",
+			"axis": "05"
+		},
+		{
+			"axisText": "専門性（システム）",
+			"axis": "06"
+		},
+		{
+			"axisText": "専門性（プロセス）",
+			"axis": "07"
+		},
+		{
+			"axisText": "クライアント関係構築力",
+			"axis": "08"
+		},
+		{
+			"axisText": "プロジェクトマネジメント",
+			"axis": "09"
+		}
+	]
+}

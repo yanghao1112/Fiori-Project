@@ -1,0 +1,53 @@
+{
+	"w": "250",
+	"h": "200",
+	"factor": 0.6,
+	"factorLegend": 0.75,
+	"levels": 5,
+	"levelText": true,
+	"maxValue": 5,
+	"minValue": 0,
+	"axisLine": true,
+	"axisText": true,
+	"circles": true,
+	"radius": 3,
+	"backgroundColor": "transparent",
+	"lengendOptionCount": 2,
+	"fontwidth": 6,
+	"axes": [
+		{
+			"axisText": "Customer",
+			"axis": "01"
+		},
+		{
+			"axisText": "Scope",
+			"axis": "02"
+		},
+		{
+			"axisText": "Quality",
+			"length": 35,
+			"axis": "03"
+		},
+		{
+			"axisText": "Schedule",
+			"axis": "04"
+		},
+		{
+			"axisText": "Budget",
+			"axis": "05"
+		},
+		{
+			"axisText": "Resource",
+			"axis": "06"
+		},
+		{
+			"axisText": "Environment",
+			"length": 60,
+			"axis": "07"
+		},
+		{
+			"axisText": "Contract",
+			"axis": "08"
+		}
+	]
+}

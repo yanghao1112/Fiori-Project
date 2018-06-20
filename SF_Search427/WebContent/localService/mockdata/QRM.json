@@ -1,0 +1,40 @@
+[
+	{
+		"classText": "QRM プロジェクトリスク",
+		"classColor": "rgb(0, 80, 180)",
+		"axes": [
+			{
+				"axis": "顧客",
+				"value": 1
+			},
+			{
+				"axis": "契約/請求",
+				"value": 1
+			},
+			{
+				"axis": "環境",
+				"value": 1
+			},
+			{
+				"axis": "要員",
+				"value": 1
+			},
+			{
+				"axis": "工数見積/予算",
+				"value": 1
+			},
+			{
+				"axis": "スケジュール",
+				"value": 1
+			},
+			{
+				"axis": "品質要求",
+				"value": 1
+			},
+			{
+				"axis": "スコープ",
+				"value": 2
+			}
+		]
+	}
+]

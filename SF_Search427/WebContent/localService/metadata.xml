@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<edmx:Edmx Version="1.0"
+    xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx">
+    <edmx:DataServices
+        xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" m:DataServiceVersion="1.0">
+        <Schema Namespace="NerdMeetup.Models"
+            xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices"
+            xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
+            xmlns="http://schemas.microsoft.com/ado/2006/04/edm">
+            <EntityType Name="ZClient">
+                <Key>
+                    <PropertyRef Name="ClientCode" />
+                </Key>
+                <Property Name="Image" Type="Edm.String" Nullable="false" />
+                <Property Name="Type" Type="Edm.String" Nullable="false" />
+                <Property Name="Name" Type="Edm.String" Nullable="false" />
+                <Property Name="ClientCode" Type="Edm.String" Nullable="false" />
+            </EntityType>
+            <EntityType Name="ZOwnerComp">
+                <Key>
+                    <PropertyRef Name="OwnerCompCode" />
+                </Key>
+                <Property Name="OwnerCompName" Type="Edm.String" Nullable="false" />
+                <Property Name="OwnerCompCode" Type="Edm.String" Nullable="false" />
+            </EntityType>
+            <EntityType Name="ZIndustry">
+                <Key>
+                    <PropertyRef Name="IndCode" />
+                </Key>
+                <Property Name="IndName" Type="Edm.String" Nullable="false" />
+                <Property Name="IndCode" Type="Edm.String" Nullable="false" />
+            </EntityType>
+            <EntityType Name="ZLCP">
+                <Key>
+                    <PropertyRef Name="LCPCode" />
+                </Key>
+                <Property Name="LCPName" Type="Edm.String" Nullable="false" />
+                <Property Name="LCPCode" Type="Edm.String" Nullable="false" />
+            </EntityType>
+            <EntityType Name="ZClient111">
+                <Key>
+                    <PropertyRef Name="Code1" />
+                </Key>
+                <Property Name="Code1" Type="Edm.String" Nullable="false" />
+            </EntityType>
+            <EntityType Name="ZGroup">
+                <Key>
+                    <PropertyRef Name="Code1" />
+                </Key>
+                <Property Name="Code1" Type="Edm.String" Nullable="false" />
+            </EntityType>
+            <EntityType Name="ZClient222">
+                <Key>
+                    <PropertyRef Name="CompanyName" />
+                </Key>
+                <Property Name="CompanyName" Type="Edm.String" Nullable="false" />
+                <Property Name="LCPName" Type="Edm.String" Nullable="false" />
+                <Property Name="LCPImage" Type="Edm.String" Nullable="false" />
+                <Property Name="TotalRevenue" Type="Edm.Int32" Nullable="false" />
+                <Property Name="AveRR" Type="Edm.Double" Nullable="false" />
+                <Property Name="Operation_CS" Type="Edm.Double" Nullable="false" />
+                <Property Name="Operation_OJT" Type="Edm.Double" Nullable="false" />
+                <Property Name="Operation_PUR" Type="Edm.Double" Nullable="false" />
+            </EntityType>
+            <EntityType Name="ZUser">
+                <Key>
+                    <PropertyRef Name="Code1" />
+                </Key>
+                <Property Name="Code1" Type="Edm.String" Nullable="false" />
+            </EntityType>
+            <EntityType Name="Z1">
+                <Key>
+                    <PropertyRef Name="Code1" />
+                </Key>
+                <Property Name="Code1" Type="Edm.String" Nullable="false" />
+            </EntityType>
+            <EntityType Name="ZE">
+                <Key>
+                    <PropertyRef Name="Code1" />
+                </Key>
+                <Property Name="Code1" Type="Edm.String" Nullable="false" />
+            </EntityType>
+            <EntityType Name="ZA">
+                <Key>
+                    <PropertyRef Name="Code1" />
+                </Key>
+                <Property Name="Code1" Type="Edm.String" Nullable="false" />
+            </EntityType>
+            <EntityType Name="ZB">
+                <Key>
+                    <PropertyRef Name="Code1" />
+                </Key>
+                <Property Name="Code1" Type="Edm.String" Nullable="false" />
+            </EntityType>
+            <EntityType Name="ZC">
+                <Key>
+                    <PropertyRef Name="Code1" />
+                </Key>
+                <Property Name="Code1" Type="Edm.String" Nullable="false" />
+            </EntityType>
+            <EntityType Name="ZD">
+                <Key>
+                    <PropertyRef Name="ClientCode" />
+                </Key>
+                <Property Name="ClientCode" Type="Edm.String" Nullable="false" />
+            </EntityType>
+            <EntityType Name="ZE">
+                <Key>
+                    <PropertyRef Name="ClientCode" />
+                </Key>
+                <Property Name="ClientCode" Type="Edm.String" Nullable="false" />
+            </EntityType>
+            <EntityType Name="ZF">
+                <Key>
+                    <PropertyRef Name="ClientCode" />
+                </Key>
+                <Property Name="ClientCode" Type="Edm.String" Nullable="false" />
+            </EntityType>
+            <EntityType Name="ZG">
+                <Key>
+                    <PropertyRef Name="ClientCode" />
+                </Key>
+                <Property Name="ClientCode" Type="Edm.String" Nullable="false" />
+            </EntityType>
+            <EntityType Name="ZH">
+                <Key>
+                    <PropertyRef Name="ClientCode" />
+                </Key>
+                <Property Name="ClientCode" Type="Edm.String" Nullable="false" />
+            </EntityType>
+            <EntityType Name="ZI">
+                <Key>
+                    <PropertyRef Name="ClientCode" />
+                </Key>
+                <Property Name="ClientCode" Type="Edm.String" Nullable="false" />
+            </EntityType>
+            <EntityContainer Name="NerdMeetups" m:IsDefaultEntityContainer="true">
+                <EntitySet Name="ZClientList" EntityType="NerdMeetup.Models.ZClient" />
+                <EntitySet Name="ClientInfoList" EntityType="NerdMeetup.Models.ZClient111" />
+                <EntitySet Name="GroupList" EntityType="NerdMeetup.Models.ZGroup" />
+                <EntitySet Name="ClientSummary" EntityType="NerdMeetup.Models.ZClient222" />
+                <EntitySet Name="UserList" EntityType="NerdMeetup.Models.ZUser" />
+                <EntitySet Name="Group" EntityType="NerdMeetup.Models.Z1" />
+                <EntitySet Name="EngagementListData" EntityType="NerdMeetup.Models.ZE" />
+                <EntitySet Name="AssignList" EntityType="NerdMeetup.Models.ZA" />
+                <EntitySet Name="QRM" EntityType="NerdMeetup.Models.ZB" />
+                <EntitySet Name="TalentInfo" EntityType="NerdMeetup.Models.ZC" />
+                <EntitySet Name="ClientInfo" EntityType="NerdMeetup.Models.ZD" />
+                <EntitySet Name="GroupSummary" EntityType="NerdMeetup.Models.ZD" />
+                <EntitySet Name="OwnerCompany" EntityType="NerdMeetup.Models.ZOwnerComp" />
+                <EntitySet Name="Industry" EntityType="NerdMeetup.Models.ZIndustry" />
+                <EntitySet Name="LCP" EntityType="NerdMeetup.Models.ZLCP" />
+                <EntitySet Name="SearchHelpData" EntityType="NerdMeetup.Models.ZF" />
+                <EntitySet Name="ClientDetail" EntityType="NerdMeetup.Models.ZG" />
+                <EntitySet Name="GroupDetail" EntityType="NerdMeetup.Models.ZH" />
+                <EntitySet Name="EngageDetail" EntityType="NerdMeetup.Models.ZI" />
+                       
+                <FunctionImport Name="FindUpcomingMeetups" EntitySet="Meetups" ReturnType="Collection(NerdMeetup.Models.Meetup)" m:HttpMethod="GET" />
+            </EntityContainer>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>

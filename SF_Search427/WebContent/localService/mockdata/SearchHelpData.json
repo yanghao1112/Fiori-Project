@@ -1,0 +1,111 @@
+[
+	{
+		"ClientInformation": [
+			{
+				"ClientCode": "ABC000001X",
+				"ClientName": "ABC000001X Company"
+			},
+			{
+				"ClientCode": "ABC000002X",
+				"ClientName": "ABC000002X Company"
+			},
+			{
+				"ClientCode": "BBC000001X",
+				"ClientName": "BBC000001X Company"
+			},
+			{
+				"ClientCode": "HCC1000001",
+				"ClientName": "HCC1000001 Company"
+			},
+			{
+				"ClientCode": "MSI0000001",
+				"ClientName": "MSI0000001 Company"
+			},
+			{
+				"ClientCode": "MSI0000001",
+				"ClientName": "MSI0000001 Company"
+			},
+			{
+				"ClientCode": "MSI0000001",
+				"ClientName": "MSI0000001 Company"
+			},
+			{
+				"ClientCode": "MSI0000001",
+				"ClientName": "MSI0000001 Company"
+			},
+			{
+				"ClientCode": "MSI0000001",
+				"ClientName": "MSI0000001 Company"
+			},
+			{
+				"ClientCode": "MSI0000001",
+				"ClientName": "MSI0000001 Company"
+			},
+			{
+				"ClientCode": "MSI0000001",
+				"ClientName": "MSI0000001 Company"
+			},
+			{
+				"ClientCode": "MSI0000001",
+				"ClientName": "MSI0000001 Company"
+			}
+		],
+		"LCPInformation": [
+			{
+				"LCPCode": "50000001",
+				"LCPName": "Taro ABCD"
+			},
+			{
+				"LCPCode": "50000002",
+				"LCPName": "Jiro ABCD"
+			},
+			{
+				"LCPCode": "50000003",
+				"LCPName": "Jack ABCD"
+			},
+			{
+				"LCPCode": "50000004",
+				"LCPName": "Mike ABCD"
+			}
+		],
+		"ClientIndustryInformation": [
+			{
+				"ClientIndustryCode": "15110",
+				"ClientIndustryName": "MFG"
+			},
+			{
+				"ClientIndustryCode": "15112",
+				"ClientIndustryName": "FSI"
+			},
+			{
+				"ClientIndustryCode": "15114",
+				"ClientIndustryName": "Others",
+				"OwnerCompanyCode": "0720"
+			},
+			{
+				"ClientIndustryCode": "9999",
+				"ClientIndustryName": "XXXXX",
+				
+				"OwnerCompanyCode": "0150"
+			}
+		],
+		"OwnerCompanyInformation": [
+			{
+				"OwnerCompanyCode": "0150",
+				"OwnerCompanyName": "ABeam Consulting"
+			},
+			{
+				"OwnerCompanyCode": "0720",
+				"OwnerCompanyName": "GDC"
+			},
+			{
+				"OwnerCompanyCode": "0151",
+				"OwnerCompanyName": "ABeam Consulting222"
+			},
+			{
+				"OwnerCompanyCode": "015E",
+				"OwnerCompanyName": "ABeam ConsultingSdd"
+			}
+		]
+	}
+]

@@ -1,0 +1,1490 @@
+[
+	{
+		"AnalysisGroup": [
+			{
+				"GroupName": "アビーム 太郎 Gr.",
+				"LEPCode": "LEP00001",
+				"LEMCode": "LEM00001",
+				"ImpEventName": "ImpEventName1",
+				"EngCode": "EngCode1",
+				"Members": [
+					{
+						"Image": "data:image/png;base64,/9j/4AAQSkZJRgABAgAAAQABAAD/2wBDAAMCAgMCAgMDAwMEAwMEBQgFBQQEBQoHBwYIDAoMDAsK\r\nCwsNDhIQDQ4RDgsLEBYQERMUFRUVDA8XGBYUGBIUFRT/2wBDAQMEBAUEBQkFBQkUDQsNFBQUFBQU\r\nFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBT/wAARCADwALQDASIA\r\nAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQA\r\nAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3\r\nODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWm\r\np6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEA\r\nAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSEx\r\nBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElK\r\nU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3\r\nuLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwD9UKKK\r\nK5lEAopQM0bapRASinAYpadgGgZo206iq5QGFfUZo+vIqK7u4bGCSe4kWGGMbmdzgAV4D4t/bl+E\r\n/g/W5NJufEEbXsZwyKhOD9amTUd2UouWyPoM9PT0NIxCryR7818h+Lv+Cjnw30qLdY6mtxIRgIFb\r\nk18/+KP+Cm2patqht9M09o0V8JKHBBH0rmeIj0RuqE2fpql3DIcJIpIOOTirB5BxwPWvyt1b9t/W\r\n2vba6n1ElCBv2jHlt6++K9b+Cv7fKza5Fba/qCapo0zCM3gAj8lyemOpojXX2tByw8oq597g9MDi\r\njHJ9a53w5480HxXCkul6lFdI43KwOBj8a6Mc/wCNdSfMjmtYAvHv3o206inYQ0jFJT6KLANAzS7a\r\n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\r\nKKgopXQH/9k=\r\n",
+						"Name": "ABC1",
+						"Code": "123456789",
+						"LEP": true,
+						"LEM": false
+					},
+					{
+						"Image": "image/M2.jpg",
+						"Name": "ABC2",
+						"Code": "123456789",
+						"LEP": false,
+						"LEM": true
+					},
+					{
+						"Image": "image/M3.jpg",
+						"Name": "ABC3",
+						"Code": "123456789",
+						"LEP": false,
+						"LEM": false
+					},
+					{
+						"Image": "image/M4.jpg",
+						"Name": "ABC4",
+						"Code": "123456789",
+						"LEP": false,
+						"LEM": false
+					},
+					{
+						"Image": "image/M5.jpg",
+						"Name": "ABC5",
+						"Code": "123456789",
+						"LEP": false,
+						"LEM": false
+					},
+					{
+						"Image": "image/M6.jpg",
+						"Name": "ABC6",
+						"Code": "123456789",
+						"LEP": false,
+						"LEM": false
+					},
+					{
+						"Image": "image/M4.jpg",
+						"Name": "ABC7",
+						"Code": "123456789",
+						"LEP": false,
+						"LEM": false
+					},
+					{
+						"Image": "image/M5.jpg",
+						"Name": "ABC8",
+						"Code": "123456789",
+						"LEP": false,
+						"LEM": false
+					},
+					{
+						"Image": "image/M6.jpg",
+						"Name": "ABC9",
+						"Code": "123456789",
+						"LEP": false,
+						"LEM": false
+					}
+				]
+			},
+			{
+				"GroupName": "アビーム 次郎 Gr.",
+				"LEPCode": "LEP00002",
+				"LEMCode": "LEM00002",
+				"ImpEventName": "ImpEventName2",
+				"EngCode": "EngCode2",
+				"Members": [
+					{
+						"Image": "image/M3.jpg",
+						"Name": "ABC",
+						"Code": "123456789",
+						"LEP": true,
+						"LEM": true
+					},
+					{
+						"Image": "image/M2.jpg",
+						"Name": "ABC",
+						"Code": "123456789",
+						"LEP": false,
+						"LEM": false
+					}
+				]
+			},
+			{
+				"GroupName": "AB Jeff Gr.",
+				"LEPCode": "LEP00003",
+				"LEMCode": "LEM00003",
+				"ImpEventName": "ImpEventName3",
+				"EngCode": "EngCode3",
+				"Members": [
+					{
+						"Image": "image/M4.jpg",
+						"Name": "ABC",
+						"Code": "123456789",
+						"LEP": true,
+						"LEM": false
+					},
+					{
+						"Image": "image/M5.jpg",
+						"Name": "ABC",
+						"Code": "123456789",
+						"LEP": false,
+						"LEM": true
+					},
+					{
+						"Image": "image/M6.jpg",
+						"Name": "ABC",
+						"Code": "123456789",
+						"LEP": false,
+						"LEM": false
+					}
+				]
+			},
+			{
+				"GroupName": "AB Mike Gr.",
+				"LEPCode": "LEP00004",
+				"LEMCode": "LEM00004",
+				"ImpEventName": "ImpEventName4",
+				"EngCode": "EngCode4",
+				"Members": [
+					{
+						"Image": "image/M6.jpg",
+						"Name": "ABC",
+						"Code": "123456789",
+						"LEP": true,
+						"LEM": false
+					},
+					{
+						"Image": "image/M7.jpg",
+						"Name": "ABC",
+						"Code": "123456789",
+						"LEP": false,
+						"LEM": true
+					},
+					{
+						"Image": "image/M5.jpg",
+						"Name": "ABC",
+						"Code": "123456789",
+						"LEP": false,
+						"LEM": false
+					},
+					{
+						"Image": "image/M6.jpg",
+						"Name": "ABC",
+						"Code": "123456789",
+						"LEP": false,
+						"LEM": false
+					},
+					{
+						"Image": "image/M7.jpg",
+						"Name": "ABC",
+						"Code": "123456789",
+						"LEP": false,
+						"LEM": false
+					},
+					{
+						"Image": "image/M5.jpg",
+						"Name": "ABC",
+						"Code": "123456789",
+						"LEP": false,
+						"LEM": false
+					}
+				]
+			},
+			{
+				"GroupName": "AB Mike Gr. 2222",
+				"LEPCode": "LEP00005",
+				"LEMCode": "LEM00005",
+				"ImpEventName": "ImpEventName5",
+				"EngCode": "EngCode5",
+				"Members": [
+					{
+						"Image": "image/M3.jpg",
+						"Name": "ABC",
+						"Code": "123456789",
+						"LEP": true,
+						"LEM": false
+					},
+					{
+						"Image": "image/M2.jpg",
+						"Name": "ABC",
+						"Code": "123456789",
+						"LEP": false,
+						"LEM": true
+					}
+				]
+			}
+		],
+		"LeaderSkill": {
+			"LeaderScore": 923,
+			"LeaderSkillData": [{
+					"GroupName": "Average",
+					"axes": [
+						{
+							"axis": "06",
+							"value": 2
+						},
+						{
+							"axis": "05",
+							"value": 5
+						},
+						{
+							"axis": "04",
+							"value": 2
+						},
+						{
+							"axis": "03",
+							"value": 1
+						},
+						{
+							"axis": "02",
+							"value": 1
+						}
+					]
+				},
+				{
+					"GroupName": "アビーム 太郎 Gr.",
+					"axes": [
+						{
+							"axis": "07",
+							"value": 1
+						},
+						{
+							"axis": "06",
+							"value": 2
+						},
+						{
+							"axis": "05",
+							"value": 4
+						},
+						{
+							"axis": "04",
+							"value": 3
+						},
+						{
+							"axis": "03",
+							"value": 1
+						},
+						{
+							"axis": "02",
+							"value": 3
+						}
+					]
+				},
+				{
+					"GroupName": "アビーム 次郎 Gr.",
+					"axes": [
+						{
+							"axis": "01",
+							"value": 2
+						},
+						{
+							"axis": "09",
+							"value": 1
+						},
+						{
+							"axis": "08",
+							"value": 4
+						},
+						{
+							"axis": "07",
+							"value": 0
+						},
+						{
+							"axis": "06",
+							"value": 4
+						},
+						{
+							"axis": "05",
+							"value": 1
+						},
+						{
+							"axis": "04",
+							"value": 4
+						},
+						{
+							"axis": "03",
+							"value": 4
+						},
+						{
+							"axis": "02",
+							"value": 1
+						}
+					]
+				},
+				{
+					"GroupName": "AB Jeff Gr.",
+					"axes": [
+						{
+							"axis": "01",
+							"value": 2
+						},
+						{
+							"axis": "09",
+							"value": 2
+						},
+						{
+							"axis": "08",
+							"value": 2
+						},
+						{
+							"axis": "07",
+							"value": 2
+						},
+						{
+							"axis": "06",
+							"value": 1
+						},
+						{
+							"axis": "05",
+							"value": 4
+						},
+						{
+							"axis": "04",
+							"value": 4
+						},
+						{
+							"axis": "03",
+							"value": 4
+						},
+						{
+							"axis": "02",
+							"value": 3
+						}
+					]
+				},
+				{
+					"GroupName": "AB Mike Gr.",
+					"axes": [
+						{
+							"axis": "01",
+							"value": 4
+						},
+						{
+							"axis": "09",
+							"value": 1
+						},
+						{
+							"axis": "08",
+							"value": 1
+						},
+						{
+							"axis": "07",
+							"value": 1
+						},
+						{
+							"axis": "06",
+							"value": 1
+						},
+						{
+							"axis": "05",
+							"value": 1
+						},
+						{
+							"axis": "04",
+							"value": 1
+						},
+						{
+							"axis": "03",
+							"value": 1
+						},
+						{
+							"axis": "02",
+							"value": 2
+						}
+					]
+				},
+				{
+					"GroupName": "AB Mike Gr. 2222",
+					"axes": [
+						{
+							"axis": "01",
+							"value": 3
+						},
+						{
+							"axis": "09",
+							"value": 1
+						},
+						{
+							"axis": "08",
+							"value": 3
+						},
+						{
+							"axis": "07",
+							"value": 1
+						},
+						{
+							"axis": "06",
+							"value": 3
+						},
+						{
+							"axis": "05",
+							"value": 1
+						},
+						{
+							"axis": "04",
+							"value": 3
+						},
+						{
+							"axis": "03",
+							"value": 1
+						},
+						{
+							"axis": "02",
+							"value": 3
+						}
+					]
+				}
+			]
+		},
+		"ClientSummary": {
+			"ClientCode": "ABC000109X",
+			"ClientName": "アストモスエネルギー株式会社",
+			"MemberAssigned": "A1",
+			"AnalysisGroupUnit": "B1",
+			"OwnerCompanyName": "ABeam Consulting",
+			"IndustryBU": "MFG",
+			"CompanyName": "ABeam Consulting",
+			"LCPName": "アビーム太郎",
+			"LCPImage": "image/LCP.png",
+			"ConsultingFee": 999999999999,
+			"RR": 0.999,
+			"EstRR": 0.666,
+			"YTDTotalRevenue": 999999999999,
+			"YTDProjectMargin": 999999999999,
+			"YTDWUWOFee": 999999999999,
+			"YTDWUWOExp": 999999999999,
+			"LTDTotalRevenue": 999999999999,
+			"LTDProjectMargin": 999999999999,
+			"LTDWUWOFee": 999999999999,
+			"LTDWUWOExp": 999999999999
+		},
+		"AttachedFiles": [
+			{
+				"documentId": "documentId001",
+				"fileName": "QRM Client Review",
+				"url": "1123345.xaf"
+			},
+			{
+				"documentId": "documentId002",
+				"fileName": "Client Document",
+				"url": "1123345.xaf"
+			},
+			{
+				"documentId": "documentId001",
+				"fileName": "QRM Client Review",
+				"url": "1123345.xaf"
+			},
+			{
+				"documentId": "documentId002",
+				"fileName": "Client Document",
+				"url": "1123345.xaf"
+			},
+			{
+				"documentId": "documentId001",
+				"fileName": "QRM Client Review",
+				"url": "1123345.xaf"
+			},
+			{
+				"documentId": "documentId002",
+				"fileName": "Client Document",
+				"url": "1123345.xaf"
+			}
+		],
+		"AssignBalance": {
+			"HeadCount": 107,
+			"Score": 979,
+			"SubTotRevenue": 0.979,
+			"AssignmentDetails": [
+				{
+					"RankCode": "1",
+					"RankName": "P/D",
+					"E": 0.05,
+					"P": 0.04,
+					"T": 0,
+					"R": 0,
+					"Standard": 0
+				},
+				{
+					"RankCode": "2",
+					"RankName": "P/D",
+					"E": 0,
+					"P": 0,
+					"T": 0,
+					"R": 0,
+					"Standard": 0.03
+				},
+				{
+					"RankCode": "1",
+					"RankName": "SM/SXP",
+					"E": 0,
+					"P": 0.02,
+					"T": 0,
+					"R": 0,
+					"Standard": 0
+				},
+				{
+					"RankCode": "2",
+					"RankName": "SM/SXP",
+					"E": 0,
+					"P": 0,
+					"T": 0,
+					"R": 0,
+					"Standard": 0.05
+				},
+				{
+					"RankCode": "2",
+					"RankName": "M/XP",
+					"E": 0,
+					"P": 0,
+					"T": 0,
+					"R": 0,
+					"Standard": 0.07
+				},
+				{
+					"RankCode": "1",
+					"RankName": "M/XP",
+					"E": 0.05,
+					"P": 0.04,
+					"T": 0,
+					"R": 0,
+					"Standard": 0
+				},
+				{
+					"RankCode": "2",
+					"RankName": "SC/SSP",
+					"E": 0,
+					"P": 0,
+					"T": 0,
+					"R": 0,
+					"Standard": 0.09
+				},
+				{
+					"RankCode": "1",
+					"RankName": "SC/SSP",
+					"E": 0.12,
+					"P": 0.05,
+					"T": 0,
+					"R": 0,
+					"Standard": 0
+				},
+				{
+					"RankCode": "2",
+					"RankName": "C/SP",
+					"E": 0,
+					"P": 0,
+					"T": 0,
+					"R": 0,
+					"Standard": 0.05
+				},
+				{
+					"RankCode": "1",
+					"RankName": "C/SP",
+					"E": 0.24,
+					"P": 0.02,
+					"T": 0,
+					"R": 0,
+					"Standard": 0
+				},
+				{
+					"RankCode": "2",
+					"RankName": "BA/JSP",
+					"E": 0,
+					"P": 0,
+					"T": 0,
+					"R": 0,
+					"Standard": 0.02
+				},
+				{
+					"RankCode": "2",
+					"RankName": "Subcon",
+					"E": 0,
+					"P": 0,
+					"T": 0,
+					"R": 0,
+					"Standard": 0.01
+				},
+				{
+					"RankCode": "1",
+					"RankName": "BA/JSP",
+					"E": 0.19,
+					"P": 0.02,
+					"T": 0.03,
+					"R": 0,
+					"Standard": 0
+				},
+				{
+					"RankCode": "1",
+					"RankName": "Subcon",
+					"E": 0.07,
+					"P": 0,
+					"T": 0,
+					"R": 0,
+					"Standard": 0
+				}
+			]
+		},
+		"QRMData": {
+			"Progress": {
+				"Score": 991,
+				"Project": [
+					{
+						"GroupName": "アビーム 太郎 Gr.",
+						"axes": [
+							{
+								"axis": "01",
+								"value": "3"
+							},
+							{
+								"axis": "02",
+								"value": "5"
+							},
+							{
+								"axis": "03",
+								"value": "3"
+							},
+							{
+								"axis": "04",
+								"value": "5"
+							},
+							{
+								"axis": "05",
+								"value": "1"
+							},
+							{
+								"axis": "06",
+								"value": "3"
+							},
+							{
+								"axis": "07",
+								"value": "5"
+							},
+							{
+								"axis": "08",
+								"value": "4"
+							},
+							{
+								"axis": "09",
+								"value": "2"
+							},
+							{
+								"axis": "10",
+								"value": "1"
+							},
+							{
+								"axis": "11",
+								"value": "5"
+							}
+						]
+					},
+					{
+						"GroupName": "アビーム 次郎 Gr.",
+						"axes": [
+							{
+								"axis": "01",
+								"value": "4"
+							},
+							{
+								"axis": "02",
+								"value": "5"
+							},
+							{
+								"axis": "03",
+								"value": "3"
+							},
+							{
+								"axis": "04",
+								"value": "3"
+							},
+							{
+								"axis": "05",
+								"value": "2"
+							},
+							{
+								"axis": "06",
+								"value": "5"
+							},
+							{
+								"axis": "07",
+								"value": "3"
+							},
+							{
+								"axis": "08",
+								"value": "2"
+							},
+							{
+								"axis": "09",
+								"value": "3"
+							},
+							{
+								"axis": "10",
+								"value": "3"
+							},
+							{
+								"axis": "11",
+								"value": "3"
+							}
+						]
+					},
+					{
+						"GroupName": "AB Jeff Gr.",
+						"axes": [
+							{
+								"axis": "01",
+								"value": "4"
+							},
+							{
+								"axis": "02",
+								"value": "4"
+							},
+							{
+								"axis": "03",
+								"value": "1"
+							},
+							{
+								"axis": "04",
+								"value": "2"
+							},
+							{
+								"axis": "05",
+								"value": "5"
+							},
+							{
+								"axis": "06",
+								"value": "4"
+							},
+							{
+								"axis": "07",
+								"value": "4"
+							},
+							{
+								"axis": "08",
+								"value": "4"
+							},
+							{
+								"axis": "09",
+								"value": "1"
+							},
+							{
+								"axis": "10",
+								"value": "4"
+							},
+							{
+								"axis": "11",
+								"value": "1"
+							}
+						]
+					},
+					{
+						"GroupName": "AB Mike Gr.",
+						"axes": [
+							{
+								"axis": "01",
+								"value": "3"
+							},
+							{
+								"axis": "02",
+								"value": "5"
+							},
+							{
+								"axis": "03",
+								"value": "3"
+							},
+							{
+								"axis": "04",
+								"value": "2"
+							},
+							{
+								"axis": "05",
+								"value": "3"
+							},
+							{
+								"axis": "06",
+								"value": "1"
+							},
+							{
+								"axis": "07",
+								"value": "2"
+							},
+							{
+								"axis": "08",
+								"value": "3"
+							},
+							{
+								"axis": "09",
+								"value": "2"
+							},
+							{
+								"axis": "10",
+								"value": "1"
+							},
+							{
+								"axis": "11",
+								"value": "1"
+							}
+						]
+					},
+					{
+						"GroupName": "AB Mike Gr. 2222",
+						"axes": [
+							{
+								"axis": "01",
+								"value": "5"
+							},
+							{
+								"axis": "02",
+								"value": "2"
+							},
+							{
+								"axis": "03",
+								"value": "1"
+							},
+							{
+								"axis": "04",
+								"value": "4"
+							},
+							{
+								"axis": "05",
+								"value": "4"
+							},
+							{
+								"axis": "06",
+								"value": "1"
+							},
+							{
+								"axis": "07",
+								"value": "5"
+							},
+							{
+								"axis": "08",
+								"value": "2"
+							},
+							{
+								"axis": "09",
+								"value": "5"
+							},
+							{
+								"axis": "10",
+								"value": "2"
+							},
+							{
+								"axis": "1",
+								"value": "4"
+							}
+						]
+					}
+				],
+				"QAP": [
+					{
+						"GroupName": "アビーム 太郎 Gr.",
+						"axes": [
+							{
+								"axis": "01",
+								"value": "5"
+							},
+							{
+								"axis": "02",
+								"value": "4"
+							},
+							{
+								"axis": "03",
+								"value": "2"
+							},
+							{
+								"axis": "04",
+								"value": "4"
+							},
+							{
+								"axis": "05",
+								"value": "3"
+							},
+							{
+								"axis": "06",
+								"value": "1"
+							},
+							{
+								"axis": "07",
+								"value": "1"
+							},
+							{
+								"axis": "08",
+								"value": "4"
+							},
+							{
+								"axis": "09",
+								"value": "5"
+							},
+							{
+								"axis": "10",
+								"value": "4"
+							},
+							{
+								"axis": "11",
+								"value": "1"
+							}
+						]
+					},
+					{
+						"GroupName": "アビーム 次郎 Gr.",
+						"axes": [
+							{
+								"axis": "01",
+								"value": "3"
+							},
+							{
+								"axis": "02",
+								"value": "3"
+							},
+							{
+								"axis": "03",
+								"value": "5"
+							},
+							{
+								"axis": "04",
+								"value": "3"
+							},
+							{
+								"axis": "05",
+								"value": "2"
+							},
+							{
+								"axis": "06",
+								"value": "3"
+							},
+							{
+								"axis": "07",
+								"value": "4"
+							},
+							{
+								"axis": "08",
+								"value": "5"
+							},
+							{
+								"axis": "09",
+								"value": "1"
+							},
+							{
+								"axis": "10",
+								"value": "2"
+							},
+							{
+								"axis": "11",
+								"value": "5"
+							}
+						]
+					},
+					{
+						"GroupName": "AB Jeff Gr.",
+						"axes": [
+							{
+								"axis": "01",
+								"value": "3"
+							},
+							{
+								"axis": "02",
+								"value": "2"
+							},
+							{
+								"axis": "03",
+								"value": "3"
+							},
+							{
+								"axis": "04",
+								"value": "5"
+							},
+							{
+								"axis": "05",
+								"value": "5"
+							},
+							{
+								"axis": "06",
+								"value": "1"
+							},
+							{
+								"axis": "07",
+								"value": "3"
+							},
+							{
+								"axis": "08",
+								"value": "2"
+							},
+							{
+								"axis": "09",
+								"value": "3"
+							},
+							{
+								"axis": "10",
+								"value": "5"
+							},
+							{
+								"axis": "11",
+								"value": "1"
+							}
+						]
+					},
+					{
+						"GroupName": "AB Mike Gr.",
+						"axes": [
+							{
+								"axis": "01",
+								"value": "2"
+							},
+							{
+								"axis": "02",
+								"value": "1"
+							},
+							{
+								"axis": "03",
+								"value": "5"
+							},
+							{
+								"axis": "04",
+								"value": "5"
+							},
+							{
+								"axis": "05",
+								"value": "2"
+							},
+							{
+								"axis": "06",
+								"value": "2"
+							},
+							{
+								"axis": "07",
+								"value": "5"
+							},
+							{
+								"axis": "08",
+								"value": "3"
+							},
+							{
+								"axis": "09",
+								"value": "5"
+							},
+							{
+								"axis": "10",
+								"value": "4"
+							},
+							{
+								"axis": "11",
+								"value": "3"
+							}
+						]
+					},
+					{
+						"GroupName": "AB Mike Gr. 2222",
+						"axes": [
+							{
+								"axis": "01",
+								"value": "3"
+							},
+							{
+								"axis": "02",
+								"value": "2"
+							},
+							{
+								"axis": "03",
+								"value": "2"
+							},
+							{
+								"axis": "04",
+								"value": "3"
+							},
+							{
+								"axis": "05",
+								"value": "1"
+							},
+							{
+								"axis": "06",
+								"value": "1"
+							},
+							{
+								"axis": "07",
+								"value": "3"
+							},
+							{
+								"axis": "08",
+								"value": "1"
+							},
+							{
+								"axis": "09",
+								"value": "2"
+							},
+							{
+								"axis": "10",
+								"value": "2"
+							},
+							{
+								"axis": "11",
+								"value": "5"
+							}
+						]
+					}
+				]
+			},
+			"Proposal": {
+				"Score": 121,
+				"Project": [
+					{
+						"GroupName": "アビーム 太郎 Gr.",
+						"axes": [
+							{
+								"axis": "01",
+								"value": "3"
+							},
+							{
+								"axis": "02",
+								"value": "1"
+							},
+							{
+								"axis": "03",
+								"value": "5"
+							},
+							{
+								"axis": "04",
+								"value": "2"
+							},
+							{
+								"axis": "05",
+								"value": "4"
+							},
+							{
+								"axis": "06",
+								"value": "3"
+							},
+							{
+								"axis": "07",
+								"value": "5"
+							},
+							{
+								"axis": "08",
+								"value": "5"
+							}
+						]
+					},
+					{
+						"GroupName": "アビーム 次郎 Gr.",
+						"axes": [
+							{
+								"axis": "01",
+								"value": "1"
+							},
+							{
+								"axis": "02",
+								"value": "5"
+							},
+							{
+								"axis": "03",
+								"value": "3"
+							},
+							{
+								"axis": "04",
+								"value": "2"
+							},
+							{
+								"axis": "05",
+								"value": "5"
+							},
+							{
+								"axis": "06",
+								"value": "4"
+							},
+							{
+								"axis": "07",
+								"value": "5"
+							},
+							{
+								"axis": "08",
+								"value": "5"
+							}
+						]
+					},
+					{
+						"GroupName": "AB Jeff Gr.",
+						"axes": [
+							{
+								"axis": "01",
+								"value": "5"
+							},
+							{
+								"axis": "02",
+								"value": "5"
+							},
+							{
+								"axis": "03",
+								"value": "3"
+							},
+							{
+								"axis": "04",
+								"value": "2"
+							},
+							{
+								"axis": "05",
+								"value": "4"
+							},
+							{
+								"axis": "06",
+								"value": "2"
+							},
+							{
+								"axis": "07",
+								"value": "4"
+							},
+							{
+								"axis": "08",
+								"value": "1"
+							}
+						]
+					},
+					{
+						"GroupName": "AB Mike Gr.",
+						"axes": [
+							{
+								"axis": "01",
+								"value": "5"
+							},
+							{
+								"axis": "02",
+								"value": "2"
+							},
+							{
+								"axis": "03",
+								"value": "3"
+							},
+							{
+								"axis": "04",
+								"value": "5"
+							},
+							{
+								"axis": "05",
+								"value": "4"
+							},
+							{
+								"axis": "06",
+								"value": "1"
+							},
+							{
+								"axis": "07",
+								"value": "3"
+							},
+							{
+								"axis": "08",
+								"value": "5"
+							}
+						]
+					},
+					{
+						"GroupName": "AB Mike Gr. 2222",
+						"axes": [
+							{
+								"axis": "01",
+								"value": "1"
+							},
+							{
+								"axis": "02",
+								"value": "1"
+							},
+							{
+								"axis": "03",
+								"value": "1"
+							},
+							{
+								"axis": "04",
+								"value": "2"
+							},
+							{
+								"axis": "05",
+								"value": "4"
+							},
+							{
+								"axis": "06",
+								"value": "2"
+							},
+							{
+								"axis": "07",
+								"value": "4"
+							},
+							{
+								"axis": "08",
+								"value": "4"
+							}
+						]
+					}
+				],
+				"QAP": [
+					{
+						"GroupName": "アビーム 太郎 Gr.",
+						"axes": [
+							{
+								"axis": "01",
+								"value": "1"
+							},
+							{
+								"axis": "02",
+								"value": "2"
+							},
+							{
+								"axis": "03",
+								"value": "4"
+							},
+							{
+								"axis": "04",
+								"value": "4"
+							},
+							{
+								"axis": "05",
+								"value": "5"
+							},
+							{
+								"axis": "06",
+								"value": "4"
+							},
+							{
+								"axis": "07",
+								"value": "4"
+							},
+							{
+								"axis": "08",
+								"value": "2"
+							}
+						]
+					},
+					{
+						"GroupName": "アビーム 次郎 Gr.",
+						"axes": [
+							{
+								"axis": "01",
+								"value": "2"
+							},
+							{
+								"axis": "02",
+								"value": "2"
+							},
+							{
+								"axis": "03",
+								"value": "1"
+							},
+							{
+								"axis": "04",
+								"value": "1"
+							},
+							{
+								"axis": "05",
+								"value": "2"
+							},
+							{
+								"axis": "06",
+								"value": "3"
+							},
+							{
+								"axis": "07",
+								"value": "4"
+							},
+							{
+								"axis": "08",
+								"value": "2"
+							}
+						]
+					},
+					{
+						"GroupName": "AB Jeff Gr.",
+						"axes": [
+							{
+								"axis": "01",
+								"value": "3"
+							},
+							{
+								"axis": "02",
+								"value": "5"
+							},
+							{
+								"axis": "03",
+								"value": "5"
+							},
+							{
+								"axis": "04",
+								"value": "1"
+							},
+							{
+								"axis": "05",
+								"value": "2"
+							},
+							{
+								"axis": "06",
+								"value": "5"
+							},
+							{
+								"axis": "07",
+								"value": "4"
+							},
+							{
+								"axis": "08",
+								"value": "3"
+							}
+						]
+					},
+					{
+						"GroupName": "AB Mike Gr.",
+						"axes": [
+							{
+								"axis": "01",
+								"value": "2"
+							},
+							{
+								"axis": "02",
+								"value": "3"
+							},
+							{
+								"axis": "03",
+								"value": "1"
+							},
+							{
+								"axis": "04",
+								"value": "4"
+							},
+							{
+								"axis": "05",
+								"value": "1"
+							},
+							{
+								"axis": "06",
+								"value": "4"
+							},
+							{
+								"axis": "07",
+								"value": "5"
+							},
+							{
+								"axis": "08",
+								"value": "5"
+							}
+						]
+					},
+					{
+						"GroupName": "AB Mike Gr. 2222",
+						"axes": [
+							{
+								"axis": "01",
+								"value": "1"
+							},
+							{
+								"axis": "02",
+								"value": "1"
+							},
+							{
+								"axis": "03",
+								"value": "1"
+							},
+							{
+								"axis": "04",
+								"value": "2"
+							},
+							{
+								"axis": "05",
+								"value": "2"
+							},
+							{
+								"axis": "06",
+								"value": "3"
+							},
+							{
+								"axis": "07",
+								"value": "3"
+							},
+							{
+								"axis": "08",
+								"value": "4"
+							}
+						]
+					}
+				]
+			}
+		}
+	}
+]
